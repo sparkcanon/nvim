@@ -1,6 +1,14 @@
+let g:loaded_golden_ratio = 0
+
 " Comfortable motion {{{
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
+" }}}
+
+" undo visualizer {{{
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
 " }}}
 
 " vim grepper {{{
@@ -83,8 +91,6 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_domhtmlcss = 1
 " }}}
 
-" lang server
-
 " EMMET {{{
 let g:user_emmet_settings = {
   \ 'javascript.jsx': {
@@ -103,6 +109,7 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 " }}}
 
+" neomake {{{
 " Show message that tests have started
 function! MyOnNeomakeJobStarted() abort
   echom printf('🔮 Running tests...')
@@ -124,40 +131,8 @@ augroup my_neomake_hooks
   autocmd User NeomakeJobFinished call MyOnNeomakeJobFinished()
   autocmd User NeomakeJobStarted call MyOnNeomakeJobStarted()
 augroup END
-
-" FZF {{{
-" --column: Show column number
-" --line-number: Show line number
-" --no-heading: Do not show file headings in results
-" --fixed-strings: Search term as a literal string
-" --ignore-case: Case insensitive search
-" --no-ignore: Do not respect .gitignore, etc...
-" --hidden: Search hidden files and folders
-" --follow: Follow symlinks
-" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-" --color: Search color options
-
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-set grepprg=rg\ --vimgrep
-
-"" fzf.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
-" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-" ripgrep
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-  set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-endif
 " }}}
+
 
 " AIRLINE {{{
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'

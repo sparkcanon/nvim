@@ -26,7 +26,15 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
+Plug 'simnalamburt/vim-mundo'
+Plug 'moll/vim-bbye'
+Plug 'bfredl/nvim-miniyank'
 " }}}
+
+" Search & replace {{{
+Plug 'wincent/ferret'
+" }}}
+
 
 " Syntax stuff and autocomplete {{{
 Plug 'othree/yajs.vim'
@@ -35,6 +43,7 @@ Plug 'vim-scripts/SyntaxComplete'
 " Plug 'janko/vim-test'
 Plug 'dart-lang/dart-vim-plugin'
 " Plug 'thosakwe/vim-flutter'
+Plug 'liuchengxu/vista.vim'
 " }}}
 
 " File exploring {{{
@@ -44,8 +53,6 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'jesseleite/vim-agriculture'
-Plug 'romainl/vim-qf'
 " }}}
 
 " Typescript {{{
@@ -58,7 +65,7 @@ Plug 'Quramy/tsuquyomi'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'roman/golden-ratio'
+" Plug 'roman/golden-ratio'
 " }}}
 
 " Git Stuff {{{

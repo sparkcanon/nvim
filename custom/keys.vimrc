@@ -41,6 +41,11 @@ nmap <Leader>sC <Plug>AgRawWordUnderCursor
 " }}}
 
 " L: Code related {{{
+
+" Visa stuff {{{
+nnoremap <leader>lv :Vista!!<CR>
+" }}}
+
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 vmap <leader>las  <Plug>(coc-codeaction-selected)
 nmap <leader>las  <Plug>(coc-codeaction-selected)
@@ -156,6 +161,12 @@ noremap <Leader>gll :Gpull<CR>
 "" W: window related {{{
 noremap <Leader>wh :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h<Plug>_"
+nnoremap <leader>wco :only<cr>
+nnoremap <leader>wcc :cclose<cr>
 " }}}
 
 
@@ -173,9 +184,15 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " F: finding related {{{
 " FZF
 nnoremap <silent> <leader>fs :Find<CR>
-nnoremap <silent><leader>fS :FZF -q <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent><leader>fS :Rg <C-R><C-W><CR>
 nnoremap <silent> <leader>ff :FZF -m<CR>
-" nnoremap <silent> <leader>fl :Lines<CR>
+nnoremap <silent> <leader>fl :Lines<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fc :Commands<CR>
+nnoremap <silent> <leader>fm :Maps<CR>
+nnoremap <silent> <leader>fC :Commits<CR>
+nnoremap <silent> <leader>fb :BCommits<CR>
+nnoremap <silent> <leader>fu :Snippets<CR>
 " sourcing
 nnoremap <leader>fr :source $MYVIMRC<CR>
 " ranger
@@ -187,7 +204,9 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 noremap <leader>bc :bd<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+noremap <leader>q :Bdelete<CR>
+noremap <leader>bC :bufdo :Bdelete<CR>
+noremap <silent> <leader>b :Buffers<CR>
 " }}}
 
 " Y: yanking related {{{
@@ -205,11 +224,4 @@ nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR><Paste>
-" }}}
-
-"" SWITCHING WINDOWS {{{
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h<Plug>_"
 " }}}
