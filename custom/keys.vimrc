@@ -34,10 +34,13 @@ xnoremap <Leader>src :s///gc<Left><Left><Left>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
-nmap <Leader>sR <Plug>AgRawSearch
-vmap <Leader>sR <Plug>AgRawVisualSelection
-nmap <Leader>sC <Plug>AgRawWordUnderCursor
+" nmap <Leader>sR <Plug>AgRawSearch
+" vmap <Leader>sR <Plug>AgRawVisualSelection
+" nmap <Leader>sC <Plug>AgRawWordUnderCursor
 
+nmap <leader>sf <Plug>(FerretAck)
+nmap <leader>sF <Plug>(FerretAckWord)
+let g:FerretMap=0
 " }}}
 
 " L: Code related {{{
@@ -188,10 +191,10 @@ nnoremap <silent><leader>fS :Rg <C-R><C-W><CR>
 nnoremap <silent> <leader>ff :FZF -m<CR>
 nnoremap <silent> <leader>fl :Lines<CR>
 nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fc :Commands<CR>
+nnoremap <silent> <leader>fx :Commands<CR>
 nnoremap <silent> <leader>fm :Maps<CR>
 nnoremap <silent> <leader>fC :Commits<CR>
-nnoremap <silent> <leader>fb :BCommits<CR>
+nnoremap <silent> <leader>fc :BCommits<CR>
 nnoremap <silent> <leader>fu :Snippets<CR>
 " sourcing
 nnoremap <leader>fr :source $MYVIMRC<CR>
