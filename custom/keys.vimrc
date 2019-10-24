@@ -203,7 +203,8 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 "" B: buffer related {{{
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
-noremap <leader>bc :bd<CR>
+" noremap <leader>bc :bd<CR>
+noremap <leader>bc :Bdelete<CR>
 noremap <leader>q :Bdelete<CR>
 noremap <leader>bC :bufdo :Bdelete<CR>
 noremap <silent> <leader>b :Buffers<CR>
