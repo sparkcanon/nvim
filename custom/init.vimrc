@@ -1,7 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
+" Movement {{{
+" Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+" }}}
+
 " Completetions {{{
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-projectionist'
@@ -14,7 +20,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Themes {{{
 Plug 'rakr/vim-one'
-Plug 'tpope/vim-sensible'
 Plug 'shime/vim-livedown'
 Plug 'flazz/vim-colorschemes'
 Plug 'jaredgorski/spacecamp'
@@ -22,6 +27,7 @@ Plug 'chriskempson/base16-vim'
 " }}}
 
 " Utilities {{{
+Plug 'tpope/vim-sensible'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'scrooloose/nerdtree'
@@ -34,7 +40,6 @@ Plug 'bfredl/nvim-miniyank'
 " Search & replace {{{
 Plug 'wincent/ferret'
 " }}}
-
 
 " Syntax stuff and autocomplete {{{
 Plug 'othree/yajs.vim'
@@ -69,8 +74,9 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " }}}
 
 " Git Stuff {{{
+Plug 'codeindulgence/vim-tig'
 Plug 'tpope/vim-fugitive'
-Plug 'jreybert/vimagit'
+" Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'mattn/emmet-vim'

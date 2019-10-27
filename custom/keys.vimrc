@@ -16,7 +16,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
 " }}}
 
-" R: replace shananigans {{{
+" S: replace shananigans {{{
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
 nnoremap <Leader>sr :%s///g<Left><Left>
@@ -34,13 +34,21 @@ xnoremap <Leader>src :s///gc<Left><Left><Left>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
-" nmap <Leader>sR <Plug>AgRawSearch
-" vmap <Leader>sR <Plug>AgRawVisualSelection
-" nmap <Leader>sC <Plug>AgRawWordUnderCursor
-
 nmap <leader>sf <Plug>(FerretAck)
-nmap <leader>sF <Plug>(FerretAckWord)
+nmap <leader>sF <Plug>(FerretAckWord) 
 let g:FerretMap=0
+
+" vim grepper
+xmap sgr <plug>(GrepperOperator)
+
+" After searching for text, press this mapping to do a project wide find and
+" replace. It's similar to <leader>r except this one applies to all matches
+" across all files instead of just the current file.
+nnoremap <Leader>sgR
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s//g \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " }}}
 
 " L: Code related {{{
@@ -124,29 +132,17 @@ nnoremap N Nzz
 
 " Open and close quickfix menu {{{
 " Open a quickfix window for last search
-nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>
-" nnoremap <leader>co :cw<CR>
-" nnoremap <leader>cc :ccl<CR>
-" nnoremap <silent> <UP> :cope<CR>
-" nnoremap <silent> <DOWN> :cclose<CR>
-" nnoremap <silent> <leader>cn :cnext<CR>
-" nnoremap <silent> <leader>cp :cprev<CR>
-" nnoremap <silent> <RIGHT> :cnext<CR>
-" nnoremap <silent> <LEFT> :cprev<CR>
+nnoremap <silent> <leader><UP> :execute 'vimgrep /'.@/.'/g %'<CR>
+nnoremap <leader>co :cw<CR>
+nnoremap <leader>cc :ccl<CR>
+nnoremap <silent> <UP> :cope<CR>
+nnoremap <silent> <DOWN> :cclose<CR>
+nnoremap <silent> <leader>cn :cnext<CR>
+nnoremap <silent> <leader>cp :cprev<CR>
+nnoremap <silent> <RIGHT> :cnext<CR>
+nnoremap <silent> <LEFT> :cprev<CR>
 " }}}
 
-" vim grepper {{{
-xmap sgr <plug>(GrepperOperator)
-
-" After searching for text, press this mapping to do a project wide find and
-" replace. It's similar to <leader>r except this one applies to all matches
-" across all files instead of just the current file.
-nnoremap <Leader>sgR
-  \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \ :Grepper -cword -noprompt<CR>
-  \ :cfdo %s/<C-r>s//g \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" }}}
 
 " Git mappings {{{
 nnoremap <leader>gs :G<CR>
@@ -222,6 +218,12 @@ nnoremap <leader>yF :let @*=expand("%:p")<CR>
 nnoremap <leader>yt :let @*=expand("%:t")<CR>
 " directory name (/something/src)
 nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
+" }}}
+
+" highlight {{{
+map / <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
 " }}}
 
 "" Tabs {{{
