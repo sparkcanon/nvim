@@ -73,6 +73,10 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'roman/golden-ratio'
 " }}}
 
+" notes {{{
+Plug 'vimwiki/vimwiki'
+" }}}
+
 " Git Stuff {{{
 Plug 'codeindulgence/vim-tig'
 Plug 'tpope/vim-fugitive'

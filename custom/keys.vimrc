@@ -11,7 +11,7 @@ let g:maplocalleader = ','
 " Utilities {{{
 nnoremap ; :
 nnoremap : ;
-inoremap fd <Esc>
+inoremap jj <Esc>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
 " }}}
