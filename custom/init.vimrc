@@ -24,6 +24,7 @@ Plug 'shime/vim-livedown'
 Plug 'flazz/vim-colorschemes'
 Plug 'jaredgorski/spacecamp'
 Plug 'chriskempson/base16-vim'
+Plug 'Rigellute/rigel'
 " }}}
 
 " Utilities {{{
@@ -66,9 +67,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'Quramy/tsuquyomi'
 " }}}
 
-" Airline and style stuff {{{
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" status stuff {{{
+Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'roman/golden-ratio'
 " }}}
