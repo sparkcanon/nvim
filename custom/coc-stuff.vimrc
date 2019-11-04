@@ -1,4 +1,3 @@
-" Better display for messages
 set cmdheight=1
 
 " Smaller updatetime for CursorHold & CursorHoldI

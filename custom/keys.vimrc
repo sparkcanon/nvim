@@ -89,6 +89,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Remap keys for gotos
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -96,7 +98,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader> lh <Plug>(coc-diagnostic-info)
 nmap <leader> ld <Plug>(coc-definition)
 nmap <leader> la <Plug>(coc-references)
-nmap <leader> lr <Plug>(coc-rename)
+nnoremap <leader> lr <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <leader> lf  <Plug>(coc-format-selected)
@@ -221,7 +223,7 @@ nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
 " }}}
 
 " highlight {{{
-map / <Plug>(incsearch-fuzzy-/)
+map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
 " }}}

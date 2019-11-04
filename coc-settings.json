@@ -1,18 +1,24 @@
 {
-   "languageserver": {
-    "dart": {
-      "command": "dart_language_server", // in windows is dart_language_server.bat
-      "args": [],
-      "filetypes": ["dart"],
-      "initializationOptions": {},
-      "settings": {
-        "dart": {
-          "validation": {},
-          "completion": {}
-        }
-      }
-    }
-  },
   "suggest.triggerAfterInsertEnter": true,
-  "coc.preferences.echodocSupport": true
+  "coc.preferences.echodocSupport": true,
+  // Require .prettierrc
+  "prettier.requireConfig": true,
+
+  // Tslint on save
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
+
+  // Run prettier (and others)
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "coc.preferences.hoverTarget": "float",
+  "suggest.floatEnable": true,
+  "coc.prefences.hoverTarget":"echo"
 }

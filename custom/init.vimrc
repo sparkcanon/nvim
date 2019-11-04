@@ -64,7 +64,7 @@ Plug 'junegunn/fzf.vim'
 " Typescript {{{
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi'
 " }}}
 
 " status stuff {{{
