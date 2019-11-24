@@ -16,6 +16,50 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
 " }}}
 
+" C: coc {{{
+nnoremap <silent> <leader>cl :<C-u>CocList<cr>
+" Show all diagnostics
+nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
+" Show commands
+nnoremap <silent> <leader>cc :<C-u>CocList commands<cr>
+" Search workspace symbols
+nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+" Find symbol of current document
+nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <leader>cR  :<C-u>CocListResume<CR>
+
+" Remap for do codeAction of current line
+nmap <leader>ca  <Plug>(coc-codeaction)
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>cas  <Plug>(coc-codeaction-selected)
+nmap <leader>cas  <Plug>(coc-codeaction-selected)
+
+" Fix autofix problem of current line
+nmap <leader>cfc  <Plug>(coc-fix-current)
+
+" Remap for format selected region
+vmap <leader>cf  <Plug>(coc-format-selected)
+nmap <leader>cf  <Plug>(coc-format-selected)
+
+nnoremap <leader>cr <Plug>(coc-rename)<cr>
+" nmap <leader>ci <Plug>(coc-diagnostic-info)
+
+" }}}
+
+" G: code shananigans {{{
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" }}}
+
 " S: replace shananigans {{{
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
@@ -69,8 +113,8 @@ nnoremap N Nzz
 " Open and close quickfix menu {{{
 " Open a quickfix window for last search
 nnoremap <silent> <leader><UP> :execute 'vimgrep /'.@/.'/g %'<CR>
-nnoremap <leader>co :cw<CR>
-nnoremap <leader>cc :ccl<CR>
+nnoremap <leader>cco :cw<CR>
+nnoremap <leader>ccl :ccl<CR>
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>
 nnoremap <silent> <leader>cn :cnext<CR>

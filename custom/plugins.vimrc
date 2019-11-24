@@ -1,5 +1,9 @@
 let g:loaded_golden_ratio = 0
 
+" dart setup {{{
+let g:lsc_auto_map = v:true
+" }}}
+
 " Comfortable motion {{{
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"

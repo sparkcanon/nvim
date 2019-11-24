@@ -22,9 +22,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rakr/vim-one'
 Plug 'shime/vim-livedown'
 Plug 'flazz/vim-colorschemes'
-Plug 'jaredgorski/spacecamp'
 Plug 'chriskempson/base16-vim'
 Plug 'Rigellute/rigel'
+Plug 'drewtempelmeyer/palenight.vim'
 " }}}
 
 " Utilities {{{
@@ -47,9 +47,15 @@ Plug 'othree/yajs.vim'
 Plug 'moll/vim-node'
 Plug 'vim-scripts/SyntaxComplete'
 " Plug 'janko/vim-test'
-Plug 'dart-lang/dart-vim-plugin'
 " Plug 'thosakwe/vim-flutter'
 Plug 'liuchengxu/vista.vim'
+" }}}
+
+" flutter set up {{{
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+Plug 'thosakwe/vim-flutter'
 " }}}
 
 " File exploring {{{

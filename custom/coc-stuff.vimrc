@@ -91,14 +91,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings {{{
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>las  <Plug>(coc-codeaction-selected)
-nmap <leader>las  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>lal  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>lqf  <Plug>(coc-fix-current)
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -109,35 +101,5 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Remap keys for gotos
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader> lh <Plug>(coc-diagnostic-info)
-nmap <leader> ld <Plug>(coc-definition)
-nmap <leader> la <Plug>(coc-references)
-nnoremap <leader> lr <Plug>(coc-rename)
-
-" Remap for format selected region
-vmap <leader> lf  <Plug>(coc-format-selected)
-nmap <leader> lf  <Plug>(coc-format-selected)
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <leader>lla  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <leader>lle  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <leader>llc  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <leader>llo  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <leader>lls  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <leader>llj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <leader>llk  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <leader>llp  :<C-u>CocListResume<CR>
 
 " }}}

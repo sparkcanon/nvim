@@ -1,6 +1,6 @@
 let g:rigel_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'rigel',
+      \ 'colorscheme': 'palenight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
