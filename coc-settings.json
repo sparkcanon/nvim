@@ -28,7 +28,8 @@
 
   // File extensions to be parsed by the Javascript parser
   "importCost.javascriptExtensions": [
-    "\\.jsx?$"
+    "\\.jsx?$",
+    "\\.js?$"
   ],
 
   // Which bundle size to display

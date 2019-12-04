@@ -163,8 +163,8 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " F: finding related {{{
 " FZF
 nnoremap <silent> <leader>fs :Find<CR>
-nnoremap <silent><leader>fS :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>ff :FZF -m<CR>
+nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
+nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fl :Lines<CR>
 nnoremap <silent> <leader>fh :History<CR>
 nnoremap <silent> <leader>fx :Commands<CR>
