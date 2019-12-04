@@ -27,7 +27,7 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme base16-material-palenight
+colorscheme base16-unikitty-dark
 syntax enable
 set background=dark 
 let g:one_allow_italics = 1

@@ -36,6 +36,7 @@ Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'bfredl/nvim-miniyank'
+" Plug 'roman/golden-ratio'
 " }}}
 
 " Search & replace {{{
@@ -55,7 +56,6 @@ Plug 'liuchengxu/vista.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
-Plug 'thosakwe/vim-flutter'
 " }}}
 
 " File exploring {{{
@@ -67,18 +67,25 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " }}}
 
+" Snippets {{{
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+" }}}
+
 " Typescript {{{
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
 " Plug 'Quramy/tsuquyomi'
 " }}}
 
-" status stuff {{{
+" status line stuff {{{
+Plug 'mike-hearn/base16-vim-lightline'
 Plug 'itchyny/lightline.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-" Plug 'roman/golden-ratio'
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " }}}
 
 " notes {{{
