@@ -5,6 +5,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 " Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'simeji/winresizer'
 " }}}
 
 " Completetions {{{
@@ -93,9 +94,9 @@ Plug 'vimwiki/vimwiki'
 " }}}
 
 " Git Stuff {{{
-Plug 'codeindulgence/vim-tig'
 Plug 'tpope/vim-fugitive'
 " Plug 'jreybert/vimagit'
+Plug 'sodapopcan/vim-twiggy'
 " }}}
 
 call plug#end()

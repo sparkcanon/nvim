@@ -1,5 +1,11 @@
 let g:loaded_golden_ratio = 0
 
+" twiggy {{{
+let g:twiggy_group_locals_by_slash = 0
+let g:twiggy_local_branch_sort = 'mru'
+let g:twiggy_remote_branch_sort = 'date'
+" }}}
+
 " dart setup {{{
 let g:lsc_auto_map = v:true
 " }}}
