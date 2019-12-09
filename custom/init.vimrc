@@ -15,7 +15,8 @@ Plug 'tpope/vim-commentary'
 " Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'ervandew/supertab'
-" Plug 'Shougo/echodoc.vim'
+Plug 'w0rp/ale'
+Plug 'jiangmiao/auto-pairs'
 " }}}
 
 " Themes {{{
@@ -45,14 +46,12 @@ Plug 'wincent/ferret'
 
 " Syntax stuff and autocomplete {{{
 Plug 'othree/yajs.vim'
-Plug 'moll/vim-node'
 Plug 'vim-scripts/SyntaxComplete'
-" Plug 'janko/vim-test'
-" Plug 'thosakwe/vim-flutter'
 Plug 'liuchengxu/vista.vim'
 " }}}
 
 " flutter set up {{{
+" Plug 'thosakwe/vim-flutter'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
@@ -68,16 +67,18 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 " Snippets {{{
-" Track the engine.
+Plug 'mattn/emmet-vim'
 Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 " }}}
 
-" Typescript {{{
+" Typescript & Javascript {{{
+" Plug 'janko/vim-test'
+Plug 'moll/vim-node'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'pangloss/vim-javascript'
-" Plug 'Quramy/tsuquyomi'
+Plug 'mxw/vim-jsx'
+Plug 'heavenshell/vim-jsdoc'
 " }}}
 
 " status line stuff {{{
@@ -85,7 +86,6 @@ Plug 'mike-hearn/base16-vim-lightline'
 Plug 'itchyny/lightline.vim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " }}}
 
 " notes {{{
@@ -96,12 +96,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'codeindulgence/vim-tig'
 Plug 'tpope/vim-fugitive'
 " Plug 'jreybert/vimagit'
-Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
-Plug 'mattn/emmet-vim'
-" Plug 'yuttie/comfortable-motion.vim'
-Plug 'mxw/vim-jsx'
-Plug 'heavenshell/vim-jsdoc'
 " }}}
 
 call plug#end()
