@@ -200,6 +200,13 @@ nnoremap <leader>yt :let @*=expand("%:t")<CR>
 nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
 " }}}
 
+" G: git stuff {{{
+nnoremap <leader>gs :15Gstatus<CR>
+nnoremap <leader>gP :Gpush<CR>
+nnoremap <leader>gp :Gpull<CR>
+nnoremap <leader>gf :Gfetch<CR>
+" }}}
+
 " highlight {{{
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
