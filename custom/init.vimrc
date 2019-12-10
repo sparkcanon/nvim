@@ -83,10 +83,10 @@ Plug 'heavenshell/vim-jsdoc'
 " }}}
 
 " status line stuff {{{
-Plug 'mike-hearn/base16-vim-lightline'
-Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+" Plug 'mike-hearn/base16-vim-lightline'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 
 " notes {{{

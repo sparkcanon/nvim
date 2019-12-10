@@ -27,9 +27,12 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme base16-unikitty-dark
+colorscheme base16-dracula
 syntax enable
 set background=dark 
+" }}}
+
+" Font {{{
 let g:one_allow_italics = 1
 highlight Comment cterm=italic
 hi link xmlEndTag xmlTag
