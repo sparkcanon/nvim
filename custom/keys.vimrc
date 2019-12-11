@@ -78,22 +78,32 @@ xnoremap <Leader>src :s///gc<Left><Left><Left>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
-nmap <leader>sf <Plug>(FerretAck)
-nmap <leader>sF <Plug>(FerretAckWord) 
-let g:FerretMap=0
+" nmap <leader>sf <Plug>(FerretAck)
+" nmap <leader>sF <Plug>(FerretAckWord) 
+" let g:FerretMap=0
 
 " vim grepper
-xmap sgr <plug>(GrepperOperator)
+" xmap sgr <plug>(GrepperOperator)
 
 " After searching for text, press this mapping to do a project wide find and
 " replace. It's similar to <leader>r except this one applies to all matches
 " across all files instead of just the current file.
-nnoremap <Leader>sgR
-  \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \ :Grepper -cword -noprompt<CR>
-  \ :cfdo %s/<C-r>s//g \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+" nnoremap <Leader>sgR
+"   \ :let @s='\<'.expand('<cword>').'\>'<CR>
+"   \ :Grepper -cword -noprompt<CR>
+"   \ :cfdo %s/<C-r>s//g \| update
+"   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+function! CallCfdo()
+  let searchInput = expand("<cWORD>")
+  let replaceInput = input("Enter replace query here: ")
+  return ':cfdo %s/'.searchInput.'/'.replaceInput.'/g | update'
+endfunction
+
+nnoremap <expr> <leader>sR CallCfdo()
+
 " }}}
+
 
 " L: Code related {{{
 

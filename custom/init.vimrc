@@ -42,7 +42,7 @@ Plug 'bfredl/nvim-miniyank'
 " }}}
 
 " Search & replace {{{
-Plug 'wincent/ferret'
+" Plug 'wincent/ferret'
 " }}}
 
 " Syntax stuff and autocomplete {{{
@@ -62,7 +62,7 @@ Plug 'natebosch/vim-lsc-dart'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
+" Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " }}}
