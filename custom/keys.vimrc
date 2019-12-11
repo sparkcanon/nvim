@@ -2,6 +2,15 @@
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 
+" Custom functions {{{
+function! s:get_visual_selection()
+   let l=getline("'<")
+   let [line1,col1] = getpos("'<")[1:2]
+   let [line2,col2] = getpos("'>")[1:2]
+   return l[col1 - 1: col2 - 1]
+endfunction
+" }}}
+
 " Which key {{{
 " nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 " nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
@@ -11,6 +20,7 @@ let g:maplocalleader = ','
 " Utilities {{{
 nnoremap ; :
 nnoremap : ;
+nnoremap / /\v
 inoremap jj <Esc>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
@@ -23,11 +33,13 @@ nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
 " Show commands
 nnoremap <silent> <leader>cc :<C-u>CocList commands<cr>
 " Search workspace symbols
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <leader>cS  :<C-u>CocList -I symbols<cr>
+" Search workspace for word
+nnoremap <silent> <leader>cs :CocSearch <C-R><C-W><CR>
+" Search workspace for word
+vnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
 " Find symbol of current document
 nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -75,8 +87,8 @@ xnoremap <Leader>src :s///gc<Left><Left><Left>
 
 " Type a replacement term and press . to repeat the replacement again. Useful
 " for replacing a few instances of the term (comparable to multiple cursors).
-nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+" nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+" xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
 " nmap <leader>sf <Plug>(FerretAck)
 " nmap <leader>sF <Plug>(FerretAckWord) 
@@ -174,6 +186,7 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " FZF
 nnoremap <silent> <leader>fs :Find<CR>
 nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
+vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fl :Lines<CR>
 nnoremap <silent> <leader>fh :History<CR>

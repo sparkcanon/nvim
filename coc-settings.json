@@ -39,5 +39,6 @@
   "importCost.showCalculatingDecoration": true,
 
   // Print debug messages in output channel
-  "importCost.debug": false
+  "importCost.debug": false,
+  "todolist.monitor": true
 }

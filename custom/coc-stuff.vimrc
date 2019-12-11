@@ -91,7 +91,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings {{{
 
-
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)

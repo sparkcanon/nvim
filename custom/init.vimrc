@@ -38,6 +38,7 @@ Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'bfredl/nvim-miniyank'
+Plug 'romainl/vim-cool'
 " Plug 'roman/golden-ratio'
 " }}}
 
