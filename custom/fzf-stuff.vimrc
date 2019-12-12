@@ -45,26 +45,26 @@ augroup END
 "   \   <bang>0)
 
 " ripgrep - ignore the files defined in ignore files (.gitignore...) Rgi
-function! RgiFuncFzf(query, fullscreen)
+function! Fzf_find_func_rg(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  let spec = {'options': ['--info=inline', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:40%'), a:fullscreen)
 endfunction
 
-function! RipgrepFzf(query, fullscreen)
+function! Fzf_example_standard_find(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  let spec = {'options': ['--info=inline', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:40%'), a:fullscreen)
 endfunction
 
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline']}), <bang>0)
-command! -nargs=* -bang Find call RgiFuncFzf(<q-args>, <bang>0)
-command! -nargs=* -bang RRg call RipgrepFzf(<q-args>, <bang>0)
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline']}, 'right:40%'), <bang>0)
+command! -nargs=* -bang Find call Fzf_find_func_rg(<q-args>, <bang>0)
+command! -nargs=* -bang RRg call Fzf_example_standard_find(<q-args>, <bang>0)
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =

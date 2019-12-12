@@ -172,6 +172,7 @@ nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
 vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fl :Lines<CR>
+nnoremap <silent> <leader>fw :Windows<CR>
 nnoremap <silent> <leader>fh :History<CR>
 nnoremap <silent> <leader>fx :Commands<CR>
 nnoremap <silent> <leader>fm :Maps<CR>
