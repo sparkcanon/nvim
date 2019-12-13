@@ -1,22 +1,22 @@
 call plug#begin('~/.vim/plugged')
 
 " Movement {{{
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/incsearch.vim'
+Plug 'easymotion/vim-easymotion'                      " Quickly move throughout the buffer
+Plug 'haya14busa/incsearch.vim'                       " In buffer search on steroids - fuzzy
 " Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'simeji/winresizer'
+Plug 'haya14busa/incsearch-fuzzy.vim'                 " In buffer search on steroids - fuzzy
+Plug 'simeji/winresizer'                              " Quickly resize splits/windows
 " }}}
 
 " Completetions {{{
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'                             " Add quotes & stuff around words/sentences
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-projectionist'
 " Plug 'tpope/vim-dispatch'
 " Plug 'neomake/neomake'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}       " Best autocomplete engine ever
 " Plug 'ervandew/supertab'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale'                                       " Errors and stuff
 Plug 'jiangmiao/auto-pairs'
 " }}}
 
@@ -32,9 +32,9 @@ Plug 'drewtempelmeyer/palenight.vim'
 " Utilities {{{
 Plug 'tpope/vim-sensible'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
-Plug 'scrooloose/nerdtree'
-Plug 'mhinz/vim-startify'
+Plug 'xolox/vim-session'                              " Saving current session
+Plug 'scrooloose/nerdtree'                            " Tree based file explorer
+" Plug 'mhinz/vim-startify'                           " Start screen
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'bfredl/nvim-miniyank'
@@ -49,55 +49,52 @@ Plug 'romainl/vim-cool'
 " Syntax stuff and autocomplete {{{
 Plug 'othree/yajs.vim'
 Plug 'vim-scripts/SyntaxComplete'
-Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'                           " Symbols in tree view
 " }}}
 
 " flutter set up {{{
-" Plug 'thosakwe/vim-flutter'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
+Plug 'dart-lang/dart-vim-plugin'                      " Dart support
+Plug 'natebosch/vim-lsc'                              " Dart support
+Plug 'natebosch/vim-lsc-dart'                         " Dart support
 " }}}
 
 " File exploring {{{
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-" Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
+Plug 'francoiscabrol/ranger.vim'                      " Best file explorer
+Plug 'rbgrouleff/bclose.vim'                          " Close buffer without messing the layout
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'                               " Fuzzy finder for EVERYTHING
 " }}}
 
 " Snippets {{{
-Plug 'mattn/emmet-vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim'                                " Snippet thingy
+Plug 'SirVer/ultisnips'                               " Snippet thingy
+Plug 'honza/vim-snippets'                             " Snippet thingy
 " }}}
 
 " Typescript & Javascript {{{
 " Plug 'janko/vim-test'
 Plug 'moll/vim-node'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'pangloss/vim-javascript'                        " Javascript syntax support
+Plug 'mxw/vim-jsx'                                    " React jsx syntax support
+Plug 'heavenshell/vim-jsdoc'                          " Javascript docs
 " }}}
 
 " status line stuff {{{
-" Plug 'mike-hearn/base16-vim-lightline'
-" Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'mike-hearn/base16-vim-lightline'              " Themes for the Simpler fancy status line
+" Plug 'itchyny/lightline.vim'                        " Simpler fancy status line
+Plug 'vim-airline/vim-airline'                        " Fancy status line
+Plug 'vim-airline/vim-airline-themes'                 " Themes for the fancy status line
 " }}}
 
 " notes {{{
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'                                " Note taking
 " }}}
 
 " Git Stuff {{{
-Plug 'tpope/vim-fugitive'
-" Plug 'jreybert/vimagit'
-Plug 'sodapopcan/vim-twiggy'
+Plug 'tpope/vim-fugitive'                             " Best git plugin for vim
+" Plug 'sodapopcan/vim-twiggy'
 " }}}
 
 call plug#end()
