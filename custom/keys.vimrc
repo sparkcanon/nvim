@@ -214,6 +214,10 @@ nnoremap <leader>gp :Gpull<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " }}}
 
+" O: other stuff {{{
+nnoremap <silent> <leader>om :MundoToggle<CR>
+" }}}
+
 " highlight {{{
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
