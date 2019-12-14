@@ -109,8 +109,10 @@ nnoremap <leader>lv :Vista!!<CR>
 
 " SEARCHING GOODIES {{{
 " Center search result line in screen
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nzvzz
+nnoremap N Nzvzz
+nnoremap * *zvzz
+nnoremap # #zvzz
 " }}}
 
 " nnoremap <leader>f :vim<SPACE>
