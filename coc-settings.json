@@ -37,8 +37,26 @@
 
   // Display the 'calculating' decoration
   "importCost.showCalculatingDecoration": true,
-
   // Print debug messages in output channel
   "importCost.debug": false,
-  "todolist.monitor": true
+
+  "todolist.monitor": true,
+  "git.realtimeGutters": true,
+  "codeLens.enable": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
+  "eslint.enable": false,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "typescript.referencesCodeLens.enable": false,
+  "git.enableGutters": true,
+  "tsserver.enableJavascript": true
 }
