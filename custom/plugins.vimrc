@@ -6,6 +6,13 @@ let g:loaded_golden_ratio = 0
 " let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
+" Easy align {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
+
 " dart setup {{{
 let g:lsc_auto_map = v:true
 " }}}

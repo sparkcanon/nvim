@@ -1,4 +1,5 @@
 set nocompatible
+" let g:ruby_host_prog = '/usr/local/lib/ruby/gems/2.6.0/bin/neovim-ruby-host'
 
 " Copy paste {{{
 set clipboard+=unnamed
