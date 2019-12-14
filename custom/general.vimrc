@@ -1,6 +1,10 @@
 set nocompatible
 " let g:ruby_host_prog = '/usr/local/lib/ruby/gems/2.6.0/bin/neovim-ruby-host'
 
+" peekaboo {{{
+let g:peekaboo_window = "vert bo 40new"
+" }}}
+
 " Copy paste {{{
 set clipboard+=unnamed
 " }}}

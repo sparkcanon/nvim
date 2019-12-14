@@ -40,6 +40,7 @@ Plug 'moll/vim-bbye'
 Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-slash'      " Remove highlight
 Plug 'junegunn/vim-easy-align' " Alignment plugin
+Plug 'junegunn/vim-peekaboo'   " Extends \"
 " Plug 'roman/golden-ratio'
 " }}}
 
