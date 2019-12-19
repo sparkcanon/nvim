@@ -21,7 +21,7 @@ endfunction
 nnoremap ; :
 nnoremap : ;
 nnoremap / /\v
-inoremap jj <Esc>
+inoremap kj <Esc>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
 " }}}
