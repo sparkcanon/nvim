@@ -75,10 +75,13 @@ nmap <silent> gr <Plug>(coc-references)
 " S: replace shananigans {{{
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
-nnoremap <Leader>sf :%s///g<Left><Left>
-nnoremap <Leader>sF :%s///gc<Left><Left><Left>
-vnoremap <script> <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//g<Left><Left>
-vnoremap <script> <Leader>sF <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
+" nnoremap <Leader>sf :%s///g<Left><Left>
+function! CallSubstitube()
+  return ':%s/'.expand("<cword>").'/'.input('Enter query: ').'/gc'
+endfunction
+nnoremap <expr> <Leader>sf CallSubstitube()
+vnoremap <script> <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
+" vnoremap <script> <Leader>sF <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//g<Left><Left><Left>
 
 " The same as above but instead of acting on the whole file it will be
 " restricted to the previously visually selected range. You can do that by
