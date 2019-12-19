@@ -41,7 +41,7 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-slash'      " Remove highlight
 Plug 'junegunn/vim-easy-align' " Alignment plugin
 Plug 'junegunn/vim-peekaboo'   " Extends \"
-" Plug 'roman/golden-ratio'
+Plug 'Yggdroot/indentLine'     " Line that show indentation
 " }}}
 
 " Search & replace {{{
@@ -51,7 +51,7 @@ Plug 'junegunn/vim-peekaboo'   " Extends \"
 " Syntax stuff and autocomplete {{{
 Plug 'othree/yajs.vim'
 Plug 'vim-scripts/SyntaxComplete'
-Plug 'liuchengxu/vista.vim'                           " Symbols in tree view
+" Plug 'liuchengxu/vista.vim'                           " Symbols in tree view
 " }}}
 
 " flutter set up {{{

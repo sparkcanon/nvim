@@ -63,6 +63,9 @@ set expandtab
 " UI Config {{{
 set number
 " set relativenumber
+set cole=1
+set conceallevel=1
+set concealcursor=nvic
 set ruler
 set cursorline
 set smartindent
@@ -71,6 +74,7 @@ set wrap
 set linebreak
 set wildmenu
 set lazyredraw
+set ttyfast
 set showmatch
 set noshowmode " lightline shows the status not vim
 " set showcmd

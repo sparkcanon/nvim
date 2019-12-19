@@ -103,9 +103,10 @@ nnoremap <expr> <leader>sR CallCfdo()
 " L: Code related {{{
 
 " Visa stuff {{{
-nnoremap <leader>lv :Vista!!<CR>
+" nnoremap <leader>lv :Vista!!<CR>
 " }}}
 
+" }}}
 
 " SEARCHING GOODIES {{{
 " Center search result line in screen
