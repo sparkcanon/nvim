@@ -37,7 +37,7 @@ Plug 'scrooloose/nerdtree'     " Tree based file explorer
 "Plug 'mhinz/vim-startify'      " Start screen
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
-Plug 'bfredl/nvim-miniyank'
+" Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-slash'      " Remove highlight
 Plug 'junegunn/vim-easy-align' " Alignment plugin
 Plug 'junegunn/vim-peekaboo'   " Extends \"
