@@ -1,23 +1,23 @@
 call plug#begin('~/.vim/plugged')
 
 " Movement {{{
-Plug 'easymotion/vim-easymotion'                      " Quickly move throughout the buffer
-Plug 'haya14busa/incsearch.vim'                       " In buffer search on steroids - fuzzy
+Plug 'easymotion/vim-easymotion'      " Quickly move throughout the buffer
+Plug 'haya14busa/incsearch.vim'       " In buffer search on steroids - fuzzy
+Plug 'haya14busa/incsearch-fuzzy.vim' " In buffer search on steroids - fuzzy
+Plug 'simeji/winresizer'              " Quickly resize splits/windows
 " Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'                 " In buffer search on steroids - fuzzy
-Plug 'simeji/winresizer'                              " Quickly resize splits/windows
 " }}}
 
 " Completetions {{{
-Plug 'tpope/vim-surround'                             " Add quotes & stuff around words/sentences
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'                       " Add quotes & stuff around words/sentences
+Plug 'tpope/vim-commentary'                     " smart comments
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Best autocomplete engine ever
+Plug 'w0rp/ale'                                 " Errors and stuff
+Plug 'jiangmiao/auto-pairs'
+" Plug 'ervandew/supertab'
 " Plug 'tpope/vim-projectionist'
 " Plug 'tpope/vim-dispatch'
 " Plug 'neomake/neomake'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}       " Best autocomplete engine ever
-" Plug 'ervandew/supertab'
-Plug 'w0rp/ale'                                       " Errors and stuff
-Plug 'jiangmiao/auto-pairs'
 " }}}
 
 " Themes {{{
@@ -57,9 +57,9 @@ Plug 'vim-scripts/SyntaxComplete'
 " }}}
 
 " flutter set up {{{
-Plug 'dart-lang/dart-vim-plugin'                      " Dart support
-Plug 'natebosch/vim-lsc'                              " Dart support
-Plug 'natebosch/vim-lsc-dart'                         " Dart support
+Plug 'dart-lang/dart-vim-plugin' " Dart support
+Plug 'natebosch/vim-lsc'         " Dart support
+Plug 'natebosch/vim-lsc-dart'    " Dart support
 " }}}
 
 " File exploring {{{
