@@ -42,6 +42,8 @@ Plug 'junegunn/vim-slash'      " Remove highlight
 Plug 'junegunn/vim-easy-align' " Alignment plugin
 Plug 'junegunn/vim-peekaboo'   " Extends \"
 Plug 'Yggdroot/indentLine'     " Line that show indentation
+Plug 'airblade/vim-rooter'     " Change working directory
+Plug 'tpope/vim-speeddating'   " increment/decrementing
 " }}}
 
 " Search & replace {{{
