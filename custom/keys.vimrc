@@ -173,6 +173,7 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " F: finding related {{{
 " FZF
+nnoremap <silent> <leader>fo :Clap<CR>
 nnoremap <silent> <leader>fs :Find<CR>
 nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
 vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>

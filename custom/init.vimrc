@@ -44,6 +44,7 @@ Plug 'junegunn/vim-peekaboo'   " Extends \"
 Plug 'Yggdroot/indentLine'     " Line that show indentation
 Plug 'airblade/vim-rooter'     " Change working directory
 Plug 'tpope/vim-speeddating'   " increment/decrementing
+Plug 'tpope/vim-repeat'        " repeat any command
 " }}}
 
 " Search & replace {{{
@@ -63,11 +64,13 @@ Plug 'natebosch/vim-lsc-dart'    " Dart support
 " }}}
 
 " File exploring {{{
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                    " NERDTree syntax highlighing
-Plug 'francoiscabrol/ranger.vim'                                  " Best file explorer
-Plug 'rbgrouleff/bclose.vim'                                      " Close buffer without messing the layout
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
-Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                          " NERDTree syntax highlighing
+Plug 'francoiscabrol/ranger.vim'                                        " Best file explorer
+Plug 'rbgrouleff/bclose.vim'                                            " Close buffer without messing the layout
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }       " Fuzzy finder base
+Plug 'junegunn/fzf.vim'                                                 " Fuzzy finder for EVERYTHING
+" Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') } " Another fuzzy finder
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " }}}
 
 " Snippets {{{

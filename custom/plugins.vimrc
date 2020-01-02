@@ -188,3 +188,8 @@ let g:session_autosave = "no"
 let g:session_command_aliases = 1
 " }}}
 
+" LeaderF {{{
+let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+" }}}
