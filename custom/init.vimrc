@@ -1,3 +1,9 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 " Movement {{{
@@ -70,7 +76,7 @@ Plug 'rbgrouleff/bclose.vim'                                            " Close 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }       " Fuzzy finder base
 Plug 'junegunn/fzf.vim'                                                 " Fuzzy finder for EVERYTHING
 " Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') } " Another fuzzy finder
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " }}}
 
 " Snippets {{{

@@ -191,6 +191,12 @@ nnoremap <leader>fr :source $MYVIMRC<CR>
 " ranger
 nnoremap <leader>fD :RangerNewTab<CR> 
 nnoremap <leader>ft :NERDTreeToggle<CR>
+
+" nnoremap <silent> <leader>fs :Leaderf rg<CR>
+" nnoremap <silent><leader>fS :Leaderf rg --cword<CR>
+" vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
+" nnoremap <silent> <leader>ff :LeaderfFile<CR>
+" nnoremap <silent> <leader>fl :LeaderfLine<CR>
 " }}}
 
 "" B: buffer related {{{

@@ -1,11 +1,11 @@
-set nocompatible
+" set nocompatible
 " let g:ruby_host_prog = '/usr/local/lib/ruby/gems/2.6.0/bin/neovim-ruby-host'
 
-" peekaboo {{{
+" PEEKABOO {{{
 let g:peekaboo_window = "vert bo 40new"
 " }}}
 
-" Copy paste {{{
+" COPY PASTE {{{
 set clipboard+=unnamed
 " }}}
 
@@ -18,7 +18,7 @@ set laststatus=2
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 " }}}
 
-" Resize {{{
+" RESIZE {{{
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
 " }}}
@@ -35,9 +35,10 @@ augroup END
 colorscheme base16-dracula
 syntax enable
 set background=dark 
+set termguicolors
 " }}}
 
-" Font {{{
+" FONT {{{
 let g:one_allow_italics = 1
 highlight Comment cterm=italic
 hi link xmlEndTag xmlTag
@@ -50,7 +51,6 @@ hi Type cterm=italic
 "  Italic garbage
 let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
 " }}}
 
 " SPACES AND TABS {{{
