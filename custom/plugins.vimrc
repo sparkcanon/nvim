@@ -29,15 +29,12 @@ let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 " }}}
 
-au FileType elixir let b:AutoPairs = AutoPairsDefine({'do': 'end//n'})
-
-" autocmd QuickFixCmdPost [^l]* cwindow
-" autocmd QuickFixCmdPost l* lwindow
-
+" LIVEDOWN SERVER {{{
 let g:livedown_autorun = 0
 " Open the browser window upon previewing
 let g:livedown_open = 1
 let g:livedown_port = 1337
+" }}}
 
 " JAVASCRIPT {{{
 let g:javascript_plugin_jsdoc = 1
@@ -104,8 +101,6 @@ let g:session_autosave = "no"
 let g:session_command_aliases = 1
 " }}}
 
-" LEADERF {{{
-let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-" }}}
+au FileType elixir let b:AutoPairs = AutoPairsDefine({'do': 'end//n'})
+" autocmd QuickFixCmdPost [^l]* cwindow
+" autocmd QuickFixCmdPost l* lwindow

@@ -36,8 +36,7 @@ set expandtab
 
 " UI Config {{{
 set number
-set cole=1
-set conceallevel=3
+set conceallevel=2
 set concealcursor=nvic
 set ruler
 set cursorline
