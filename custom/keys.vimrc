@@ -11,6 +11,13 @@ function! s:get_visual_selection()
 endfunction
 " }}}
 
+" EASY ALIGN {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
+
 " Which key {{{
 " nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 " nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
@@ -149,12 +156,12 @@ noremap <Leader>gll :Gpull<CR>
 " nnoremap <silent> <leader>tn :TestNearest<CR><Paste>
 
 "" W: window related {{{
-noremap <Leader>wh :<C-u>split<CR>
+noremap <Leader>wd :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h<Plug>_"
+noremap <leader>wj <C-w>j
+noremap <leader>wk <C-w>k
+noremap <leader>wl <C-w>l
+noremap <leader>wh <C-w>h<Plug>_"
 nnoremap <leader>wco :only<cr>
 nnoremap <leader>wcc :cclose<cr>
 " }}}
@@ -203,10 +210,10 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 " noremap <leader>bc :bd<CR>
-noremap <leader>bc :Bdelete<CR>
-noremap <leader>q :Bdelete<CR>
+noremap <leader>bd :Bdelete<CR>
+" noremap <leader>q :Bdelete<CR>
 noremap <leader>bC :bufdo :Bdelete<CR>
-noremap <silent> <leader>b :Buffers<CR>
+noremap <silent> <leader>bf :Buffers<CR>
 " }}}
 
 " Y: yanking related {{{

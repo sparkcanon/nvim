@@ -1,40 +1,35 @@
-let g:loaded_golden_ratio = 0
-
-" twiggy {{{
-" let g:twiggy_group_locals_by_slash = 0
-" let g:twiggy_local_branch_sort = 'mru'
-" let g:twiggy_remote_branch_sort = 'date'
+" TWIGGY {{{
+let g:twiggy_group_locals_by_slash = 0
+let g:twiggy_local_branch_sort = 'mru'
+let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
-" Easy align {{{
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+" PEEKABOO {{{
+let g:peekaboo_window = "vert bo 40new"
 " }}}
 
-" dart setup {{{
+" DART SETUP {{{
 let g:lsc_auto_map = v:true
 " }}}
 
-" undo visualizer {{{
+" UNDO VISUALIZER {{{
 " Enable persistent undo so that undo history persists across vim sessions
 set undofile
 set undodir=~/.vim/undo
 " }}}
 
-" vim grepper {{{
+" VIM GREPPER {{{
 let g:grepper={}
 let g:grepper.tools=["rg"]
 " }}}
 
-" Ranger.vim {{{
+" RANGER.VIM {{{
 let g:ranger_map_keys = 0
 let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
 let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 " }}}
 
-" Ale stuff {{{
+" ALE STUFF {{{
 let g:ale_fixers = {
 \ 'javascript': ['prettier', 'eslint'],
 \}
@@ -122,7 +117,7 @@ let g:javascript_conceal_arrow_function            = "⇒"
 " let g:javascript_conceal_underscore_arrow_function = "🞅"
 " }}}
 
-" indentline {{{
+" INDENTLINE {{{
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " let g:indentLine_concealcursor = 'inc'
 " let g:indentLine_conceallevel = 2
@@ -147,7 +142,7 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 " }}}
 
-" neomake {{{
+" NEOMAKE {{{
 " Show message that tests have started
 function! MyOnNeomakeJobStarted() abort
   echom printf('🔮 Running tests...')
@@ -181,14 +176,14 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " SESSIONS {{{
 let g:session_autosave = 'no'
 
-" session management
+" SESSION MANAGEMENT {{{
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 " }}}
 
-" LeaderF {{{
+" LEADERF {{{
 let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1

@@ -1,8 +1,8 @@
 " set nocompatible
 " let g:ruby_host_prog = '/usr/local/lib/ruby/gems/2.6.0/bin/neovim-ruby-host'
 
-" PEEKABOO {{{
-let g:peekaboo_window = "vert bo 40new"
+" Shell {{{
+set shell=/usr/local/bin/zsh
 " }}}
 
 " COPY PASTE {{{
@@ -106,7 +106,7 @@ set splitright
 set diffopt=vertical
 
 set completeopt=menu,menuone,preview,noselect,noinsert
-if executable('ag') 
+if executable('rg') 
     " Note we extract the column as well as the file and line number
     set grepprg=ag\ --nogroup\ --nocolor\ --column\ --vimgrep
 endif

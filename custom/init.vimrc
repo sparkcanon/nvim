@@ -106,9 +106,9 @@ Plug 'vimwiki/vimwiki' " Note taking
 " }}}
 
 " Git Stuff {{{
-Plug 'tpope/vim-fugitive'                             " Best git plugin for vim
+Plug 'tpope/vim-fugitive'    " Best git plugin for vim
 " Plug 'junegunn/vim-github-dashboard'                  " Github dashboard
-" Plug 'sodapopcan/vim-twiggy'
+Plug 'sodapopcan/vim-twiggy'
 " }}}
 
 call plug#end()
