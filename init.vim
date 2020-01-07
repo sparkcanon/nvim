@@ -8,3 +8,4 @@ source $HOME/.config/nvim/custom/whichKey.vimrc
 source $HOME/.config/nvim/custom/keys.vimrc
 source $HOME/.config/nvim/custom/general.vimrc
 source $HOME/.config/nvim/custom/plugins.vimrc
+" source $HOME/.config/nvim/custom/floating-win-stuff.vimrc
