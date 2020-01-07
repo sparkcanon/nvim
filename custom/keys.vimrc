@@ -18,12 +18,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
-" Which key {{{
-" nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-" nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-" vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-" }}}
-
 " Utilities {{{
 nnoremap ; :
 nnoremap : ;
@@ -86,6 +80,7 @@ nmap <silent> gr <Plug>(coc-references)
 function! CallSubstitube()
   return ':%s/'.expand("<cword>").'/'.input('Enter query: ').'/gc'
 endfunction
+
 nnoremap <expr> <Leader>sf CallSubstitube()
 vnoremap <script> <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
 " vnoremap <script> <Leader>sF <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//g<Left><Left><Left>
@@ -109,15 +104,6 @@ endfunction
 nnoremap <expr> <leader>sR CallCfdo()
 " }}}
 
-
-" L: Code related {{{
-
-" Visa stuff {{{
-" nnoremap <leader>lv :Vista!!<CR>
-" }}}
-
-" }}}
-
 " SEARCHING GOODIES {{{
 " Center search result line in screen
 nnoremap n nzvzz
@@ -125,8 +111,6 @@ nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
 " }}}
-
-" nnoremap <leader>f :vim<SPACE>
 
 " Open and close quickfix menu {{{
 " Open a quickfix window for last search
@@ -193,17 +177,13 @@ nnoremap <silent> <leader>fm :Maps<CR>
 nnoremap <silent> <leader>fC :Commits<CR>
 nnoremap <silent> <leader>fc :BCommits<CR>
 nnoremap <silent> <leader>fu :Snippets<CR>
+
 " sourcing
 nnoremap <leader>fr :source $MYVIMRC<CR>
+
 " ranger
 nnoremap <leader>fD :RangerNewTab<CR> 
 nnoremap <leader>ft :NERDTreeToggle<CR>
-
-" nnoremap <silent> <leader>fs :Leaderf rg<CR>
-" nnoremap <silent><leader>fS :Leaderf rg --cword<CR>
-" vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
-" nnoremap <silent> <leader>ff :LeaderfFile<CR>
-" nnoremap <silent> <leader>fl :LeaderfLine<CR>
 " }}}
 
 "" B: buffer related {{{
