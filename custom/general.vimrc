@@ -1,14 +1,3 @@
-" set nocompatible
-" let g:ruby_host_prog = '/usr/local/lib/ruby/gems/2.6.0/bin/neovim-ruby-host'
-
-" Shell {{{
-set shell=/usr/local/bin/zsh
-" }}}
-
-" COPY PASTE {{{
-set clipboard+=unnamed
-" }}}
-
 " Update a buffer's contents on focus if it changed outside of Vim. {{{
 au FocusGained,BufEnter * :checktime
 " }}}
@@ -32,25 +21,10 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme base16-dracula
+colorscheme shades_of_purple
 syntax enable
 set background=dark 
 set termguicolors
-" }}}
-
-" FONT {{{
-let g:one_allow_italics = 1
-highlight Comment cterm=italic
-hi link xmlEndTag xmlTag
-hi htmlArg gui=italic
-hi Comment gui=italic
-hi Type gui=italic
-hi htmlArg cterm=italic
-hi Comment cterm=italic
-hi Type cterm=italic
-"  Italic garbage
-let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 " }}}
 
 " SPACES AND TABS {{{
@@ -62,9 +36,8 @@ set expandtab
 
 " UI Config {{{
 set number
-" set relativenumber
 set cole=1
-set conceallevel=1
+set conceallevel=3
 set concealcursor=nvic
 set ruler
 set cursorline
@@ -77,8 +50,24 @@ set lazyredraw
 set ttyfast
 set showmatch
 set noshowmode " lightline shows the status not vim
-" set showcmd
-"}}}
+set showcmd
+
+" FONT {{{
+let g:one_allow_italics = 1
+highlight Comment cterm=italic
+hi link xmlEndTag xmlTag
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type cterm=italic
+" Italic garbage
+let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+" }}}
+
+" }}}
 
 " SEARCHING {{{
 set incsearch
@@ -93,6 +82,8 @@ set foldlevelstart=10
 set foldnestmax=10
 " }}}
 
+" UTILITIES {{{
+set shell=/usr/local/bin/zsh
 set nobackup
 set nowritebackup
 set noswapfile
@@ -102,8 +93,9 @@ set path+=**
 set nolist
 set splitbelow
 set splitright
-
+set clipboard+=unnamed
 set diffopt=vertical
+" }}}
 
 set completeopt=menu,menuone,preview,noselect,noinsert
 if executable('rg') 

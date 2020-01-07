@@ -1,6 +1,6 @@
-" let g:rigel_lightline = 1
+let g:shades_of_purple_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'shades_of_purple',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]

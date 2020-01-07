@@ -43,9 +43,9 @@
   "todolist.monitor": true,
   "git.realtimeGutters": true,
   "codeLens.enable": true,
-  "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
+  "// diagnostic.errorSign": "✘",
+  "// diagnostic.warningSign": "",
+  "// diagnostic.infoSign": "",
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
@@ -58,5 +58,15 @@
   ],
   "typescript.referencesCodeLens.enable": false,
   "git.enableGutters": true,
-  "tsserver.enableJavascript": true
+  "tsserver.enableJavascript": true,
+  "snippets.ultisnips.directories": [
+    "~/.vim/plugged/vim-snippets/snippets",
+    "~/.vim/plugged/vim-javascript-snippets/snippets/javascript"
+  ],
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
+    "typescript": ["javascript", "javascript-jasmine-arrow"]
+  },
+  "prettier.eslintIntegration": true
 }
