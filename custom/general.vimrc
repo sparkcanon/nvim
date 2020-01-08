@@ -21,7 +21,7 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme shades_of_purple
+colorscheme base16-unikitty-dark
 syntax enable
 set background=dark 
 set termguicolors

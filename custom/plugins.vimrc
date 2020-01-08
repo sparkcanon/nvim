@@ -1,3 +1,7 @@
+" VIM WIN MANAGEMENT {{{
+let g:win_ext_command_map = { "\<cr>": 'Win#exit' }
+" }}}
+
 " TWIGGY {{{
 let g:twiggy_group_locals_by_slash = 0
 let g:twiggy_local_branch_sort = 'mru'
@@ -91,13 +95,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
-" SESSIONS {{{
-let g:session_autosave = 'no'
-
 " SESSION MANAGEMENT {{{
 let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
+let g:session_autoload = "yes"
+let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 " }}}
 

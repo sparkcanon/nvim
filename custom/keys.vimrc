@@ -135,10 +135,6 @@ noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
 " }}}
 
-" vim-test mappings
-" nnoremap <silent> <leader>tt :TestFile<CR>
-" nnoremap <silent> <leader>tn :TestNearest<CR><Paste>
-
 "" W: window related {{{
 noremap <Leader>wd :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
@@ -152,19 +148,10 @@ nnoremap <leader>wcc :cclose<cr>
 
 
 "" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
-
-"" Opens an edit command with the path of the currently edited file filled in
-" noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"" Opens a tab edit command with the path of the currently edited file filled
-" noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR<Plug>_"
-
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+" nnoremap <leader>. :lcd %:p:h<CR>
 
 " F: finding related {{{
 " FZF
-nnoremap <silent> <leader>fo :Clap<CR>
 nnoremap <silent> <leader>fs :Find<CR>
 nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
 vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
@@ -205,6 +192,9 @@ nnoremap <leader>yF :let @*=expand("%:p")<CR>
 nnoremap <leader>yt :let @*=expand("%:t")<CR>
 " directory name (/something/src)
 nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
+" Opens an edit command with the path of the currently edited file filled in
+noremap <Leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
+" cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
 " G: git stuff {{{

@@ -1,14 +1,8 @@
 {
   "suggest.triggerAfterInsertEnter": true,
-  "coc.preferences.echodocSupport": true,
-  // Require .prettierrc
   "prettier.requireConfig": true,
-
-  // Tslint on save
   "tslint.enable": true,
   "tslint.autoFixOnSave": true,
-
-  // Run prettier (and others)
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -20,29 +14,19 @@
   ],
   "coc.preferences.hoverTarget": "float",
   "suggest.floatEnable": true,
-  "coc.prefences.hoverTarget":"echo",
-  // File extensions to be parsed by the Typescript parser
   "importCost.typescriptExtensions": [
     "\\.tsx?$"
   ],
-
-  // File extensions to be parsed by the Javascript parser
   "importCost.javascriptExtensions": [
     "\\.jsx?$",
     "\\.js?$"
   ],
-
-  // Which bundle size to display
   "importCost.bundleSizeDecoration": "both",
-
-  // Display the 'calculating' decoration
   "importCost.showCalculatingDecoration": true,
-  // Print debug messages in output channel
   "importCost.debug": false,
-
   "todolist.monitor": true,
   "git.realtimeGutters": true,
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "// diagnostic.errorSign": "✘",
   "// diagnostic.warningSign": "",
   "// diagnostic.infoSign": "",
@@ -56,7 +40,7 @@
     "typescript",
     "typescriptreact"
   ],
-  "typescript.referencesCodeLens.enable": false,
+  "typescript.referencesCodeLens.enable": true,
   "git.enableGutters": true,
   "tsserver.enableJavascript": true,
   "snippets.ultisnips.directories": [
@@ -68,5 +52,13 @@
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
   },
-  "prettier.eslintIntegration": true
+  "prettier.eslintIntegration": true,
+  "suggest.noselect": false,
+  "suggest.enablePreview": true,
+  "suggest.removeDuplicateItems": true,
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.rootPatterns": [".git", ".vim", ".vscode"],
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "tsserver.npm": "/usr/local/bin/npm"
 }
