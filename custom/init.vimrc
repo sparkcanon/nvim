@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'                                  " Quickly move throughout the buffer
 Plug 'haya14busa/incsearch.vim'                                   " In buffer search on steroids - fuzzy
 Plug 'haya14busa/incsearch-fuzzy.vim'                             " In buffer search on steroids - fuzzy
- Plug 'simeji/winresizer'                                          " Quickly resize splits/windows
+Plug 'simeji/winresizer'                                          " Quickly resize splits/windows
 " }}}
 
 " THEMES {{{
@@ -25,7 +25,6 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'tpope/vim-sensible'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'                                          " Saving current session
-Plug 'scrooloose/nerdtree'                                        " Tree based file explorer
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'junegunn/vim-slash'                                         " Remove highlight
@@ -54,7 +53,6 @@ Plug 'natebosch/vim-lsc-dart'                                     " Dart support
 " }}}
 
 " FILE EXPLORING {{{
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                    " NERDTree syntax highlighing
 Plug 'francoiscabrol/ranger.vim'                                  " Best file explorer
 Plug 'rbgrouleff/bclose.vim'                                      " Close buffer without messing the layout
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
