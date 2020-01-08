@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'easymotion/vim-easymotion'                                  " Quickly move throughout the buffer
 Plug 'haya14busa/incsearch.vim'                                   " In buffer search on steroids - fuzzy
 Plug 'haya14busa/incsearch-fuzzy.vim'                             " In buffer search on steroids - fuzzy
-Plug 'dstein64/vim-win'                                           " Window management utility
+ Plug 'simeji/winresizer'                                          " Quickly resize splits/windows
 " }}}
 
 " THEMES {{{

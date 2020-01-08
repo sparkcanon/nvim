@@ -1,8 +1,8 @@
-" leader key stuff
+" LEADER KEY
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 
-" Custom functions {{{
+" CUSTOM FUNCTIONS {{{
 function! s:get_visual_selection()
    let l=getline("'<")
    let [line1,col1] = getpos("'<")[1:2]
@@ -18,7 +18,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
-" Utilities {{{
+" UTILITIES {{{
 nnoremap ; :
 nnoremap : ;
 nnoremap / /\v
@@ -27,7 +27,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
 " }}}
 
-" C: coc {{{
+" C: COC {{{
 nnoremap <silent> <leader>cl :<C-u>CocList<cr>
 " Show all diagnostics
 nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
@@ -66,14 +66,14 @@ nnoremap <leader>cr <Plug>(coc-rename)<cr>
 
 " }}}
 
-" G: code shananigans {{{
+" G: CODE SHANANIGANS {{{
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " }}}
 
-" S: replace shananigans {{{
+" S: REPLACE SHANANIGANS {{{
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
 " nnoremap <Leader>sf :%s///g<Left><Left>
@@ -126,7 +126,7 @@ nnoremap <silent> <LEFT> :cprev<CR>
 " }}}
 
 
-" Git mappings {{{
+" GIT MAPPINGS {{{
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
@@ -135,22 +135,18 @@ noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
 " }}}
 
-"" W: window related {{{
+"" W: WINDOW RELATED {{{
 noremap <Leader>wd :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
-noremap <leader>wj <C-w>j
-noremap <leader>wk <C-w>k
-noremap <leader>wl <C-w>l
-noremap <leader>wh <C-w>h<Plug>_"
+nnoremap <Leader>w <C-w>
 nnoremap <leader>wco :only<cr>
 nnoremap <leader>wcc :cclose<cr>
 " }}}
 
-
 "" Set working directory
 " nnoremap <leader>. :lcd %:p:h<CR>
 
-" F: finding related {{{
+" F: FINDING RELATED {{{
 " FZF
 nnoremap <silent> <leader>fs :Find<CR>
 nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
@@ -165,15 +161,16 @@ nnoremap <silent> <leader>fC :Commits<CR>
 nnoremap <silent> <leader>fc :BCommits<CR>
 nnoremap <silent> <leader>fu :Snippets<CR>
 
-" sourcing
+
+" SOURCING
 nnoremap <leader>fr :source $MYVIMRC<CR>
 
-" ranger
+" RANGER
 nnoremap <leader>fD :RangerNewTab<CR> 
 nnoremap <leader>ft :NERDTreeToggle<CR>
 " }}}
 
-"" B: buffer related {{{
+"" B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 " noremap <leader>bc :bd<CR>
