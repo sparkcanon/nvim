@@ -38,7 +38,7 @@ Plug 'shime/vim-livedown'                                         " Live markdow
 Plug 'tpope/vim-surround'                                         " Add quotes & stuff around words/sentences
 Plug 'tpope/vim-commentary'                                       " smart comments
 Plug 'jiangmiao/auto-pairs'
-Plug 'markonm/traces.vim'
+Plug 'markonm/traces.vim'                                         " Highlights during substitution
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{
