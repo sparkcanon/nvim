@@ -38,6 +38,7 @@ Plug 'shime/vim-livedown'                                         " Live markdow
 Plug 'tpope/vim-surround'                                         " Add quotes & stuff around words/sentences
 Plug 'tpope/vim-commentary'                                       " smart comments
 Plug 'jiangmiao/auto-pairs'
+Plug 'markonm/traces.vim'
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{

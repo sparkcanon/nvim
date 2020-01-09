@@ -195,7 +195,7 @@ noremap <Leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
 " G: git stuff {{{
-nnoremap <leader>gs :15Gstatus<CR>
+nnoremap <leader>gs :vert 90G<CR>
 nnoremap <leader>gP :Gpush<CR>
 nnoremap <leader>gp :Gpull<CR>
 nnoremap <leader>gf :Gfetch<CR>
