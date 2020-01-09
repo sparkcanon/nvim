@@ -25,11 +25,9 @@
   "importCost.showCalculatingDecoration": true,
   "importCost.debug": false,
   "todolist.monitor": true,
-  "git.realtimeGutters": true,
-  "codeLens.enable": false,
-  "// diagnostic.errorSign": "✘",
-  "// diagnostic.warningSign": "",
-  "// diagnostic.infoSign": "",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
@@ -42,6 +40,10 @@
   ],
   "typescript.referencesCodeLens.enable": true,
   "git.enableGutters": true,
+  "git.realtimeGutters": true,
+  // "git.virtualTextPrefix": "true",
+  "git.addGBlameToVirtualText": true,
+  "codeLens.enable": false,
   "tsserver.enableJavascript": true,
   "snippets.ultisnips.directories": [
     "~/.vim/plugged/vim-snippets/snippets",
@@ -52,7 +54,7 @@
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
   },
-  "prettier.eslintIntegration": true,
+  "prettier.eslintIntegration": false,
   "suggest.noselect": false,
   "suggest.enablePreview": true,
   "suggest.removeDuplicateItems": true,

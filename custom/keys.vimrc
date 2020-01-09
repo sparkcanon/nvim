@@ -23,7 +23,6 @@ nnoremap ; :
 nnoremap : ;
 nnoremap / /\v
 inoremap kj <Esc>
-nnoremap <leader>q :q<CR>
 nnoremap <leader>, :nohlsearch<CR>
 " }}}
 
@@ -61,7 +60,7 @@ nmap <leader>cfc  <Plug>(coc-fix-current)
 vmap <leader>cf  <Plug>(coc-format-selected)
 nmap <leader>cf  <Plug>(coc-format-selected)
 
-nnoremap <leader>cr <Plug>(coc-rename)<cr>
+nmap <leader>cr <Plug>(coc-rename)<cr>
 " nmap <leader>ci <Plug>(coc-diagnostic-info)
 
 " }}}
@@ -126,19 +125,23 @@ nnoremap <silent> <LEFT> :cprev<CR>
 " }}}
 
 
-" GIT MAPPINGS {{{
+" G: git stuff {{{
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
 noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
+nnoremap <leader>gf :Gfetch<CR>
 " }}}
 
 "" W: WINDOW RELATED {{{
 noremap <Leader>wd :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
 nnoremap <Leader>w <C-w>
+nnoremap <leader>wm :WinResizerStartFocus<CR>
+nnoremap <leader>wM :WinResizerStartMove<CR>
+nnoremap <leader>we :WinResizerStartResize<CR>
 nnoremap <leader>wco :only<cr>
 nnoremap <leader>wcc :cclose<cr>
 " }}}
@@ -166,8 +169,9 @@ nnoremap <silent> <leader>fu :Snippets<CR>
 nnoremap <leader>fr :source $MYVIMRC<CR>
 
 " RANGER
-nnoremap <leader>fD :RangerNewTab<CR> 
-nnoremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <leader>ft :RangerNewTab<CR> 
+nnoremap <leader>fd :Ranger<CR> 
+nnoremap <leader>fD :RangerWorkingDirectory<CR> 
 " }}}
 
 "" B: BUFFER RELATED {{{
@@ -192,13 +196,6 @@ nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
 " Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-" }}}
-
-" G: git stuff {{{
-nnoremap <leader>gs :vert 90G<CR>
-nnoremap <leader>gP :Gpush<CR>
-nnoremap <leader>gp :Gpull<CR>
-nnoremap <leader>gf :Gfetch<CR>
 " }}}
 
 " O: other stuff {{{

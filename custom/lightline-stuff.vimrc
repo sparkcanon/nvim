@@ -2,7 +2,10 @@ let g:lightline = {
       \ 'colorscheme': 'base16_unikitty_dark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ] ],
+      \   'right': [
+      \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+      \   ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
@@ -25,7 +28,6 @@ let g:lightline = {
         \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
-      \   'filename': '%{winnr()} | %t'
       \ },
       \ }
 
@@ -40,3 +42,5 @@ endfunction
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
+
+" 'filename': '%{winnr()} | %t'

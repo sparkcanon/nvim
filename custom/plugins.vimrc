@@ -1,7 +1,3 @@
-" VIM WIN MANAGEMENT {{{
-let g:win_ext_command_map = { "\<cr>": 'Win#exit' }
-" }}}
-
 " TWIGGY {{{
 let g:twiggy_num_columns = 40
 let g:twiggy_group_locals_by_slash = 0

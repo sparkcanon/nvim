@@ -79,10 +79,6 @@ Plug 'mike-hearn/base16-vim-lightline'                            " Themes for t
 Plug 'itchyny/lightline.vim'                                      " Simpler fancy status line
 " }}}
 
-" NOTES {{{
-Plug 'vimwiki/vimwiki'                                            " Note taking
-" }}}
-
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                         " Best git plugin for vim
 Plug 'sodapopcan/vim-twiggy'                                      " Another git client
