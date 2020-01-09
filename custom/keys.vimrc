@@ -37,7 +37,7 @@ nnoremap <silent> <leader>cS  :<C-u>CocList -I symbols<cr>
 " Search workspace for word
 nnoremap <silent> <leader>cs :CocSearch <C-R><C-W><CR>
 " Search workspace for word
-vnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
+xnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
 " Find symbol of current document
 nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Do default action for next item.
@@ -73,34 +73,11 @@ nmap <silent> gr <Plug>(coc-references)
 " }}}
 
 " S: REPLACE SHANANIGANS {{{
-" Press * to search for the term under the cursor or a visual selection and
-" then press a key below to replace all instances of it in the current file.
-" nnoremap <Leader>sf :%s///g<Left><Left>
-function! CallSubstitube()
-  return ':%s/'.expand("<cword>").'/'.input('Enter query: ').'/gc'
-endfunction
+nnoremap <Leader>sf :%s/<C-r><C-w>//gc<Left><Left><Left>
+xnoremap <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
 
-nnoremap <expr> <Leader>sf CallSubstitube()
-vnoremap <script> <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
-" vnoremap <script> <Leader>sF <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//g<Left><Left><Left>
-
-" The same as above but instead of acting on the whole file it will be
-" restricted to the previously visually selected range. You can do that by
-" pressing *, visually selecting the range you want it to apply to and then
-" press a key below to replace all instances of it in the current selection.
-" xnoremap <Leader>sr :s///g<Left><Left><left>
-" xnoremap <Leader>src :s///gc<Left><Left><Left>
-
-" Type a replacement term and press . to repeat the replacement again. Useful
-" for replacing a few instances of the term (comparable to multiple cursors).
-" nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-" xnoremap <silent> s* "sy:let @/=@s<CR>cgn
-
-function! CallCfdo()
-  return ':cfdo %s/'.expand("<cword>").'/'.input("Enter query: ").'/g | update'
-endfunction
-
-nnoremap <expr> <leader>sR CallCfdo()
+nnoremap <leader>sr :cfdo %s/<C-r><C-w>//g \| update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+xnoremap <leader>sr :cfdo %s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc \| update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " }}}
 
 " SEARCHING GOODIES {{{
@@ -125,7 +102,7 @@ nnoremap <silent> <LEFT> :cprev<CR>
 " }}}
 
 
-" G: git stuff {{{
+" G: GIT STUFF {{{
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
@@ -153,7 +130,7 @@ nnoremap <leader>wcc :cclose<cr>
 " FZF
 nnoremap <silent> <leader>fs :Find<CR>
 nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
-vnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
+xnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fl :Lines<CR>
 nnoremap <silent> <leader>fw :Windows<CR>
@@ -184,7 +161,7 @@ noremap <leader>bC :bufdo :Bdelete<CR>
 noremap <silent> <leader>bf :Buffers<CR>
 " }}}
 
-" Y: yanking related {{{
+" Y: YANKING RELATED {{{
 " relative path  (src/foo.txt)
 nnoremap <leader>yf :let @*=expand("%")<CR>
 " absolute path  (/something/src/foo.txt)
@@ -198,18 +175,29 @@ noremap <Leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 
-" O: other stuff {{{
+" O: OTHER STUFF {{{
 nnoremap <silent> <leader>om :MundoToggle<CR>
 " }}}
 
-" highlight {{{
+" HIGHLIGHT {{{
 map z/ <Plug>(incsearch-fuzzy-/)
 map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
 " }}}
 
-"" Tabs {{{
+"" TABS {{{
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR><Paste>
 " }}}
+
+" press <esc> to cancel.
+" nmap f <Plug>(coc-smartf-forward)
+" nmap F <Plug>(coc-smartf-backward)
+" nmap ; <Plug>(coc-smartf-repeat)
+" nmap , <Plug>(coc-smartf-repeat-opposite)
+
+" augroup Smartf
+"   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+"   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+" augroup end
