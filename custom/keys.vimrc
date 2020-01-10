@@ -1,3 +1,6 @@
+" SOURCING
+nnoremap <leader>fr :source $MYVIMRC<CR>
+
 " LEADER KEY
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
@@ -140,16 +143,6 @@ nnoremap <silent> <leader>fm :Maps<CR>
 nnoremap <silent> <leader>fC :Commits<CR>
 nnoremap <silent> <leader>fc :BCommits<CR>
 nnoremap <silent> <leader>fu :Snippets<CR>
-
-
-" SOURCING
-nnoremap <leader>fr :source $MYVIMRC<CR>
-
-" RANGER
-nnoremap <leader>ft :RangerNewTab<CR> 
-nnoremap <leader>fd :Ranger<CR> 
-nnoremap <leader>fD :RangerWorkingDirectory<CR> 
-" }}}
 
 "" B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>

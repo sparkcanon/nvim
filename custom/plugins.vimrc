@@ -24,12 +24,6 @@ let g:grepper={}
 let g:grepper.tools=["rg"]
 " }}}
 
-" RANGER.VIM {{{
-let g:ranger_map_keys = 0
-let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
-let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
-" }}}
-
 " LIVEDOWN SERVER {{{
 let g:livedown_autorun = 0
 " Open the browser window upon previewing

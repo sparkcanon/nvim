@@ -54,10 +54,10 @@ Plug 'natebosch/vim-lsc-dart'                                     " Dart support
 " }}}
 
 " FILE EXPLORING {{{
-Plug 'francoiscabrol/ranger.vim'                                  " Best file explorer
 Plug 'rbgrouleff/bclose.vim'                                      " Close buffer without messing the layout
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
 Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
+Plug 'tpope/vim-vinegar'                                          " yet another file explorer
 " }}}
 
 " SNIPPETS {{{
