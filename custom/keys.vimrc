@@ -76,8 +76,8 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <Leader>sf :%s/<C-r><C-w>//gc<Left><Left><Left>
 xnoremap <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
 
-nnoremap <leader>sr :cfdo %s/<C-r><C-w>//g \| update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xnoremap <leader>sr :cfdo %s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc \| update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap <leader>sr :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
+xnoremap <leader>sr :cfdo %s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
 " }}}
 
 " SEARCHING GOODIES {{{
@@ -190,14 +190,3 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR><Paste>
 " }}}
-
-" press <esc> to cancel.
-" nmap f <Plug>(coc-smartf-forward)
-" nmap F <Plug>(coc-smartf-backward)
-" nmap ; <Plug>(coc-smartf-repeat)
-" nmap , <Plug>(coc-smartf-repeat-opposite)
-
-" augroup Smartf
-"   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
-"   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-" augroup end
