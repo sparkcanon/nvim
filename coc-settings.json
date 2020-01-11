@@ -41,7 +41,7 @@
   "typescript.referencesCodeLens.enable": true,
   "git.enableGutters": true,
   "git.realtimeGutters": true,
-  // "git.virtualTextPrefix": "true",
+  // "git.virtualTextPrefix": "     ~  ",
   "git.addGBlameToVirtualText": true,
   "codeLens.enable": false,
   "tsserver.enableJavascript": true,

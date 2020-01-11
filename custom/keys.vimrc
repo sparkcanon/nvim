@@ -1,9 +1,9 @@
-" SOURCING
-nnoremap <leader>fr :source $MYVIMRC<CR>
-
 " LEADER KEY
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
+
+" SOURCING
+nnoremap <leader>fr :source $MYVIMRC<CR>
 
 " CUSTOM FUNCTIONS {{{
 function! s:get_visual_selection()
@@ -52,7 +52,7 @@ nnoremap <silent> <leader>cR  :<C-u>CocListResume<CR>
 
 " Remap for do codeAction of current line
 nmap <leader>ca  <Plug>(coc-codeaction)
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+
 vmap <leader>cas  <Plug>(coc-codeaction-selected)
 nmap <leader>cas  <Plug>(coc-codeaction-selected)
 

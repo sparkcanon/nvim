@@ -14,11 +14,9 @@ Plug 'simeji/winresizer'                                          " Quickly resi
 " }}}
 
 " THEMES {{{
-Plug 'rakr/vim-one'
-Plug 'flazz/vim-colorschemes'                                     " Collection of themes
 Plug 'chriskempson/base16-vim'                                    " Collection of base16 themes
-Plug 'Rigellute/rigel'
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'reedes/vim-colors-pencil'
+" Plug 'flazz/vim-colorschemes'                                     " Collection of themes
 " }}}
 
 " UTILITIES {{{
@@ -77,6 +75,7 @@ Plug 'heavenshell/vim-jsdoc'                                      " Javascript d
 " STATUS LINE {{{
 Plug 'mike-hearn/base16-vim-lightline'                            " Themes for the Simpler fancy status line
 Plug 'itchyny/lightline.vim'                                      " Simpler fancy status line
+Plug 'sainnhe/lightline_foobar.vim'
 " }}}
 
 " GIT STUFF {{{
