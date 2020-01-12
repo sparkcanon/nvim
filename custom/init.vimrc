@@ -73,14 +73,15 @@ Plug 'heavenshell/vim-jsdoc'                                      " Javascript d
 " }}}
 
 " STATUS LINE {{{
-Plug 'mike-hearn/base16-vim-lightline'                            " Themes for the Simpler fancy status line
 Plug 'itchyny/lightline.vim'                                      " Simpler fancy status line
 Plug 'sainnhe/lightline_foobar.vim'
+" Plug 'mike-hearn/base16-vim-lightline'                            " Themes for the Simpler fancy status line
 " }}}
 
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                         " Best git plugin for vim
 Plug 'sodapopcan/vim-twiggy'                                      " Another git client
+Plug 'airblade/vim-gitgutter'
 " }}}
 
 " EXTRA {{{

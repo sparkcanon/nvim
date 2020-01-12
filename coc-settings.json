@@ -39,8 +39,8 @@
     "typescriptreact"
   ],
   "typescript.referencesCodeLens.enable": true,
-  "git.enableGutters": true,
-  "git.realtimeGutters": true,
+  "git.enableGutters": false,
+  "git.realtimeGutters": false,
   // "git.virtualTextPrefix": "     ~  ",
   "git.addGBlameToVirtualText": true,
   "codeLens.enable": false,

@@ -25,11 +25,6 @@ colorscheme pencil
 syntax enable
 set background=dark 
 set termguicolors
-if !&diff
-  hi DiffAdd guibg=clear-background
-  hi DiffChange guibg=clear-background
-  hi DiffDelete guibg=clear-background
-endif
 " }}}
 
 " SPACES AND TABS {{{
