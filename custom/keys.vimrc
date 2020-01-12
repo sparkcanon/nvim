@@ -53,8 +53,8 @@ nnoremap <silent> <leader>cR  :<C-u>CocListResume<CR>
 " Remap for do codeAction of current line
 nmap <leader>ca  <Plug>(coc-codeaction)
 
-vmap <leader>cas  <Plug>(coc-codeaction-selected)
-nmap <leader>cas  <Plug>(coc-codeaction-selected)
+vmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>cA  <Plug>(coc-codeaction-selected)
 
 " Fix autofix problem of current line
 nmap <leader>cfc  <Plug>(coc-fix-current)
@@ -94,8 +94,8 @@ nnoremap # #zvzz
 " Open and close quickfix menu {{{
 " Open a quickfix window for last search
 nnoremap <silent> <leader><UP> :execute 'vimgrep /'.@/.'/g %'<CR>
-nnoremap <leader>cco :cw<CR>
-nnoremap <leader>ccl :ccl<CR>
+" nnoremap <leader>cco :cw<CR>
+" nnoremap <leader>ccl :ccl<CR>
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>
 nnoremap <silent> <leader>cn :cnext<CR>
@@ -106,12 +106,12 @@ nnoremap <silent> <LEFT> :cprev<CR>
 
 
 " G: GIT STUFF {{{
-nnoremap gs :CocList -A --normal gstatus<CR>
+nnoremap <leader>gs :CocList -A --normal gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gP :Gpush<CR>
+noremap <Leader>gp :Gpull<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " }}}
 
@@ -130,7 +130,7 @@ nnoremap <leader>wcc :cclose<cr>
 " nnoremap <leader>. :lcd %:p:h<CR>
 
 " F: FINDING RELATED {{{
-nnoremap <silent> <leader>fs :CocList -A grep<CR>
+nnoremap <silent> <leader>fs :CocList -I -A grep<CR>
 nnoremap <silent> <leader>ff :CocList -A files<CR>
 nnoremap <silent> <leader>fl :CocList -I -A lines<CR>
 nnoremap <silent> <leader>fW :CocList windows<CR>

@@ -75,6 +75,6 @@
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.useQuickfixForLocations": true,
 
-  "list.previewSplitRight": true,
+  "list.previewSplitRight": false,
   "list.source.files.args": ["--hidden", "--files"]
 }
