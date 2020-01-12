@@ -94,6 +94,7 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical
+set updatetime=100 " default updatetime 4000ms is not good for async update
 " }}}
 
 set completeopt=menu,menuone,preview,noselect,noinsert

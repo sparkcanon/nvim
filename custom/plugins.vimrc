@@ -86,13 +86,6 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
-" SESSION MANAGEMENT {{{
-let g:session_directory = "~/.config/nvim/session"
-let g:session_autoload = "yes"
-let g:session_autosave = "yes"
-let g:session_command_aliases = 1
-" }}}
-
 au FileType elixir let b:AutoPairs = AutoPairsDefine({'do': 'end//n'})
 " autocmd QuickFixCmdPost [^l]* cwindow
 " autocmd QuickFixCmdPost l* lwindow

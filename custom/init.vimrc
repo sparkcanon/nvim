@@ -21,8 +21,6 @@ Plug 'reedes/vim-colors-pencil'
 
 " UTILITIES {{{
 Plug 'tpope/vim-sensible'
-Plug 'xolox/vim-misc'                                             " Required for vim-session
-Plug 'xolox/vim-session'                                          " Saving/loading session
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'junegunn/vim-slash'                                         " Remove highlight
@@ -51,8 +49,8 @@ Plug 'natebosch/vim-lsc-dart'                                     " Dart support
 " }}}
 
 " FILE EXPLORING {{{
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
-Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
+" Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
 Plug 'tpope/vim-vinegar'                                          " yet another file explorer
 " }}}
 
@@ -76,7 +74,11 @@ Plug 'sainnhe/lightline_foobar.vim'
 
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                         " Best git plugin for vim
-Plug 'airblade/vim-gitgutter'
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 " }}}
 
 " EXTRA {{{

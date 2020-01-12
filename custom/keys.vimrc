@@ -106,7 +106,7 @@ nnoremap <silent> <LEFT> :cprev<CR>
 
 
 " G: GIT STUFF {{{
-nnoremap gs :Gstatus<CR>
+nnoremap gs :CocList -A --normal gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
@@ -130,19 +130,17 @@ nnoremap <leader>wcc :cclose<cr>
 " nnoremap <leader>. :lcd %:p:h<CR>
 
 " F: FINDING RELATED {{{
-" FZF
-nnoremap <silent> <leader>fs :Find<CR>
-nnoremap <silent><leader>fS :Find <C-R><C-W><CR>
-xnoremap <script> <leader>fS <Esc>:Find <C-R><C-R>=<SID>get_visual_selection()<CR>
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fl :Lines<CR>
-nnoremap <silent> <leader>fw :Windows<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fx :Commands<CR>
-nnoremap <silent> <leader>fm :Maps<CR>
-nnoremap <silent> <leader>fC :Commits<CR>
-nnoremap <silent> <leader>fc :BCommits<CR>
-nnoremap <silent> <leader>fu :Snippets<CR>
+nnoremap <silent> <leader>fs :CocList -A grep<CR>
+nnoremap <silent> <leader>ff :CocList -A files<CR>
+nnoremap <silent> <leader>fl :CocList -I -A lines<CR>
+nnoremap <silent> <leader>fW :CocList windows<CR>
+nnoremap <silent> <leader>fw  :exe 'CocList -I -A --normal --input='.expand('<cword>').' words'<CR>
+nnoremap <silent> <leader>fh :CocList -A mru<CR>
+nnoremap <silent> <leader>fx :CocList commands<CR>
+nnoremap <silent> <leader>fm :CocList maps<CR>
+nnoremap <silent> <leader>fC :CocList -A --normal commits<CR>
+nnoremap <silent> <leader>fc :CocList -A --normal bcommits<CR>
+" }}}
 
 "" B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>
