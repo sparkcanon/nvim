@@ -41,7 +41,6 @@ Plug 'markonm/traces.vim'                                         " Highlights d
 
 " SYNTAX STUFF & COMPLETETIONS {{{
 Plug 'othree/yajs.vim'
-Plug 'vim-scripts/SyntaxComplete'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Best autocomplete engine ever
 " }}}
 
@@ -67,7 +66,6 @@ Plug 'grvcoelho/vim-javascript-snippets'                          " Javascript s
 " TYPESCRIPT & JAVASCRIPT {{{
 Plug 'moll/vim-node'                                              " Node tools and environment for vim
 Plug 'HerringtonDarkholme/yats.vim'                               " Typescript syntax highlighting
-Plug 'pangloss/vim-javascript'                                    " Javascript syntax support
 Plug 'mxw/vim-jsx'                                                " React jsx syntax support
 Plug 'heavenshell/vim-jsdoc'                                      " Javascript docs
 " }}}
