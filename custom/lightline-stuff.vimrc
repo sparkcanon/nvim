@@ -3,7 +3,7 @@ let g:lightline = {
       \ 'colorscheme': 'pencil_alter',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'cocstatus' ] ],
+      \             [ 'gitcocstatus', 'readonly', 'filename', 'modified', 'cocstatus' ] ],
       \   'right': [
       \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
       \   ]
@@ -13,6 +13,7 @@ let g:lightline = {
       \   'fileformat': 'LightlineFileformat',
       \   'filetype': 'LightlineFiletype',
       \   'cocstatus': 'coc#status',
+      \   'gitcocstatus': 'LightlineGitStatus'
       \ },
       \ 'mode_map': {
         \ 'n' : 'N',
@@ -42,6 +43,12 @@ endfunction
 
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineGitStatus() abort
+  let blame = get(g:, 'coc_git_status', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
 endfunction
 
 " 'filename': '%{winnr()} | %t'

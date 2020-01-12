@@ -106,7 +106,7 @@ nnoremap <silent> <LEFT> :cprev<CR>
 
 
 " G: GIT STUFF {{{
-nnoremap <leader>gs :G<CR>
+nnoremap gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
