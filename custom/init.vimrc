@@ -76,7 +76,6 @@ Plug 'sainnhe/lightline_foobar.vim'
 
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                         " Best git plugin for vim
-Plug 'sodapopcan/vim-twiggy'                                      " Another git client
 Plug 'airblade/vim-gitgutter'
 " }}}
 
