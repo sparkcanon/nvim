@@ -150,7 +150,7 @@ noremap <leader>bn :bn<CR>
 " noremap <leader>bc :bd<CR>
 noremap <leader>bd :Bdelete<CR>
 " noremap <leader>q :Bdelete<CR>
-noremap <leader>bC :bufdo :Bdelete<CR>
+noremap <leader>bD :bufdo :Bdelete<CR>
 noremap <silent> <leader>bf :Buffers<CR>
 " }}}
 

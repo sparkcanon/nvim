@@ -21,8 +21,8 @@ Plug 'reedes/vim-colors-pencil'
 
 " UTILITIES {{{
 Plug 'tpope/vim-sensible'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'                                          " Saving current session
+Plug 'xolox/vim-misc'                                             " Required for vim-session
+Plug 'xolox/vim-session'                                          " Saving/loading session
 Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'junegunn/vim-slash'                                         " Remove highlight
@@ -51,7 +51,6 @@ Plug 'natebosch/vim-lsc-dart'                                     " Dart support
 " }}}
 
 " FILE EXPLORING {{{
-Plug 'rbgrouleff/bclose.vim'                                      " Close buffer without messing the layout
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
 Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
 Plug 'tpope/vim-vinegar'                                          " yet another file explorer

@@ -1,19 +1,4 @@
 {
-  "suggest.triggerAfterInsertEnter": true,
-  "prettier.requireConfig": true,
-  "tslint.enable": true,
-  "tslint.autoFixOnSave": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "Markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "coc.preferences.hoverTarget": "float",
-  "suggest.floatEnable": true,
   "importCost.typescriptExtensions": [
     "\\.tsx?$"
   ],
@@ -24,13 +9,16 @@
   "importCost.bundleSizeDecoration": "both",
   "importCost.showCalculatingDecoration": true,
   "importCost.debug": false,
-  "todolist.monitor": true,
-  "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
-  "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
-  },
+
+  "typescript.referencesCodeLens.enable": true,
+  "tsserver.enableJavascript": true,
+  "tsserver.npm": "/usr/local/bin/npm",
+  "tslint.enable": true,
+  "tslint.autoFixOnSave": true,
+
+  "prettier.eslintIntegration": false,
+  "prettier.requireConfig": true,
+
   "eslint.enable": false,
   "eslint.filetypes": [
     "javascript",
@@ -38,13 +26,22 @@
     "typescript",
     "typescriptreact"
   ],
-  "typescript.referencesCodeLens.enable": true,
+
   "git.enableGutters": false,
   "git.realtimeGutters": false,
   // "git.virtualTextPrefix": "     ~  ",
   "git.addGBlameToVirtualText": true,
+
   "codeLens.enable": false,
-  "tsserver.enableJavascript": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
+  "diagnostic.checkCurrentLine": false,
+  "diagnostic.virtualText": true,
+
   "snippets.ultisnips.directories": [
     "~/.vim/plugged/vim-snippets/snippets",
     "~/.vim/plugged/vim-javascript-snippets/snippets/javascript"
@@ -54,13 +51,27 @@
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
   },
-  "prettier.eslintIntegration": false,
+
   "suggest.noselect": false,
   "suggest.enablePreview": true,
   "suggest.removeDuplicateItems": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.floatEnable": true,
+
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.rootPatterns": [".git", ".vim", ".vscode"],
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualText": true,
-  "tsserver.npm": "/usr/local/bin/npm"
+  "coc.preferences.snippets.enable": true,
+  "coc.preferences.bracketEnterImprove": true,
+  "coc.preferences.enableFloatHighlight": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.useQuickfixForLocations": true
 }
