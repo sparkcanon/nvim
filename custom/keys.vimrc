@@ -131,16 +131,16 @@ nnoremap <leader>wcc :cclose<cr>
 " nnoremap <leader>. :lcd %:p:h<CR>
 
 " F: FINDING RELATED {{{
-nnoremap <silent> <leader>fs :<C-u>CocList -I -A grep<CR>
-nnoremap <silent> <leader>ff :<C-u>CocList -A files<CR>
-nnoremap <silent> <leader>fl :<C-u>CocList -I -A lines<CR>
+nnoremap <silent> <leader>fs :<C-u>CocList -I grep<CR>
+nnoremap <silent> <leader>ff :<C-u>CocList files<CR>
+nnoremap <silent> <leader>fl :<C-u>CocList -I lines<CR>
 nnoremap <silent> <leader>fW :<C-u>CocList windows<CR>
-nnoremap <silent> <leader>fw  :exe 'CocList -I -A --normal --input='.expand('<cword>').' words'<CR>
-nnoremap <silent> <leader>fh :<C-u>CocList -A mru<CR>
+nnoremap <silent> <leader>fw  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+nnoremap <silent> <leader>fh :<C-u>CocList mru<CR>
 nnoremap <silent> <leader>fx :<C-u>CocList commands<CR>
 nnoremap <silent> <leader>fm :<C-u>CocList maps<CR>
-nnoremap <silent> <leader>fC :<C-u>CocList -A --normal commits<CR>
-nnoremap <silent> <leader>fc :<C-u>CocList -A --normal bcommits<CR>
+nnoremap <silent> <leader>fC :<C-u>CocList --normal commits<CR>
+nnoremap <silent> <leader>fc :<C-u>CocList --normal bcommits<CR>
 " }}}
 
 " B: BUFFER RELATED {{{
