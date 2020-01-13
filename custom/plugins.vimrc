@@ -6,9 +6,9 @@ let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
 " Signify {{{
-highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
-highlight SignifySignDelete ctermfg=red    guifg=#ff0000 cterm=NONE gui=NONE
-highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
+highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
+highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
+highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
 " }}}
 
 " PEEKABOO {{{

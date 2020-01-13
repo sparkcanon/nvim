@@ -83,5 +83,6 @@
     "--color", 
     "always", 
     "--follow"
-  ]
+  ],
+  "lists.disabledLists": [ "tags" ]
 }
