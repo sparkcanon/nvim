@@ -45,11 +45,13 @@ xnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selectio
 " Find symbol of current document
 nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Do default action for next item.
-nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
+" nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
+" nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <leader>cR  :<C-u>CocListResume<CR>
+nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
+" Marks
+nnoremap <silent> <leader>cm  :<C-u>CocList marks<CR>
 
 " Remap for do codeAction of current line
 nmap <leader>ca  <Plug>(coc-codeaction)
@@ -64,7 +66,7 @@ nmap <leader>cfc  <Plug>(coc-fix-current)
 vmap <leader>cf  <Plug>(coc-format-selected)
 nmap <leader>cf  <Plug>(coc-format-selected)
 
-nmap <leader>cr <Plug>(coc-rename)<cr>
+nmap <leader>cR <Plug>(coc-rename)<cr>
 " nmap <leader>ci <Plug>(coc-diagnostic-info)
 
 " }}}
