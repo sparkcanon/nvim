@@ -1,14 +1,14 @@
 {
-  "importCost.typescriptExtensions": [
-    "\\.tsx?$"
-  ],
-  "importCost.javascriptExtensions": [
-    "\\.jsx?$",
-    "\\.js?$"
-  ],
-  "importCost.bundleSizeDecoration": "both",
-  "importCost.showCalculatingDecoration": true,
-  "importCost.debug": false,
+  // "importCost.typescriptExtensions": [
+  //  "\\.tsx?$"
+  //],
+  //"importCost.javascriptExtensions": [
+  //  "\\.jsx?$",
+  //  "\\.js?$"
+  //],
+  // "importCost.bundleSizeDecoration": "both",
+  // "importCost.showCalculatingDecoration": true,
+  // "importCost.debug": false,
 
   "typescript.referencesCodeLens.enable": true,
   "tsserver.enableJavascript": true,
@@ -76,5 +76,12 @@
   "coc.preferences.useQuickfixForLocations": true,
 
   "list.previewSplitRight": false,
-  "list.source.files.args": ["--hidden", "--files"]
+  "list.source.files.args": ["--hidden", "--files"],
+  "list.source.grep.args": [
+    "--max-depth=10", 
+    "--hidden", 
+    "--color", 
+    "always", 
+    "--follow"
+  ]
 }

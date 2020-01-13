@@ -107,10 +107,10 @@ function! s:GrepArgs(...)
 endfunction
 
 " Keymapping for grep word under cursor with interactive mode
-nnoremap <silent> <Leader>fS :exe 'CocList -I -A --normal --input='.expand('<cword>').' grep'<CR>
+nnoremap <silent> <space>fS :exe 'CocList -I --normal --input='.expand('<cword>').' grep'<CR>
 
-vnoremap <leader>fS :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
-nnoremap <leader>fq :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+vnoremap <space>fS :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+" nnoremap <leader>fq :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@

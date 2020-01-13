@@ -1,5 +1,6 @@
 ./plugged
 ./session
+session
 .tags
 .DS_Store
 .netrwhist

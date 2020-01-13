@@ -38,7 +38,7 @@ nnoremap <silent> <leader>cc :<C-u>CocList commands<cr>
 " Search workspace symbols
 nnoremap <silent> <leader>cS  :<C-u>CocList -I symbols<cr>
 " Search workspace for word
-nnoremap <silent> <leader>cs :CocSearch <C-R><C-W><CR>
+nnoremap <silent> <leader>cs :<C-u>CocSearch <C-R><C-W><CR>
 " Search workspace for word
 xnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
 " Find symbol of current document
@@ -115,7 +115,7 @@ noremap <Leader>gp :Gpull<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " }}}
 
-"" W: WINDOW RELATED {{{
+" W: WINDOW RELATED {{{
 noremap <Leader>wd :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
 nnoremap <Leader>w <C-w>
@@ -126,30 +126,28 @@ nnoremap <leader>wco :only<cr>
 nnoremap <leader>wcc :cclose<cr>
 " }}}
 
-"" Set working directory
+" Set working directory
 " nnoremap <leader>. :lcd %:p:h<CR>
 
 " F: FINDING RELATED {{{
-nnoremap <silent> <leader>fs :CocList -I -A grep<CR>
-nnoremap <silent> <leader>ff :CocList -A files<CR>
-nnoremap <silent> <leader>fl :CocList -I -A lines<CR>
-nnoremap <silent> <leader>fW :CocList windows<CR>
+nnoremap <silent> <leader>fs :<C-u>CocList -I -A grep<CR>
+nnoremap <silent> <leader>ff :<C-u>CocList -A files<CR>
+nnoremap <silent> <leader>fl :<C-u>CocList -I -A lines<CR>
+nnoremap <silent> <leader>fW :<C-u>CocList windows<CR>
 nnoremap <silent> <leader>fw  :exe 'CocList -I -A --normal --input='.expand('<cword>').' words'<CR>
-nnoremap <silent> <leader>fh :CocList -A mru<CR>
-nnoremap <silent> <leader>fx :CocList commands<CR>
-nnoremap <silent> <leader>fm :CocList maps<CR>
-nnoremap <silent> <leader>fC :CocList -A --normal commits<CR>
-nnoremap <silent> <leader>fc :CocList -A --normal bcommits<CR>
+nnoremap <silent> <leader>fh :<C-u>CocList -A mru<CR>
+nnoremap <silent> <leader>fx :<C-u>CocList commands<CR>
+nnoremap <silent> <leader>fm :<C-u>CocList maps<CR>
+nnoremap <silent> <leader>fC :<C-u>CocList -A --normal commits<CR>
+nnoremap <silent> <leader>fc :<C-u>CocList -A --normal bcommits<CR>
 " }}}
 
-"" B: BUFFER RELATED {{{
+" B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
-" noremap <leader>bc :bd<CR>
 noremap <leader>bd :Bdelete<CR>
-" noremap <leader>q :Bdelete<CR>
 noremap <leader>bD :bufdo :Bdelete<CR>
-noremap <silent> <leader>bf :Buffers<CR>
+noremap <silent> <leader>bf :<C-u>CocList --normal buffers<CR>
 " }}}
 
 " Y: YANKING RELATED {{{
@@ -176,7 +174,7 @@ map z? <Plug>(incsearch-fuzzy-?)
 map zg/ <Plug>(incsearch-fuzzy-stay)
 " }}}
 
-"" TABS {{{
+" TABS {{{
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR><Paste>

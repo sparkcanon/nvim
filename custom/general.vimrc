@@ -21,7 +21,7 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme pencil
+colorscheme badwolf
 syntax enable
 set background=dark 
 set termguicolors
@@ -36,8 +36,6 @@ set expandtab
 
 " UI Config {{{
 set number
-set conceallevel=2
-set concealcursor=nvic
 set ruler
 set cursorline
 set smartindent
@@ -46,7 +44,6 @@ set wrap
 set linebreak
 set wildmenu
 set lazyredraw
-set ttyfast
 set showmatch
 set noshowmode " lightline shows the status not vim
 set showcmd
@@ -94,7 +91,6 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical
-set updatetime=100 " default updatetime 4000ms is not good for async update
 " }}}
 
 set completeopt=menu,menuone,preview,noselect,noinsert

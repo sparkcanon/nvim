@@ -57,33 +57,9 @@ let g:javascript_conceal_arrow_function            = "⇒"
 
 " INDENTLINE {{{
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-" let g:indentLine_concealcursor = 'inc'
-" let g:indentLine_conceallevel = 2
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
 let g:indentLine_setConceal = 0
-" }}}
-
-" EMMET {{{
-let g:user_emmet_settings = {
-  \ 'javascript.jsx': {
-    \ 'extends': 'jsx',
-  \}
-\}
-let g:user_emmet_mode='inv'
-" }}}
-
-" NERDTREE {{{
-let g:NERDTreeHighlightFolders = 1
-let g:NERDTreeHighlightFoldersFullName = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1 " enable folder glyph flag
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:DevIconsEnableFolderExtensionPatternMatching = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-" }}}
-
-" AIRLINE {{{
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
 au FileType elixir let b:AutoPairs = AutoPairsDefine({'do': 'end//n'})
