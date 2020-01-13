@@ -1,10 +1,12 @@
-" LEADER KEY
+" LEADER KEY {{{
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
+" }}}
 
-" SOURCING
+" SOURCING {{{
 nnoremap <leader>fr :source $MYVIMRC<CR>
 nnoremap <leader>fe :edit $MYVIMRC<CR>
+" }}}
 
 " CUSTOM FUNCTIONS {{{
 function! s:get_visual_selection()
@@ -17,9 +19,9 @@ endfunction
 
 " EASY ALIGN {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(LiveEasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(LiveEasyAlign)
 " }}}
 
 " UTILITIES {{{
@@ -54,36 +56,36 @@ nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
 nnoremap <silent> <leader>cm  :<C-u>CocList marks<CR>
 
 " Remap for do codeAction of current line
-nmap <leader>ca  <Plug>(coc-codeaction)
+nmap <silent> <leader>ca  <Plug>(coc-codeaction)
 
-vmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>cA  <Plug>(coc-codeaction-selected)
+vmap <silent> <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>cA  <Plug>(coc-codeaction-selected)
 
 " Fix autofix problem of current line
-nmap <leader>cfc  <Plug>(coc-fix-current)
+nmap <silent> <leader>cfc  <Plug>(coc-fix-current)
 
 " Remap for format selected region
-vmap <leader>cf  <Plug>(coc-format-selected)
-nmap <leader>cf  <Plug>(coc-format-selected)
+vmap <silent> <leader>cf  <Plug>(coc-format-selected)
+nmap <silent> <leader>cf  <Plug>(coc-format-selected)
 
-nmap <leader>cR <Plug>(coc-rename)<cr>
+nmap <silent> <leader>cR <Plug>(coc-rename)<cr>
 " nmap <leader>ci <Plug>(coc-diagnostic-info)
 
 " }}}
 
-" G: CODE SHANANIGANS {{{
+" G: CODE RELATED {{{
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " }}}
 
-" S: REPLACE SHANANIGANS {{{
-nnoremap <Leader>sf :%s/<C-r><C-w>//gc<Left><Left><Left>
-xnoremap <Leader>sf <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
+" S: REPLACE RELATED {{{
+nnoremap <leader>sr :%s/<C-r><C-w>//gc<Left><Left><Left>
+xnoremap <leader>sr <Esc>:%s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc<Left><Left><Left>
 
-nnoremap <leader>sr :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <leader>sr :cfdo %s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
+nnoremap <leader>sc :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
+xnoremap <leader>sc :cfdo %s/<C-R><C-R>=<SID>get_visual_selection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
 " }}}
 
 " SEARCHING GOODIES {{{
@@ -94,7 +96,7 @@ nnoremap * *zvzz
 nnoremap # #zvzz
 " }}}
 
-" Open and close quickfix menu {{{
+" QUICKFIX RELATED {{{
 " Open a quickfix window for last search
 nnoremap <silent> <leader><UP> :execute 'vimgrep /'.@/.'/g %'<CR>
 " nnoremap <leader>cco :cw<CR>
@@ -108,31 +110,31 @@ nnoremap <silent> <LEFT> :cprev<CR>
 " }}}
 
 
-" G: GIT STUFF {{{
-nnoremap <leader>gs :CocList -A --normal gstatus<CR>
+" G: GIT {{{
+nnoremap <silent> <leader>gs :CocList -A --normal gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
-noremap <Leader>gP :Gpush<CR>
-noremap <Leader>gp :Gpull<CR>
+noremap <leader>gP :Gpush<CR>
+noremap <leader>gp :Gpull<CR>
 nnoremap <leader>gf :Gfetch<CR>
 " }}}
 
 " W: WINDOW RELATED {{{
-noremap <Leader>wd :<C-u>split<CR>
-noremap <Leader>wv :<C-u>vsplit<CR>
-nnoremap <Leader>w <C-w>
-nnoremap <leader>wm :WinResizerStartFocus<CR>
-nnoremap <leader>wM :WinResizerStartMove<CR>
-nnoremap <leader>we :WinResizerStartResize<CR>
-nnoremap <leader>wco :only<cr>
-nnoremap <leader>wcc :cclose<cr>
+noremap <leader>wd :<C-u>split<CR>
+noremap <leader>wv :<C-u>vsplit<CR>
+nnoremap <leader>w <C-w>
+nnoremap <silent> <leader>wm :WinResizerStartFocus<CR>
+nnoremap <silent> <leader>wM :WinResizerStartMove<CR>
+nnoremap <silent>  <leader>we :WinResizerStartResize<CR>
+nnoremap <silent> <leader>wco :only<cr>
+nnoremap <silent> <leader>wcc :cclose<cr>
 " }}}
 
 " Set working directory
 " nnoremap <leader>. :lcd %:p:h<CR>
 
-" F: FINDING RELATED {{{
+" F: FINDING SOMETHING {{{
 nnoremap <silent> <leader>fs :<C-u>CocList -I grep<CR>
 nnoremap <silent> <leader>ff :<C-u>CocList files<CR>
 nnoremap <silent> <leader>fl :<C-u>CocList -I lines<CR>
@@ -141,8 +143,8 @@ nnoremap <silent> <leader>fw  :exe 'CocList -I --normal --input='.expand('<cword
 nnoremap <silent> <leader>fh :<C-u>CocList mru<CR>
 nnoremap <silent> <leader>fx :<C-u>CocList commands<CR>
 nnoremap <silent> <leader>fm :<C-u>CocList maps<CR>
-nnoremap <silent> <leader>fC :<C-u>CocList --normal commits<CR>
-nnoremap <silent> <leader>fc :<C-u>CocList --normal bcommits<CR>
+nnoremap <silent> <leader>fc :<C-u>CocList --normal commits<CR>
+nnoremap <silent> <leader>fb :<C-u>CocList --normal bcommits<CR>
 " }}}
 
 " B: BUFFER RELATED {{{
@@ -155,15 +157,15 @@ noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
 
 " Y: YANKING RELATED {{{
 " relative path  (src/foo.txt)
-nnoremap <leader>yf :let @*=expand("%")<CR>
+nnoremap <leader>yr :let @*=expand("%")<CR>
 " absolute path  (/something/src/foo.txt)
-nnoremap <leader>yF :let @*=expand("%:p")<CR>
+nnoremap <leader>yR :let @*=expand("%:p")<CR>
 " filename       (foo.txt)
-nnoremap <leader>yt :let @*=expand("%:t")<CR>
+nnoremap <leader>yf :let @*=expand("%:t")<CR>
 " directory name (/something/src)
-nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
+nnoremap <leader>yd :let @*=expand("%:p:h")<CR>
 " Opens an edit command with the path of the currently edited file filled in
-noremap <Leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
 

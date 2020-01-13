@@ -37,7 +37,7 @@ Plug 'markonm/traces.vim'                                         " Highlights d
 
 " SYNTAX STUFF & COMPLETETIONS {{{
 Plug 'othree/yajs.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Best autocomplete engine ever
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " Coc is an intellisense engine for Vim/Neovim
 " }}}
 
 " FLUTTER {{{
@@ -47,8 +47,6 @@ Plug 'natebosch/vim-lsc-dart'                                     " Dart support
 " }}}
 
 " FILE EXPLORING {{{
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
-" Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
 Plug 'tpope/vim-vinegar'                                          " yet another file explorer
 " }}}
 
@@ -77,6 +75,9 @@ Plug 'mhinz/vim-signify'
 " EXTRA {{{
 " Plug 'vim-airline/vim-airline'         " Fancy status line
 " Plug 'vim-airline/vim-airline-themes'  " Themes for the fancy status line
+" Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
+" Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
 " }}}
 
 call plug#end()
