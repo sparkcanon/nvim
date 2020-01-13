@@ -4,6 +4,7 @@ let g:maplocalleader = ','
 
 " SOURCING
 nnoremap <leader>fr :source $MYVIMRC<CR>
+nnoremap <leader>fe :edit $MYVIMRC<CR>
 
 " CUSTOM FUNCTIONS {{{
 function! s:get_visual_selection()
@@ -147,7 +148,7 @@ noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :bufdo :Bdelete<CR>
-noremap <silent> <leader>bf :<C-u>CocList --normal buffers<CR>
+noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
 " }}}
 
 " Y: YANKING RELATED {{{

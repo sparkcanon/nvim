@@ -5,6 +5,12 @@ let g:twiggy_local_branch_sort = 'mru'
 let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
+" Signify {{{
+highlight SignifySignAdd    ctermfg=green  guifg=#00ff00 cterm=NONE gui=NONE
+highlight SignifySignDelete ctermfg=red    guifg=#ff0000 cterm=NONE gui=NONE
+highlight SignifySignChange ctermfg=yellow guifg=#ffff00 cterm=NONE gui=NONE
+" }}}
+
 " PEEKABOO {{{
 let g:peekaboo_window = "vert bo 40new"
 " }}}

@@ -14,9 +14,7 @@ Plug 'simeji/winresizer'                                          " Quickly resi
 " }}}
 
 " THEMES {{{
-Plug 'chriskempson/base16-vim'                                    " Collection of base16 themes
-Plug 'sjl/badwolf'
-" Plug 'flazz/vim-colorschemes'                                   " Collection of themes
+Plug 'sjl/badwolf'                                                " Badwolf theme
 " }}}
 
 " UTILITIES {{{
@@ -69,13 +67,11 @@ Plug 'heavenshell/vim-jsdoc'                                      " Javascript d
 " STATUS LINE {{{
 Plug 'itchyny/lightline.vim'                                      " Simpler fancy status line
 Plug '844196/lightline-badwolf.vim'
-Plug 'sainnhe/lightline_foobar.vim'
-" Plug 'mike-hearn/base16-vim-lightline'                          " Themes for the Simpler fancy status line
 " }}}
 
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                         " Best git plugin for vim
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 " }}}
 
 " EXTRA {{{
