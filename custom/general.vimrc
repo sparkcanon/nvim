@@ -21,7 +21,7 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme landscape
+colorscheme vividchalk
 syntax enable
 set background=dark 
 set termguicolors
