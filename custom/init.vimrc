@@ -73,12 +73,11 @@ Plug 'mhinz/vim-signify'
 " }}}
 
 " EXTRA {{{
-" Plug 'vim-airline/vim-airline'         " Fancy status line
-" Plug 'vim-airline/vim-airline-themes'  " Themes for the fancy status line
 " Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
 " Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
 " Plug 'godlygeek/tabular'
+" Plug 'lifepillar/vim-gruvbox8'                                    " A simplified and optimized Gruvbox colorscheme for Vim 
 " }}}
 
 call plug#end()

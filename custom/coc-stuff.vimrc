@@ -129,7 +129,7 @@ endfunction
 
 " }}}
 
-let g:coc_global_extension = [
+let g:coc_global_extensions = [
       \   'coc-git',
       \   'coc-yank',
       \   'coc-vimlsp',
