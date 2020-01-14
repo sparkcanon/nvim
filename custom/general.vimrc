@@ -21,15 +21,15 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme badwolf
+colorscheme landscape
 syntax enable
 set background=dark 
 set termguicolors
+hi SignColumn guibg=clear-background
 " }}}
 
 " SPACES AND TABS {{{
 set tabstop=2
-set softtabstop=2
 set shiftwidth=2
 set expandtab
 " }}}
@@ -37,6 +37,7 @@ set expandtab
 " UI Config {{{
 set number
 set ruler
+set conceallevel =2
 set cursorline
 set smartindent
 set autoindent

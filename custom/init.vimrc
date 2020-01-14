@@ -14,7 +14,7 @@ Plug 'simeji/winresizer'                                          " Quickly resi
 " }}}
 
 " THEMES {{{
-Plug 'sjl/badwolf'                                                " Badwolf theme
+Plug 'flazz/vim-colorschemes'                                     " one colorscheme pack to rule them all! 
 " }}}
 
 " UTILITIES {{{
@@ -78,6 +78,7 @@ Plug 'mhinz/vim-signify'
 " Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder base
 " Plug 'junegunn/fzf.vim'                                           " Fuzzy finder for EVERYTHING
+" Plug 'godlygeek/tabular'
 " }}}
 
 call plug#end()

@@ -1,6 +1,5 @@
-let g:lightline_foobar_bold = 1
 let g:lightline = {
-      \ 'colorscheme': 'badwolf',
+      \ 'colorscheme': 'landscape',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitcocstatusoverall', 'readonly', 'filename', 'modified', 'cocstatus' ] ],
