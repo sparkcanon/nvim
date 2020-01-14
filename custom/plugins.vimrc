@@ -5,6 +5,11 @@ let g:twiggy_local_branch_sort = 'mru'
 let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
+" NETRW {{{
+let g:netrw_liststyle = 3
+let g:netrw_sort_sequence = '[\/]$,*'
+" }}}
+
 " Signify {{{
 highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
 highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
