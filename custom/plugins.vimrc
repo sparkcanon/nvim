@@ -10,12 +10,6 @@ let g:netrw_liststyle = 3
 let g:netrw_sort_sequence = '[\/]$,*'
 " }}}
 
-" Signify {{{
-highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
-highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
-highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
-" }}}
-
 " PEEKABOO {{{
 let g:peekaboo_window = "vert bo 40new"
 " }}}

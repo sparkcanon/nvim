@@ -32,15 +32,15 @@ let g:lightline = {
       \ },
       \ }
 
-function! LightlineFileformat()
+function! LightlineFileformat() abort
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
-function! LightlineCocStatus()
+function! LightlineCocStatus() abort
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
-function! LightlineFiletype()
+function! LightlineFiletype() abort
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 

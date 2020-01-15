@@ -1,5 +1,8 @@
 " Update a buffer's contents on focus if it changed outside of Vim. {{{
-au FocusGained,BufEnter * :checktime
+augroup UpdateBufferOnFocus
+    autocmd!
+    au FocusGained,BufEnter * :checktime
+augroup END
 " }}}
 
 "" STATUS BAR {{{
@@ -9,7 +12,10 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " RESIZE {{{
 " Auto-resize splits when Vim gets resized.
-autocmd VimResized * wincmd =
+augroup ResizeSplitsOnVimResize
+    autocmd!
+    autocmd VimResized * wincmd =
+augroup END
 " }}}
 
 " Reduce delay when switching between modes. {{{
@@ -21,16 +27,23 @@ augroup END
 " }}}
 
 " COLORS AND STYLING {{{
-colorscheme vividchalk
+augroup HighlightOverwrite
+    autocmd!
+    autocmd ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
+                \ | highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
+                \ | highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
+                \ | hi SignColumn guibg=clear-background
+augroup END
+colorscheme landscape
 syntax enable
 set background=dark 
 set termguicolors
-hi SignColumn guibg=clear-background
 " }}}
 
 " SPACES AND TABS {{{
-set tabstop=2
-set shiftwidth=2
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 " }}}
 

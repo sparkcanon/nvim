@@ -45,7 +45,7 @@ augroup END
 "   \   <bang>0)
 
 " ripgrep - ignore the files defined in ignore files (.gitignore...) Rgi
-function! Fzf_find_func_rg(query, fullscreen)
+function! Fzf_find_func_rg(query, fullscreen) abort
   let command_fmt = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')
@@ -53,7 +53,7 @@ function! Fzf_find_func_rg(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec, 'right:40%'), a:fullscreen)
 endfunction
 
-function! Fzf_example_standard_find(query, fullscreen)
+function! Fzf_example_standard_find(query, fullscreen) abort
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
   let initial_command = printf(command_fmt, shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}')

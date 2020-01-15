@@ -35,7 +35,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
+function! s:show_documentation() abort
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
@@ -44,7 +44,10 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup HighlightSymOnCursor
+    autocmd!
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 augroup mygroup
   autocmd!
@@ -100,7 +103,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " grep word under cursor
 command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
 
-function! s:GrepArgs(...)
+function! s:GrepArgs(...) abort
   let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
         \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
   return join(list, "\n")
@@ -112,7 +115,7 @@ nnoremap <silent> <space>fS :exe 'CocList -I --normal --input='.expand('<cword>'
 vnoremap <space>fS :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 " nnoremap <leader>fq :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
 
-function! s:GrepFromSelected(type)
+function! s:GrepFromSelected(type) abort
   let saved_unnamed_register = @@
   if a:type ==# 'v'
     normal! `<v`>y
