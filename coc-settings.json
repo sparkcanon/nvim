@@ -84,5 +84,6 @@
     "always", 
     "--follow"
   ],
-  "lists.disabledLists": [ "tags" ]
+  "lists.disabledLists": [ "tags" ],
+  "list.autoResize": true
 }

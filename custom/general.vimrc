@@ -34,7 +34,7 @@ augroup HighlightOverwrite
                 \ | highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
                 \ | hi SignColumn guibg=clear-background
 augroup END
-colorscheme landscape
+colorscheme vividchalk
 syntax enable
 set background=dark 
 set termguicolors
@@ -90,6 +90,11 @@ set ignorecase
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
+set foldmethod=indent
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let vimsyn_folding='af'       " Vim script
 " }}}
 
 " UTILITIES {{{
