@@ -33,6 +33,7 @@ Plug 'tpope/vim-surround'                                         " Add quotes &
 Plug 'tpope/vim-commentary'                                       " smart comments
 Plug 'jiangmiao/auto-pairs'
 Plug 'markonm/traces.vim'                                         " Highlights during substitution
+Plug 'tpope/vim-eunuch'                                           " Helpers for UNIX
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{
