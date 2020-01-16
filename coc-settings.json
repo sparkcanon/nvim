@@ -62,7 +62,7 @@
   "coc.preferences.rootPatterns": [".git", ".vim", ".vscode"],
   "coc.preferences.snippets.enable": true,
   "coc.preferences.bracketEnterImprove": true,
-  "coc.preferences.enableFloatHighlight": true,
+  "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",

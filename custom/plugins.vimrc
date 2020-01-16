@@ -6,8 +6,13 @@ let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
 " NETRW {{{
-let g:netrw_liststyle = 3
-let g:netrw_sort_sequence = '[\/]$,*'
+" let g:netrw_liststyle = 3
+" let g:netrw_sort_sequence = '[\/]$,*'
+let g:loaded_netrwPlugin = 1 " disable netrw
+" }}}
+
+" Dirvish {{{
+let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
 " }}}
 
 " PEEKABOO {{{

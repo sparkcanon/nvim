@@ -128,6 +128,7 @@ nnoremap <silent> <leader>gac :exe 'G stash clear'<CR>
 noremap <leader>wd :<C-u>split<CR>
 noremap <leader>wv :<C-u>vsplit<CR>
 nnoremap <leader>w <C-w>
+nnoremap <silent> <leader>wn :exe input('Window number: ').'wincmd w'<CR>
 nnoremap <silent> <leader>wm :WinResizerStartFocus<CR>
 nnoremap <silent> <leader>wM :WinResizerStartMove<CR>
 nnoremap <silent>  <leader>we :WinResizerStartResize<CR>
@@ -157,6 +158,7 @@ noremap <leader>bn :bn<CR>
 noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :bufdo :Bdelete<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
+tnoremap <Esc> <C-\><C-n> :Bdelete!<CR>
 " }}}
 
 " Y: YANKING RELATED {{{

@@ -34,7 +34,7 @@ augroup HighlightOverwrite
                 \ | highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
                 \ | hi SignColumn guibg=clear-background
 augroup END
-colorscheme vividchalk
+colorscheme landscape
 syntax enable
 set background=dark 
 set termguicolors

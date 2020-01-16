@@ -47,7 +47,8 @@ Plug 'natebosch/vim-lsc-dart'                                     " Dart support
 " }}}
 
 " FILE EXPLORING {{{
-Plug 'tpope/vim-vinegar'                                          " yet another file explorer
+Plug 'justinmk/vim-dirvish'                                       " Directory viewer for Vim ⚡️
+Plug 'kristijanhusak/vim-dirvish-git'                             " Git support for dirvish.vim 
 " }}}
 
 " SNIPPETS {{{
@@ -64,7 +65,6 @@ Plug 'heavenshell/vim-jsdoc'                                      " Javascript d
 
 " STATUS LINE {{{
 Plug 'itchyny/lightline.vim'                                      " Simpler fancy status line
-Plug '844196/lightline-badwolf.vim'
 " }}}
 
 " GIT STUFF {{{
