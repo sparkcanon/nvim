@@ -26,13 +26,6 @@ augroup MakeUnavailableDir
 augroup END
 " }}}
 
-" EASY ALIGN {{{
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(LiveEasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(LiveEasyAlign)
-" }}}
-
 " UTILITIES {{{
 nnoremap ; :
 nnoremap : ;
