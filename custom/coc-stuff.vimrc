@@ -138,7 +138,6 @@ let g:coc_global_extensions = [
       \     'coc-clock',
       \     'coc-webpack',
       \     'coc-git',
-      \     'coc-github',
       \     'coc-eslint',
       \     'coc-highlight',
       \     'coc-vimlsp',

@@ -90,11 +90,6 @@ set ignorecase
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
-set foldmethod=indent
-set foldlevelstart=1
-
-let javaScript_fold=1         " JavaScript
-let vimsyn_folding='af'       " Vim script
 " }}}
 
 " UTILITIES {{{

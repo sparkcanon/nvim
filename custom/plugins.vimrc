@@ -11,6 +11,10 @@ let g:twiggy_remote_branch_sort = 'date'
 let g:loaded_netrwPlugin = 1 " disable netrw
 " }}}
 
+" FUGITIVE {{{
+let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
+" }}}
+
 " Dirvish {{{
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r'
 " }}}

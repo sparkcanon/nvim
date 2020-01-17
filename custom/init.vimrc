@@ -70,6 +70,7 @@ Plug 'itchyny/lightline.vim'                                      " Simpler fanc
 
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                         " Best git plugin for vim
+Plug 'tpope/vim-rhubarb'                                          " GitHub extension for fugitive.vim 
 Plug 'mhinz/vim-signify'
 " }}}
 
