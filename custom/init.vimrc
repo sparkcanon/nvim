@@ -23,14 +23,14 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'moll/vim-bbye'
 Plug 'junegunn/vim-slash'                                                  " Remove highlight
 Plug 'tommcdo/vim-lion'                                                    " 🌻 A Vim alignment plugin
-Plug 'junegunn/vim-peekaboo'                                               " Extends \"
+Plug 'junegunn/vim-peekaboo'                                               " 👀 \" / @ / CTRL-R 
 Plug 'Yggdroot/indentLine'                                                 " Line that show indentation
-Plug 'airblade/vim-rooter'                                                 " Change working directory
+Plug 'airblade/vim-rooter'                                                 " Changes Vim working directory to project root
 Plug 'tpope/vim-speeddating'                                               " increment/decrementing
 Plug 'tpope/vim-repeat'                                                    " repeat any command
 Plug 'shime/vim-livedown'                                                  " Live markdown server
-Plug 'tpope/vim-surround'                                                  " Add quotes & stuff around words/sentences
-Plug 'tpope/vim-commentary'                                                " smart comments
+Plug 'tpope/vim-surround'                                                  " quoting/parenthesizing made simple
+Plug 'tpope/vim-commentary'                                                " comment stuff out 
 Plug 'jiangmiao/auto-pairs'
 Plug 'markonm/traces.vim'                                                  " Highlights during substitution
 Plug 'tpope/vim-eunuch'                                                    " Helpers for UNIX
@@ -72,7 +72,7 @@ Plug 'itchyny/lightline.vim'                                               " Sim
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                                  " Best git plugin for vim
 Plug 'tpope/vim-rhubarb'                                                   " GitHub extension for fugitive.vim
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify'                                                   " ➕ Show a diff using Vim its sign column. 
 " }}}
 
 " EXTRA {{{

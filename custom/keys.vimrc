@@ -160,8 +160,12 @@ noremap <leader>bn :bn<CR>
 noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :bufdo :Bdelete<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
-tnoremap <Esc> <C-\><C-n> :Bdelete!<CR>
 noremap <leader>bQ :%bd\|e#<CR>
+" }}}
+
+" TERMINAL {{{
+tnoremap <Esc> <C-\><C-n>
+nnoremap <silent> <leader>te :terminal<CR>
 " }}}
 
 " Y: YANKING RELATED {{{

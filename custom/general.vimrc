@@ -5,6 +5,13 @@ augroup UpdateBufferOnFocus
 augroup END
 " }}}
 
+" TERMINAL {{{
+augroup TerminalRelated
+    autocmd!
+    autocmd TermOpen * startinsert
+augroup END
+" }}}
+
 "" STATUS BAR {{{
 set laststatus=2
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
