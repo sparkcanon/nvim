@@ -15,6 +15,15 @@ function! s:get_visual_selection()
    let [line2,col2] = getpos("'>")[1:2]
    return l[col1 - 1: col2 - 1]
 endfunction
+
+" CREATE A NEW DIR IF IT DOESNT EXISTS
+augroup MakeUnavailableDir
+    autocmd!
+    autocmd BufWritePre *
+        \ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
+            \ call mkdir(expand('<afile>:h'), 'p') |
+        \ endif
+augroup END
 " }}}
 
 " EASY ALIGN {{{
@@ -47,9 +56,9 @@ xnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selectio
 " Find symbol of current document
 nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Do default action for next item.
-" nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
+nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
 " Do default action for previous item.
-" nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
+nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
 " Marks
@@ -62,7 +71,7 @@ vmap <silent> <leader>ca  <Plug>(coc-codeaction-selected)
 nmap <silent> <leader>cA  <Plug>(coc-codeaction-selected)
 
 " Fix autofix problem of current line
-nmap <silent> <leader>cfc  <Plug>(coc-fix-current)
+nmap <silent> <leader>cq  <Plug>(coc-fix-current)
 
 " Remap for format selected region
 vmap <silent> <leader>cf  <Plug>(coc-format-selected)
@@ -159,6 +168,7 @@ noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :bufdo :Bdelete<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
 tnoremap <Esc> <C-\><C-n> :Bdelete!<CR>
+noremap <leader>bQ :%bd\|e#<CR>
 " }}}
 
 " Y: YANKING RELATED {{{
