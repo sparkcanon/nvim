@@ -26,6 +26,11 @@ augroup MakeUnavailableDir
 augroup END
 " }}}
 
+" TABULARIZE {{{
+xnoremap ga :Tabularize /
+nnoremap ga :Tabularize /
+" }}}
+
 " UTILITIES {{{
 nnoremap ; :
 nnoremap : ;
