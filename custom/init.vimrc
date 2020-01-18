@@ -11,6 +11,7 @@ Plug 'easymotion/vim-easymotion'                                           " Qui
 Plug 'haya14busa/incsearch.vim'                                            " In buffer search on steroids - fuzzy
 Plug 'haya14busa/incsearch-fuzzy.vim'                                      " In buffer search on steroids - fuzzy
 Plug 'simeji/winresizer'                                                   " Quickly resize splits/windows
+Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys 
 " }}}
 
 " THEMES {{{
@@ -38,7 +39,7 @@ Plug 'vim-scripts/VisIncr'                                                 " Inc
 
 " SHELL {{{
 Plug 'tpope/vim-eunuch'                                                    " Helpers for UNIX
-Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'                                                  " Asynchronous build and test dispatcher
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{

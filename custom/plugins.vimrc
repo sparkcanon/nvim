@@ -5,6 +5,12 @@ let g:twiggy_local_branch_sort = 'mru'
 let g:twiggy_remote_branch_sort = 'date'
 " }}}
 
+" HARDTIME {{{
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
+let g:hardtime_ignore_quickfix = 1
+" }}}
+
 " NETRW {{{
 " let g:netrw_liststyle = 3
 " let g:netrw_sort_sequence = '[\/]$,*'
