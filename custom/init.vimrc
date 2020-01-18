@@ -33,8 +33,12 @@ Plug 'tpope/vim-surround'                                                  " quo
 Plug 'tpope/vim-commentary'                                                " comment stuff out 
 Plug 'jiangmiao/auto-pairs'
 Plug 'markonm/traces.vim'                                                  " Highlights during substitution
-Plug 'tpope/vim-eunuch'                                                    " Helpers for UNIX
 Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
+" }}}
+
+" SHELL {{{
+Plug 'tpope/vim-eunuch'                                                    " Helpers for UNIX
+Plug 'tpope/vim-dispatch'
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{
