@@ -48,10 +48,7 @@ set termguicolors
 " }}}
 
 " SPACES AND TABS {{{
-set tabstop=8
 set softtabstop=4
-set shiftwidth=4
-set expandtab
 " }}}
 
 " UI Config {{{
