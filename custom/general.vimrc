@@ -109,6 +109,7 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical
+set inccommand=split
 " }}}
 
 set completeopt=menu,menuone,preview,noselect,noinsert

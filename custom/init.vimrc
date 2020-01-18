@@ -31,7 +31,6 @@ Plug 'tpope/vim-surround'                                                  " quo
 Plug 'tpope/vim-commentary'                                                " comment stuff out
 Plug 'godlygeek/tabular'                                                   " 🌻 A Vim alignment plugin
 Plug 'jiangmiao/auto-pairs'
-Plug 'markonm/traces.vim'                                                  " Highlights during substitution
 Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
 Plug 'ciaranm/detectindent'                                                " Vim script for automatically detecting indent settings
 " }}}
