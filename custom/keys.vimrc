@@ -127,8 +127,8 @@ nnoremap <silent> <leader>gac :exe 'G stash clear'<CR>
 " }}}
 
 " W: WINDOW RELATED {{{
-noremap <leader>wd :<C-u>split<CR>
-noremap <leader>wv :<C-u>vsplit<CR>
+noremap <leader>wv :<C-u>vnew<CR>
+noremap <leader>wh :<C-u>new<CR>
 nnoremap <leader>w <C-w>
 nnoremap <silent> <leader>wn :exe input('Window number: ').'wincmd w'<CR>
 nnoremap <silent> <leader>wm :WinResizerStartFocus<CR>
@@ -160,7 +160,7 @@ noremap <leader>bn :bn<CR>
 noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :bufdo :Bdelete<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
-noremap <leader>bQ :%bd\|e#<CR>
+noremap <leader>bQ :%bd!\|e#<CR>
 " }}}
 
 " TERMINAL {{{
