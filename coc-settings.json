@@ -75,12 +75,11 @@
   ],
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.useQuickfixForLocations": true,
-
   "list.previewSplitRight": true,
-  "list.source.files.args": ["--hidden", "--files"],
+  "list.source.files.args": ["--color", "never", "--files"], // dont know what's really going on here
+  "list.source.grep.command": "rg",
   "list.source.grep.args": [
     "--max-depth=10", 
-    "--hidden", 
     "--color", 
     "always", 
     "--follow"
