@@ -9,9 +9,10 @@ let g:twiggy_remote_branch_sort    = 'date'
 let g:hardtime_default_on = 1
 let g:hardtime_showmsg = 1
 let g:hardtime_ignore_quickfix = 1
+let g:hardtime_maxcount = 2
 " }}}
 
-" NETRW {{{
+" FILE MANAGER {{{
 " let g:netrw_liststyle = 3
 " let g:netrw_sort_sequence = '[\/]$,*'
 let g:loaded_netrwPlugin = 1 " disable netrw

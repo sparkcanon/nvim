@@ -3,6 +3,11 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 " }}}
 
+" DIRVISH {{{
+" Hardtime blocks - by default so mapping it to _
+nmap _ <Plug>(dirvish_up)
+" }}}
+
 " INCSEARCH COMMANDS {{{
 " allows incsearch highlighting for range commands
 cnoremap $t <CR>:t''<CR>
@@ -45,7 +50,7 @@ nnoremap ; :
 nnoremap : ;
 nnoremap / /\v
 inoremap kj <Esc>
-nnoremap <leader>, :nohlsearch<CR>
+nnoremap <leader>/ :nohlsearch<CR>
 " }}}
 
 " C: COC {{{
