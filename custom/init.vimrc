@@ -6,12 +6,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" MOVEMENT {{{
-Plug 'easymotion/vim-easymotion'                                           " Quickly move throughout the buffer
+" HIGHLIGHT {{{
 Plug 'haya14busa/incsearch.vim'                                            " In buffer search on steroids - fuzzy
 Plug 'haya14busa/incsearch-fuzzy.vim'                                      " In buffer search on steroids - fuzzy
-Plug 'simeji/winresizer'                                                   " Quickly resize splits/windows
-Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 " }}}
 
 " THEMES {{{
@@ -33,6 +30,9 @@ Plug 'godlygeek/tabular'                                                   " ðŸŒ
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
 Plug 'ciaranm/detectindent'                                                " Vim script for automatically detecting indent settings
+Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
+Plug 'simeji/winresizer'                                                   " Quickly resize splits/windows
+Plug 'tpope/vim-abolish', { 'on': 'S' }
 " }}}
 
 " SHELL {{{

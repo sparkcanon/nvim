@@ -58,6 +58,7 @@
   "suggest.triggerAfterInsertEnter": true,
   "suggest.floatEnable": true,
 
+  "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.rootPatterns": [".git", ".vim", ".vscode"],
   "coc.preferences.snippets.enable": true,

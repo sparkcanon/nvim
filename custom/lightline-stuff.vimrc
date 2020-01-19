@@ -8,8 +8,6 @@ let g:lightline = {
       \   ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'fileformat': 'LightlineFileformat',
       \   'filetype': 'LightlineFiletype',
       \   'cocstatus': 'coc#status',
       \   'gitcocstatusoverall': 'LightlineGitStatusOverall'
@@ -51,3 +49,4 @@ function! LightlineGitStatusOverall() abort
 endfunction
 
 " 'filename': '%{winnr()} | %t'
+" \   'gitbranch': 'fugitive#head',

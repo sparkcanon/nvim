@@ -3,6 +3,15 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 " }}}
 
+" INCSEARCH COMMANDS {{{
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``
+" }}}
+
 " SOURCING {{{
 nnoremap <leader>fr :source $MYVIMRC<CR>
 nnoremap <leader>fe :edit $MYVIMRC<CR>
@@ -164,7 +173,7 @@ noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 noremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
-noremap <leader>bD :%bd!\|e#<CR>
+noremap <silent> <leader>bq :%bd!\|e#<CR>
 " }}}
 
 " TERMINAL {{{

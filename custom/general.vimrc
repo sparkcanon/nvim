@@ -47,15 +47,12 @@ set background=dark
 set termguicolors
 " }}}
 
-" SPACES AND TABS {{{
-set softtabstop=4
-" }}}
-
 " UI Config {{{
+set softtabstop=4
 set number
 set ruler
 set conceallevel =2
-set cursorline
+set cursorline " line highlighting the cursor
 set smartindent
 set autoindent
 set wrap
@@ -109,7 +106,7 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical
-set inccommand=split
+set inccommand=split " highlights as you substitute
 " }}}
 
 set completeopt=menu,menuone,preview,noselect,noinsert
