@@ -27,12 +27,11 @@ Plug 'shime/vim-livedown', { 'on': 'LivedownPreview' }                     " Liv
 Plug 'tpope/vim-surround'                                                  " quoting/parenthesizing made simple
 Plug 'tpope/vim-commentary'                                                " comment stuff out
 Plug 'godlygeek/tabular'                                                   " 🌻 A Vim alignment plugin
-Plug 'jiangmiao/auto-pairs'
 Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
 Plug 'ciaranm/detectindent'                                                " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 Plug 'simeji/winresizer'                                                   " Quickly resize splits/windows
-Plug 'tpope/vim-abolish', { 'on': 'S' }
+Plug 'tpope/vim-abolish'
 " }}}
 
 " SHELL {{{

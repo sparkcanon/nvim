@@ -1,15 +1,13 @@
-" Update a buffer's contents on focus if it changed outside of Vim. {{{
-augroup UpdateBufferOnFocus
-    autocmd!
-    au FocusGained,BufEnter * :checktime
+augroup GeneralSettings
+	autocmd!
 augroup END
+
+" Update a buffer's contents on focus if it changed outside of Vim. {{{
+au GeneralSettings FocusGained,BufEnter * :checktime
 " }}}
 
 " TERMINAL {{{
-augroup TerminalRelated
-    autocmd!
-    autocmd TermOpen * startinsert
-augroup END
+au GeneralSettings TermOpen * startinsert
 " }}}
 
 "" STATUS BAR {{{
@@ -19,28 +17,19 @@ set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " RESIZE {{{
 " Auto-resize splits when Vim gets resized.
-augroup ResizeSplitsOnVimResize
-    autocmd!
-    autocmd VimResized * wincmd =
-augroup END
+au GeneralSettings VimResized * wincmd =
 " }}}
 
 " Reduce delay when switching between modes. {{{
-augroup NoInsertKeycodes
-  autocmd!
-  autocmd InsertEnter * set ttimeoutlen=0
-  autocmd InsertLeave * set ttimeoutlen=50
-augroup END
+au GeneralSettings InsertEnter * set ttimeoutlen=0
+au GeneralSettings InsertLeave * set ttimeoutlen=50
 " }}}
 
 " COLORS AND STYLING {{{
-augroup HighlightOverwrite
-    autocmd!
-    autocmd ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
-                \ | highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
-                \ | highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
-                \ | hi SignColumn guibg=clear-background
-augroup END
+au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
+	\ | highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
+	\ | highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
+	\ | hi SignColumn guibg=clear-background
 colorscheme landscape
 syntax enable
 set background=dark 
@@ -63,8 +52,12 @@ set showmatch
 set noshowmode " lightline shows the status not vim
 set showcmd
 
+" Enable persistent undo so that undo history persists across vim sessions {{{
+set undofile
+set undodir=~/.vim/undo
+" }}}
+
 " FONT {{{
-let g:one_allow_italics = 1
 highlight Comment cterm=italic
 hi link xmlEndTag xmlTag
 hi htmlArg gui=italic
@@ -82,7 +75,7 @@ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
 " SEARCHING {{{
 set incsearch
-set hlsearch
+" set hlsearch " Focus on the cursor when highlighting
 set smartcase
 set ignorecase
 " }}}

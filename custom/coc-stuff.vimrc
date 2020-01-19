@@ -154,5 +154,4 @@ let g:coc_global_extensions = [
       \     'coc-css',
       \     'coc-tslint-plugin',
       \     'coc-import-cost',
-      \     'coc-tabnine'
       \     ]

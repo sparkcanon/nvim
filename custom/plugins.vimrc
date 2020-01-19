@@ -33,12 +33,6 @@ let g:peekaboo_window = "vert bo 40new"
 let g:lsc_auto_map = v:true
 " }}}
 
-" UNDO VISUALIZER {{{
-" Enable persistent undo so that undo history persists across vim sessions
-set undofile
-set undodir=~/.vim/undo
-" }}}
-
 " VIM GREPPER {{{
 let g:grepper={}
 let g:grepper.tools=["rg"]
