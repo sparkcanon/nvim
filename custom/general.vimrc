@@ -104,7 +104,6 @@ set inccommand=split " highlights as you substitute
 
 set completeopt=menu,menuone,preview,noselect,noinsert
 if executable('rg') 
-    " Note we extract the column as well as the file and line number
-    set grepprg=ag\ --nogroup\ --nocolor\ --column\ --vimgrep
+	" Note we extract the column as well as the file and line number
+	set grepprg=ag\ --nogroup\ --nocolor\ --column\ --vimgrep
 endif
-
