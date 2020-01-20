@@ -8,7 +8,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " THEMES {{{
-Plug 'reedes/vim-colors-pencil'
+Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
 " }}}
 
 " UTILITIES {{{
