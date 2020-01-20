@@ -30,7 +30,8 @@ au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guif
 	\ | highlight SignifySignDelete ctermfg=red    guifg=red cterm=NONE gui=NONE
 	\ | highlight SignifySignChange ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 	\ | hi SignColumn guibg=clear-background
-colorscheme landscape
+	\ | hi CursorLine guibg=#4c4c4c
+colorscheme pencil
 syntax enable
 set background=dark 
 set termguicolors
@@ -41,7 +42,6 @@ set softtabstop=4
 set number
 set ruler
 set conceallevel =2
-set cursorline " line highlighting the cursor
 set smartindent
 set autoindent
 set wrap

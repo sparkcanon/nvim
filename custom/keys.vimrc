@@ -47,6 +47,8 @@ nnoremap / /\v
 inoremap kj <Esc>
 cnoremap kj <Esc>
 nnoremap <leader>/ :nohlsearch<CR>
+nnoremap <leader>§ :set background=light<CR>
+nnoremap <leader>± :set background=dark<CR>
 " }}}
 
 " C: COC {{{
