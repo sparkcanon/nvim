@@ -126,7 +126,6 @@ endfunction
 " Installs all the below plugins on fresh neovim install as the coc server
 " starts
 let g:coc_global_extensions = [
-      \     'coc-clock',
       \     'coc-webpack',
       \     'coc-git',
       \     'coc-eslint',

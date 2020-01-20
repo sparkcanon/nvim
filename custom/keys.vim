@@ -126,7 +126,6 @@ nnoremap <silent> <RIGHT> :cnext<CR>
 nnoremap <silent> <LEFT> :cprev<CR>
 " }}}
 
-
 " G: GIT {{{
 nnoremap <silent> <leader>gs :CocList -A --normal gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
