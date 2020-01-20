@@ -7,11 +7,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" HIGHLIGHT {{{
-Plug 'haya14busa/incsearch.vim'                                            " In buffer search on steroids - fuzzy
-Plug 'haya14busa/incsearch-fuzzy.vim'                                      " In buffer search on steroids - fuzzy
-" }}}
-
 " THEMES {{{
 Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
 " }}}

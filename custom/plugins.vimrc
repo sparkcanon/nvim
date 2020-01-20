@@ -5,6 +5,12 @@ let g:twiggy_local_branch_sort     = 'mru'
 let g:twiggy_remote_branch_sort    = 'date'
 " }}}
 
+" SIGNIGY {{{
+let g:signify_sign_add    = '|'
+let g:signify_sign_delete = '|'
+let g:signify_sign_change = '|'
+" }}}
+
 " HARDTIME {{{
 let g:hardtime_default_on      = 1
 let g:hardtime_showmsg         = 1

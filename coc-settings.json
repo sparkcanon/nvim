@@ -33,9 +33,9 @@
   "git.addGBlameToVirtualText": true,
 
   "codeLens.enable": false,
-  "diagnostic.errorSign": ">>",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "ﯧ",
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },

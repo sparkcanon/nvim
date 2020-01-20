@@ -26,9 +26,9 @@ au GeneralSettings InsertLeave * set ttimeoutlen=50
 " }}}
 
 " COLORS AND STYLING {{{
-au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=#30e3ca cterm=NONE gui=NONE
-	\ | highlight SignifySignDelete ctermfg=red    guifg=#be3144 cterm=NONE gui=NONE
-	\ | highlight SignifySignChange ctermfg=yellow guifg=#faf494 cterm=NONE gui=NONE
+au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=green cterm=NONE gui=NONE
+	\ | highlight SignifySignDelete ctermfg=red    guifg=red cterm=NONE gui=NONE
+	\ | highlight SignifySignChange ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 	\ | hi SignColumn guibg=clear-background
 colorscheme landscape
 syntax enable
@@ -98,7 +98,7 @@ set nolist
 set splitbelow
 set splitright
 set clipboard+=unnamed
-set diffopt=vertical
+set diffopt=vertical " Show diffs in vertical splits
 set inccommand=split " highlights as you substitute
 " }}}
 

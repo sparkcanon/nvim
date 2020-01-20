@@ -201,12 +201,6 @@ nnoremap <leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>om :MundoToggle<CR>
 " }}}
 
-" HIGHLIGHT {{{
-map z/ <Plug>(incsearch-fuzzy-/)
-map z? <Plug>(incsearch-fuzzy-?)
-map zg/ <Plug>(incsearch-fuzzy-stay)
-" }}}
-
 " TABS {{{
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
