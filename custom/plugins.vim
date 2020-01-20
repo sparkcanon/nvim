@@ -6,9 +6,9 @@ let g:twiggy_remote_branch_sort    = 'date'
 " }}}
 
 " SIGNIGY {{{
-let g:signify_sign_add    = '|'
-let g:signify_sign_delete = '|'
-let g:signify_sign_change = '|'
+let g:signify_sign_add    = '░'
+let g:signify_sign_delete = '░'
+let g:signify_sign_change = '░'
 " }}}
 
 " HARDTIME {{{

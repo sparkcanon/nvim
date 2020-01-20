@@ -22,10 +22,6 @@ set lazyredraw      " redraw only when we need to.
 set showmatch
 set noshowmode      " lightline shows the status not vim
 set showcmd         " show command in bottom bar
-
-" Enable persistent undo so that undo history persists across vim sessions {{{
-set undofile
-set undodir=~/.vim/undo
 " }}}
 
 " FONT {{{
@@ -40,8 +36,6 @@ highlight Type cterm=italic
 " Italic garbage
 let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-" }}}
-
 " }}}
 
 " SEARCHING {{{
@@ -63,13 +57,17 @@ set nowritebackup
 set noswapfile
 set hidden
 set history=100
-set path+=**
-set nolist
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:↲
+set list
 set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
 set inccommand=split " highlights as you substitute
+
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
 " }}}
 
 set completeopt=menu,menuone,preview,noselect,noinsert
