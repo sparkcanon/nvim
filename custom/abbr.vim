@@ -11,5 +11,5 @@ endfunction
 
 call SetupCommandAbbrs('C', 'CocConfig')
 call SetupCommandAbbrs('CR', 'CocRestart')
-call SetupCommandAbbrs('L', 'CocList')
 call SetupCommandAbbrs('F', 'Format')
+call SetupCommandAbbrs('d', 'Dispatch')

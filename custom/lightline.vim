@@ -2,16 +2,17 @@ let g:lightline = {
       \ 'colorscheme': 'srcery_drk',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitcocstatusoverall', 'readonly', 'filename', 'modified', 'cocstatus' ] ],
+      \             [ 'gitcocstatusoverall', 'filename', 'modified', 'cocstatus' ] ],
       \   'right': [
-      \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+      \     [ 'filetype', 'readonly', 'fileencoding', 'lineinfo', 'percent' ],
       \   ]
       \ },
       \ 'component_function': {
-      \   'filetype': 'LightlineFiletype',
+      \   'filetype': 'LLFiletype',
       \   'cocstatus': 'coc#status',
-      \   'gitcocstatusoverall': 'LightlineGitStatusOverall'
+      \   'gitcocstatusoverall': 'LLGitStatus',
       \ },
+      \ 'subseparator': { 'left': '░', 'right': '░' },
       \ 'mode_map': {
         \ 'n' : 'N',
         \ 'i' : 'I',
@@ -27,25 +28,31 @@ let g:lightline = {
         \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
+      \   'filename': '%{LLProjectName()} ¬ %f'
       \ },
       \ }
 
-function! LightlineFileformat() abort
+function! LLFileFormat() abort
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
-function! LightlineCocStatus() abort
+function! LLCocStatus() abort
   return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
-function! LightlineFiletype() abort
+function! LLFiletype() abort
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
-function! LightlineGitStatusOverall() abort
+function! LLGitStatus() abort
   let blame = get(g:, 'coc_git_status', '')
-  " return blame
   return winwidth(0) > 70 ? blame : ''
+endfunction
+
+function! LLProjectName() abort
+	let path = split(getcwd(0), '/')
+	let name = get(path, len(path) - 1, '')
+	return winwidth(0) > 70 ? name : ''
 endfunction
 
 " 'filename': '%{winnr()} | %t'

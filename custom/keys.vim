@@ -173,7 +173,7 @@ noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 noremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
-noremap <silent> <leader>bq :%bd!\|e#<CR>
+noremap <silent> <leader>bD :%bd!\|e#<CR>
 noremap <backspace> <C-^>
 " }}}
 
