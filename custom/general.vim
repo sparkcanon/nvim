@@ -1,7 +1,7 @@
 " COLORS AND STYLING {{{
 set t_Co=256
 set t_ut=
-colorscheme Atelier_CaveDark
+colorscheme srcery-drk
 syntax enable
 set background=dark 
 set termguicolors
@@ -57,7 +57,8 @@ set nowritebackup
 set noswapfile
 set hidden
 set history=100
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:↲
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
+set fillchars+=vert:│
 set list
 set splitbelow
 set splitright

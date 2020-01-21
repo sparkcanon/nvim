@@ -5,10 +5,10 @@ let g:twiggy_local_branch_sort     = 'mru'
 let g:twiggy_remote_branch_sort    = 'date'
 " }}}
 
-" SIGNIGY {{{
-let g:signify_sign_add    = '░'
-let g:signify_sign_delete = '░'
-let g:signify_sign_change = '░'
+" SIGNIGY '│' or '|' or '░' {{{
+let g:signify_sign_add    = '│'
+let g:signify_sign_delete = '│'
+let g:signify_sign_change = '│'
 " }}}
 
 " HARDTIME {{{

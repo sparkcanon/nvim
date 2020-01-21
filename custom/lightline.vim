@@ -1,5 +1,5 @@
 let g:lightline = {
-      \ 'colorscheme': 'base16',
+      \ 'colorscheme': 'srcery_drk',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitcocstatusoverall', 'readonly', 'filename', 'modified', 'cocstatus' ] ],
