@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugged')
 
 " THEMES {{{
 Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
-Plug 'tomasiser/vim-code-dark'                                             " Dark color scheme for Vim inspired by VS code
 " }}}
 
 " UTILITIES {{{
@@ -68,6 +67,7 @@ Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }                      " Jav
 
 " STATUS LINE {{{
 Plug 'itchyny/lightline.vim'                                               " A light and configurable statusline/tabline plugin for Vim
+Plug 'daviesjamie/vim-base16-lightline'
 " }}}
 
 " GIT STUFF {{{

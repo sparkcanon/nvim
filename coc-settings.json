@@ -29,7 +29,6 @@
 
   "git.enableGutters": false,
   "git.realtimeGutters": false,
-  // "git.virtualTextPrefix": "     ~  ",
   "git.addGBlameToVirtualText": true,
 
   "codeLens.enable": false,

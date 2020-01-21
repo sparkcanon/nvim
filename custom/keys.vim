@@ -142,7 +142,7 @@ nnoremap <silent> <leader>gac :exe 'G stash clear'<CR>
 
 " W: WINDOW RELATED {{{
 noremap <leader>wv :<C-u>vnew<CR>
-noremap <leader>wh :<C-u>new<CR>
+noremap <leader>wd :<C-u>new<CR>
 nnoremap <leader>w <C-w>
 nnoremap <silent> <leader>wn :exe input('Window number: ').'wincmd w'<CR>
 nnoremap <silent> <leader>wm :WinResizerStartFocus<CR>
