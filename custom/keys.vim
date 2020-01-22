@@ -25,16 +25,6 @@ function! s:get_visual_selection()
    return l[col1 - 1: col2 - 1]
 endfunction
 
-" CREATE A NEW DIR IF IT DOESNT EXISTS
-augroup MakeUnavailableDir
-    autocmd!
-    autocmd BufWritePre *
-        \ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
-            \ call mkdir(expand('<afile>:h'), 'p') |
-        \ endif
-augroup END
-" }}}
-
 " TABULARIZE {{{
 xnoremap ga :Tabularize /
 nnoremap ga :Tabularize /
@@ -44,8 +34,6 @@ nnoremap ga :Tabularize /
 nnoremap ; :
 nnoremap : ;
 nnoremap / /\v
-inoremap kj <Esc>
-cnoremap kj <Esc>
 nnoremap <leader>/ :nohlsearch<CR>
 " }}}
 

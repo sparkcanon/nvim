@@ -31,3 +31,10 @@ au GeneralSettings VimResized * wincmd =
 au GeneralSettings InsertEnter * set ttimeoutlen=0
 au GeneralSettings InsertLeave * set ttimeoutlen=50
 " }}}
+
+" CREATE A NEW DIR IF IT DOESNT EXISTS {{{
+au GeneralSettings BufWritePre *
+	\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
+		\ call mkdir(expand('<afile>:h'), 'p') |
+	\ endif
+" }}}
