@@ -27,7 +27,7 @@ Plug 'tpope/vim-surround'                                                  " quo
 Plug 'tpope/vim-commentary'                                                " comment stuff out
 Plug 'godlygeek/tabular'                                                   " 🌻 A Vim alignment plugin
 Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
-Plug 'ciaranm/detectindent'                                                " Vim script for automatically detecting indent settings
+Plug 'tpope/vim-sleuth'                                                    " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 Plug 'simeji/winresizer',
 			\ { 'on': [
@@ -36,6 +36,11 @@ Plug 'simeji/winresizer',
 			\ 'WinResizerStartMove'
 			\ ]}                                               " Quickly resize splits/windows
 Plug 'tpope/vim-abolish'                                                   " Easily search for, substitute, and abbreviate multiple variants of a word
+" }}}
+
+" TMUX {{{
+Plug 'tmux-plugins/vim-tmux-focus-events'                                  " Make terminal vim and tmux work better together.
+Plug 'christoomey/vim-tmux-navigator'                                      " Seamless navigation between tmux panes and vim splits
 " }}}
 
 " SHELL {{{

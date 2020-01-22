@@ -2,7 +2,7 @@ let g:lightline = {
       \ 'colorscheme': 'srcery_drk',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitcocstatusoverall', 'filename', 'cocstatus' ] ],
+      \             [ 'gitcocstatusoverall', 'filename', 'modified', 'cocstatus' ] ],
       \   'right': [
       \     [ 'filetype', 'readonly', 'fileencoding', 'lineinfo', 'percent' ],
       \   ]
@@ -11,6 +11,7 @@ let g:lightline = {
       \   'filetype': 'LLFiletype',
       \   'cocstatus': 'coc#status',
       \   'gitcocstatusoverall': 'LLGitStatus',
+      \   'filename': 'LLFileName'
       \ },
       \ 'subseparator': { 'left': '░', 'right': '░' },
       \ 'mode_map': {
@@ -28,9 +29,14 @@ let g:lightline = {
         \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
-      \   'filename': '%{LLProjectName()} ¬ %t %m'
       \ },
       \ }
+
+function! LLFileName() abort
+  let fname = expand('%t')
+  let finalPath = LLProjectName().' ¬ '.fname
+  return winwidth(0) > 70 ? finalPath : fname
+endfunction
 
 function! LLFileFormat() abort
   return winwidth(0) > 70 ? &fileformat : ''
@@ -50,9 +56,9 @@ function! LLGitStatus() abort
 endfunction
 
 function! LLProjectName() abort
-	let path = split(getcwd(0), '/')
-	let name = get(path, len(path) - 1, '')
-	return winwidth(0) > 70 ? name : ''
+  let path = split(getcwd(0), '/')
+  let name = get(path, len(path) - 1, '')
+  return winwidth(0) > 70 ? name : ''
 endfunction
 
 " 'filename': '%{winnr()} | %t'
