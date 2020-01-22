@@ -2,16 +2,16 @@
 " GITHUB: https://github.com/sparkcanon
 
 " Install vim plug if not already present
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " THEMES {{{
-Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
+Plug 'srcery-colors/srcery-vim'                                            " Dark colorscheme for gvim and vim
 " }}}
 
 " UTILITIES {{{

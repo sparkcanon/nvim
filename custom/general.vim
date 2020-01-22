@@ -1,7 +1,7 @@
 " COLORS AND STYLING {{{
 set t_Co=256
 set t_ut=
-colorscheme srcery-drk
+colorscheme srcery
 syntax enable
 set background=dark 
 set termguicolors

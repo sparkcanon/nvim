@@ -1,8 +1,8 @@
 let g:lightline = {
-      \ 'colorscheme': 'srcery_drk',
+      \ 'colorscheme': 'srcery',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitcocstatusoverall', 'filename', 'modified', 'cocstatus' ] ],
+      \             [ 'gitcocstatusoverall', 'filename', 'cocstatus' ] ],
       \   'right': [
       \     [ 'filetype', 'readonly', 'fileencoding', 'lineinfo', 'percent' ],
       \   ]
@@ -28,7 +28,7 @@ let g:lightline = {
         \ },
       \ 'component': {
       \   'lineinfo': '%3l:%-2v%<',
-      \   'filename': '%{LLProjectName()} ¬ %f'
+      \   'filename': '%{LLProjectName()} ¬ %t %m'
       \ },
       \ }
 
