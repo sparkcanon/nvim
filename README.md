@@ -4,9 +4,9 @@ This is a heavy coc.nvim based set up that works well for me. To install please 
 
 ## Dependencies
 
-1. [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) or `brew install neovim`
+1. [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-    I have not tested this on vim as I primarily use neovim but I believe it should work out of the box.
+    `brew install neovim`
 
 2. [Node](https://nodejs.org/en/)
 
