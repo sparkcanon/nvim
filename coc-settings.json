@@ -74,6 +74,7 @@
   ],
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.useQuickfixForLocations": true,
+  "coc.source.emoji.filetypes": null,
 
   "list.source.grep.useLiteral": false,
   "list.previewSplitRight": true,

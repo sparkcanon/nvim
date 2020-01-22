@@ -11,7 +11,7 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 
 " THEMES {{{
-Plug 'srcery-colors/srcery-vim'                                            " Dark colorscheme for gvim and vim
+Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
 " }}}
 
 " UTILITIES {{{
@@ -29,8 +29,13 @@ Plug 'godlygeek/tabular'                                                   " �
 Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
 Plug 'ciaranm/detectindent'                                                " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
-Plug 'simeji/winresizer'                                                   " Quickly resize splits/windows
-Plug 'tpope/vim-abolish'
+Plug 'simeji/winresizer',
+			\ { 'on': [
+			\ 'WinResizerStartResize',
+			\ 'WinResizerStartFocus',
+			\ 'WinResizerStartMove'
+			\ ]}                                               " Quickly resize splits/windows
+Plug 'tpope/vim-abolish'                                                   " Easily search for, substitute, and abbreviate multiple variants of a word
 " }}}
 
 " SHELL {{{
@@ -39,14 +44,12 @@ Plug 'tpope/vim-dispatch'                                                  " Asy
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{
-Plug 'othree/yajs.vim'
+Plug 'othree/yajs.vim'                                                     " Yet Another JavaScript Syntax for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                            " Coc is an intellisense engine for Vim/Neovim
 " }}}
 
 " FLUTTER {{{
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }                        " Dart support
-Plug 'natebosch/vim-lsc', { 'for': 'dart' }                                " Dart support
-Plug 'natebosch/vim-lsc-dart', { 'for': 'dart' }                           " Dart support
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }                        " Syntax highlighting for Dart in Vim
 " }}}
 
 " FILE EXPLORING {{{
@@ -71,7 +74,7 @@ Plug 'daviesjamie/vim-base16-lightline'
 " }}}
 
 " GIT STUFF {{{
-Plug 'tpope/vim-fugitive'                                                  " Best git plugin for vim
+Plug 'tpope/vim-fugitive'                                                  " 💀 A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-rhubarb'                                                   " GitHub extension for fugitive.vim
 Plug 'mhinz/vim-signify'                                                   " ➕ Show a diff using Vim its sign column.
 " }}}
