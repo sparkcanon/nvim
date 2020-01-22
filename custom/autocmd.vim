@@ -18,6 +18,8 @@ au GeneralSettings FocusGained,BufEnter * :checktime
 
 " TERMINAL {{{
 au GeneralSettings TermOpen * startinsert
+au GeneralSettings BufEnter term://* startinsert
+au GeneralSettings BufLeave term://* stopinsert
 " }}}
 
 " RESIZE {{{

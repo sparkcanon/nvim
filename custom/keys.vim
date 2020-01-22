@@ -171,10 +171,12 @@ nnoremap <silent> <leader>fb :<C-u>CocList --normal bcommits<CR>
 " B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
-noremap <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>
+noremap <leader>bd :bd<CR>
+noremap <leader>bD :bd!<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
-noremap <silent> <leader>bD :%bd!\|e#<CR>
+noremap <silent> <leader>bq :BufOnly<CR>
 noremap <backspace> <C-^>
+command! BufOnly silent! execute "%bd!|e#|bd#" " Closes all buffers without saving
 " }}}
 
 " TERMINAL {{{
