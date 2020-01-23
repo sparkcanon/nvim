@@ -162,9 +162,7 @@ noremap <leader>bn :bn<CR>
 noremap <leader>bd :bd<CR>
 noremap <leader>bD :bd!<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
-noremap <silent> <leader>bq :BufOnly<CR>
 noremap <backspace> <C-^>
-command! BufOnly silent! execute "%bd!|e#|bd#" " Closes all buffers without saving
 " }}}
 
 " TERMINAL {{{
