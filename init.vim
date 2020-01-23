@@ -30,11 +30,11 @@ Plug 'vim-scripts/VisIncr'                                                 " Inc
 Plug 'tpope/vim-sleuth'                                                    " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 Plug 'simeji/winresizer',
-			\ { 'on': [
-			\ 'WinResizerStartResize',
-			\ 'WinResizerStartFocus',
-			\ 'WinResizerStartMove'
-			\ ]}                                               " Quickly resize splits/windows
+  \ { 'on': [
+  \ 'WinResizerStartResize',
+  \ 'WinResizerStartFocus',
+  \ 'WinResizerStartMove'
+  \ ]}                                                                     " Quickly resize splits/windows
 Plug 'tpope/vim-abolish'                                                   " Easily search for, substitute, and abbreviate multiple variants of a word
 " }}}
 
