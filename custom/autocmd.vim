@@ -2,7 +2,6 @@ augroup GeneralSettings
 	autocmd!
 augroup END
 
-" \ | highlight SignColumn guibg=clear-background
 " \ | highlight cursorline guibg=#333333
 au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=green cterm=NONE gui=NONE
 	\ | highlight SignifySignDelete ctermfg=red    guifg=red cterm=NONE gui=NONE
@@ -11,6 +10,7 @@ au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guif
 	\ | highlight! CocWarningSign guibg=NONE guifg=#ff922b
 	\ | highlight! CocInfoSign guibg=NONE guifg=#fab005
 	\ | highlight! CocHintSign guibg=NONE guifg=#15aabf
+	\ | highlight SignColumn guibg=clear-background
 
 " Update a buffer's contents on focus if it changed outside of Vim. {{{
 au GeneralSettings FocusGained,BufEnter * :checktime

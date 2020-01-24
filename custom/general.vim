@@ -5,6 +5,9 @@ colorscheme srcery-drk
 syntax enable
 set background=dark 
 set termguicolors
+
+" For transparent vim background
+hi! Normal guibg=NONE
 " }}}
 
 " UI Config {{{

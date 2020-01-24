@@ -1,3 +1,7 @@
+" Dev set up for coc-git-stash {{{
+set runtimepath^=/Users/praborde/Documents/playground/coc-git-stash
+" }}}
+
 " Install vim plug if not already present
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -23,7 +27,7 @@ Plug 'shime/vim-livedown', { 'for': 'markdown'}                            " Liv
 Plug 'tpope/vim-surround'                                                  " quoting/parenthesizing made simple
 Plug 'tpope/vim-commentary'                                                " comment stuff out
 Plug 'godlygeek/tabular'                                                   " 🌻 A Vim alignment plugin
-Plug 'vim-scripts/VisIncr'                                                 " Increasing/decreasing columns of numbers
+Plug 'tpope/vim-speeddating'                                               " Increasing/decreasing columns of numbers
 Plug 'tpope/vim-sleuth'                                                    " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 Plug 'simeji/winresizer',

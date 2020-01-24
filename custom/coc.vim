@@ -143,7 +143,6 @@ let g:coc_global_extensions = [
       \     'coc-styled-components',
       \     'coc-stylelint',
       \     'coc-flutter',
-      \     'coc-tslint',
       \     'coc-json',
       \     'coc-tsserver',
       \     'coc-html',

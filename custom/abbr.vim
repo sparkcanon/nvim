@@ -10,6 +10,6 @@ function! SetupCommandAbbrs(from, to)
 endfunction
 
 call SetupCommandAbbrs('C', 'CocConfig')
-call SetupCommandAbbrs('CR', 'CocRestart')
+call SetupCommandAbbrs('cr', 'CocRestart')
 call SetupCommandAbbrs('F', 'Format')
-call SetupCommandAbbrs('d', 'Dispatch')
+call SetupCommandAbbrs('w', 'update')
