@@ -74,11 +74,6 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }                                " Rea
 Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }                      " Javascript docs
 " }}}
 
-" STATUS LINE {{{
-Plug 'itchyny/lightline.vim'                                               " A light and configurable statusline/tabline plugin for Vim
-Plug 'daviesjamie/vim-base16-lightline'
-" }}}
-
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                                  " 💀 A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-rhubarb'                                                   " GitHub extension for fugitive.vim

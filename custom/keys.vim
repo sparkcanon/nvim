@@ -35,6 +35,8 @@ nnoremap ; :
 nnoremap : ;
 nnoremap / /\v
 nnoremap <leader>/ :nohlsearch<CR>
+inoremap {<Enter> {<Enter>}<Esc>O<tab>
+inoremap [<Enter> [<Enter>]<Esc>O<tabEnter>
 " }}}
 
 " C: COC {{{
@@ -73,7 +75,7 @@ nmap <silent> <leader>cq  <Plug>(coc-fix-current)
 vmap <silent> <leader>cf  <Plug>(coc-format-selected)
 nmap <silent> <leader>cf  <Plug>(coc-format-selected)
 
-nmap <silent> <leader>cR <Plug>(coc-rename)<cr>
+nmap <silent> <leader>cR <Plug>(coc-rename)
 " nmap <leader>ci <Plug>(coc-diagnostic-info)
 
 " }}}
