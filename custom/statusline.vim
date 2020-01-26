@@ -4,20 +4,20 @@ set guioptions-=e
 
 set statusline=
 set statusline+=%2*\ %{ModeCurrent()}%*
-set statusline+=%1*\ %{GitStatus()}
-set statusline+=\ ❮\ 
-set statusline+=%{FileName()}%m
-set statusline+=\ ❯\ 
-set statusline+=\ %{coc#status()}%*
+set statusline+=%#Number#\ %{GitStatus()}%*
+set statusline+=%#Preproc#\ ❮\ %*
+set statusline+=%#Preproc#%{ProjectName()}\ ¬\ %t%m%*
+set statusline+=%#Preproc#\ ❯\ %*
+set statusline+=%#Comment#%{coc#status()}%*%*
 
 " switching to right side
 set statusline+=%1*%=%*
-set statusline+=\ ❮
-set statusline+=\ %{Filetype()}\ ∙
-set statusline+=\ %{strftime('%R',getftime(expand('%')))}\ ∙
-set statusline+=\ %l×%c\ ∙
-set statusline+=\ %p%%
-set statusline+=\ ❯\ 
+set statusline+=%#SpecialKey#\ ❮%*
+set statusline+=%#SpecialKey#\ %{Filetype()}\ ∙%*
+set statusline+=%#SpecialKey#\ %{strftime('%R',getftime(expand('%')))}\ ∙%*
+set statusline+=%#SpecialKey#\ %l×%c\ ∙%*
+set statusline+=%#SpecialKey#\ %p%%%*
+set statusline+=%#SpecialKey#\ ❯\ %*
 
 " Dictionary: take mode() input -> longer notation of current mode
 " mode() is defined by Vim
@@ -58,12 +58,6 @@ function! ModeCurrent() abort
     let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block '))
     let l:current_status_mode = l:modelist
     return l:current_status_mode
-endfunction
-
-function! FileName() abort
-  let fname = expand('%t')
-  let finalPath = ProjectName().' ¬ '.fname
-  return winwidth(0) > 70 ? finalPath : fname
 endfunction
 
 function! Filetype() abort
