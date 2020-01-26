@@ -3,7 +3,7 @@ let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
 " }}}
 
-" INCSEARCH COMMANDS {{{
+" INCSEARCH: COMMANDS {{{
 " allows incsearch highlighting for range commands
 cnoremap $t <CR>:t''<CR>
 cnoremap $T <CR>:T''<CR>
@@ -125,6 +125,7 @@ noremap <leader>gP :Gpush<CR>
 noremap <leader>gp :Gpull<CR>
 nnoremap <leader>gf :Gfetch<CR>
 nnoremap <leader>gz :G stash list<CR>
+nnoremap <leader>gl :0Glog<CR>
 nnoremap <silent> <leader>gad :exe 'G stash drop '.input('Drop stash number: ')<CR>
 nnoremap <silent> <leader>gaa :exe 'G stash apply '.input('Apply stash number: ')<CR>
 nnoremap <silent> <leader>gac :exe 'G stash clear'<CR>

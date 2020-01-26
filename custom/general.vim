@@ -23,7 +23,6 @@ set linebreak
 set wildmenu        " visual autocomplete for command menu
 set lazyredraw      " redraw only when we need to.
 set showmatch
-set noshowmode      " lightline shows the status not vim
 set showcmd         " show command in bottom bar
 " }}}
 
