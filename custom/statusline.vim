@@ -43,7 +43,9 @@ let g:currentmode={
  \	't'  : 'T '
  \ }
 
+" stausline background
 hi User1 guifg=#FFD7D7 guibg=NONE
+" mode background
 hi User2 guifg=#000000 guibg=#959ca6
 
 " Function: return current mode
