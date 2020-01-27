@@ -16,14 +16,17 @@ set number          " show line numbers
 set ruler
 set conceallevel =2
 set cursorline      " highlight current line
-set smartindent
-set autoindent
 set wrap
 set linebreak
 set wildmenu        " visual autocomplete for command menu
 set lazyredraw      " redraw only when we need to.
 set showmatch
 set showcmd         " show command in bottom bar
+" }}}
+
+" INDENTATION {{{
+set smartindent
+set autoindent
 " }}}
 
 " FONT {{{
@@ -54,9 +57,6 @@ set foldnestmax=10    " 10 nested fold max
 
 " UTILITIES {{{
 set shell=/usr/local/bin/zsh
-set nobackup
-set nowritebackup
-set noswapfile
 set hidden
 set history=100
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
@@ -67,13 +67,20 @@ set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
 set inccommand=split " highlights as you substitute
-
-" Enable persistent undo so that undo history persists across vim sessions
-set undofile
-set undodir=~/.vim/undo
+set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 
-set completeopt=menu,menuone,preview,noselect,noinsert
+" Backups {{{
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=$HOME/.config/nvim/tmp/dir_undo
+" Backup and swap
+set backup
+set writebackup
+set backupdir=$HOME/.config/nvim/tmp/dir_backup//
+set directory^=$HOME/.config/nvim/tmp/dir_swap//
+" }}}
+
 if executable('rg') 
 	" Note we extract the column as well as the file and line number
 	set grepprg=rg\ --column\ --vimgrep
