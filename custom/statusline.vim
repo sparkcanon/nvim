@@ -2,27 +2,51 @@ set laststatus=2
 set showtabline=1
 set guioptions-=e
 set showmode
+set statusline=%!ActiveStatus()
 
-set statusline=
-set statusline+=%#SpecialKey#\ ❮%*
-set statusline+=%2*\ %{GitStatus()}%*
-" set statusline+=%2*\ %{ModeCurrent()}%*
-set statusline+=%#SpecialKey#\ ∙
-set statusline+=%#SpecialKey#\ %{ProjectName()}\ ¬\ %t%m%*
-set statusline+=%#SpecialKey#\ ❯%*
-set statusline+=%#SpecialKey#\ %{coc#status()}%*%*
-"
-" switching to right side
-set statusline+=%1*%=%*
-set statusline+=%#SpecialKey#\ ❮%*
-set statusline+=%#SpecialKey#\ %{Filetype()}%*
-set statusline+=%#SpecialKey#\ ∙
-set statusline+=%#SpecialKey#\ %{strftime('%R',getftime(expand('%')))}%*
-set statusline+=%#SpecialKey#\ ∙
-set statusline+=%#SpecialKey#\ %l×%c%*
-set statusline+=%#SpecialKey#\ ∙
-set statusline+=%#SpecialKey#\ %p%%%*
-set statusline+=%#SpecialKey#\ ❯\ %*
+augroup status
+  autocmd!
+  autocmd WinEnter * setlocal statusline=%!ActiveStatus()
+  autocmd WinLeave * setlocal statusline=%!InactiveStatus()
+augroup END
+
+function! ActiveStatus() abort
+  let statusline=""
+  let statusline.="%#Comment#\ ❮%*"
+  let statusline.="%2*\ %{GitStatus()}%*"
+  let statusline.="%#Comment#\ ∙"
+  let statusline.="%#Comment#\ %{ProjectName()}\ ¬\ %t%m%*"
+  let statusline.="%#Comment#\ ❯%*"
+  let statusline.="%#Comment#\ %{coc#status()}%*%*"
+  " switching to right side"
+  let statusline.="%1*%=%*"
+  let statusline.="%#Comment#\ ❮%*"
+  let statusline.="%#Comment#\ %{Filetype()}%*"
+  let statusline.="%#Comment#\ ∙"
+  let statusline.="%#Comment#\ %{strftime('%R',getftime(expand('%')))}%*"
+  let statusline.="%#Comment#\ ∙"
+  let statusline.="%#Comment#\ %l×%c%*"
+  let statusline.="%#Comment#\ ∙"
+  let statusline.="%#Comment#\ %p%%%*"
+  let statusline.="%#Comment#\ ❯\ %*"
+  return statusline
+endfunction
+
+function! InactiveStatus() abort"
+  let statusline=""
+  let statusline.="%#SpecialKey#\ ❮%*"
+  let statusline.="%#SpecialKey#\ %t%m%*"
+  let statusline.="%#SpecialKey#\ ❯%*"
+  let statusline.="%#SpecialKey#\ %{coc#status()}%*%*"
+  " switching to right side"
+  let statusline.="%1*%=%*"
+  let statusline.="%#SpecialKey#\ ❮%*"
+  let statusline.="%#SpecialKey#\ %{Filetype()}%*"
+  let statusline.="%#SpecialKey#\ ∙"
+  let statusline.="%#SpecialKey#\ %{strftime('%R',getftime(expand('%')))}%*"
+  let statusline.="%#SpecialKey#\ ❯\ %"
+  return statusline
+endfunction
 
 " stausline background
 hi User1 guifg=#FFD7D7 guibg=NONE
@@ -35,7 +59,8 @@ endfunction
 
 function! GitStatus() abort
   let blame = get(g:, 'coc_git_status', '')
-  return winwidth(0) > 70 ? blame : ''
+  let branch = blame == '' ? 'no git': blame
+  return winwidth(0) > 70 ? branch : ''
 endfunction
 
 function! ProjectName() abort
