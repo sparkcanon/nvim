@@ -1,13 +1,13 @@
 " COLORS AND STYLING {{{
 set t_Co=256
 set t_ut=
-colorscheme srcery-drk
+colorscheme badwolf
 syntax enable
 set background=dark 
 set termguicolors
 
 " For transparent vim background
-hi! Normal guibg=NONE
+highlight! Normal guibg=NONE
 " }}}
 
 " UI Config {{{

@@ -1,5 +1,5 @@
-./autoload
-./plugged
+/autoload
+/plugged
 ./session
 session
 .tags
