@@ -3,7 +3,7 @@ augroup GeneralSettings
 augroup END
 
 " \ | highlight cursorline guibg=#333333
-au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guifg=green cterm=NONE gui=NONE
+au GeneralSettings ColorScheme * highlight SignifySignAdd guifg=green gui=NONE
 	\ | highlight SignifySignDelete ctermfg=red    guifg=red cterm=NONE gui=NONE
 	\ | highlight SignifySignChange ctermfg=yellow guifg=yellow cterm=NONE gui=NONE
 	\ | highlight! CocErrorSign guibg=NONE guifg=#ff0000
@@ -11,6 +11,9 @@ au GeneralSettings ColorScheme * highlight SignifySignAdd    ctermfg=green  guif
 	\ | highlight! CocInfoSign guibg=NONE guifg=#fab005
 	\ | highlight! CocHintSign guibg=NONE guifg=#15aabf
 	\ | highlight SignColumn guibg=clear-background
+	\ | highlight! TabLineSel guibg=#343434 guifg=#f2f2f2
+	\ | highlight StatusLine guibg=NONE
+	\ | highlight StatusLineNc guibg=NONE
 
 " Update a buffer's contents on focus if it changed outside of Vim. {{{
 au GeneralSettings FocusGained,BufEnter * :checktime
