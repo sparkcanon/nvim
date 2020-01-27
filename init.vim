@@ -9,7 +9,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin(stdpath('data') . '/plugged')
+call plug#begin(stdpath('config') . '/plugged')
 
 " THEMES {{{
 Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
