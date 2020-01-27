@@ -6,7 +6,7 @@ set statusline=%!ActiveStatus()
 
 augroup status
   autocmd!
-  autocmd WinEnter * setlocal statusline=%!ActiveStatus()
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal statusline=%!ActiveStatus()
   autocmd WinLeave * setlocal statusline=%!InactiveStatus()
 augroup END
 
