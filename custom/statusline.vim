@@ -12,38 +12,36 @@ augroup END
 
 function! ActiveStatus() abort
   let statusline=""
-  let statusline.="%#Comment#\ ❮%*"
+  let statusline.="%#SpecialKey#\ ❮%*"
   let statusline.="%#Preproc#%{GitStatus()}%*"
-  let statusline.="%#Comment#\ ∙%*"
-  let statusline.="%#Comment#%{ProjectName()}\ %t%m%*"
-  let statusline.="%#Comment#\ ❯%*"
-  let statusline.="%#Comment#\ %{CocStatus()}%*%*"
+  let statusline.="%#SpecialKey#\ ∙%*"
+  let statusline.="%#SpecialKey#%{ProjectName()}\ %t%m%*"
+  let statusline.="%#SpecialKey#\ ❯%*"
+  let statusline.="%#SpecialKey#\ %{CocStatus()}%*%*"
   " switching to right side"
   let statusline.="%1*%=%*"
-  let statusline.="%#Comment#\ ❮%*"
-  let statusline.="%#Comment#\ %{Filetype()}%*"
-  let statusline.="%#Comment#%{strftime('%R',getftime(expand('%')))}%*"
-  let statusline.="%#Comment#\ ∙%*"
-  let statusline.="%#Comment#\ %l×%c%*"
-  let statusline.="%#Comment#\ ∙%*"
-  let statusline.="%#Comment#\ %p%%%*"
-  let statusline.="%#Comment#\ ❯\ %*"
+  let statusline.="%#SpecialKey#\ ❮%*"
+  let statusline.="%#SpecialKey#\ %{Filetype()}%*"
+  let statusline.="%#SpecialKey#%{strftime('%R',getftime(expand('%')))}%*"
+  let statusline.="%#SpecialKey#\ ∙%*"
+  let statusline.="%#SpecialKey#\ %l×%c%*"
+  let statusline.="%#SpecialKey#\ ∙%*"
+  let statusline.="%#SpecialKey#\ %p%%%*"
+  let statusline.="%#SpecialKey#\ ❯\ %*"
   return statusline
 endfunction
 
 function! InactiveStatus() abort
   let statusline=""
-  let statusline.="%#SpecialKey#\ ❮%*"
-  let statusline.="%#SpecialKey#\ %t%m%*"
-  let statusline.="%#SpecialKey#\ ❯%*"
-  let statusline.="%#SpecialKey#\ %{coc#status()}%*%*"
+  let statusline.="%#Comment#\ ❮%*"
+  let statusline.="%#Comment#\ %t%m%*"
+  let statusline.="%#Comment#\ ❯%*"
   " switching to right side"
   let statusline.="%1*%=%*"
-  let statusline.="%#SpecialKey#\ ❮%*"
-  let statusline.="%#SpecialKey#\ %{Filetype()}%*"
-  let statusline.="%#SpecialKey#\ ∙%*"
-  let statusline.="%#SpecialKey#\ %{strftime('%R',getftime(expand('%')))}%*"
-  let statusline.="%#SpecialKey#\ ❯\ %*"
+  let statusline.="%#Comment#\ ❮%*"
+  let statusline.="%#Comment#\ %{Filetype()}%*"
+  let statusline.="%#Comment#%{strftime('%R',getftime(expand('%')))}%*"
+  let statusline.="%#Comment#\ ❯\ %*"
   return statusline
 endfunction
 
@@ -51,7 +49,7 @@ endfunction
 hi User1 guibg=NONE
 
 function! Filetype() abort
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype.' ∙ ' : 'no ft') : ''
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype.' ∙ ' : 'no ft ∙ ') : ''
 endfunction
 
 function! CocStatus() abort

@@ -3,9 +3,9 @@ augroup GeneralSettings
 augroup END
 
 " \ | highlight cursorline guibg=#333333
-au GeneralSettings ColorScheme * highlight SignifySignAdd guifg=#87af87 guibg=NONE
-	\ | highlight SignifySignDelete guifg=#af5f5f  guibg=NONE
-	\ | highlight SignifySignChange guifg=#8787af guibg=NONE
+au GeneralSettings ColorScheme * highlight SignifySignAdd guifg=yellow guibg=NONE
+	\ | highlight SignifySignDelete guifg=red  guibg=NONE
+	\ | highlight SignifySignChange guifg=green guibg=NONE
 	\ | highlight CocErrorSign guibg=NONE guifg=#ff0000
 	\ | highlight CocWarningSign guibg=NONE guifg=#ff922b
 	\ | highlight CocInfoSign guibg=NONE guifg=#fab005
