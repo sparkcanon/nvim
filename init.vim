@@ -27,7 +27,6 @@ Plug 'shime/vim-livedown', { 'for': 'markdown'}                            " Liv
 Plug 'tpope/vim-surround'                                                  " quoting/parenthesizing made simple
 Plug 'tpope/vim-commentary'                                                " comment stuff out
 Plug 'godlygeek/tabular'                                                   " 🌻 A Vim alignment plugin
-Plug 'tpope/vim-speeddating'                                               " Increasing/decreasing columns of numbers
 Plug 'tpope/vim-sleuth'                                                    " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 Plug 'simeji/winresizer',
@@ -37,6 +36,7 @@ Plug 'simeji/winresizer',
   \ 'WinResizerStartMove'
   \ ]}                                                                     " Quickly resize splits/windows
 Plug 'tpope/vim-abolish'                                                   " Easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'markonm/traces.vim'                                                  " Range, pattern and substitute preview for Vim
 " }}}
 
 " TMUX {{{
@@ -84,7 +84,7 @@ Plug 'mhinz/vim-signify'                                                   " ➕
 " Plug 'sheerun/vim-polyglot'                                              " A collection of language packs for Vim
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }        " Fuzzy finder base
 " Plug 'junegunn/fzf.vim'                                                  " Fuzzy finder for EVERYTHING
-" Plug 'lifepillar/vim-gruvbox8'                                           " A simplified and optimized Gruvbox colorscheme for Vim
+" Plug 'tpope/vim-speeddating'                                             " Increasing/decreasing columns of numbers
 " }}}
 
 call plug#end()

@@ -80,5 +80,7 @@
   "list.previewSplitRight": true,
   "list.source.grep.command": "rg",
   "lists.disabledLists": [ "tags" ],
-  "list.autoResize": true
+  "list.autoResize": true,
+
+  "session.directory": "~/.config/nvim/tmp/dir_session"
 }

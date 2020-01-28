@@ -22,6 +22,10 @@ set wildmenu        " visual autocomplete for command menu
 set lazyredraw      " redraw only when we need to.
 set showmatch
 set showcmd         " show command in bottom bar
+
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
+set fillchars+=vert:│
+set list
 " }}}
 
 " INDENTATION {{{
@@ -59,14 +63,12 @@ set foldnestmax=10    " 10 nested fold max
 set shell=/usr/local/bin/zsh
 set hidden
 set history=100
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
-set fillchars+=vert:│
-set list
 set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
-set inccommand=split " highlights as you substitute
+" set inccommand=split " opens a preview for highlights [DISABLED: Conflicts
+" with traves.vim]
 set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 
