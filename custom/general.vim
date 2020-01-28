@@ -1,7 +1,7 @@
 " COLORS AND STYLING {{{
 set t_Co=256
 set t_ut=
-colorscheme landscape
+colorscheme apprentice
 syntax enable
 set background=dark 
 set termguicolors
@@ -67,8 +67,7 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
-" set inccommand=split " opens a preview for highlights [DISABLED: Conflicts
-" with traves.vim]
+set inccommand=split " opens a preview for highlights
 set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 

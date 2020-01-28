@@ -85,9 +85,6 @@ nmap <silent> ]p <Plug>(coc-diagnostic-next)
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Remap keys for gotos
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 " grep word under cursor
 command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
 

@@ -11,10 +11,13 @@ au GeneralSettings ColorScheme * highlight SignifySignAdd guifg=yellow guibg=NON
 	\ | highlight CocInfoSign guibg=NONE guifg=#fab005
 	\ | highlight CocHintSign guibg=NONE guifg=#15aabf
 	\ | highlight SignColumn guibg=clear-background
-	\ | highlight TabLineSel guibg=#343434 guifg=#f2f2f2
 	\ | highlight StatusLine guibg=NONE
 	\ | highlight StatusLineNc guibg=NONE
 	\ | highlight VertSplit guibg=NONE
+	\ | highlight TabLineFill guibg=NONE
+	\ | highlight TabLineSel guibg=NONE guifg=#fcedda
+	\ | highlight TabLine guibg=NONE
+	\ | highlight LineNr guibg=NONE
 
 " Update a buffer's contents on focus if it changed outside of Vim. {{{
 au GeneralSettings FocusGained,BufEnter * :checktime

@@ -132,14 +132,11 @@ nnoremap <silent> <leader>gac :exe 'G stash clear'<CR>
 " }}}
 
 " W: WINDOW RELATED {{{
-noremap <leader>wv :<C-u>vnew<CR>
-noremap <leader>wd :<C-u>new<CR>
 nnoremap <leader>w <C-w>
-nnoremap <silent> <leader>wn :exe input('Window number: ').'wincmd w'<CR>
-nnoremap <silent> <leader>wm :WinResizerStartFocus<CR>
-nnoremap <silent> <leader>wM :WinResizerStartMove<CR>
-nnoremap <silent>  <leader>we :WinResizerStartResize<CR>
-nnoremap <silent> <leader>wco :only<cr>
+nnoremap <silent> <leader>wL :call SwapTo('right')<CR>
+nnoremap <silent> <leader>wH :call SwapTo('left')<CR>
+nnoremap <silent> <leader>wK :call SwapTo('up')<CR>
+nnoremap <silent> <leader>wJ :call SwapTo('down')<CR>
 nnoremap <silent> <leader>wcc :cclose<cr>
 " }}}
 

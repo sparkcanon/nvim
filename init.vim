@@ -29,14 +29,7 @@ Plug 'tpope/vim-commentary'                                                " com
 Plug 'godlygeek/tabular'                                                   " 🌻 A Vim alignment plugin
 Plug 'tpope/vim-sleuth'                                                    " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
-Plug 'simeji/winresizer',
-  \ { 'on': [
-  \ 'WinResizerStartResize',
-  \ 'WinResizerStartFocus',
-  \ 'WinResizerStartMove'
-  \ ]}                                                                     " Quickly resize splits/windows
 Plug 'tpope/vim-abolish'                                                   " Easily search for, substitute, and abbreviate multiple variants of a word
-Plug 'markonm/traces.vim'                                                  " Range, pattern and substitute preview for Vim
 " }}}
 
 " TMUX {{{
@@ -84,7 +77,7 @@ Plug 'mhinz/vim-signify'                                                   " ➕
 " Plug 'sheerun/vim-polyglot'                                              " A collection of language packs for Vim
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }        " Fuzzy finder base
 " Plug 'junegunn/fzf.vim'                                                  " Fuzzy finder for EVERYTHING
-" Plug 'tpope/vim-speeddating'                                             " Increasing/decreasing columns of numbers
+" Plug 'markonm/traces.vim'                                                  " Range, pattern and substitute preview for Vim
 " }}}
 
 call plug#end()
