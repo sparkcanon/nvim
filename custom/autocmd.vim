@@ -11,7 +11,7 @@ au GeneralSettings ColorScheme * highlight SignifySignAdd guifg=yellow guibg=NON
 	\ | highlight CocInfoSign guibg=NONE guifg=#fab005
 	\ | highlight CocHintSign guibg=NONE guifg=#15aabf
 	\ | highlight SignColumn guibg=clear-background
-	\ | highlight StatusLine guibg=NONE
+	\ | highlight StatusLine guibg=NONE guifg=#6B6B6B
 	\ | highlight StatusLineNc guibg=NONE
 	\ | highlight VertSplit guibg=NONE
 	\ | highlight TabLineFill guibg=NONE

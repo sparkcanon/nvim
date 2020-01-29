@@ -5,6 +5,10 @@ let g:twiggy_local_branch_sort     = 'mru'
 let g:twiggy_remote_branch_sort    = 'date'
 " }}}
 
+" SLEUTH {{{
+let g:sleuth_automatic = 1
+" }}}
+
 " SIGNIGY '│' or '░' or '◢' {{{
 let g:signify_sign_add    = '│'
 let g:signify_sign_delete = '│'

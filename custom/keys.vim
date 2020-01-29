@@ -12,11 +12,6 @@ cnoremap $M <CR>:M''<CR>
 cnoremap $d <CR>:d<CR>``
 " }}}
 
-" SOURCING {{{
-nnoremap <leader>fr :source $MYVIMRC<CR>
-nnoremap <leader>fe :edit $MYVIMRC<CR>
-" }}}
-
 " CUSTOM FUNCTIONS {{{
 function! s:get_visual_selection()
    let l=getline("'<")
