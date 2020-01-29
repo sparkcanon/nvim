@@ -14,7 +14,7 @@ au GeneralSettings ColorScheme * highlight SignifySignAdd guifg=yellow guibg=NON
 	\ | highlight StatusLine guibg=NONE guifg=#6B6B6B
 	\ | highlight StatusLineNc guibg=NONE
 	\ | highlight VertSplit guibg=NONE
-	\ | highlight TabLineFill guibg=NONE
+	\ | highlight TabLineFill guibg=NONE gui=NONE
 	\ | highlight TabLineSel guibg=NONE guifg=#fcedda
 	\ | highlight TabLine guibg=NONE
 	\ | highlight LineNr guibg=NONE
