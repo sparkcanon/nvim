@@ -14,8 +14,8 @@ augroup END
 
 function! ActiveStatus() abort
   let statusline=""
-  let statusline.="\ ❮"
-  let statusline.="%#Preproc#%{GitStatus()}%*\ ∙"
+  let statusline.="\ ❮\ "
+  let statusline.="%#Preproc#%{DiffName()}%{IfDiff()}%*\ ∙"
   let statusline.="\ %t\ %m"
   let statusline.="%="
   let statusline.="%{Filetype()}\ ∙\ "
@@ -26,7 +26,8 @@ endfunction
 
 function! InactiveStatus() abort
   let statusline=""
-  let statusline.="\ ❮"
+  let statusline.="\ ❮\ "
+  let statusline.="%#Preproc#%{DiffName()}%{IfDiff()}%*\ ∙"
   let statusline.="\ %t"
   let statusline.="%="
   let statusline.="%{Filetype()}"
@@ -41,5 +42,24 @@ endfunction
 function! GitStatus() abort
   let blame = get(g:, 'coc_git_status', '')
   let branch = blame == '' ? 'no git': blame
-  return winwidth(0) > 70 ? ' '.branch : ''
+  return winwidth(0) > 70 ? branch : ''
+endfunction
+
+function DiffName() abort
+  let fullname = expand('%')
+  let gitversion = ''
+  if fullname =~? 'fugitive://.*/\.git//0/.*'
+      let gitversion = 'git index'
+  elseif fullname =~? 'fugitive://.*/\.git//2/.*'
+      let gitversion = 'git target'
+  elseif fullname =~? 'fugitive://.*/\.git//3/.*'
+      let gitversion = 'git merge'
+  elseif &diff == 1
+      let gitversion = 'working copy'
+  endif
+  return gitversion
+endfunction
+
+function! IfDiff() abort
+  return &diff ? '' : GitStatus()
 endfunction
