@@ -1,7 +1,6 @@
 set laststatus=2
-set showtabline=1
 set guioptions-=e
-set showmode
+set showmode " Show mode in echo line
 set statusline=%!ActiveStatus()
 
 augroup status
