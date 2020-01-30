@@ -68,9 +68,6 @@ Plug 'mhinz/vim-signify'                                                   " ➕
 " }}}
 
 " EXTRA {{{
-" Plug 'sheerun/vim-polyglot'                                              " A collection of language packs for Vim
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }        " Fuzzy finder base
-" Plug 'junegunn/fzf.vim'                                                  " Fuzzy finder for EVERYTHING
 " Plug 'markonm/traces.vim'                                                " Range, pattern and substitute preview for Vim
 " }}}
 
