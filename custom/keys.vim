@@ -154,8 +154,8 @@ nnoremap <silent> <leader>fb :<C-u>CocList --normal bcommits<CR>
 " B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
-noremap <leader>bd :bd<CR>
-noremap <leader>bD :bd!<CR>
+noremap <leader>bd :Bdelete<CR>
+noremap <leader>bD :Bdelete!<CR>
 noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
 noremap <backspace> <C-^>
 " }}}

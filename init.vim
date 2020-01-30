@@ -30,6 +30,7 @@ Plug 'godlygeek/tabular'                                                   " ðŸŒ
 Plug 'tpope/vim-sleuth'                                                    " Vim script for automatically detecting indent settings
 Plug 'takac/vim-hardtime'                                                  " Plugin to help you stop repeating the basic movement keys
 Plug 'tpope/vim-abolish'                                                   " Easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'moll/vim-bbye'                                                       " Delete buffers and close files in Vim
 " }}}
 
 " TMUX {{{
@@ -43,7 +44,7 @@ Plug 'tpope/vim-dispatch'                                                  " Asy
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{
-Plug 'sheerun/vim-polyglot' " A solid language pack for Vim
+Plug 'sheerun/vim-polyglot'                                                " A solid language pack for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                            " Coc is an intellisense engine for Vim/Neovim
 " }}}
 
