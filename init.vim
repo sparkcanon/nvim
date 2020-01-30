@@ -12,7 +12,7 @@ endif
 call plug#begin(stdpath('config') . '/plugged')
 
 " THEMES {{{
-Plug 'flazz/vim-colorschemes'                                              " one colorscheme pack to rule them all!
+Plug 'romainl/Apprentice'                                                  " A dark, low-contrast, Vim colorscheme
 " }}}
 
 " UTILITIES {{{
@@ -77,7 +77,7 @@ Plug 'mhinz/vim-signify'                                                   " ➕
 " Plug 'sheerun/vim-polyglot'                                              " A collection of language packs for Vim
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }        " Fuzzy finder base
 " Plug 'junegunn/fzf.vim'                                                  " Fuzzy finder for EVERYTHING
-" Plug 'markonm/traces.vim'                                                  " Range, pattern and substitute preview for Vim
+" Plug 'markonm/traces.vim'                                                " Range, pattern and substitute preview for Vim
 " }}}
 
 call plug#end()
