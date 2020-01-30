@@ -43,12 +43,8 @@ Plug 'tpope/vim-dispatch'                                                  " Asy
 " }}}
 
 " SYNTAX STUFF & COMPLETETIONS {{{
-Plug 'othree/yajs.vim'                                                     " Yet Another JavaScript Syntax for Vim
+Plug 'sheerun/vim-polyglot' " A solid language pack for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                            " Coc is an intellisense engine for Vim/Neovim
-" }}}
-
-" FLUTTER {{{
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }                        " Syntax highlighting for Dart in Vim
 " }}}
 
 " FILE EXPLORING {{{
@@ -62,8 +58,6 @@ Plug 'grvcoelho/vim-javascript-snippets'                                   " Jav
 " }}}
 
 " TYPESCRIPT & JAVASCRIPT {{{
-Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }               " Typescript syntax highlighting
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }                                " React jsx syntax support
 Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }                      " Javascript docs
 " }}}
 
