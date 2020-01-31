@@ -142,7 +142,6 @@ nnoremap <silent> <leader>wcc :cclose<cr>
 nnoremap <silent> <leader>fs :<C-u>CocList -I grep<CR>
 nnoremap <silent> <leader>ff :<C-u>CocList files<CR>
 nnoremap <silent> <leader>fl :<C-u>CocList -I lines<CR>
-nnoremap <silent> <leader>fW :<C-u>CocList windows<CR>
 nnoremap <silent> <leader>fw  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <leader>fh :<C-u>CocList mru<CR>
 nnoremap <silent> <leader>fx :<C-u>CocList commands<CR>
