@@ -1,7 +1,6 @@
 /autoload
 /tmp
 *.swp
-/plugged
 ./session
 session
 .tags
