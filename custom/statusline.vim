@@ -18,7 +18,7 @@ function! ActiveStatus() abort
   let statusline.="%#Preproc#%{DiffName()}%{IfDiff()}%*\ ∙"
   let statusline.="\ %t\ %m"
   let statusline.="%="
-  let statusline.="%{Filetype()}\ ∙\ "
+  let statusline.="%\ %r\ %{Filetype()}\ ∙\ "
   let statusline.="\%l×%c"
   let statusline.="\ ❯\ "
   return statusline
