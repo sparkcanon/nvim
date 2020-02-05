@@ -1,0 +1,90 @@
+[submodule "/Users/praborde/.config/nvim/plugged/Apprentice"]
+	path = /Users/praborde/.config/nvim/plugged/Apprentice
+	url = https://github.com/romainl/Apprentice.git
+[submodule "/Users/praborde/.config/nvim/plugged/coc.nvim"]
+	path = /Users/praborde/.config/nvim/plugged/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule "/Users/praborde/.config/nvim/plugged/indentLine"]
+	path = /Users/praborde/.config/nvim/plugged/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "/Users/praborde/.config/nvim/plugged/tabular"]
+	path = /Users/praborde/.config/nvim/plugged/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-abolish"]
+	path = /Users/praborde/.config/nvim/plugged/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-bbye"]
+	path = /Users/praborde/.config/nvim/plugged/vim-bbye
+	url = https://github.com/moll/vim-bbye.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-commentary"]
+	path = /Users/praborde/.config/nvim/plugged/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-cool"]
+	path = /Users/praborde/.config/nvim/plugged/vim-cool
+	url = https://github.com/romainl/vim-cool.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-dirvish-git"]
+	path = /Users/praborde/.config/nvim/plugged/vim-dirvish-git
+	url = https://github.com/kristijanhusak/vim-dirvish-git.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-dirvish"]
+	path = /Users/praborde/.config/nvim/plugged/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-dispatch"]
+	path = /Users/praborde/.config/nvim/plugged/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-eunuch"]
+	path = /Users/praborde/.config/nvim/plugged/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-fugitive"]
+	path = /Users/praborde/.config/nvim/plugged/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-hardtime"]
+	path = /Users/praborde/.config/nvim/plugged/vim-hardtime
+	url = https://github.com/takac/vim-hardtime.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-javascript-snippets"]
+	path = /Users/praborde/.config/nvim/plugged/vim-javascript-snippets
+	url = https://github.com/grvcoelho/vim-javascript-snippets.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-jsdoc"]
+	path = /Users/praborde/.config/nvim/plugged/vim-jsdoc
+	url = https://github.com/heavenshell/vim-jsdoc.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-livedown"]
+	path = /Users/praborde/.config/nvim/plugged/vim-livedown
+	url = https://github.com/shime/vim-livedown.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-mundo"]
+	path = /Users/praborde/.config/nvim/plugged/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-peekaboo"]
+	path = /Users/praborde/.config/nvim/plugged/vim-peekaboo
+	url = https://github.com/junegunn/vim-peekaboo.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-polyglot"]
+	path = /Users/praborde/.config/nvim/plugged/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-repeat"]
+	path = /Users/praborde/.config/nvim/plugged/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-rhubarb"]
+	path = /Users/praborde/.config/nvim/plugged/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-rooter"]
+	path = /Users/praborde/.config/nvim/plugged/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-sensible"]
+	path = /Users/praborde/.config/nvim/plugged/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-signify"]
+	path = /Users/praborde/.config/nvim/plugged/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-sleuth"]
+	path = /Users/praborde/.config/nvim/plugged/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-snippets"]
+	path = /Users/praborde/.config/nvim/plugged/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-surround"]
+	path = /Users/praborde/.config/nvim/plugged/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-tmux-focus-events"]
+	path = /Users/praborde/.config/nvim/plugged/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
+[submodule "/Users/praborde/.config/nvim/plugged/vim-tmux-navigator"]
+	path = /Users/praborde/.config/nvim/plugged/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
