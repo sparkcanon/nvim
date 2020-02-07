@@ -70,3 +70,10 @@ au GeneralSettings BufWritePre *
 		\ call mkdir(expand('<afile>:h'), 'p') |
 	\ endif
 " }}}
+
+au GeneralSettings BufLeave * let b:last_cwd = getcwd()
+au GeneralSettings BufEnter * if exists('b:last_cwd')
+			\|   execute 'lcd' b:last_cwd
+			\| else
+			\|   silent! Glcd
+			\| endif

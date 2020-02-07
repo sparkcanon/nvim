@@ -1,5 +1,5 @@
 " Dev set up for coc-git-stash {{{
-set runtimepath^=/Users/praborde/Documents/playground/coc-git-stash
+set runtimepath^=/Users/praborde/Documents/playground/n_vim/coc-git-stash
 " }}}
 
 " Install vim plug if not already present
@@ -21,7 +21,6 @@ Plug 'simnalamburt/vim-mundo', { 'on' : 'MundoToggle' }
 Plug 'romainl/vim-cool'                                                    " A very simple plugin that makes hlsearch more useful
 Plug 'junegunn/vim-peekaboo'                                               " 👀 \" / @ / CTRL-R
 Plug 'Yggdroot/indentLine'                                                 " Line that show indentation
-Plug 'airblade/vim-rooter'                                                 " Changes Vim working directory to project root
 Plug 'tpope/vim-repeat'                                                    " repeat any command
 Plug 'shime/vim-livedown', { 'for': 'markdown'}                            " Live markdown server
 Plug 'tpope/vim-surround'                                                  " quoting/parenthesizing made simple
