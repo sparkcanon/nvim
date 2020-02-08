@@ -11,7 +11,7 @@ au GeneralSettings ColorScheme * call ModifySignifyColors()
 
 " General color modifications
 function! ModifyGeneralColors() abort
-	highlight SignColumn guibg=clear-background
+	highlight SignColumn guibg=NONE
 	highlight VertSplit guibg=NONE
 	highlight LineNr guibg=NONE
 endfunction
@@ -49,7 +49,9 @@ au GeneralSettings FocusGained,BufEnter * :checktime
 " }}}
 
 " TERMINAL {{{
-au GeneralSettings TermOpen * startinsert
+if has('nvim')
+	au GeneralSettings TermOpen * startinsert
+endif
 au GeneralSettings BufEnter term://* startinsert
 au GeneralSettings BufLeave term://* stopinsert
 " }}}

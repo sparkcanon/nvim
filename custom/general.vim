@@ -71,7 +71,9 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
-set inccommand=split " opens a preview for highlights
+if has('nvim')
+	set inccommand=split " opens a preview for highlights
+endif
 set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 

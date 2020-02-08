@@ -1,5 +1,5 @@
 " Dev set up for coc-git-stash {{{
-set runtimepath^=/Users/praborde/Documents/playground/n_vim/coc-git-stash
+" set runtimepath^=/Users/praborde/Documents/playground/n_vim/coc-git-stash
 " }}}
 
 " Install vim plug if not already present
