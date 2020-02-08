@@ -38,17 +38,19 @@ set autoindent
 " }}}
 
 " FONT {{{
-highlight Comment cterm=italic
-highlight link xmlEndTag xmlTag
-highlight htmlArg gui=italic
-highlight Comment gui=italic
-highlight Type gui=italic
-highlight htmlArg cterm=italic
-highlight Comment cterm=italic
-highlight Type cterm=italic
-" Italic garbage
-let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+if has('nvim')
+	highlight Comment cterm=italic
+	highlight link xmlEndTag xmlTag
+	highlight htmlArg gui=italic
+	highlight Comment gui=italic
+	highlight Type gui=italic
+	highlight htmlArg cterm=italic
+	highlight Comment cterm=italic
+	highlight Type cterm=italic
+	" Italic garbage
+	let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
+	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+endif
 " }}}
 
 " SEARCHING {{{
@@ -80,12 +82,17 @@ set completeopt=menu,menuone,preview,noselect,noinsert
 " Backups {{{
 " Enable persistent undo so that undo history persists across vim sessions
 set undofile
-set undodir=$HOME/.config/nvim/tmp/dir_undo
-" Backup and swap
 set backup
 set writebackup
-set backupdir=$HOME/.config/nvim/tmp/dir_backup//
-set directory^=$HOME/.config/nvim/tmp/dir_swap//
+if has('nvim')
+	set undodir=$HOME/.config/nvim/tmp/dir_undo
+	set backupdir=$HOME/.config/nvim/tmp/dir_backup//
+	set directory^=$HOME/.config/nvim/tmp/dir_swap//
+else
+	set backupdir=$HOME/.vim/tmp/dir_backup//
+	set directory^=$HOME/.vim/tmp/dir_swap//
+	set undodir=$HOME/.vim/tmp/dir_undo
+endif
 " }}}
 
 if executable('rg') 

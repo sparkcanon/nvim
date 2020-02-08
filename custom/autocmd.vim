@@ -11,37 +11,37 @@ au GeneralSettings ColorScheme * call ModifySignifyColors()
 
 " General color modifications
 function! ModifyGeneralColors() abort
-	highlight SignColumn guibg=NONE
-	highlight VertSplit guibg=NONE
-	highlight LineNr guibg=NONE
+	highlight SignColumn guibg=NONE ctermbg=NONE
+	highlight VertSplit guibg=NONE ctermbg=NONE
+	highlight LineNr guibg=NONE ctermbg=NONE
 endfunction
 
 " Statusline color mods
 function! ModifyStatuslineColors() abort
-	highlight StatusLine guibg=NONE guifg=#6C6C6C
-	highlight StatusLineNc guibg=NONE guifg=#4C4C4C
+	highlight StatusLine guibg=NONE guifg=#6C6C6C ctermbg=NONE
+	highlight StatusLineNc guibg=NONE guifg=#4C4C4C ctermbg=NONE
 endfunction
 
 " tabline color mods
 function! ModifyTablineColors() abort
-	highlight TabLineFill guibg=NONE gui=NONE
-	highlight TabLineSel guibg=NONE guifg=#fcedda
-	highlight TabLine guibg=NONE
+	highlight TabLineFill guibg=NONE gui=NONE ctermbg=NONE
+	highlight TabLineSel guibg=NONE guifg=#fcedda ctermbg=NONE
+	highlight TabLine guibg=NONE ctermbg=NONE
 endfunction
 
 " Coc signs color mods
 function! ModifyCocSignColors() abort
-	highlight CocErrorSign guibg=NONE guifg=#ff0000
-	highlight CocWarningSign guibg=NONE guifg=#ff922b
-	highlight CocInfoSign guibg=NONE guifg=#fab005
-	highlight CocHintSign guibg=NONE guifg=#15aabf
+	highlight CocErrorSign guibg=NONE guifg=#ff0000 ctermbg=NONE
+	highlight CocWarningSign guibg=NONE guifg=#ff922b ctermbg=NONE
+	highlight CocInfoSign guibg=NONE guifg=#fab005 ctermbg=NONE
+	highlight CocHintSign guibg=NONE guifg=#15aabf ctermbg=NONE
 endfunction
 
 " Signify color mods
 function! ModifySignifyColors() abort
-	highlight SignifySignAdd guifg=yellow guibg=NONE
-	highlight SignifySignDelete guifg=red  guibg=NONE
-	highlight SignifySignChange guifg=green guibg=NONE
+	highlight SignifySignAdd guifg=yellow guibg=NONE ctermbg=NONE
+	highlight SignifySignDelete guifg=red  guibg=NONE ctermbg=NONE
+	highlight SignifySignChange guifg=green guibg=NONE ctermbg=NONE
 endfunction
 
 " Update a buffer's contents on focus if it changed outside of Vim. {{{
