@@ -161,7 +161,7 @@ noremap <backspace> <C-^>
 
 " TERMINAL {{{
 tnoremap <Esc> <C-\><C-n>
-nnoremap <silent> <leader>te :terminal<CR>
+nnoremap <silent> <leader>te :tabe <bar> terminal<CR>
 " }}}
 
 " Y: YANKING RELATED {{{
