@@ -37,22 +37,6 @@ set smartindent
 set autoindent
 " }}}
 
-" FONT {{{
-if has('nvim')
-	highlight Comment cterm=italic
-	highlight link xmlEndTag xmlTag
-	highlight htmlArg gui=italic
-	highlight Comment gui=italic
-	highlight Type gui=italic
-	highlight htmlArg cterm=italic
-	highlight Comment cterm=italic
-	highlight Type cterm=italic
-	" Italic garbage
-	let &t_8f="\<Esc>[38;2%lu;%lu;%lum"
-	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-endif
-" }}}
-
 " SEARCHING {{{
 set incsearch " search as characters are entered
 set smartcase
