@@ -1,4 +1,5 @@
 /autoload
+/plugged
 /tmp
 *.swp
 ./session

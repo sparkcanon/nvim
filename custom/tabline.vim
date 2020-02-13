@@ -7,7 +7,7 @@ if exists("+showtabline")
     while i <= tabpagenr('$')
       let buflist = tabpagebuflist(i)
       let winnr = tabpagewinnr(i)
-      let s .= (i == t ? '%#ModeMsg#' : '%#Comment#')
+      let s .= (i == t ? '%#PmenuSbar#' : '%#TabLineFill#')
       let s .= ' ' . i . ' '
       let rawFile = bufname(buflist[winnr - 1])
       let projectName = fnamemodify(fnamemodify(rawFile, ':t'), ':p:h:t').' '
