@@ -17,3 +17,7 @@ call SetupCommandAbbrs('sov', 'source $MYVIMRC')
 call SetupCommandAbbrs('Pi', 'PlugInstall')
 call SetupCommandAbbrs('Pu', 'PlugUpdate')
 call SetupCommandAbbrs('Pc', 'PlugClean')
+call SetupCommandAbbrs('bd', 'Bdelete')
+call SetupCommandAbbrs('fs', 'CocSearchInFile')
+
+command! -bang -nargs=* -complete=file CocSearchInFile exec printf("CocList grep %s", escape('<args>', '\\'))

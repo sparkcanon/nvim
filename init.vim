@@ -15,11 +15,15 @@ call plug#begin(stdpath('config') . '/plugged')
 Plug 'romainl/Apprentice'                  " A dark, low-contrast, Vim colorscheme
 " }}}
 
+" HIGHLIGHT {{{
+Plug 'markonm/traces.vim'                  " Range, pattern and substitute preview for Vim
+Plug 'romainl/vim-cool'                    " A very simple plugin that makes hlsearch more useful
+" }}}
+
 " UTILITIES {{{
 Plug 'tpope/vim-sensible'                  " Defaults everyone can agree on
 Plug 'simnalamburt/vim-mundo',
       \ { 'on' : 'MundoToggle' }
-Plug 'romainl/vim-cool'                    " A very simple plugin that makes hlsearch more useful
 Plug 'junegunn/vim-peekaboo'               " 👀 \" / @ / CTRL-R
 Plug 'Yggdroot/indentLine'                 " Line that show indentation
 Plug 'tpope/vim-repeat'                    " repeat any command
@@ -70,10 +74,6 @@ Plug 'heavenshell/vim-jsdoc',
 Plug 'tpope/vim-fugitive'                  " 💀 A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-rhubarb'                   " GitHub extension for fugitive.vim
 Plug 'mhinz/vim-signify'                   " ➕ Show a diff using Vim its sign column.
-" }}}
-
-" EXTRA {{{
-" Plug 'markonm/traces.vim'                " Range, pattern and substitute preview for Vim
 " }}}
 
 call plug#end()

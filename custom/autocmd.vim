@@ -18,14 +18,14 @@ endfunction
 
 " Statusline color mods
 function! ModifyStatuslineColors() abort
-	highlight StatusLine guibg=NONE guifg=#6C6C6C ctermbg=NONE
+	highlight StatusLine guibg=NONE guifg=#00EA9E ctermbg=NONE
 	highlight StatusLineNc guibg=NONE guifg=#4C4C4C ctermbg=NONE
 endfunction
 
 " tabline color mods
 function! ModifyTablineColors() abort
 	highlight TabLineFill guibg=NONE gui=NONE ctermbg=NONE
-	highlight TabLineSel guibg=NONE guifg=#fcedda ctermbg=NONE
+	" highlight TabLineSel guibg=NONE guifg=#fcedda ctermbg=NONE
 	highlight TabLine guibg=NONE ctermbg=NONE
 endfunction
 

@@ -30,6 +30,7 @@ set showcmd         " show command in bottom bar
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
 set fillchars+=vert:│
 set list
+set statusline=\ ❮\ %f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)\ ❯\ 
 " }}}
 
 " INDENTATION {{{
@@ -57,9 +58,9 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
-if has('nvim')
-	set inccommand=split " opens a preview for highlights
-endif
+" if has('nvim')
+" 	set inccommand=split " opens a preview for highlights
+" endif
 set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 
