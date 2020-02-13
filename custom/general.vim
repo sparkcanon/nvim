@@ -22,7 +22,9 @@ set conceallevel =2
 set cursorline      " highlight current line
 set wrap
 set linebreak
-set wildmenu        " visual autocomplete for command menu
+set wildcharm=<Tab>
+set wildmenu
+set wildmode=full
 set lazyredraw      " redraw only when we need to.
 set showmatch
 set showcmd         " show command in bottom bar

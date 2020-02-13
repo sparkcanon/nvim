@@ -155,7 +155,8 @@ noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
 noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :Bdelete!<CR>
-noremap <silent> <leader>bf :<C-u>CocList buffers<CR>
+noremap <silent> <leader>bb :<C-u>CocList buffers<CR>
+nnoremap <silent> <leader>bf :buffer<Space><Tab>
 noremap <backspace> <C-^>
 " }}}
 
