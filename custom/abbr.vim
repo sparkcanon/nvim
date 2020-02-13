@@ -3,7 +3,7 @@ iabbrev slient silent
 iabbrev accross across
 iabbrev cosnt const
 
-function! SetupCommandAbbrs(from, to)
+function! SetupCommandAbbrs(from, to) abort
   exec 'cnoreabbrev <expr> '.a:from
         \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'

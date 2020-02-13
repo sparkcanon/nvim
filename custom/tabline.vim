@@ -1,6 +1,6 @@
 " pathshorten - shorten file path
 if exists("+showtabline")
-  function MyTabLine()
+  function MyTabLine() abort
     let s = ''
     let t = tabpagenr()
     let i = 1

@@ -2,6 +2,11 @@
 " set runtimepath^=/Users/praborde/Documents/playground/n_vim/coc-git-stash
 " }}}
 
+" Clear all vimrc autocmds at the beginning
+augroup VimPlug | execute 'autocmd!' | augroup END
+augroup GeneralSettings | execute 'autocmd!' | augroup END
+augroup CocRelated | execute 'autocmd!' | augroup END
+
 augroup VimPlug
   autocmd!
 augroup end
@@ -73,6 +78,10 @@ Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }              " Javascript 
 Plug 'tpope/vim-fugitive'                                          " 💀 A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-rhubarb'                                           " GitHub extension for fugitive.vim
 Plug 'mhinz/vim-signify'                                           " ➕ Show a diff using Vim its sign column.
+" }}}
+
+" PERF {{{
+Plug 'dstein64/vim-startuptime'
 " }}}
 
 call plug#end()

@@ -58,18 +58,15 @@ endfunction
 
 " AUTOCMD {{{
 " Highlight symbol under cursor on CursorHold
-augroup HighlightSymOnCursor
-    autocmd!
-    autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup CocRelated
+  autocmd!
 augroup END
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+autocmd CocRelated CursorHold * silent call CocActionAsync('highlight')
+" Setup formatexpr specified filetype(s).
+autocmd CocRelated FileType typescript,json setl formatexpr=CocAction('formatSelected')
+" Update signature help on jump placeholder
+autocmd CocRelated User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " }}}
 
 " COMMANDS {{{
