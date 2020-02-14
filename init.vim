@@ -21,7 +21,8 @@ endif
 call plug#begin(stdpath('config') . '/plugged')
 
 " THEMES {{{
-Plug 'romainl/Apprentice'                                          " A dark, low-contrast, Vim colorscheme
+" Plug 'romainl/Apprentice'                                        " A dark, low-contrast, Vim colorscheme
+Plug 'arzg/vim-colors-xcode'                                       " Xcode 11’s dark and light colourschemes, now for Vim!
 " }}}
 
 " HIGHLIGHT {{{

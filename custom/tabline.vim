@@ -7,7 +7,7 @@ if exists("+showtabline")
     while i <= tabpagenr('$')
       let buflist = tabpagebuflist(i)
       let winnr = tabpagewinnr(i)
-      let s .= (i == t ? '%#PmenuSbar#' : '%#TabLineFill#')
+      let s .= (i == t ? '%#StatusLine#' : '%#StatusLineNC#')
       let s .= ' ' . i . ' '
       let rawFile = bufname(buflist[winnr - 1])
       let projectName = fnamemodify(fnamemodify(rawFile, ':t'), ':p:h:t').' '
@@ -17,7 +17,7 @@ if exists("+showtabline")
       let i = i + 1
     endwhile
     let s .= '%T%#TabLineFill#%='
-    let s .= '%=%#TabLine#%999X'.projectName
+    let s .= '%=%#StatusLine#%999X '.projectName
     return s
   endfunction
   set showtabline=2
