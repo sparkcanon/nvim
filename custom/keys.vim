@@ -19,6 +19,7 @@ function! s:get_visual_selection()
    let [line2,col2] = getpos("'>")[1:2]
    return l[col1 - 1: col2 - 1]
 endfunction
+" }}}
 
 " TABULARIZE {{{
 xnoremap ga :Tabularize /
@@ -29,12 +30,6 @@ nnoremap ga :Tabularize /
 nnoremap ; :
 nnoremap : ;
 
-" Very magic mode for search
-nnoremap / /\v
-nnoremap g/ /\<\><left><left>
-" Clear highlights
-nnoremap <leader>/ :nohlsearch<CR>
-
 " Enter a line after brackets
 inoremap {<Enter> {<Enter>}<Esc>O<tab>
 inoremap [<Enter> [<Enter>]<Esc>O<tabEnter>
@@ -42,6 +37,16 @@ inoremap [<Enter> [<Enter>]<Esc>O<tabEnter>
 " Stay in visual mode after indenting
 vnoremap > >gv
 vnoremap < <gv
+" }}}
+
+" HIGHLIGHT {{{
+" Very magic mode for search
+nnoremap g/ /\v
+nnoremap ? ?\v
+nnoremap g? /\<\><left><left>
+
+" Clear highlights
+nnoremap <leader>/ :nohlsearch<CR>
 " }}}
 
 " C: COC {{{
