@@ -32,7 +32,7 @@ Plug 'romainl/vim-cool'                                            " A very simp
 
 " UTILITIES {{{
 Plug 'tpope/vim-sensible'                                          " Defaults everyone can agree on
-Plug 'simnalamburt/vim-mundo', { 'on' : 'MundoToggle' }
+Plug 'simnalamburt/vim-mundo', { 'on' : 'MundoToggle' }            " 🎄 Vim undo tree visualizer
 Plug 'junegunn/vim-peekaboo'                                       " 👀 \" / @ / CTRL-R
 Plug 'Yggdroot/indentLine'                                         " Line that show indentation
 Plug 'tpope/vim-repeat'                                            " repeat any command
@@ -47,7 +47,6 @@ Plug 'moll/vim-bbye'                                               " Delete buff
 " }}}
 
 " TMUX {{{
-Plug 'tmux-plugins/vim-tmux-focus-events'                          " Make terminal vim and tmux work better together.
 Plug 'christoomey/vim-tmux-navigator'                              " Seamless navigation between tmux panes and vim splits
 " }}}
 
@@ -68,11 +67,11 @@ Plug 'kristijanhusak/vim-dirvish-git'                              " Git support
 
 " SNIPPETS {{{
 Plug 'honza/vim-snippets'                                          " Snippet thingy
-Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }  " Javascript snippet
+Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }  " 🔧 JavaScript & NodeJS Snippets for Vim 
 " }}}
 
 " TYPESCRIPT & JAVASCRIPT {{{
-Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }              " Javascript docs
+Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }              " Generate JSDoc to your JavaScript code
 " }}}
 
 " GIT STUFF {{{
