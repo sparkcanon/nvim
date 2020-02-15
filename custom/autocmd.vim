@@ -9,6 +9,9 @@ au GeneralSettings ColorScheme * call ModifyCocSignColors()
 au GeneralSettings ColorScheme * call ModifySignifyColors()
 au GeneralSettings ColorScheme * call ModifyBufferColors()
 
+" Dont auto comment when going down a line in a comment with enter or O/o.
+autocmd GeneralSettings FileType * setlocal formatoptions-=r formatoptions-=o
+
 function! ModifyBufferColors() abort
 	highlight! Normal guibg=NONE
 	highlight! EndOfBuffer guibg=NONE

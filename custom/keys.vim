@@ -28,10 +28,20 @@ nnoremap ga :Tabularize /
 " UTILITIES {{{
 nnoremap ; :
 nnoremap : ;
+
+" Very magic mode for search
 nnoremap / /\v
+nnoremap g/ /\<\><left><left>
+" Clear highlights
 nnoremap <leader>/ :nohlsearch<CR>
+
+" Enter a line after brackets
 inoremap {<Enter> {<Enter>}<Esc>O<tab>
 inoremap [<Enter> [<Enter>]<Esc>O<tabEnter>
+
+" Stay in visual mode after indenting
+vnoremap > >gv
+vnoremap < <gv
 " }}}
 
 " C: COC {{{

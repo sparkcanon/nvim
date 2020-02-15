@@ -19,17 +19,22 @@ set conceallevel =2
 set cursorline      " highlight current line
 set wrap
 set linebreak
-set wildcharm=<Tab>
-set wildmenu
-set wildmode=full
 set lazyredraw      " redraw only when we need to.
 set showmatch
 set showcmd         " show command in bottom bar
+set statusline=\ ❮\ %f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)\ ❯\ 
+" }}}
 
+" LIST CHARS {{{
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
 set fillchars+=vert:│
 set list
-set statusline=\ ❮\ %f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)\ ❯\ 
+" }}}
+
+" WILDMENU {{{
+set wildcharm=<Tab>
+set wildmenu
+set wildmode=full
 " }}}
 
 " INDENTATION {{{
