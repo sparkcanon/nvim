@@ -14,7 +14,6 @@ set background=dark
 " UI Config {{{
 set softtabstop=4   " number of spaces in tab when editing
 set number          " show line numbers
-set ruler
 set conceallevel =2
 set cursorline      " highlight current line
 set wrap
@@ -35,6 +34,7 @@ set list
 set wildcharm=<Tab>
 set wildmenu
 set wildmode=full
+set wildignore+=**/node_modules/**
 " }}}
 
 " INDENTATION {{{

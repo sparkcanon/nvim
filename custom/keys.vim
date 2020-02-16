@@ -111,6 +111,9 @@ nnoremap n nzvzz
 nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
+
+nnoremap ,e :e **/*
+nnoremap ,f :find **/*
 " }}}
 
 " QUICKFIX RELATED {{{
