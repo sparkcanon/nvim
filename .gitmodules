@@ -88,3 +88,6 @@
 [submodule "plugged/vim-tmux-navigator"]
 	path = plugged/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "plugged/traces.vim"]
+	path = plugged/traces.vim
+	url = https://github.com/markonm/traces.vim.git
