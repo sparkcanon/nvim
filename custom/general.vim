@@ -48,12 +48,6 @@ set smartcase
 set ignorecase
 " }}}
 
-" FOLDING {{{
-set foldenable        " enable folding
-set foldlevelstart=10 " open most folds by default
-set foldnestmax=10    " 10 nested fold max
-" }}}
-
 " UTILITIES {{{
 set shell=/usr/local/bin/zsh
 set hidden
