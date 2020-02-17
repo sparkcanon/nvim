@@ -21,7 +21,7 @@ set linebreak
 set lazyredraw      " redraw only when we need to.
 set showmatch
 set showcmd         " show command in bottom bar
-set statusline=\ ❮\ %f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)\ ❯\ 
+set statusline=\ ❮\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ ❯\ 
 " }}}
 
 " LIST CHARS {{{
