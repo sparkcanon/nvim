@@ -32,22 +32,14 @@ Plug 'romainl/vim-cool'                                            " A very simp
 
 " UTILITIES {{{
 Plug 'tpope/vim-sensible'                                          " Defaults everyone can agree on
-Plug 'simnalamburt/vim-mundo', { 'on' : 'MundoToggle' }            " 🎄 Vim undo tree visualizer
 Plug 'junegunn/vim-peekaboo'                                       " 👀 \" / @ / CTRL-R
 Plug 'Yggdroot/indentLine'                                         " Line that show indentation
 Plug 'tpope/vim-repeat'                                            " repeat any command
-Plug 'shime/vim-livedown', { 'for': 'markdown' }                   " Live markdown server
 Plug 'tpope/vim-surround'                                          " quoting/parenthesizing made simple
 Plug 'tpope/vim-commentary'                                        " comment stuff out
 Plug 'godlygeek/tabular'                                           " 🌻 A Vim alignment plugin
-Plug 'tpope/vim-sleuth'                                            " Vim script for automatically detecting indent settings
-Plug 'takac/vim-hardtime'                                          " Plugin to help you stop repeating the basic movement keys
-Plug 'tpope/vim-abolish'                                           " Easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'moll/vim-bbye'                                               " Delete buffers and close files in Vim
-" }}}
-
-" TMUX {{{
-Plug 'christoomey/vim-tmux-navigator'                              " Seamless navigation between tmux panes and vim splits
+Plug 'ciaranm/detectindent'                                            " Vim script for automatically detecting indent settings
 " }}}
 
 " SHELL {{{
@@ -62,7 +54,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}                    " Coc is an i
 
 " FILE EXPLORING {{{
 Plug 'justinmk/vim-dirvish'                                        " Directory viewer for Vim ⚡️
-Plug 'kristijanhusak/vim-dirvish-git'                              " Git support for dirvish.vim
 " }}}
 
 " SNIPPETS {{{
@@ -77,11 +68,6 @@ Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }              " Generate JS
 " GIT STUFF {{{
 Plug 'tpope/vim-fugitive'                                          " 💀 A Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-rhubarb'                                           " GitHub extension for fugitive.vim
-Plug 'mhinz/vim-signify'                                           " ➕ Show a diff using Vim its sign column.
-" }}}
-
-" PERF {{{
-Plug 'dstein64/vim-startuptime'
 " }}}
 
 call plug#end()

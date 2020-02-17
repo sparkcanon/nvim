@@ -46,9 +46,9 @@ endfunction
 
 " Signify color mods
 function! ModifySignifyColors() abort
-	highlight SignifySignAdd guifg=yellow guibg=NONE ctermbg=NONE
-	highlight SignifySignDelete guifg=red  guibg=NONE ctermbg=NONE
-	highlight SignifySignChange guifg=green guibg=NONE ctermbg=NONE
+	highlight CocAddSign guifg=yellow guibg=NONE ctermbg=NONE
+	highlight CocDeleteSign guifg=red  guibg=NONE ctermbg=NONE
+	highlight CocChangeSign guifg=green guibg=NONE ctermbg=NONE
 endfunction
 
 " Update a buffer's contents on focus if it changed outside of Vim. {{{

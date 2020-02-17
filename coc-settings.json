@@ -27,8 +27,16 @@
     "typescriptreact"
   ],
 
-  "git.enableGutters": false,
-  "git.realtimeGutters": false,
+  "git.enableGutters": true,
+  "git.realtimeGutters": true,
+  "git.addedSign.text": "│",
+  "git.addedSign.hlGroup": "CocAddSign",
+  "git.removedSign.text": "│",
+  "git.removedSign.hlGroup": "CocDeleteSign",
+  "git.changedSign.text": "│",
+  "git.changedSign.hlGroup": "CocChangeSign",
+  "git.topRemovedSign.text": "│",
+  "git.changeRemovedSign.text": "│",
   "git.addGBlameToVirtualText": true,
 
   "codeLens.enable": false,
