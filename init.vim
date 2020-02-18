@@ -39,7 +39,11 @@ Plug 'tpope/vim-surround'                                          " quoting/par
 Plug 'tpope/vim-commentary'                                        " comment stuff out
 Plug 'godlygeek/tabular'                                           " 🌻 A Vim alignment plugin
 Plug 'moll/vim-bbye'                                               " Delete buffers and close files in Vim
-Plug 'ciaranm/detectindent'                                            " Vim script for automatically detecting indent settings
+Plug 'ciaranm/detectindent'                                        " Vim script for automatically detecting indent settings
+" }}}
+
+" TMUX {{{
+Plug 'christoomey/vim-tmux-navigator'
 " }}}
 
 " SHELL {{{
@@ -58,7 +62,7 @@ Plug 'justinmk/vim-dirvish'                                        " Directory v
 
 " SNIPPETS {{{
 Plug 'honza/vim-snippets'                                          " Snippet thingy
-Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }  " 🔧 JavaScript & NodeJS Snippets for Vim 
+Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }  " 🔧 JavaScript & NodeJS Snippets for Vim
 " }}}
 
 " TYPESCRIPT & JAVASCRIPT {{{

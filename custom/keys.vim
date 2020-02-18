@@ -30,6 +30,9 @@ nnoremap ga :Tabularize /
 nnoremap ; :
 nnoremap : ;
 
+" Set working directory
+nnoremap <leader>ro :lcd %:p:h<CR>
+
 " Enter a line after brackets
 inoremap {<Enter> {<Enter>}<Esc>O<tab>
 inoremap [<Enter> [<Enter>]<Esc>O<tabEnter>
@@ -152,9 +155,6 @@ nnoremap <silent> <leader>wK :call SwapTo('up')<CR>
 nnoremap <silent> <leader>wJ :call SwapTo('down')<CR>
 nnoremap <silent> <leader>wcc :cclose<cr>
 " }}}
-
-" Set working directory
-" nnoremap <leader>. :lcd %:p:h<CR>
 
 " F: FINDING SOMETHING {{{
 nnoremap <silent> <leader>fs :<C-u>CocList grep<CR>
