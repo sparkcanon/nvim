@@ -46,8 +46,8 @@ endfunction
 
 " Signify color mods
 function! ModifySignifyColors() abort
-	highlight CocAddSign guifg=yellow guibg=NONE ctermbg=NONE
-	highlight CocDeleteSign guifg=red  guibg=NONE ctermbg=NONE
+	highlight CocAddSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocDeleteSign guifg=#ff0000  guibg=NONE ctermbg=NONE
 	highlight CocChangeSign guifg=green guibg=NONE ctermbg=NONE
 endfunction
 
