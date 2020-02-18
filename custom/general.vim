@@ -56,6 +56,15 @@ set splitbelow
 set splitright
 set clipboard+=unnamed
 set diffopt=vertical " Show diffs in vertical splits
+set hidden
+set cmdheight=1
+set updatetime=300 " You will have bad experience for diagnostic messages when it's default 4000.
+set shortmess+=c " don't give |ins-completion-menu| messages.
+if has('nvim')
+  set signcolumn=auto:1
+else
+  set signcolumn=yes
+endif
 " if has('nvim')
 " 	set inccommand=split " opens a preview for highlights
 " endif

@@ -21,3 +21,6 @@ call SetupCommandAbbrs('bd', 'Bdelete')
 call SetupCommandAbbrs('fs', 'CocSearchInFile')
 
 command! -bang -nargs=* -complete=file CocSearchInFile exec printf("CocList grep %s", escape('<args>', '\\'))
+
+" Grep word and populate location list
+command! -nargs=* Grep execute "silent lgrep! ".<q-args>." **"
