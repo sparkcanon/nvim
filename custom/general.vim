@@ -35,6 +35,7 @@ set wildcharm=<Tab>
 set wildmenu
 set wildmode=full
 set wildignore+=**/node_modules/**
+set path=.,lego-web/**,peas/**
 " }}}
 
 " INDENTATION {{{

@@ -40,6 +40,7 @@ Plug 'tpope/vim-commentary'                                        " comment stu
 Plug 'godlygeek/tabular'                                           " 🌻 A Vim alignment plugin
 Plug 'moll/vim-bbye'                                               " Delete buffers and close files in Vim
 Plug 'ciaranm/detectindent'                                        " Vim script for automatically detecting indent settings
+Plug 'romainl/vim-qf'                                              " Tame the quickfix window
 " }}}
 
 " TMUX {{{

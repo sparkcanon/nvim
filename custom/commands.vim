@@ -9,18 +9,50 @@ function! SetupCommandAbbrs(from, to) abort
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 
-call SetupCommandAbbrs('C', 'CocConfig')
-call SetupCommandAbbrs('cr', 'CocRestart')
-call SetupCommandAbbrs('F', 'Format')
 call SetupCommandAbbrs('w', 'update')
 call SetupCommandAbbrs('sov', 'source $MYVIMRC')
-call SetupCommandAbbrs('Pi', 'PlugInstall')
-call SetupCommandAbbrs('Pu', 'PlugUpdate')
-call SetupCommandAbbrs('Pc', 'PlugClean')
-call SetupCommandAbbrs('bd', 'Bdelete')
-call SetupCommandAbbrs('fs', 'CocSearchInFile')
 
-command! -bang -nargs=* -complete=file CocSearchInFile exec printf("CocList grep %s", escape('<args>', '\\'))
+" PLUG {{{
+call SetupCommandAbbrs('pin', 'PlugInstall')
+call SetupCommandAbbrs('pup', 'PlugUpdate')
+call SetupCommandAbbrs('pcl', 'PlugClean')
+" }}}
 
-" Grep word and populate location list
-command! -nargs=* Grep execute "silent lgrep! ".<q-args>." **"
+" COC {{{
+call SetupCommandAbbrs('ccf', 'CocConfig')
+call SetupCommandAbbrs('cr', 'CocRestart')
+call SetupCommandAbbrs('cl', 'CocList')
+call SetupCommandAbbrs('ff', 'CocList files')
+call SetupCommandAbbrs('fh', 'CocList mru')
+call SetupCommandAbbrs('fx', 'CocList commands')
+call SetupCommandAbbrs('fgc', 'CocList --normal commits')
+call SetupCommandAbbrs('fgb', 'CocList --normal bcommits')
+" }}}
+
+" Run jest on current file
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" ----------------------------------------------------------------------------
+" DiffRev
+" ----------------------------------------------------------------------------
+let s:git_status_dictionary = {
+            \ "A": "Added",
+            \ "B": "Broken",
+            \ "C": "Copied",
+            \ "D": "Deleted",
+            \ "M": "Modified",
+            \ "R": "Renamed",
+            \ "T": "Changed",
+            \ "U": "Unmerged",
+            \ "X": "Unknown"
+            \ }
+function! s:get_diff_files(rev)
+  let list = map(split(system(
+              \ 'git diff --name-status '.a:rev), '\n'),
+              \ '{"filename":matchstr(v:val, "\\S\\+$"),"text":s:git_status_dictionary[matchstr(v:val, "^\\w")]}'
+              \ )
+  call setqflist(list)
+  copen
+endfunction
+
+command! -nargs=1 DiffRev call s:get_diff_files(<q-args>)

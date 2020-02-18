@@ -30,6 +30,9 @@ nnoremap ga :Tabularize /
 nnoremap ; :
 nnoremap : ;
 
+nnoremap ,e :e **/*
+nnoremap ,f :find **/*
+
 " Set working directory
 nnoremap <leader>ro :lcd %:p:h<CR>
 
@@ -53,27 +56,16 @@ nnoremap <leader>/ :nohlsearch<CR>
 " }}}
 
 " C: COC {{{
-nnoremap <silent> <leader>cl :<C-u>CocList<cr>
-" Show all diagnostics
-nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
-" Show commands
-nnoremap <silent> <leader>cc :<C-u>CocList commands<cr>
-" Search workspace symbols
-nnoremap <silent> <leader>cS  :<C-u>CocList -I symbols<cr>
 " Search workspace for word
 nnoremap <silent> <leader>cs :<C-u>CocSearch <C-R><C-W><CR>
 " Search workspace for word
 xnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
-" Find symbol of current document
-nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Do default action for next item.
 nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
-" Marks
-nnoremap <silent> <leader>cm  :<C-u>CocList marks<CR>
 
 " Remap for do codeAction of current line
 nmap <silent> <leader>ca  <Plug>(coc-codeaction)
@@ -114,34 +106,24 @@ nnoremap n nzvzz
 nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
-
-nnoremap ,e :e **/*
-nnoremap ,f :find **/*
 " }}}
 
 " QUICKFIX RELATED {{{
 " Open a quickfix window for last search
 nnoremap <silent> <leader><UP> :execute 'vimgrep /'.@/.'/g %'<CR>
-" nnoremap <leader>cco :cw<CR>
-" nnoremap <leader>ccl :ccl<CR>
 nnoremap <silent> <UP> :cope<CR>
 nnoremap <silent> <DOWN> :cclose<CR>
 nnoremap <silent> <leader>cn :cnext<CR>
 nnoremap <silent> <leader>cp :cprev<CR>
 nnoremap <silent> <RIGHT> :cnext<CR>
 nnoremap <silent> <LEFT> :cprev<CR>
+nnoremap <silent> <S-RIGHT> :cnewer<CR>
+nnoremap <silent> <S-LEFT> :colder<CR>
 " }}}
 
 " G: GIT {{{
 nnoremap <silent> <leader>gs :CocList -A --normal gstatus<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Gblame<CR>
-noremap <leader>gP :Gpush<CR>
-noremap <leader>gp :Gpull<CR>
-nnoremap <leader>gf :Gfetch<CR>
 nnoremap <leader>gz :G stash list<CR>
-nnoremap <leader>gl :0Glog<CR>
 nnoremap <silent> <leader>gad :exe 'G stash drop '.input('Drop stash number: ')<CR>
 nnoremap <silent> <leader>gaa :exe 'G stash apply '.input('Apply stash number: ')<CR>
 nnoremap <silent> <leader>gac :exe 'G stash clear'<CR>
@@ -156,22 +138,9 @@ nnoremap <silent> <leader>wJ :call SwapTo('down')<CR>
 nnoremap <silent> <leader>wcc :cclose<cr>
 " }}}
 
-" F: FINDING SOMETHING {{{
-nnoremap <silent> <leader>fs :<C-u>CocList grep<CR>
-nnoremap <silent> <leader>ff :<C-u>CocList files<CR>
-nnoremap <silent> <leader>fl :<C-u>CocList lines<CR>
-nnoremap <silent> <leader>fw  :exe 'CocList --normal --input='.expand('<cword>').' words'<CR>
-nnoremap <silent> <leader>fh :<C-u>CocList mru<CR>
-nnoremap <silent> <leader>fx :<C-u>CocList commands<CR>
-nnoremap <silent> <leader>fm :<C-u>CocList maps<CR>
-nnoremap <silent> <leader>fc :<C-u>CocList --normal commits<CR>
-nnoremap <silent> <leader>fb :<C-u>CocList --normal bcommits<CR>
-" }}}
-
 " B: BUFFER RELATED {{{
 noremap <leader>bp :bp<CR>
 noremap <leader>bn :bn<CR>
-noremap <leader>bd :Bdelete<CR>
 noremap <leader>bD :Bdelete!<CR>
 noremap <silent> <leader>bb :<C-u>CocList buffers<CR>
 noremap <backspace> <C-^>
@@ -180,6 +149,7 @@ noremap <backspace> <C-^>
 " TERMINAL {{{
 tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <leader>te :tabe <bar> terminal<CR>
+nnoremap <leader>e :e <C-R>=substitute(expand('%:p:h').'/', getcwd().'/', '', '')<CR>
 " }}}
 
 " Y: YANKING RELATED {{{
@@ -194,10 +164,6 @@ nnoremap <leader>yd :let @*=expand("%:p:h")<CR>
 " Opens an edit command with the path of the currently edited file filled in
 nnoremap <leader>ye :e <C-R>=expand("%:p:h") . "/" <CR>
 " cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-" }}}
-
-" O: OTHER STUFF {{{
-nnoremap <silent> <leader>om :MundoToggle<CR>
 " }}}
 
 " TABS {{{
