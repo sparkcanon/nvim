@@ -37,3 +37,33 @@ let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel  = 2
 let g:indentLine_setConceal    = 0
 " }}}
+
+" COC {{{
+let g:coc_global_extensions = [
+      \     'coc-webpack',
+      \     'coc-git',
+      \     'coc-eslint',
+      \     'coc-highlight',
+      \     'coc-vimlsp',
+      \     'coc-utils',
+      \     'coc-jest',
+      \     'coc-snippets',
+      \     'coc-emoji',
+      \     'coc-prettier',
+      \     'coc-emmet',
+      \     'coc-marketplace',
+      \     'coc-diagnostic',
+      \     'coc-pairs',
+      \     'coc-gitignore',
+      \     'coc-lists',
+      \     'coc-styled-components',
+      \     'coc-stylelint',
+      \     'coc-flutter',
+      \     'coc-json',
+      \     'coc-tsserver',
+      \     'coc-html',
+      \     'coc-css',
+      \     'coc-tslint-plugin',
+      \     'coc-import-cost',
+      \     ]
+" }}}

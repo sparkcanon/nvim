@@ -5,7 +5,6 @@
 " Clear all vimrc autocmds at the beginning
 augroup VimPlug | execute 'autocmd!' | augroup END
 augroup GeneralSettings | execute 'autocmd!' | augroup END
-augroup CocRelated | execute 'autocmd!' | augroup END
 
 augroup VimPlug
   autocmd!

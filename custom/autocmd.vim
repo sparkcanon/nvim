@@ -90,3 +90,9 @@ au GeneralSettings BufEnter * if exists('b:last_cwd')
 " Automatically open QuickFix
 autocmd GeneralSettings QuickFixCmdPost [^l]* nested cwindow
 autocmd GeneralSettings QuickFixCmdPost    l* nested lwindow
+
+autocmd GeneralSettings CursorHold * silent call CocActionAsync('highlight')
+" Setup formatexpr specified filetype(s).
+autocmd GeneralSettings FileType typescript,json setl formatexpr=CocAction('formatSelected')
+" Update signature help on jump placeholder
+autocmd GeneralSettings User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
