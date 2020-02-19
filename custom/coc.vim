@@ -120,7 +120,6 @@ let g:coc_global_extensions = [
       \     'coc-diagnostic',
       \     'coc-pairs',
       \     'coc-gitignore',
-      \     'coc-yank',
       \     'coc-lists',
       \     'coc-styled-components',
       \     'coc-stylelint',

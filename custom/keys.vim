@@ -35,7 +35,7 @@ nnoremap <leader>ro :lcd %:p:h<CR>
 
 " Enter a line after brackets
 inoremap {<Enter> {<Enter>}<Esc>O<tab>
-inoremap [<Enter> [<Enter>]<Esc>O<tabEnter>
+inoremap [<Enter> [<Enter>]<Esc>O<tab>
 
 " Stay in visual mode after indenting
 vnoremap > >gv

@@ -26,16 +26,18 @@ call SetupCommandAbbrs('ccf', 'CocConfig')
 call SetupCommandAbbrs('cr', 'CocRestart')
 call SetupCommandAbbrs('cl', 'CocList')
 call SetupCommandAbbrs('cL', 'CocListResume')
-call SetupCommandAbbrs('cs', 'CocList sessions')
 call SetupCommandAbbrs('ff', 'CocList files')
 call SetupCommandAbbrs('fh', 'CocList mru')
 call SetupCommandAbbrs('cc', 'CocList commands')
 call SetupCommandAbbrs('cgc', 'CocList --normal commits')
 call SetupCommandAbbrs('cgb', 'CocList --normal bcommits')
+call SetupCommandAbbrs('jest', 'JestSingleFile')
 " }}}
 
+command! -nargs=0 Sload :call CocAction('runCommand', 'session.load')
+command! -nargs=0 Ssave :call CocAction('runCommand', 'session.save')
 " Run jest on current file
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+command! -nargs=0 JestSingleFile :call  CocAction('runCommand', 'jest.fileTest', ['%'])
 command! -nargs=* -bang Files :call find_files#execute(<q-args>, 'qf', <bang>0)
 
 " ----------------------------------------------------------------------------

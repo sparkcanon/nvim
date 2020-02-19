@@ -70,6 +70,7 @@ endif
 " 	set inccommand=split " opens a preview for highlights
 " endif
 set completeopt=menu,menuone,preview,noselect,noinsert
+set belloff+=ctrlg
 " }}}
 
 " Backups {{{
