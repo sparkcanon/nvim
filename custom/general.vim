@@ -90,5 +90,5 @@ endif
 
 if executable('rg') 
 	" Note we extract the column as well as the file and line number
-	set grepprg=rg\ --column\ --vimgrep
+	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
 endif

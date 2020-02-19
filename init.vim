@@ -41,6 +41,7 @@ Plug 'godlygeek/tabular'                                           " 🌻 A Vim 
 Plug 'moll/vim-bbye'                                               " Delete buffers and close files in Vim
 Plug 'ciaranm/detectindent'                                        " Vim script for automatically detecting indent settings
 Plug 'romainl/vim-qf'                                              " Tame the quickfix window
+Plug 'samoshkin/vim-find-files'                                    " 🔎 Search for files and show results in a quickfix list
 " }}}
 
 " TMUX {{{

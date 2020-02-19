@@ -11,6 +11,9 @@ endfunction
 
 call SetupCommandAbbrs('w', 'update')
 call SetupCommandAbbrs('sov', 'source $MYVIMRC')
+call SetupCommandAbbrs('bd', 'Bdelete')
+call SetupCommandAbbrs('lk', 'Files')
+call SetupCommandAbbrs('gr', 'grep')
 
 " PLUG {{{
 call SetupCommandAbbrs('pin', 'PlugInstall')
@@ -22,15 +25,18 @@ call SetupCommandAbbrs('pcl', 'PlugClean')
 call SetupCommandAbbrs('ccf', 'CocConfig')
 call SetupCommandAbbrs('cr', 'CocRestart')
 call SetupCommandAbbrs('cl', 'CocList')
+call SetupCommandAbbrs('cL', 'CocListResume')
+call SetupCommandAbbrs('cs', 'CocList sessions')
 call SetupCommandAbbrs('ff', 'CocList files')
 call SetupCommandAbbrs('fh', 'CocList mru')
-call SetupCommandAbbrs('fx', 'CocList commands')
-call SetupCommandAbbrs('fgc', 'CocList --normal commits')
-call SetupCommandAbbrs('fgb', 'CocList --normal bcommits')
+call SetupCommandAbbrs('cc', 'CocList commands')
+call SetupCommandAbbrs('cgc', 'CocList --normal commits')
+call SetupCommandAbbrs('cgb', 'CocList --normal bcommits')
 " }}}
 
 " Run jest on current file
 command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+command! -nargs=* -bang Files :call find_files#execute(<q-args>, 'qf', <bang>0)
 
 " ----------------------------------------------------------------------------
 " DiffRev

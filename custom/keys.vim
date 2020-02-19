@@ -30,9 +30,6 @@ nnoremap ga :Tabularize /
 nnoremap ; :
 nnoremap : ;
 
-nnoremap ,e :e **/*
-nnoremap ,f :find **/*
-
 " Set working directory
 nnoremap <leader>ro :lcd %:p:h<CR>
 
@@ -149,7 +146,6 @@ noremap <backspace> <C-^>
 " TERMINAL {{{
 tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <leader>te :tabe <bar> terminal<CR>
-nnoremap <leader>e :e <C-R>=substitute(expand('%:p:h').'/', getcwd().'/', '', '')<CR>
 " }}}
 
 " Y: YANKING RELATED {{{

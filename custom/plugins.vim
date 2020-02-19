@@ -4,6 +4,11 @@
 let g:loaded_netrwPlugin = 1 " disable netrw
 " }}}
 
+" FIND FILES {{{
+let g:find_files_findprg = 'fd $* $d'
+let g:find_files_command_name = ''
+" }}}
+
 " FUGITIVE {{{
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 " }}}

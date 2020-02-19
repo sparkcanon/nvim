@@ -90,4 +90,3 @@ au GeneralSettings BufEnter * if exists('b:last_cwd')
 " Automatically open QuickFix
 autocmd GeneralSettings QuickFixCmdPost [^l]* nested cwindow
 autocmd GeneralSettings QuickFixCmdPost    l* nested lwindow
-autocmd GeneralSettings QuickFixCmdPost    l* nested cwindow	
