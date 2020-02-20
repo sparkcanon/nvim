@@ -5,7 +5,7 @@ let g:loaded_netrwPlugin = 1 " disable netrw
 " }}}
 
 " FIND FILES {{{
-let g:find_files_findprg = 'fd $* $d'
+let g:find_files_findprg = 'fd $*'
 let g:find_files_command_name = ''
 " }}}
 
