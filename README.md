@@ -1,6 +1,6 @@
 # Neovim config
 
-This is a heavy coc.nvim based set up that works well for me. To install please view the below.
+This set up that works well for me. To install please view the below.
 
 ## Dependencies
 
@@ -15,10 +15,6 @@ This is a heavy coc.nvim based set up that works well for me. To install please 
 3. [Rg](https://github.com/BurntSushi/ripgrep)
 
     Rg/ripgrep is required for blazing fast grep.
-
-### Optional dependencies
-
-1. [Livedown](https://github.com/shime/vim-livedown) - npm install -g livedown
 
 ## Install instructions
 
