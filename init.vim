@@ -9,25 +9,27 @@ set omnifunc=v:lua.vim.lsp.omnifunc
 runtime macros/matchit.vim
 
 " Basic settings {{{
-set autoindent                       " Minimal automatic indenting for any filetype.
-set backspace=indent,eol,start       " Proper backspace behavior.
-set hidden                           " Possibility to have more than one unsaved buffers.
-set incsearch                        " Incremental search, hit `<CR>` to stop.
-set ruler                            " Shows the current line number at the bottom-right of the screen.
-set wildmenu                         " Great command-line completion, use `<Tab>` to move around and `<CR>` to validate.
-set number                           " Shows the number line
-set signcolumn=yes                   " Shows the sign column
-set splitbelow                       " In case of split, opens below
-set splitright                       " In case of vsplit, opens to the right
-set clipboard+=unnamed               " Clipboard support
-set showmatch                        " Show matching bracket on cursor hold
-set cursorline                       " Highlight cursor line
-set wrap                             " Wrap long statements
-set completeopt=menu,menuone,preview " Options for completion menu
-set autoread                         " Ready file if it has been changed
+set autoindent                                " Minimal automatic indenting for any filetype.
+set backspace=indent,eol,start                " Proper backspace behavior.
+set hidden                                    " Possibility to have more than one unsaved buffers.
+set incsearch                                 " Incremental search, hit `<CR>` to stop.
+set ruler                                     " Shows the current line number at the bottom-right of the screen.
+set wildmenu                                  " Great command-line completion, use `<Tab>` to move around and `<CR>` to validate.
+set number                                    " Shows the number line
+set signcolumn=yes                            " Shows the sign column
+set splitbelow                                " In case of split, opens below
+set splitright                                " In case of vsplit, opens to the right
+set clipboard+=unnamed                        " Clipboard support
+set showmatch                                 " Show matching bracket on cursor hold
+set cursorline                                " Highlight cursor line
+set wrap                                      " Wrap long statements
+set completeopt=menu,menuone,preview,noinsert " Options for completion menu
+set autoread                                  " Ready file if it has been changed
 " }}}
 
 " Backup settings {{{
+set sessionoptions-=options
+set viewoptions-=options
 set undofile    " Set this option to have full undo power
 set backup      " Set this option to enable backup
 set writebackup " Set this option to write back up
@@ -45,7 +47,7 @@ endif
 " Plugins {{{
 if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
     call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
-    autocmd VimEnter * silent! MinPlugInstall | echo "minPlug: INSTALLED"
+    autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
 endif
 
 packadd minPlug
@@ -90,9 +92,11 @@ autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
 " Locationlist
 autocmd GeneralSettings QuickFixCmdPost lgetexpr lwindow
 
-autocmd GeneralSettings FileType javascript setlocal makeprg=prettier\ --write\ compact
-autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx silent make! <afile> | silent redraw!
-autocmd GeneralSettings QuickFixCmdPost [^l]* cwindow
+autocmd GeneralSettings VimLeave * call functions#sessionSave()
+
+" autocmd GeneralSettings FileType javascript setlocal makeprg=prettier\ --write\ compact
+" autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx silent make! <afile> | silent redraw!
+" autocmd GeneralSettings QuickFixCmdPost [^l]* cwindow
 " }}}
 
 " Colorscheme {{{
@@ -128,6 +132,12 @@ command! -nargs=+ -complete=file -bar LGrep lgetexpr functions#grep(<q-args>)
 command! -nargs=+ -complete=dir Files :call find_files#execute(<q-args>, 'qf', <bang>0)
 " Format buffer
 command! -nargs=0 Fmt execute 'lua vim.lsp.buf.formatting()'
+" Run jest test watcher
+command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
+" Save sessions (force)
+command! -nargs=0 SessionSave call functions#sessionSave()
+" Load sessions
+command! -nargs=1 -complete=customlist,functions#sessionCompletePath SessionLoad call functions#sessionLoad(<q-args>)
 " }}}
 
 " Plugin settings {{{
@@ -148,7 +158,7 @@ nvim_lsp.cssls.setup{}
 EOF
 " }}}
 
-" mappings {{{
+" Mappings {{{
 " Commands
 nnoremap ; :	
 nnoremap : ;
