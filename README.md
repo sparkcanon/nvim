@@ -8,15 +8,17 @@ This set up that works well for me. To install please view the below.
 
     `brew install neovim`
 
-2. [Node](https://nodejs.org/en/)
-
-    Node is required for [coc.nvim](https://github.com/neoclide/coc.nvim)
-
-3. [Rg](https://github.com/BurntSushi/ripgrep)
+2. [Rg](https://github.com/BurntSushi/ripgrep)
 
     Rg/ripgrep is required for blazing fast grep.
 
+3. [fd](https://github.com/sharkdp/fd)
+
+    `brew install fd`
+
 ## Install instructions
 
-1. `git clone https://github.com/pratikborde/nvim.git ~/.config/nvim`
+1. `git clone https://github.com/pratikborde/nvim.git $HOME/.config/nvim`
 2. Start neovim with `nvim` in the shell
+3. Wait for the echo `installed`
+4. `:sov`

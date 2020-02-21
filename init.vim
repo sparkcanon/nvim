@@ -140,6 +140,14 @@ command! -nargs=0 SessionSave call functions#sessionSave()
 command! -nargs=1 -complete=customlist,functions#sessionCompletePath SessionLoad call functions#sessionLoad(<q-args>)
 " }}}
 
+" Abbr {{{
+call functions#setupCommandAbbrs('w','update')
+call functions#setupCommandAbbrs('sov','source $MYVIMRC')
+call functions#setupCommandAbbrs('Mi','MinPlugInstall')
+call functions#setupCommandAbbrs('sload','SessionLoad')
+call functions#setupCommandAbbrs('ssave','SessionSave')
+" }}}
+
 " Plugin settings {{{
 " Disvirsh
 let g:loaded_netrwPlugin = 1                     " disable netrw
@@ -151,10 +159,30 @@ let g:find_files_command_name = ''
 
 " Nvim-lsp
 lua << EOF
-local nvim_lsp = require'nvim_lsp'
-nvim_lsp.tsserver.setup{}
-nvim_lsp.vimls.setup{}
-nvim_lsp.cssls.setup{}
+if vim.lsp then
+  -- In case reloading
+  vim.lsp.stop_client(vim.lsp.get_active_clients())
+
+  local nvim_lsp = require'nvim_lsp'
+  local servers = {'tsserver', 'vimls', 'cssls'}
+  for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {}
+  end
+
+  do
+    local method = 'textDocument/publishDiagnostics'
+    local default_callback = vim.lsp.callbacks[method]
+    vim.lsp.callbacks[method] = function(err, method, result, client_id)
+      default_callback(err, method, result, client_id)
+      if result and result.diagnostics then
+	for _, v in ipairs(result.diagnostics) do
+	  v.uri = v.uri or result.uri
+	end
+	vim.lsp.util.set_qflist(result.diagnostics)
+      end
+    end
+  end
+end
 EOF
 " }}}
 
