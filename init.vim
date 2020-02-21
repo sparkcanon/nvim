@@ -19,7 +19,7 @@ set incsearch                                 " Incremental search, hit `<CR>` t
 set ruler                                     " Shows the current line number at the bottom-right of the screen.
 set wildmenu                                  " Great command-line completion, use `<Tab>` to move around and `<CR>` to validate.
 set number                                    " Shows the number line
-set signcolumn=yes                            " Shows the sign column
+set signcolumn=auto:1                            " Shows the sign column
 set splitbelow                                " In case of split, opens below
 set splitright                                " In case of vsplit, opens to the right
 set clipboard+=unnamed                        " Clipboard support
@@ -255,5 +255,8 @@ nnoremap ga :Tabularize /
 noremap <backspace> <C-^>
 
 " Open last searched qf
-nnoremap <silent> <space>gr :execute 'vimgrep /'.@/.'/g %'<CR>
+nnoremap <silent> <space>gr :execute 'Grep '.@/.' %'<CR>
+
+" Window
+nnoremap <space>w <C-w>
 " }}}

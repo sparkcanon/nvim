@@ -30,7 +30,7 @@ endfunction
 
 " Visual {{{
 " Get visual section
-function! functions#getVisualSelection()
+function! functions#getVisualSelection() abort
    let l=getline("'<")
    let [line1,col1] = getpos("'<")[1:2]
    let [line2,col2] = getpos("'>")[1:2]
