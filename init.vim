@@ -1,12 +1,15 @@
+" Syntax {{{
 " Enabling filetype support provides filetype-specific indentinvim_lspng,
 " syntax highlighting, omni-completion and other useful settings.
 filetype plugin indent on
 syntax on
 set omnifunc=v:lua.vim.lsp.omnifunc
+" }}}
 
-" `matchit.vim` is built-in so let's enable it!
+" Runtime {{{
 " Hit `%` on `if` to jump to `else`.
 runtime macros/matchit.vim
+" }}}
 
 " Basic settings {{{
 set autoindent                                " Minimal automatic indenting for any filetype.
@@ -25,6 +28,8 @@ set cursorline                                " Highlight cursor line
 set wrap                                      " Wrap long statements
 set completeopt=menu,menuone,preview,noinsert " Options for completion menu
 set autoread                                  " Ready file if it has been changed
+set ignorecase                                " Ignore's case
+set smartcase                                 " To ignore ignorecase in some cases
 " }}}
 
 " Backup settings {{{
@@ -41,6 +46,13 @@ else
     set backupdir=$HOME/.vim/tmp/dir_backup//
     set directory^=$HOME/.vim/tmp/dir_swap//
     set undodir=$HOME/.vim/tmp/dir_undo
+endif
+" }}}
+
+" Grep {{{
+if executable('rg') 
+	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 " }}}
 
@@ -78,7 +90,7 @@ augroup END
 autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
 autocmd GeneralSettings ColorScheme * call functions#modifyLspColors()
 
-" CREATE A NEW DIR IF IT DOESNT EXISTS
+" Create a new dir if it doesnt exists
 autocmd GeneralSettings BufWritePre *
 			\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
 			\ call mkdir(expand('<afile>:h'), 'p') |
@@ -87,13 +99,14 @@ autocmd GeneralSettings BufWritePre *
 " Set cwd on bufenter
 autocmd GeneralSettings BufEnter * silent! Glcd
 
-" Quickfix
+" Quickfix && location list
 autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
-" Locationlist
 autocmd GeneralSettings QuickFixCmdPost lgetexpr lwindow
 
+" Save session on exit
 autocmd GeneralSettings VimLeave * call functions#sessionSave()
 
+" Run prettier on save
 " autocmd GeneralSettings FileType javascript setlocal makeprg=prettier\ --write\ compact
 " autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx silent make! <afile> | silent redraw!
 " autocmd GeneralSettings QuickFixCmdPost [^l]* cwindow
@@ -105,7 +118,7 @@ if exists('+termguicolors')
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-colorscheme xcodedark " Sets colorscheme for neovim
+colorscheme xcodedark
 set background=dark
 " }}}
 
@@ -114,13 +127,6 @@ set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
 set fillchars+=vert:│
 set list
 set statusline=\ ❮\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ ❯\ 
-" }}}
-
-" Grep {{{
-if executable('rg') 
-	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
 " }}}
 
 " Commands {{{
