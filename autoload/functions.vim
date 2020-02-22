@@ -73,3 +73,13 @@ function! functions#setupCommandAbbrs(from, to) abort
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 " }}}
+
+" Prettier {{{
+function! functions#prettierFormat() abort
+	let prettierPath = glob(getcwd().'/node_modules/.bin/prettier')
+	if !empty(prettierPath)
+	     let getPath = system('prettier --find-config-path .')[:-2]
+	     let &l:makeprg = './node_modules/.bin/prettier --config ' . getPath . ' --write'
+	endif
+endfunction
+" }}}

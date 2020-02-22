@@ -106,10 +106,13 @@ autocmd GeneralSettings QuickFixCmdPost lgetexpr lwindow
 " Save session on exit
 autocmd GeneralSettings VimLeave * call functions#sessionSave()
 
+" Auto-resize splits when Vim gets resized.
+autocmd GeneralSettings VimResized * wincmd =
+
 " Run prettier on save
-" autocmd GeneralSettings FileType javascript setlocal makeprg=prettier\ --write\ compact
-" autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx silent make! <afile> | silent redraw!
-" autocmd GeneralSettings QuickFixCmdPost [^l]* cwindow
+autocmd GeneralSettings FileType javascript,typescript call functions#prettierFormat()
+autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx silent make! <afile> | silent redraw!
+autocmd GeneralSettings QuickFixCmdPost [^l]* cwindow
 " }}}
 
 " Colorscheme {{{
@@ -136,8 +139,6 @@ command! -nargs=+ -complete=file -bar Grep  cgetexpr functions#grep(<q-args>)
 command! -nargs=+ -complete=file -bar LGrep lgetexpr functions#grep(<q-args>)
 " Find files using vim-find-files
 command! -nargs=+ -complete=dir Files :call find_files#execute(<q-args>, 'qf', <bang>0)
-" Format buffer
-command! -nargs=0 Fmt execute 'lua vim.lsp.buf.formatting()'
 " Run jest test watcher
 command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
 " Save sessions (force)
@@ -184,7 +185,7 @@ if vim.lsp then
 	for _, v in ipairs(result.diagnostics) do
 	  v.uri = v.uri or result.uri
 	end
-	vim.lsp.util.set_qflist(result.diagnostics)
+	vim.lsp.util.set_loclist(result.diagnostics)
       end
     end
   end
@@ -194,7 +195,7 @@ EOF
 
 " Mappings {{{
 " Commands
-nnoremap ; :	
+nnoremap ; :
 nnoremap : ;
 
 " Clear highlights
@@ -202,7 +203,7 @@ nnoremap <space>/ :nohlsearch<CR>
 
 " LSP
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gt	<cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gf	<cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gs	<cmd>lua vim.lsp.buf.signature_help()<CR>
@@ -226,12 +227,16 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <space>te :tabe <bar> terminal<CR>
 
 " Quickfix
-nnoremap <silent> <UP> :cope<CR>
+nnoremap <silent> <UP> :copen<CR>
+nnoremap <silent> <S-UP> :lopen<CR>
 nnoremap <silent> <DOWN> :cclose<CR>
+nnoremap <silent> <S-DOWN> :lclose<CR>
 nnoremap <silent> <RIGHT> :cnext<CR>
 nnoremap <silent> <LEFT> :cprev<CR>
 nnoremap <silent> <S-RIGHT> :cnewer<CR>
 nnoremap <silent> <S-LEFT> :colder<CR>
+nnoremap <silent> <C-RIGHT> :lnewer<CR>
+nnoremap <silent> <C-LEFT> :lolder<CR>
 
 " Center search result line in screen
 nnoremap n nzvzz
@@ -252,7 +257,7 @@ xnoremap ga :Tabularize /
 nnoremap ga :Tabularize /
 
 " Previous buffer
-noremap <backspace> <C-^>
+nnoremap <backspace> <C-^>
 
 " Open last searched qf
 nnoremap <silent> <space>gr :execute 'Grep '.@/.' %'<CR>
