@@ -140,6 +140,8 @@ command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleF
 command! -nargs=0 SessionSave call functions#sessionSave()
 " Load sessions
 command! -nargs=1 -complete=customlist,functions#sessionCompletePath SessionLoad call functions#sessionLoad(<q-args>)
+" Git stash list
+command! -nargs=0 Gstash :call functions#getGitStash()
 " }}}
 
 " Abbr {{{
@@ -150,6 +152,8 @@ call functions#setupCommandAbbrs('sload','SessionLoad')
 call functions#setupCommandAbbrs('ssave','SessionSave')
 call functions#setupCommandAbbrs('fd','Files')
 call functions#setupCommandAbbrs('gr','Grep')
+call functions#setupCommandAbbrs('gp','Dispatch! git push')
+call functions#setupCommandAbbrs('gs','Gstash')
 " }}}
 
 " Plugin settings {{{

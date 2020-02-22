@@ -83,3 +83,9 @@ function! functions#prettierFormat() abort
  endif
 endfunction
 " }}}
+
+" Git stash
+function functions#getGitStash() abort
+	let stashList = systemlist('git stash list')
+	call setqflist([], ' ', {'lines': systemlist('git stash list')}) | copen
+endfunction
