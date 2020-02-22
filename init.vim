@@ -39,13 +39,13 @@ set undofile    " Set this option to have full undo power
 set backup      " Set this option to enable backup
 set writebackup " Set this option to write back up
 if has('nvim')
-    set undodir=$HOME/.config/nvim/tmp/dir_undo
-    set backupdir=$HOME/.config/nvim/tmp/dir_backup//
-    set directory^=$HOME/.config/nvim/tmp/dir_swap//
+	set undodir=$HOME/.config/nvim/tmp/dir_undo
+	set backupdir=$HOME/.config/nvim/tmp/dir_backup//
+	set directory^=$HOME/.config/nvim/tmp/dir_swap//
 else
-    set backupdir=$HOME/.vim/tmp/dir_backup//
-    set directory^=$HOME/.vim/tmp/dir_swap//
-    set undodir=$HOME/.vim/tmp/dir_undo
+	set backupdir=$HOME/.vim/tmp/dir_backup//
+	set directory^=$HOME/.vim/tmp/dir_swap//
+	set undodir=$HOME/.vim/tmp/dir_undo
 endif
 " }}}
 
@@ -58,8 +58,8 @@ endif
 
 " Plugins {{{
 if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
-    call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
-    autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
+	call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
+	autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
 endif
 
 packadd minPlug
@@ -99,10 +99,6 @@ autocmd GeneralSettings BufWritePre *
 " Set cwd on bufenter
 autocmd GeneralSettings BufEnter * silent! Glcd
 
-" Quickfix && location list
-autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
-autocmd GeneralSettings QuickFixCmdPost lgetexpr lwindow
-
 " Save session on exit
 autocmd GeneralSettings VimLeave * call functions#sessionSave()
 
@@ -110,9 +106,8 @@ autocmd GeneralSettings VimLeave * call functions#sessionSave()
 autocmd GeneralSettings VimResized * wincmd =
 
 " Run prettier on save
-autocmd GeneralSettings FileType javascript,typescript call functions#prettierFormat()
-autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx silent make! <afile> | silent redraw!
-autocmd GeneralSettings QuickFixCmdPost [^l]* cwindow
+autocmd GeneralSettings FileType javascript,typescript,less,css,html call functions#prettierFormat()
+autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx,*.html,*.css,*.less execute 'Make! %'
 " }}}
 
 " Colorscheme {{{
@@ -153,6 +148,8 @@ call functions#setupCommandAbbrs('sov','source $MYVIMRC')
 call functions#setupCommandAbbrs('Mi','MinPlugInstall')
 call functions#setupCommandAbbrs('sload','SessionLoad')
 call functions#setupCommandAbbrs('ssave','SessionSave')
+call functions#setupCommandAbbrs('fd','Files')
+call functions#setupCommandAbbrs('gr','Grep')
 " }}}
 
 " Plugin settings {{{
@@ -160,34 +157,37 @@ call functions#setupCommandAbbrs('ssave','SessionSave')
 let g:loaded_netrwPlugin = 1                     " disable netrw
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
 
-" Find-files
-let g:find_files_findprg = 'fd $*'
-let g:find_files_command_name = ''
+                                                 " Find-files
+let g:find_files_findprg = 'fd $*'               " Base command for find_files
+let g:find_files_command_name = ''               " Remove original mapping
+
+                                                 " Vim-qf
+let g:qf_mapping_ack_style = 1                   " Qf mappings
 
 " Nvim-lsp
 lua << EOF
 if vim.lsp then
-  -- In case reloading
-  vim.lsp.stop_client(vim.lsp.get_active_clients())
+	-- In case reloading
+	vim.lsp.stop_client(vim.lsp.get_active_clients())
 
-  local nvim_lsp = require'nvim_lsp'
-  local servers = {'tsserver', 'vimls', 'cssls'}
-  for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {}
-  end
-
-  do
-    local method = 'textDocument/publishDiagnostics'
-    local default_callback = vim.lsp.callbacks[method]
-    vim.lsp.callbacks[method] = function(err, method, result, client_id)
-      default_callback(err, method, result, client_id)
-      if result and result.diagnostics then
-	for _, v in ipairs(result.diagnostics) do
-	  v.uri = v.uri or result.uri
+	local nvim_lsp = require'nvim_lsp'
+	local servers = {'tsserver', 'vimls', 'cssls'}
+	for _, lsp in ipairs(servers) do
+		nvim_lsp[lsp].setup {}
 	end
-	vim.lsp.util.set_loclist(result.diagnostics)
-      end
-    end
+
+	do
+	local method = 'textDocument/publishDiagnostics'
+	local default_callback = vim.lsp.callbacks[method]
+	vim.lsp.callbacks[method] = function(err, method, result, client_id)
+	default_callback(err, method, result, client_id)
+	if result and result.diagnostics then
+		for _, v in ipairs(result.diagnostics) do
+			v.uri = v.uri or result.uri
+		end
+		vim.lsp.util.set_loclist(result.diagnostics)
+	end
+	end
   end
 end
 EOF
@@ -226,17 +226,9 @@ nnoremap <silent> <S-t> :tabnew<CR><Paste>
 tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <space>te :tabe <bar> terminal<CR>
 
-" Quickfix
-nnoremap <silent> <UP> :copen<CR>
-nnoremap <silent> <S-UP> :lopen<CR>
-nnoremap <silent> <DOWN> :cclose<CR>
-nnoremap <silent> <S-DOWN> :lclose<CR>
-nnoremap <silent> <RIGHT> :cnext<CR>
-nnoremap <silent> <LEFT> :cprev<CR>
-nnoremap <silent> <S-RIGHT> :cnewer<CR>
-nnoremap <silent> <S-LEFT> :colder<CR>
-nnoremap <silent> <C-RIGHT> :lnewer<CR>
-nnoremap <silent> <C-LEFT> :lolder<CR>
+" Vim-qf
+nmap <UP> <Plug>(qf_qf_toggle)
+nmap <DOWN> <Plug>(qf_loc_toggle)
 
 " Center search result line in screen
 nnoremap n nzvzz
@@ -258,6 +250,7 @@ nnoremap ga :Tabularize /
 
 " Previous buffer
 nnoremap <backspace> <C-^>
+nnoremap gb :ls<CR>:b<Space>
 
 " Open last searched qf
 nnoremap <silent> <space>gr :execute 'Grep '.@/.' %'<CR>
