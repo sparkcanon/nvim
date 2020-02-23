@@ -83,7 +83,9 @@ augroup GeneralSettings
 	autocmd!
 augroup END
 
+" Modify buffer colors
 autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
+" Modify lsp colors
 autocmd GeneralSettings ColorScheme * call functions#modifyLspColors()
 
 " Create a new dir if it doesnt exists
@@ -104,6 +106,9 @@ autocmd GeneralSettings VimResized * wincmd =
 " Run prettier on save
 autocmd GeneralSettings FileType javascript,typescript,less,css,html call functions#prettierFormat()
 autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx,*.html,*.css,*.less execute 'Make! %'
+
+" Close preview window after completion is done
+autocmd GeneralSettings CompleteDone * pclose
 " }}}
 
 " Colorscheme {{{
@@ -166,7 +171,6 @@ let g:qf_mapping_ack_style = 1                   " Qf mappings
 
 " Nvim-lsp
 lua require'main'.setup()
-lua require'main'.qfDiagnostics()
 lua require'colorizer'.setup()
 " }}}
 
@@ -178,23 +182,13 @@ nnoremap : ;
 " Clear highlights
 nnoremap <space>/ :nohlsearch<CR>
 
-" LSP
-nnoremap <silent> gd     <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gf     <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K      <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD     <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gs     <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> gT     <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gR     <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> gF     <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> gr     <cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>
-
 " Omnifunc
-inoremap <C-space> <C-x><C-o>
+" Completion pop up
+inoremap ,, <C-x><C-o>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " keyword completion
-inoremap        ,,      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap        ,'      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " File name completion
 inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Whole line completion
