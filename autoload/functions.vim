@@ -8,15 +8,16 @@ endfunction
 " Lsp colors
 " TODO: Add colors to the commented hl groups
 function! functions#modifyLspColors() abort
- highlight! LspDiagnosticsError guifg=#ff0000
- highlight! LspDiagnosticsHint guifg=yellow
- highlight! LspDiagnosticsUnderlineError guifg=red
- highlight! LspDiagnosticsUnderlineHint guifg=yellow
- " highlight!  LspDiagnosticsInformation guifg=yellow
- " highlight!  LspDiagnosticsUnderline
- " highlight!  LspDiagnosticsUnderlineInformation
- " highlight!  LspDiagnosticsUnderlineWarning
- " highlight!  LspDiagnosticsWarning
+ highlight! LspDiagnosticsError guifg=#CB2E3D
+ highlight! LspDiagnosticsHint guifg=#b7e1b5
+ highlight! LspDiagnosticsWarning guifg=#fccf4d
+ highlight! LspDiagnosticsInformation guifg=#00EA9E
+
+ highlight! LspDiagnosticsUnderlineError guifg=#CB2E3D
+ " highlight! LspDiagnosticsUnderline guifg=#b7e1b5
+ highlight! LspDiagnosticsUnderlineHint guifg=#b7e1b5
+ highlight! LspDiagnosticsUnderlineInformation guifg=#00EA9E
+ highlight! LspDiagnosticsUnderlineWarning guifg=#fccf4d
 endfunction
 " }}}
 

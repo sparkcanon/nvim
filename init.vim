@@ -63,7 +63,7 @@ if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
 endif
 
 packadd minPlug
-MinPlug neovim/nvim-lsp
+MinPlug neovim/nvim-lsp                " Nvim LSP client configurations
 MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
 MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
 MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
@@ -79,7 +79,8 @@ MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
 MinPlug markonm/traces.vim             " Range, pattern and substitute preview for Vim
 MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
 MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
-MinPlug christoomey/vim-tmux-navigator
+MinPlug norcalli/nvim-colorizer.lua    " The fastest Neovim colorizer.
+MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
 " }}}
 
 " Autocmd {{{
@@ -169,32 +170,9 @@ let g:find_files_command_name = ''               " Remove original mapping
 let g:qf_mapping_ack_style = 1                   " Qf mappings
 
 " Nvim-lsp
-lua << EOF
-if vim.lsp then
-	-- In case reloading
-	vim.lsp.stop_client(vim.lsp.get_active_clients())
-
-	local nvim_lsp = require'nvim_lsp'
-	local servers = {'tsserver', 'vimls', 'cssls', 'jsonls', 'yamlls'}
-	for _, lsp in ipairs(servers) do
-		nvim_lsp[lsp].setup {}
-	end
-
-	do
-	local method = 'textDocument/publishDiagnostics'
-	local default_callback = vim.lsp.callbacks[method]
-	vim.lsp.callbacks[method] = function(err, method, result, client_id)
-	default_callback(err, method, result, client_id)
-	if result and result.diagnostics then
-		for _, v in ipairs(result.diagnostics) do
-			v.uri = v.uri or result.uri
-		end
-		vim.lsp.util.set_loclist(result.diagnostics)
-	end
-	end
-  end
-end
-EOF
+lua require'main'.setup()
+lua require'main'.qfDiagnostics()
+lua require'colorizer'.setup()
 " }}}
 
 " Mappings {{{
