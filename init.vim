@@ -19,7 +19,7 @@ set incsearch                                 " Incremental search, hit `<CR>` t
 set ruler                                     " Shows the current line number at the bottom-right of the screen.
 set wildmenu                                  " Great command-line completion, use `<Tab>` to move around and `<CR>` to validate.
 set number                                    " Shows the number line
-set signcolumn=auto:1                            " Shows the sign column
+set signcolumn=auto:1                         " Shows the sign column
 set splitbelow                                " In case of split, opens below
 set splitright                                " In case of vsplit, opens to the right
 set clipboard+=unnamed                        " Clipboard support
@@ -35,9 +35,9 @@ set smartcase                                 " To ignore ignorecase in some cas
 " Backup settings {{{
 set sessionoptions-=options
 set viewoptions-=options
-set undofile    " Set this option to have full undo power
-set backup      " Set this option to enable backup
-set writebackup " Set this option to write back up
+set undofile                " Set this option to have full undo power
+set backup                  " Set this option to enable backup
+set writebackup             " Set this option to write back up
 if has('nvim')
 	set undodir=$HOME/.config/nvim/tmp/dir_undo
 	set backupdir=$HOME/.config/nvim/tmp/dir_backup//
@@ -212,6 +212,7 @@ nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gs	<cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> gT	<cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gR	<cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>
 
 " Omnifunc
@@ -228,7 +229,7 @@ inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR><Paste>
+nnoremap <silent> <S-t> :tabnew<CR>
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
@@ -254,6 +255,7 @@ xnoremap <space>sc :cfdo %s/<C-R><C-R>=<SID>functions#getVisualSelection()<CR>//
 
 " Tabularize
 xnoremap ga :Tabularize /
+xnoremap g" :Tabularize /".*<CR>
 nnoremap ga :Tabularize /
 
 " Previous buffer
