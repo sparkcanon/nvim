@@ -8,7 +8,7 @@ endfunction
 " Lsp colors
 " TODO: Add colors to the commented hl groups
 function! functions#modifyLspColors() abort
- highlight! LspDiagnosticsError guifg=red
+ highlight! LspDiagnosticsError guifg=#ff0000
  highlight! LspDiagnosticsHint guifg=yellow
  highlight! LspDiagnosticsUnderlineError guifg=red
  highlight! LspDiagnosticsUnderlineHint guifg=yellow
@@ -85,7 +85,7 @@ endfunction
 " }}}
 
 " Git stash {{{
-function functions#getGitStash() abort
+function! functions#getGitStash() abort
 	let stashList = systemlist('git stash list')
 	call setqflist([], ' ', {'lines': systemlist('git stash list'), 'title': 'Stash list'}) 
 				\| copen

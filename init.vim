@@ -175,7 +175,7 @@ if vim.lsp then
 	vim.lsp.stop_client(vim.lsp.get_active_clients())
 
 	local nvim_lsp = require'nvim_lsp'
-	local servers = {'tsserver', 'vimls', 'cssls'}
+	local servers = {'tsserver', 'vimls', 'cssls', 'jsonls', 'yamlls'}
 	for _, lsp in ipairs(servers) do
 		nvim_lsp[lsp].setup {}
 	end
@@ -215,10 +215,14 @@ nnoremap <silent> gT	<cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>
 
 " Omnifunc
+inoremap <C-space> <C-x><C-o>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" keyword completion
 inoremap        ,,      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+" File name completion
 inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+" Whole line completion
 inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 
 " Tabs
