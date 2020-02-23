@@ -6,11 +6,6 @@ syntax on
 set omnifunc=v:lua.vim.lsp.omnifunc
 " }}}
 
-" Runtime {{{
-" Hit `%` on `if` to jump to `else`.
-runtime macros/matchit.vim
-" }}}
-
 " Basic settings {{{
 set autoindent                                " Minimal automatic indenting for any filetype.
 set backspace=indent,eol,start                " Proper backspace behavior.
@@ -50,7 +45,7 @@ endif
 " }}}
 
 " Grep {{{
-if executable('rg') 
+if executable('rg')
 	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
 	set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
@@ -184,14 +179,15 @@ nnoremap : ;
 nnoremap <space>/ :nohlsearch<CR>
 
 " LSP
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gf	<cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gs	<cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> gT	<cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gR	<cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>
+nnoremap <silent> gd     <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gf     <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K      <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD     <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gs     <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> gT     <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gR     <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gF     <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> gr     <cmd>lua vim.lsp.buf.references({ includeDeclaration = true })<CR>
 
 " Omnifunc
 inoremap <C-space> <C-x><C-o>
