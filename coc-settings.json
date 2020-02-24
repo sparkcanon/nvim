@@ -36,7 +36,9 @@
   "git.changedSign.text": "│",
   "git.changedSign.hlGroup": "CocChangeSign",
   "git.topRemovedSign.text": "│",
+  "git.topRemovedSign.hlGroup": "CocTopRemovedSign",
   "git.changeRemovedSign.text": "│",
+  "git.changeRemovedSign.hlGroup": "CocChangeRemovedSign",
   "git.addGBlameToVirtualText": false,
 
   "codeLens.enable": false,

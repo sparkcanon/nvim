@@ -50,8 +50,10 @@ endfunction
 
 " Signify color mods
 function! functions#modifyCocGitColors() abort
-	highlight CocAddSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocAddSign guifg=green guibg=NONE ctermbg=NONE
 	highlight CocDeleteSign guifg=#ff0000  guibg=NONE ctermbg=NONE
-	highlight CocChangeSign guifg=green guibg=NONE ctermbg=NONE
+	highlight CocChangeSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocChangeRemovedSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocTopRemovedSign guifg=#ff0000 guibg=NONE ctermbg=NONE
 endfunction
 " }}}

@@ -1,29 +1,3 @@
-" Plugins {{{
-if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
-	call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
-	autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
-endif
-
-packadd minPlug
-MinPlug neoclide/coc.nvim release      " Intellisense engine for Vim8 & Neovim
-MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
-MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
-MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
-MinPlug tpope/vim-eunuch               " Helpers for UNIX
-MinPlug tpope/vim-dispatch             " Asynchronous build and test dispatcher
-MinPlug tpope/vim-repeat               " repeat any command
-MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
-MinPlug tpope/vim-commentary           " comment stuff out
-MinPlug samoshkin/vim-find-files       " 🔎 Search for files and show results in a quickfix list
-MinPlug romainl/vim-qf                 " Tame the quickfix window
-MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
-MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
-MinPlug markonm/traces.vim             " Range, pattern and substitute preview for Vim
-MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
-MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
-MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
-" }}}
-
 " Syntax {{{
 " Enabling filetype support provides filetype-specific indentinvim_lspng,
 " syntax highlighting, omni-completion and other useful settings.
@@ -103,6 +77,31 @@ autocmd GeneralSettings BufEnter * silent! Glcd
 autocmd GeneralSettings VimResized * wincmd =
 " }}}
 
+" Plugins {{{
+if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
+	call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
+	autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
+endif
+
+packadd minPlug
+MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
+MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
+MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
+MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
+MinPlug tpope/vim-eunuch               " Helpers for UNIX
+MinPlug tpope/vim-dispatch             " Asynchronous build and test dispatcher
+MinPlug tpope/vim-repeat               " repeat any command
+MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
+MinPlug tpope/vim-commentary           " comment stuff out
+MinPlug samoshkin/vim-find-files       " 🔎 Search for files and show results in a quickfix list
+MinPlug romainl/vim-qf                 " Tame the quickfix window
+MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
+MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
+MinPlug markonm/traces.vim             " Range, pattern and substitute preview for Vim
+MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
+MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
+" }}}
+
 " Colorscheme {{{
 if exists('+termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -111,6 +110,10 @@ if exists('+termguicolors')
 endif
 colorscheme xcodedark
 set background=dark
+" }}}
+
+" Load coc after setting colorscheme otherwise search hl breaks {{{
+MinPlug neoclide/coc.nvim release      " Intellisense engine for Vim8 & Neovim
 " }}}
 
 " Visual settings {{{
