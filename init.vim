@@ -171,13 +171,16 @@ let g:qf_mapping_ack_style = 1                   " Qf mappings
 
 " Nvim-lsp
 lua require'main'.setup()
-lua require'colorizer'.setup()
+if exists('g:loaded_colorizer')
+	lua require'colorizer'.setup()
+end
 " }}}
 
 " Mappings {{{
 " Commands
 nnoremap ; :
 nnoremap : ;
+nnoremap ,k K
 
 " Clear highlights
 nnoremap <space>/ :nohlsearch<CR>
