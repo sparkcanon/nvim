@@ -1,7 +1,4 @@
 /tmp
 *.swp
-./session
-session
-.tags
 .DS_Store
 .netrwhist
