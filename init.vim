@@ -103,6 +103,7 @@ autocmd GeneralSettings VimLeave * call functions#sessionSave()
 autocmd GeneralSettings VimResized * wincmd =
 
 " Run prettier on save
+autocmd GeneralSettings BufRead,BufNewFile *.tsx,*.jsx call functions#prettierFormat()
 autocmd GeneralSettings FileType javascript,typescript,less,css,html call functions#prettierFormat()
 autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx,*.html,*.css,*.less execute 'Make! %'
 
