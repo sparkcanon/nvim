@@ -1,0 +1,57 @@
+[submodule "pack/plugins/opt/vim-eunuch"]
+	path = pack/plugins/opt/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "pack/plugins/opt/vim-cool"]
+	path = pack/plugins/opt/vim-cool
+	url = https://github.com/romainl/vim-cool
+[submodule "pack/plugins/opt/detectindent"]
+	path = pack/plugins/opt/detectindent
+	url = https://github.com/ciaranm/detectindent
+[submodule "pack/plugins/opt/vim-surround"]
+	path = pack/plugins/opt/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "pack/plugins/opt/vim-find-files"]
+	path = pack/plugins/opt/vim-find-files
+	url = https://github.com/samoshkin/vim-find-files
+[submodule "pack/plugins/opt/tabular"]
+	path = pack/plugins/opt/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "pack/plugins/opt/vim-repeat"]
+	path = pack/plugins/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "pack/plugins/opt/vim-polyglot"]
+	path = pack/plugins/opt/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "pack/plugins/opt/traces.vim"]
+	path = pack/plugins/opt/traces.vim
+	url = https://github.com/markonm/traces.vim
+[submodule "pack/plugins/opt/nvim-lsp"]
+	path = pack/plugins/opt/nvim-lsp
+	url = https://github.com/neovim/nvim-lsp
+[submodule "pack/plugins/opt/vim-qf"]
+	path = pack/plugins/opt/vim-qf
+	url = https://github.com/romainl/vim-qf
+[submodule "pack/plugins/opt/vim-dispatch"]
+	path = pack/plugins/opt/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "pack/plugins/opt/vim-colors-xcode"]
+	path = pack/plugins/opt/vim-colors-xcode
+	url = https://github.com/arzg/vim-colors-xcode
+[submodule "pack/plugins/opt/vim-fugitive"]
+	path = pack/plugins/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "pack/plugins/opt/vim-dirvish"]
+	path = pack/plugins/opt/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish
+[submodule "pack/plugins/opt/minPlug"]
+	path = pack/plugins/opt/minPlug
+	url = https://github.com/Jorengarenar/minPlug
+[submodule "pack/plugins/opt/nvim-colorizer.lua"]
+	path = pack/plugins/opt/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua
+[submodule "pack/plugins/opt/vim-tmux-navigator"]
+	path = pack/plugins/opt/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "pack/plugins/opt/vim-commentary"]
+	path = pack/plugins/opt/vim-commentary
+	url = https://github.com/tpope/vim-commentary
