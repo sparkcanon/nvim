@@ -5,30 +5,6 @@ function! functions#modifyBufferColors() abort
  highlight! EndOfBuffer guibg=NONE
 endfunction
 
-" Lsp colors
-" TODO: Add colors to the commented hl groups
-function! functions#modifyLspColors() abort
- highlight! LspDiagnosticsError guifg=#CB2E3D
- highlight! LspDiagnosticsHint guifg=#b7e1b5
- highlight! LspDiagnosticsWarning guifg=#fccf4d
- highlight! LspDiagnosticsInformation guifg=#00EA9E
-
- highlight! LspDiagnosticsUnderlineError guifg=#CB2E3D
- " highlight! LspDiagnosticsUnderline guifg=#b7e1b5
- highlight! LspDiagnosticsUnderlineHint guifg=#b7e1b5
- highlight! LspDiagnosticsUnderlineInformation guifg=#00EA9E
- highlight! LspDiagnosticsUnderlineWarning guifg=#fccf4d
-endfunction
-" }}}
-
-" Signify colors {{{
-function! functions#modifySignifyColors() abort
-	highlight SignifySignAdd guifg=yellow guibg=NONE ctermbg=NONE
-	highlight SignifySignDelete guifg=red  guibg=NONE ctermbg=NONE
-	highlight SignifySignChange guifg=green guibg=NONE ctermbg=NONE
-endfunction
-" }}}
-
 " Grep {{{
 " Perform the search in a sub-shell
 function! functions#grep(args) abort
@@ -47,34 +23,6 @@ function! functions#getVisualSelection() abort
 endfunction
 " }}}
 
-" Jest {{{
-" TODO: Resolve root automatically
-function! functions#jestRunForSingleFile() abort
- execute 'vnew | terminal cd node_modules/.bin && ./jest --watch '
-endfunction
-" }}}
-
-" Sessions {{{
-function! functions#sessionSave() abort
- let root = fnamemodify(getcwd(0), ':t')
- execute 'mks! $HOME/.config/nvim/tmp/dir_session/'.root.'.vim' | echo 'Session saved as '.root.'.vim'
-endfunction
-
-function! functions#sessionLoad(file) abort
- execute 'source $HOME/.config/nvim/tmp/dir_session/'.a:file | echo 'Session '.a:file.' has been loaded'
-endfunction
-
-function! functions#sessionCompletePath(A,L,P) abort
- let pathList =  split(globpath('$HOME/.config/nvim/tmp/dir_session/', '*.vim'), '\n')
- let emptyList = []
- for i in pathList
-  let item = split(i, '/')[-1]
-  let finalList = add(emptyList, item)
- endfor
- return finalList
-endfunction
-" }}}
-
 " Abbrs {{{
 function! functions#setupCommandAbbrs(from, to) abort
  exec 'cnoreabbrev <expr> '.a:from
@@ -83,20 +31,27 @@ function! functions#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Prettier {{{
-function! functions#prettierFormat() abort
- let prettierPath = glob(getcwd().'/node_modules/.bin/prettier')
- if !empty(prettierPath)
-  let getPath = system('prettier --find-config-path .')[:-2]
-  let &l:makeprg = './node_modules/.bin/prettier --config ' . getPath . ' --write'
- endif
-endfunction
-" }}}
-
 " Git stash {{{
 function! functions#getGitStash() abort
 	let stashList = systemlist('git stash list')
 	call setqflist([], ' ', {'lines': systemlist('git stash list'), 'title': 'Stash list'}) 
 				\| copen
+endfunction
+" }}}
+
+" COC {{{
+" Coc signs color mods
+function! functions#modifyCocSignColors() abort
+	highlight CocErrorSign guibg=NONE guifg=#ff0000 ctermbg=NONE
+	highlight CocWarningSign guibg=NONE guifg=#ff922b ctermbg=NONE
+	highlight CocInfoSign guibg=NONE guifg=#fab005 ctermbg=NONE
+	highlight CocHintSign guibg=NONE guifg=#15aabf ctermbg=NONE
+endfunction
+
+" Signify color mods
+function! functions#modifyCocGitColors() abort
+	highlight CocAddSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocDeleteSign guifg=#ff0000  guibg=NONE ctermbg=NONE
+	highlight CocChangeSign guifg=green guibg=NONE ctermbg=NONE
 endfunction
 " }}}

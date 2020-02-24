@@ -1,3 +1,29 @@
+" Plugins {{{
+if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
+	call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
+	autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
+endif
+
+packadd minPlug
+MinPlug neoclide/coc.nvim release      " Intellisense engine for Vim8 & Neovim
+MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
+MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
+MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
+MinPlug tpope/vim-eunuch               " Helpers for UNIX
+MinPlug tpope/vim-dispatch             " Asynchronous build and test dispatcher
+MinPlug tpope/vim-repeat               " repeat any command
+MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
+MinPlug tpope/vim-commentary           " comment stuff out
+MinPlug samoshkin/vim-find-files       " 🔎 Search for files and show results in a quickfix list
+MinPlug romainl/vim-qf                 " Tame the quickfix window
+MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
+MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
+MinPlug markonm/traces.vim             " Range, pattern and substitute preview for Vim
+MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
+MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
+MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
+" }}}
+
 " Syntax {{{
 " Enabling filetype support provides filetype-specific indentinvim_lspng,
 " syntax highlighting, omni-completion and other useful settings.
@@ -51,34 +77,6 @@ if executable('rg')
 endif
 " }}}
 
-" Plugins {{{
-if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
-	call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
-	autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
-endif
-
-packadd minPlug
-MinPlug neovim/nvim-lsp                " Nvim LSP client configurations
-MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
-MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
-MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
-MinPlug tpope/vim-eunuch               " Helpers for UNIX
-MinPlug tpope/vim-dispatch             " Asynchronous build and test dispatcher
-MinPlug tpope/vim-repeat               " repeat any command
-MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
-MinPlug tpope/vim-commentary           " comment stuff out
-MinPlug samoshkin/vim-find-files       " 🔎 Search for files and show results in a quickfix list
-MinPlug romainl/vim-qf                 " Tame the quickfix window
-MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
-MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
-MinPlug markonm/traces.vim             " Range, pattern and substitute preview for Vim
-MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
-MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
-MinPlug norcalli/nvim-colorizer.lua    " The fastest Neovim colorizer.
-MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
-MinPlug mhinz/vim-signify              " ➕ Show a diff using Vim its sign column.
-" }}}
-
 " Autocmd {{{
 augroup GeneralSettings
 	autocmd!
@@ -86,10 +84,11 @@ augroup END
 
 " Modify buffer colors
 autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
-" Modify lsp colors
-autocmd GeneralSettings ColorScheme * call functions#modifyLspColors()
-" Modify signify colors
-autocmd GeneralSettings ColorScheme * call functions#modifySignifyColors()
+
+" COC {{{
+autocmd GeneralSettings ColorScheme * call functions#modifyCocSignColors()
+autocmd GeneralSettings ColorScheme * call functions#modifyCocGitColors()
+" }}}
 
 " Create a new dir if it doesnt exists
 autocmd GeneralSettings BufWritePre *
@@ -100,19 +99,8 @@ autocmd GeneralSettings BufWritePre *
 " Set cwd on bufenter
 autocmd GeneralSettings BufEnter * silent! Glcd
 
-" Save session on exit
-autocmd GeneralSettings VimLeave * call functions#sessionSave()
-
 " Auto-resize splits when Vim gets resized.
 autocmd GeneralSettings VimResized * wincmd =
-
-" Run prettier on save
-autocmd GeneralSettings BufRead,BufNewFile *.tsx,*.jsx call functions#prettierFormat()
-autocmd GeneralSettings FileType javascript,typescript,less,css,html call functions#prettierFormat()
-autocmd GeneralSettings BufWritePost *.js,*.ts,*.tsx,*.jsx,*.html,*.css,*.less execute 'Make! %'
-
-" Close preview window after completion is done
-autocmd GeneralSettings CompleteDone * pclose
 " }}}
 
 " Colorscheme {{{
@@ -139,12 +127,6 @@ command! -nargs=+ -complete=file -bar Grep  cgetexpr functions#grep(<q-args>)
 command! -nargs=+ -complete=file -bar LGrep lgetexpr functions#grep(<q-args>)
 " Find files using vim-find-files
 command! -nargs=+ -complete=dir Files :call find_files#execute(<q-args>, 'qf', <bang>0)
-" Run jest test watcher
-command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
-" Save sessions (force)
-command! -nargs=0 SessionSave call functions#sessionSave()
-" Load sessions
-command! -nargs=1 -complete=customlist,functions#sessionCompletePath SessionLoad call functions#sessionLoad(<q-args>)
 " Git stash list
 command! -nargs=0 Gstash :call functions#getGitStash()
 " }}}
@@ -153,12 +135,14 @@ command! -nargs=0 Gstash :call functions#getGitStash()
 call functions#setupCommandAbbrs('w','update')
 call functions#setupCommandAbbrs('sov','source $MYVIMRC')
 call functions#setupCommandAbbrs('Mi','MinPlugInstall')
-call functions#setupCommandAbbrs('sload','SessionLoad')
-call functions#setupCommandAbbrs('ssave','SessionSave')
 call functions#setupCommandAbbrs('fd','Files')
 call functions#setupCommandAbbrs('gr','Grep')
 call functions#setupCommandAbbrs('gp','Dispatch! git push')
 call functions#setupCommandAbbrs('gs','Gstash')
+call functions#setupCommandAbbrs('cl', 'CocList')
+call functions#setupCommandAbbrs('cs', 'CocList sessions')
+call functions#setupCommandAbbrs('cL', 'CocListResume')
+call functions#setupCommandAbbrs('cc', 'CocList commands')
 " }}}
 
 " Plugin settings {{{
@@ -173,11 +157,6 @@ let g:find_files_command_name = ''               " Remove original mapping
                                                  " Vim-qf
 let g:qf_mapping_ack_style = 1                   " Qf mappings
 
-" Nvim-lsp
-lua require'main'.setup()
-if exists('g:loaded_colorizer')
-	lua require'colorizer'.setup()
-end
 " }}}
 
 " Mappings {{{
@@ -194,18 +173,6 @@ nnoremap k gkzz
 
 " Clear highlights
 nnoremap <space>/ :nohlsearch<CR>
-
-" Omnifunc
-" Completion pum
-inoremap ,, <C-x><C-o>
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" keyword completion
-inoremap        ,'      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
-" File name completion
-inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
-" Whole line completion
-inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 
 " Tabs
 nnoremap <Tab> gt
