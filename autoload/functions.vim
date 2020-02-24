@@ -21,6 +21,14 @@ function! functions#modifyLspColors() abort
 endfunction
 " }}}
 
+" Signify colors {{{
+function! functions#modifySignifyColors() abort
+	highlight SignifySignAdd guifg=yellow guibg=NONE ctermbg=NONE
+	highlight SignifySignDelete guifg=red  guibg=NONE ctermbg=NONE
+	highlight SignifySignChange guifg=green guibg=NONE ctermbg=NONE
+endfunction
+" }}}
+
 " Grep {{{
 " Perform the search in a sub-shell
 function! functions#grep(args) abort

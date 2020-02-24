@@ -24,6 +24,7 @@ set completeopt=menu,menuone,preview,noinsert " Options for completion menu
 set autoread                                  " Ready file if it has been changed
 set ignorecase                                " Ignore's case
 set smartcase                                 " To ignore ignorecase in some cases
+set updatetime=100                            " For async
 " }}}
 
 " Backup settings {{{
@@ -75,6 +76,7 @@ MinPlug ciaranm/detectindent           " Vim script for automatically detecting 
 MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
 MinPlug norcalli/nvim-colorizer.lua    " The fastest Neovim colorizer.
 MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
+MinPlug mhinz/vim-signify              " ➕ Show a diff using Vim its sign column.
 " }}}
 
 " Autocmd {{{
@@ -86,6 +88,8 @@ augroup END
 autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
 " Modify lsp colors
 autocmd GeneralSettings ColorScheme * call functions#modifyLspColors()
+" Modify signify colors
+autocmd GeneralSettings ColorScheme * call functions#modifySignifyColors()
 
 " Create a new dir if it doesnt exists
 autocmd GeneralSettings BufWritePre *
