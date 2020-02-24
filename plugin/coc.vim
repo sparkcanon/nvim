@@ -27,31 +27,31 @@ endfunction
 
 " Mappings {{{
 " Search workspace for word
-nnoremap <silent> <leader>cs :<C-u>CocSearch <C-R><C-W><CR>
+nnoremap <silent> <space>cs :<C-u>CocSearch <C-R><C-W><CR>
 " Search workspace for word
-xnoremap <script> <leader>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
+xnoremap <script> <space>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
 " Do default action for next item.
-nnoremap <silent> <leader>c[  :<C-u>CocNext<CR>
+nnoremap <silent> <space>c[  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <leader>c]  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>c]  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>cr  :<C-u>CocListResume<CR>
 
 " Remap for do codeAction of current line
-nmap <silent> <leader>ca  <Plug>(coc-codeaction)
+nmap <silent> <space>ca  <Plug>(coc-codeaction)
 
-vmap <silent> <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <silent> <leader>cA  <Plug>(coc-codeaction-selected)
+vmap <silent> <space>ca  <Plug>(coc-codeaction-selected)
+nmap <silent> <space>cA  <Plug>(coc-codeaction-selected)
 
 " Fix autofix problem of current line
-nmap <silent> <leader>cq  <Plug>(coc-fix-current)
+nmap <silent> <space>cq  <Plug>(coc-fix-current)
 
 " Remap for format selected region
-vmap <silent> <leader>cf  <Plug>(coc-format-selected)
-nmap <silent> <leader>cf  <Plug>(coc-format-selected)
+vmap <silent> <space>cf  <Plug>(coc-format-selected)
+nmap <silent> <space>cf  <Plug>(coc-format-selected)
 
-nmap <silent> <leader>cR <Plug>(coc-rename)
-nmap <leader>ci <Plug>(coc-diagnostic-info)
+nmap <silent> <space>cR <Plug>(coc-rename)
+nmap <space>ci <Plug>(coc-diagnostic-info)
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
