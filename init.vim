@@ -3,7 +3,6 @@
 " syntax highlighting, omni-completion and other useful settings.
 filetype plugin indent on
 syntax on
-set omnifunc=v:lua.vim.lsp.omnifunc
 " }}}
 
 " Basic settings {{{
@@ -180,13 +179,19 @@ end
 " Commands
 nnoremap ; :
 nnoremap : ;
+
+" Documentation
 nnoremap ,k K
+
+" Vertical movement with cursor center of screen
+nnoremap j gjzz
+nnoremap k gkzz
 
 " Clear highlights
 nnoremap <space>/ :nohlsearch<CR>
 
 " Omnifunc
-" Completion pop up
+" Completion pum
 inoremap ,, <C-x><C-o>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
