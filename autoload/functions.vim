@@ -1,33 +1,34 @@
 " Colors {{{
 " Make buffer transparent
 function! functions#modifyBufferColors() abort
- highlight! Normal guibg=NONE
- highlight! EndOfBuffer guibg=NONE
+	highlight! Normal guibg=NONE
+	highlight! EndOfBuffer guibg=NONE
+	highlight! VertSplit guibg=NONE ctermbg=NONE
 endfunction
 
 " Grep {{{
 " Perform the search in a sub-shell
 function! functions#grep(args) abort
- let args = split(a:args, ' ')
- return system(join([&grepprg, shellescape(args[0]), len(args) > 1 ? join(args[1:-1], ' ') : ''], ' '))
+	let args = split(a:args, ' ')
+	return system(join([&grepprg, shellescape(args[0]), len(args) > 1 ? join(args[1:-1], ' ') : ''], ' '))
 endfunction
 " }}}
 
 " Visual {{{
 " Get visual section
 function! functions#getVisualSelection() abort
- let l=getline("'<")
- let [line1,col1] = getpos("'<")[1:2]
- let [line2,col2] = getpos("'>")[1:2]
- return l[col1 - 1: col2 - 1]
+	let l=getline("'<")
+	let [line1,col1] = getpos("'<")[1:2]
+	let [line2,col2] = getpos("'>")[1:2]
+	return l[col1 - 1: col2 - 1]
 endfunction
 " }}}
 
 " Abbrs {{{
 function! functions#setupCommandAbbrs(from, to) abort
- exec 'cnoreabbrev <expr> '.a:from
-    \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-    \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+	exec 'cnoreabbrev <expr> '.a:from
+				\ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+				\ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 " }}}
 
