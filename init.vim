@@ -153,22 +153,18 @@ call functions#setupCommandAbbrs('cc', 'CocList commands')
 let g:loaded_netrwPlugin = 1                     " disable netrw
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
 
-                                                 " Find-files
+" Find-files
 let g:find_files_findprg = 'fd $*'               " Base command for find_files
 let g:find_files_command_name = ''               " Remove original mapping
 
-                                                 " Vim-qf
+" Vim-qf
 let g:qf_mapping_ack_style = 1                   " Qf mappings
-
 " }}}
 
 " Mappings {{{
 " Commands
 nnoremap ; :
 nnoremap : ;
-
-" Documentation
-nnoremap ,k K
 
 " Vertical movement with cursor center of screen
 nnoremap j gjzz
