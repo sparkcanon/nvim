@@ -6,6 +6,24 @@ function! functions#modifyBufferColors() abort
 	highlight! VertSplit guibg=NONE ctermbg=NONE
 endfunction
 
+" Coc signs color mods
+function! functions#modifyCocSignColors() abort
+	highlight CocErrorSign guibg=NONE guifg=#ff0000 ctermbg=NONE
+	highlight CocWarningSign guibg=NONE guifg=#ff922b ctermbg=NONE
+	highlight CocInfoSign guibg=NONE guifg=#fab005 ctermbg=NONE
+	highlight CocHintSign guibg=NONE guifg=#15aabf ctermbg=NONE
+endfunction
+
+" Signify color mods
+function! functions#modifyCocGitColors() abort
+	highlight CocAddSign guifg=green guibg=NONE ctermbg=NONE
+	highlight CocDeleteSign guifg=#ff0000  guibg=NONE ctermbg=NONE
+	highlight CocChangeSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocChangeRemovedSign guifg=#fab005 guibg=NONE ctermbg=NONE
+	highlight CocTopRemovedSign guifg=#ff0000 guibg=NONE ctermbg=NONE
+endfunction
+" }}}
+
 " Grep {{{
 " Perform the search in a sub-shell
 function! functions#grep(args) abort
@@ -37,24 +55,5 @@ function! functions#getGitStash() abort
 	let stashList = systemlist('git stash list')
 	call setqflist([], ' ', {'lines': systemlist('git stash list'), 'title': 'Stash list'}) 
 				\| copen
-endfunction
-" }}}
-
-" COC {{{
-" Coc signs color mods
-function! functions#modifyCocSignColors() abort
-	highlight CocErrorSign guibg=NONE guifg=#ff0000 ctermbg=NONE
-	highlight CocWarningSign guibg=NONE guifg=#ff922b ctermbg=NONE
-	highlight CocInfoSign guibg=NONE guifg=#fab005 ctermbg=NONE
-	highlight CocHintSign guibg=NONE guifg=#15aabf ctermbg=NONE
-endfunction
-
-" Signify color mods
-function! functions#modifyCocGitColors() abort
-	highlight CocAddSign guifg=green guibg=NONE ctermbg=NONE
-	highlight CocDeleteSign guifg=#ff0000  guibg=NONE ctermbg=NONE
-	highlight CocChangeSign guifg=#fab005 guibg=NONE ctermbg=NONE
-	highlight CocChangeRemovedSign guifg=#fab005 guibg=NONE ctermbg=NONE
-	highlight CocTopRemovedSign guifg=#ff0000 guibg=NONE ctermbg=NONE
 endfunction
 " }}}
