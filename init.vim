@@ -59,10 +59,9 @@ augroup END
 " Modify buffer colors
 autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
 
-" COC {{{
+" Coc colors
 autocmd GeneralSettings ColorScheme * call functions#modifyCocSignColors()
 autocmd GeneralSettings ColorScheme * call functions#modifyCocGitColors()
-" }}}
 
 " Create a new dir if it doesnt exists
 autocmd GeneralSettings BufWritePre *
