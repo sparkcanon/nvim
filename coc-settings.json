@@ -1,15 +1,4 @@
 {
-  "importCost.typescriptExtensions": [
-    "\\.tsx?$"
-  ],
-  "importCost.javascriptExtensions": [
-    "\\.jsx?$",
-    "\\.js?$"
-  ],
-   "importCost.bundleSizeDecoration": "both",
-   "importCost.showCalculatingDecoration": true,
-   "importCost.debug": false,
-
   "typescript.referencesCodeLens.enable": true,
   "tsserver.enableJavascript": true,
   "tsserver.npm": "/usr/local/bin/npm",
@@ -39,17 +28,19 @@
   "git.topRemovedSign.hlGroup": "CocTopRemovedSign",
   "git.changeRemovedSign.text": "│",
   "git.changeRemovedSign.hlGroup": "CocChangeRemovedSign",
-  "git.addGBlameToVirtualText": false,
+  "git.addGBlameToVirtualText": true,
 
   "codeLens.enable": false,
-  "diagnostic.errorSign": "⤬",
-  "diagnostic.warningSign": "❕",
-  "diagnostic.infoSign": "💡",
+  "diagnostic.errorSign": "e",
+  "diagnostic.warningSign": "w",
+  "diagnostic.infoSign": "i",
+  "diagnostic.hintSign": "H",
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
+  "diagnostic.locationlist": true,
   "diagnostic.checkCurrentLine": false,
-  "diagnostic.virtualText": true, // virtual text conflicts with blame
+  "diagnostic.virtualText": false, // virtual text conflicts with blame
   "diagnostic.messageTarget": "float",
   "vimlsp.diagnostic.enable": true,
 
