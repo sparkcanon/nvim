@@ -92,7 +92,6 @@ MinPlug tpope/vim-dispatch             " Asynchronous build and test dispatcher
 MinPlug tpope/vim-repeat               " repeat any command
 MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
 MinPlug tpope/vim-commentary           " comment stuff out
-MinPlug samoshkin/vim-find-files       " 🔎 Search for files and show results in a quickfix list
 MinPlug romainl/vim-qf                 " Tame the quickfix window
 MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
 MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
@@ -127,8 +126,6 @@ set statusline=\ ❮\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ ❯\
 command! -nargs=+ -complete=file -bar Grep  cgetexpr functions#grep(<q-args>)
 " Grep for location list
 command! -nargs=+ -complete=file -bar LGrep lgetexpr functions#grep(<q-args>)
-" Find files using vim-find-files
-command! -nargs=+ -complete=dir Files :call find_files#execute(<q-args>, 'qf', <bang>0)
 " Git stash list
 command! -nargs=0 Gstash :call functions#getGitStash()
 " }}}
@@ -152,10 +149,6 @@ call functions#setupCommandAbbrs('cc', 'CocList commands')
 " Disvirsh
 let g:loaded_netrwPlugin = 1                     " disable netrw
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
-
-" Find-files
-let g:find_files_findprg = 'fd $*'               " Base command for find_files
-let g:find_files_command_name = ''               " Remove original mapping
 
 " Vim-qf
 let g:qf_mapping_ack_style = 1                   " Qf mappings
