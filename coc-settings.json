@@ -39,7 +39,7 @@
     "sh": "shellcheck"
   },
   "diagnostic.locationlist": true,
-  "diagnostic.checkCurrentLine": false,
+  "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": false, // virtual text conflicts with blame
   "diagnostic.messageTarget": "float",
   "vimlsp.diagnostic.enable": true,
