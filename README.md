@@ -11,10 +11,7 @@ This set up that works well for me. To install please view the below.
 2. [Rg](https://github.com/BurntSushi/ripgrep)
 
     Rg/ripgrep is required for blazing fast grep.
-
-3. [fd](https://github.com/sharkdp/fd)
-
-    `brew install fd`
+    
 
 ## Install instructions
 
