@@ -25,6 +25,10 @@ set autoread                                  " Ready file if it has been change
 set ignorecase                                " Ignore's case
 set smartcase                                 " To ignore ignorecase in some cases
 set updatetime=100                            " For async
+set path-=/usr/include                        " Exclude /usr/include dir
+set path-=**/node_modules/**                  " Exclude the blackhole
+set path-=**/.git/**                          " Exclude the git
+set path=.,**                                 " Standard inclusion
 " }}}
 
 " Backup settings {{{
