@@ -1,3 +1,4 @@
+# NOTE: I have since moved to vim, [my config](https://github.com/sparkcanon/vim/)
 # Neovim config
 
 This set up that works well for me. To install please view the below.

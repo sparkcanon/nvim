@@ -112,5 +112,18 @@
   "lists.disabledLists": [ "tags" ],
   "list.autoResize": true,
 
-  "session.directory": "~/.config/nvim/tmp/dir_session"
+  "session.directory": "~/.config/nvim/tmp/dir_session",
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmPath": "elm", // optional
+        "elmFormatPath": "elm-format", // optional
+        "elmTestPath": "elm-test", // optional
+        "elmAnalyseTrigger": "change" // optional
+      }
+    }
+  }
 }
