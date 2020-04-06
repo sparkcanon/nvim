@@ -1,5 +1,5 @@
 " Syntax {{{
-" Enabling filetype support provides filetype-specific indentinvim_lspng,
+" Enabling filetype support provides filetype-specific indenting,
 " syntax highlighting, omni-completion and other useful settings.
 filetype plugin indent on
 syntax on
