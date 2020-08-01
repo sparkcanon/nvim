@@ -1,57 +1,64 @@
-" Syntax {{{
-" Enabling filetype support provides filetype-specific indenting,
-" syntax highlighting, omni-completion and other useful settings.
+" Section: Syntax {{{
 filetype plugin indent on
-syntax on
+syntax enable
 " }}}
 
-" Basic settings {{{
-set autoindent                                " Minimal automatic indenting for any filetype.
-set backspace=indent,eol,start                " Proper backspace behavior.
-set hidden                                    " Possibility to have more than one unsaved buffers.
-set incsearch                                 " Incremental search, hit `<CR>` to stop.
-set ruler                                     " Shows the current line number at the bottom-right of the screen.
-set wildmenu                                  " Great command-line completion, use `<Tab>` to move around and `<CR>` to validate.
-set number                                    " Shows the number line
-set signcolumn=auto:1                         " Shows the sign column
-set splitbelow                                " In case of split, opens below
-set splitright                                " In case of vsplit, opens to the right
-set clipboard+=unnamed                        " Clipboard support
-set showmatch                                 " Show matching bracket on cursor hold
-set cursorline                                " Highlight cursor line
-set wrap                                      " Wrap long statements
-set completeopt=menu,menuone,preview,noinsert " Options for completion menu
-set autoread                                  " Ready file if it has been changed
-set ignorecase                                " Ignore's case
-set smartcase                                 " To ignore ignorecase in some cases
-set updatetime=100                            " For async
-set path-=/usr/include                        " Exclude /usr/include dir
-set path-=**/node_modules/**                  " Exclude the blackhole
-set path-=**/.git/**                          " Exclude the git
-set path=.,**                                 " Standard inclusion
+" Section: Completion {{{
+setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
+set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
 
-" Backup settings {{{
-set sessionoptions-=options
-set viewoptions-=options
-set undofile                " Set this option to have full undo power
-set backup                  " Set this option to enable backup
-set writebackup             " Set this option to write back up
-if has('nvim')
-	set undodir=$HOME/.config/nvim/tmp/dir_undo
-	set backupdir=$HOME/.config/nvim/tmp/dir_backup//
-	set directory^=$HOME/.config/nvim/tmp/dir_swap//
-else
-	set backupdir=$HOME/.vim/tmp/dir_backup//
-	set directory^=$HOME/.vim/tmp/dir_swap//
-	set undodir=$HOME/.vim/tmp/dir_undo
-endif
-" }}}
+" Section: Basic settings {{{
+set number                                               " Display number line
+setglobal backspace=indent,eol,start                     " Normal backspace behaviour
+setglobal hidden                                         " Display hidden buffers in list
+setglobal autoread                                       " Update file if changed outside
+setglobal incsearch                                      " Turn on incremental search
+setglobal hlsearch                                       " Highlight search term
+setglobal showmatch                                      " Highlight matching paranthesis
+setglobal wrap                                           " Wrap long lines
+setglobal autoindent                                     " Minimal auto indenting for any filetype
+setglobal clipboard+=unnamed                             " Set clipboard options
 
-" Grep {{{
+" Splits
+setglobal splitbelow                                     " Split window opens below
+setglobal splitright                                     " Split window opens right
+
+" Case
+setglobal smartcase                                      " To ignore case in certain cases, overrides ignorecase
+setglobal ignorecase                                     " Ignore case all together
+
+" Wild menu options
+setglobal wildmenu                                       " Turn menu on for wild searches
+setglobal wildignorecase                                 " Ignore case for wildmenu
+setglobal wildignore=*.swp,*.bak                         " Ignore files
+setglobal wildignore+=*.cache,*.min.*,**/dist/**
+setglobal wildignore+=**/.git/**/*
+setglobal wildignore+=*-lock.json
+
+" Path options
+setglobal path=.,,**                                     " Standard path
+
+" Backup settings
+setglobal sessionoptions-=options
+setglobal viewoptions-=options
+set undofile                                             " Set this option to have full undo power
+setglobal backup                                         " Set this option to enable backup
+setglobal writebackup                                    " Set this option to write back up
+setglobal backupdir=$HOME/.config/nvim/tmp/dir_backup//  " Back up dir
+setglobal directory^=$HOME/.config/nvim/tmp/dir_swap//   " Swap file dir
+setglobal undodir=$HOME/.config/nvim/tmp/dir_undo        " Undo dir
+
+" Statusline
+setglobal laststatus=2                                   " Display statusline
+setglobal statusline=\ ❮\ %<%{functions#ShortenFname()}
+setglobal statusline+=\ %{functions#locListErrorCount()}
+setglobal statusline+=\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
+
+" Grepprg & grepformat
 if executable('rg')
-	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
+	setglobal grepprg=rg\ --vimgrep
+	setglobal grepformat=%f:%l:%c:%m
 endif
 " }}}
 
@@ -92,14 +99,11 @@ MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
 MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
 MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
 MinPlug tpope/vim-eunuch               " Helpers for UNIX
-MinPlug tpope/vim-dispatch             " Asynchronous build and test dispatcher
 MinPlug tpope/vim-repeat               " repeat any command
 MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
 MinPlug tpope/vim-commentary           " comment stuff out
-MinPlug romainl/vim-qf                 " Tame the quickfix window
 MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
 MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
-MinPlug markonm/traces.vim             " Range, pattern and substitute preview for Vim
 MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
 MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
 " }}}
@@ -118,35 +122,20 @@ set background=dark
 MinPlug neoclide/coc.nvim release      " Intellisense engine for Vim8 & Neovim
 " }}}
 
-" Visual settings {{{
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:¬
-set fillchars+=vert:│
-set list
-set statusline=\ ❮\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ ❯\ 
-" }}}
-
 " Commands {{{
 " Grep for quickfix list
 command! -nargs=+ -complete=file -bar Grep  cgetexpr functions#grep(<q-args>)
 " Grep for location list
 command! -nargs=+ -complete=file -bar LGrep lgetexpr functions#grep(<q-args>)
-" Git stash list
-command! -nargs=0 Gstash :call functions#getGitStash()
 " }}}
 
 " Abbr {{{
 call functions#setupCommandAbbrs('w','update')
 call functions#setupCommandAbbrs('sov','source $MYVIMRC')
 call functions#setupCommandAbbrs('Mi','MinPlugInstall')
-call functions#setupCommandAbbrs('fd','Files')
 call functions#setupCommandAbbrs('gr','Grep')
-call functions#setupCommandAbbrs('gp','Dispatch! git push')
-call functions#setupCommandAbbrs('gl','Dispatch! git pull')
-call functions#setupCommandAbbrs('gs','Gstash')
-call functions#setupCommandAbbrs('cl', 'CocList')
-call functions#setupCommandAbbrs('cs', 'CocList sessions')
-call functions#setupCommandAbbrs('cL', 'CocListResume')
-call functions#setupCommandAbbrs('cc', 'CocList commands')
+call functions#setupCommandAbbrs('gp','Git push')
+call functions#setupCommandAbbrs('gl','Git pull')
 " }}}
 
 " Plugin settings {{{
@@ -159,56 +148,83 @@ let g:qf_mapping_ack_style = 1                   " Qf mappings
 " }}}
 
 " Mappings {{{
-" Commands
+" Enter Commands mode
 nnoremap ; :
 nnoremap : ;
-
-" Vertical movement with cursor center of screen
-nnoremap j gjzz
-nnoremap k gkzz
-
-" Clear highlights
-nnoremap <space>/ :nohlsearch<CR>
 
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
-nnoremap <silent> <space>te :tabe <bar> terminal<CR>
-
-" Vim-qf
-nmap <UP> <Plug>(qf_qf_toggle)
-nmap <DOWN> <Plug>(qf_loc_toggle)
 
 " Center search result line in screen
 nnoremap n nzvzz
 nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
+nnoremap `` ``zz
 
-" Substitue
-nnoremap <space>sr :%s/<C-r><C-w>//gc<Left><Left><Left>
-xnoremap <space>sr <Esc>:%s/<C-R><C-R>=<SID>functions#getVisualSelection()<CR>//gc<Left><Left><Left>
+" Location list
+nnoremap <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
+nnoremap ]l :lnext<CR>
+nnoremap [l :lprevious<CR>
+nnoremap [L :lfirst<CR>
+nnoremap ]L :llast<CR>
+nnoremap ]<C-L> :lnfile<CR>
+nnoremap [<C-L> :lpfile<CR>
 
-" CFDO
-nnoremap <space>sc :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <space>sc :cfdo %s/<C-R><C-R>=<SID>functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
+" Quickfix list
+nnoremap <Down> :call togglelist#ToggleList('Quickfix List','c')<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprevious<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+nnoremap ]<C-F> :cnfile<CR>
+nnoremap [<C-F> :cpfile<CR>
 
 " Tabularize
 xnoremap ga :Tabularize /
-xnoremap g" :Tabularize /".*<CR>
+xnoremap ga" :Tabularize / ".*<CR>
 nnoremap ga :Tabularize /
 
-" Previous buffer
-nnoremap <backspace> <C-^>
-nnoremap gb :ls<CR>:b<Space>
+" Buffers
+" previously used buffer
+nnoremap <BS> <C-^>
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
 
-" Open last searched qf
-nnoremap <silent> <space>gr :execute 'Grep '.@/.' %'<CR>
+" Args
+nnoremap ]a :next<CR>
+nnoremap [a :previous<CR>
 
-" Window
-nnoremap <space>w <C-w>
+" Substitute
+nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
+xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
+
+" CFDO
+nnoremap <Bslash>c :cfdo! %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
+" xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left> FIXME: This mapping is broken
+
+" Lists
+cnoremap <expr> <CR> listcommands#CR()
+nnoremap <Bslash>F :global //#<left><left>
+nnoremap <Bslash>f :global /<C-R><C-W>/#
+
+" New lines
+nnoremap ]<space> o<C-c>
+nnoremap [<space> O<C-c>
+
+" Find
+nnoremap <space>f :find<space>
+nnoremap <space>c :Cfind<space>
+nnoremap <space>s :sfind<space>
+nnoremap <space>v :vert sfind<space>
+nnoremap <space>t :tabfind<space>
+
+" Edit
+nnoremap <space>ee :e <C-R>='%:h/'<CR>
+nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
+nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " }}}

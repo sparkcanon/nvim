@@ -24,11 +24,10 @@ function! functions#modifyCocGitColors() abort
 endfunction
 " }}}
 
-" Grep {{{
-" Perform the search in a sub-shell
-function! functions#grep(args) abort
-	let args = split(a:args, ' ')
-	return system(join([&grepprg, shellescape(args[0]), len(args) > 1 ? join(args[1:-1], ' ') : ''], ' '))
+" Section: Perform the search {{{
+" Source: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3#gistcomment-3114427
+function! functions#grep(...) abort
+	return system(join(extend([&grepprg], a:000), ' '))
 endfunction
 " }}}
 
@@ -50,10 +49,19 @@ function! functions#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Git stash {{{
-function! functions#getGitStash() abort
-	let stashList = systemlist('git stash list')
-	call setqflist([], ' ', {'lines': systemlist('git stash list'), 'title': 'Stash list'}) 
-				\| copen
+" Section: Long fnames in statusline {{{
+function! functions#ShortenFname() abort
+	let fname = expand("%f")
+	let fnameList = len(split(fname, '/')) > 4
+	return fnameList ? pathshorten(fname) : fname
+endfunction
+" }}}
+
+" Section: Loc list error count {{{
+function! functions#locListErrorCount() abort
+	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr())) . ' '
+	let l:qfList = len(getqflist()) == 0 ? '' : 'QE: ' . len(getqflist())
+	let l:status = l:locList . l:qfList
+	return l:status
 endfunction
 " }}}
