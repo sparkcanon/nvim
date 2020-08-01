@@ -2,6 +2,7 @@
 augroup CocAu
 	autocmd!
 augroup END
+
 " Highlight references on cursorhold
 autocmd CocAu CursorHold * silent call CocActionAsync('highlight')
 " Setup formatexpr specified filetype(s).
@@ -112,6 +113,6 @@ let g:coc_global_extensions = [
       \     'coc-html',
       \     'coc-css',
       \     'coc-tslint-plugin',
-      \     'coc-import-cost',
+      \     'coc-fish'
       \     ]
 " }}}
