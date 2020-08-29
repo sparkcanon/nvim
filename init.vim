@@ -1,11 +1,37 @@
+" Desc: Personal Vim configuration
+" Author: Pratik Borde
+"  _______ 
+" < VIMRC >
+"  ------- 
+"        \   ^__^
+"         \  (**)\_______
+"            (__)\       )\/\
+"             U  ||----w |
+"                ||     ||
+
+" Section: Reset au group {{{
+augroup GeneralAutocmds
+	autocmd!
+augroup END
+augroup FileTypeAutocmd
+	autocmd!
+augroup END
+augroup ColorsAutocmd
+	autocmd!
+augroup END
+augroup MkdirAutocmd
+	autocmd!
+augroup END
+" }}}
+"
 " Section: Syntax {{{
 filetype plugin indent on
-syntax enable
+syntax on
 " }}}
 
 " Section: Completion {{{
 setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
-set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
+set omnifunc=v:lua.vim.lsp.omnifunc             " General purpose omnifunc
 " }}}
 
 " Section: Basic settings {{{
@@ -19,6 +45,8 @@ setglobal showmatch                                      " Highlight matching pa
 setglobal wrap                                           " Wrap long lines
 setglobal autoindent                                     " Minimal auto indenting for any filetype
 setglobal clipboard+=unnamed                             " Set clipboard options
+set mouse=a
+set inccommand=split
 
 " Splits
 setglobal splitbelow                                     " Split window opens below
@@ -36,6 +64,9 @@ setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json
 
+" Set fd error format
+set errorformat+=%f
+
 " Path options
 setglobal path=.,,**                                     " Standard path
 
@@ -50,10 +81,9 @@ setglobal directory^=$HOME/.config/nvim/tmp/dir_swap//   " Swap file dir
 setglobal undodir=$HOME/.config/nvim/tmp/dir_undo        " Undo dir
 
 " Statusline
-setglobal laststatus=2                                   " Display statusline
-setglobal statusline=\ ❮\ %<%{functions#ShortenFname()}
-setglobal statusline+=\ %{functions#locListErrorCount()}
-setglobal statusline+=\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
+set laststatus=0                                         " Dont display statusline
+set ruler                                                " Display ruler
+set rulerformat=%45(%t%m\ ❯\ %l,%c%V%=%P%)               " Display filename in ruler
 
 " Grepprg & grepformat
 if executable('rg')
@@ -62,53 +92,14 @@ if executable('rg')
 endif
 " }}}
 
-" Autocmd {{{
-augroup GeneralSettings
-	autocmd!
-augroup END
-
+" Section: Colorscheme {{{
 " Modify buffer colors
-autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
+autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 
 " Coc colors
-autocmd GeneralSettings ColorScheme * call functions#modifyCocSignColors()
-autocmd GeneralSettings ColorScheme * call functions#modifyCocGitColors()
+autocmd GeneralAutocmds ColorScheme * call colors#modifyCocSignColors()
+autocmd GeneralAutocmds ColorScheme * call colors#modifyCocGitColors()
 
-" Create a new dir if it doesnt exists
-autocmd GeneralSettings BufWritePre *
-			\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
-			\ call mkdir(expand('<afile>:h'), 'p') |
-			\ endif
-
-" Set cwd on bufenter
-autocmd GeneralSettings BufEnter * silent! Glcd
-
-" Auto-resize splits when Vim gets resized.
-autocmd GeneralSettings VimResized * wincmd =
-" }}}
-
-" Plugins {{{
-if empty(glob(substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", "")))
-	call system("git clone --depth=1 https://github.com/Jorengarenar/minPlug ".substitute(&packpath, ",.*", "/pack/plugins/opt/minPlug", ""))
-	autocmd VimEnter * nested silent! MinPlugInstall | echo "minPlug: INSTALLED"
-endif
-
-packadd minPlug
-MinPlug arzg/vim-colors-xcode          " Xcode 11’s dark and light colourschemes, now for Vim!
-MinPlug sheerun/vim-polyglot           " A solid language pack for Vim
-MinPlug justinmk/vim-dirvish           " Directory viewer for Vim ⚡️
-MinPlug tpope/vim-fugitive             " 💀 A Git wrapper so awesome, it should be illegal
-MinPlug tpope/vim-eunuch               " Helpers for UNIX
-MinPlug tpope/vim-repeat               " repeat any command
-MinPlug tpope/vim-surround             " quoting/parenthesizing made simple
-MinPlug tpope/vim-commentary           " comment stuff out
-MinPlug romainl/vim-cool               " A very simple plugin that makes hlsearch more useful
-MinPlug godlygeek/tabular              " 🌻 A Vim alignment plugin
-MinPlug ciaranm/detectindent           " Vim script for automatically detecting indent settings
-MinPlug christoomey/vim-tmux-navigator " Seamless navigation between tmux panes and vim splits
-" }}}
-
-" Colorscheme {{{
 if exists('+termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -118,39 +109,95 @@ colorscheme xcodedark
 set background=dark
 " }}}
 
-" Load coc after setting colorscheme otherwise search hl breaks {{{
-MinPlug neoclide/coc.nvim release      " Intellisense engine for Vim8 & Neovim
+" Section: Autocmd {{{
+" Preview window close
+autocmd GeneralAutocmds CompleteDone * silent! pclose
+autocmd GeneralAutocmds CursorMoved * silent! pclose
+
+" Create a new dir if it doesnt exists
+autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
+
+" Save session on exit
+autocmd GeneralAutocmds VimLeave * call sessions#sessionSave()
+
+" Auto-resize splits when Vim gets resized.
+autocmd GeneralAutocmds VimResized * wincmd =
+
+" Set up format prg
+let s:formatprg_for_filetype = {
+			\ "css"             : "prettier --stdin-filepath %",
+			\ "less"            : "prettier --stdin-filepath %",
+			\ "go"              : "gofmt",
+			\ "html"            : "prettier --stdin-filepath %",
+			\ "javascript"      : "prettier --stdin-filepath %",
+			\ "typescript"      : "prettier --stdin-filepath %",
+			\ "typescriptreact" : "prettier --stdin-filepath %",
+			\ "json"            : "prettier --stdin-filepath %",
+			\ }
+
+for [ft, fp] in items(s:formatprg_for_filetype)
+	execute "autocmd FileTypeAutocmd FileType " . ft . " let &l:formatprg=\"" . fp . "\" | setlocal formatexpr="
+endfor
+
+autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,less nnoremap gQ mlgggqG'l :delm l<CR>
 " }}}
 
-" Commands {{{
+" Section: Custom commands {{{
 " Grep for quickfix list
-command! -nargs=+ -complete=file -bar Grep  cgetexpr functions#grep(<q-args>)
-" Grep for location list
-command! -nargs=+ -complete=file -bar LGrep lgetexpr functions#grep(<q-args>)
+command! -nargs=+ -complete=file_in_path Grep cgetexpr utils#grep(<q-args>)
+" Grep word under the cursor
+command! -nargs=0 -bar GrepV execute 'Grep ' . expand('<cword>')
+" Grep word under the cursor excluding test files
+command! -nargs=0 -bar GrepVT execute "Grep '" . expand('<cword>') . "' -F -g !'{*spec.*,*test.*}'"
+" Manual grep for current buffer
+command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' ' . expand('%')
+" Last grep
+command! -nargs=0 GrLast execute 'Grep ' . @/ . ' ' . expand('%')
+
+" Save sessions (force)
+command! -nargs=0 SessionSave call sessions#sessionSave()
+" Load sessions
+command! -nargs=1 -complete=custom,sessions#sessionCompletePath
+			\ SessionLoad execute 'source $HOME/.config/nvim/tmp/dir_session/<args>'
+
 " }}}
 
-" Abbr {{{
-call functions#setupCommandAbbrs('w','update')
-call functions#setupCommandAbbrs('sov','source $MYVIMRC')
-call functions#setupCommandAbbrs('Mi','MinPlugInstall')
-call functions#setupCommandAbbrs('gr','Grep')
-call functions#setupCommandAbbrs('gp','Git push')
-call functions#setupCommandAbbrs('gl','Git pull')
+" Section: Abbr {{{
+call utils#setupCommandAbbrs('w','update')
+call utils#setupCommandAbbrs('sov','source $MYVIMRC')
+call utils#setupCommandAbbrs('ssl','SessionLoad')
+call utils#setupCommandAbbrs('ssa','SessionSave')
+
+" Grep
+call utils#setupCommandAbbrs('fr','Grep')
+call utils#setupCommandAbbrs('fb','GrepBuffer' )
+call utils#setupCommandAbbrs('fv','GrepV')
+call utils#setupCommandAbbrs('ft','GrepVT')
+
+" Git
+call utils#setupCommandAbbrs('gp','Git push')
+call utils#setupCommandAbbrs('gl','Git pull')
 " }}}
 
-" Plugin settings {{{
+" Section: Plugins {{{
+packloadall " Load all plugins
+
 " Disvirsh
 let g:loaded_netrwPlugin = 1                     " disable netrw
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
-
-" Vim-qf
-let g:qf_mapping_ack_style = 1                   " Qf mappings
 " }}}
 
-" Mappings {{{
+" Section: Mappings {{{
 " Enter Commands mode
-nnoremap ; :
-nnoremap : ;
+set iminsert=1
+for mode in ['n', 'x']
+  execute mode . 'noremap  : ;'
+  execute mode . 'noremap  ; :'
+endfor
+
+" Using backtick for marks drops you on the exact column
+nnoremap ` '
+nnoremap ' `
 
 " Tabs
 nnoremap <Tab> gt
@@ -167,7 +214,7 @@ nnoremap # #zvzz
 nnoremap `` ``zz
 
 " Location list
-nnoremap <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
+nnoremap <script> <silent> <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
 nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
 nnoremap [L :lfirst<CR>
@@ -176,18 +223,13 @@ nnoremap ]<C-L> :lnfile<CR>
 nnoremap [<C-L> :lpfile<CR>
 
 " Quickfix list
-nnoremap <Down> :call togglelist#ToggleList('Quickfix List','c')<CR>
+nnoremap <script> <silent> <Down> :call togglelist#ToggleList('Quickfix List','c')<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
 nnoremap ]<C-F> :cnfile<CR>
 nnoremap [<C-F> :cpfile<CR>
-
-" Tabularize
-xnoremap ga :Tabularize /
-xnoremap ga" :Tabularize / ".*<CR>
-nnoremap ga :Tabularize /
 
 " Buffers
 " previously used buffer
@@ -201,7 +243,10 @@ nnoremap [a :previous<CR>
 
 " Substitute
 nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
-xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
+xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
+
+" Global
+nnoremap <Bslash>g :g//#<Left><Left>
 
 " CFDO
 nnoremap <Bslash>c :cfdo! %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
@@ -216,15 +261,10 @@ nnoremap <Bslash>f :global /<C-R><C-W>/#
 nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
-" Find
-nnoremap <space>f :find<space>
-nnoremap <space>c :Cfind<space>
-nnoremap <space>s :sfind<space>
-nnoremap <space>v :vert sfind<space>
-nnoremap <space>t :tabfind<space>
-
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " }}}
+
+" vim:foldmethod=marker
