@@ -1,9 +1,6 @@
 [submodule "pack/main/start/coc.nvim"]
 	path = pack/main/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
-[submodule "pack/main/start/vim-colors-xcode"]
-	path = pack/main/start/vim-colors-xcode
-	url = https://github.com/arzg/vim-colors-xcode
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
@@ -31,3 +28,6 @@
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "pack/main/start/iceberg.vim"]
+	path = pack/main/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim
