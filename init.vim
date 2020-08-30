@@ -47,6 +47,7 @@ setglobal autoindent                                     " Minimal auto indentin
 setglobal clipboard+=unnamed                             " Set clipboard options
 set mouse=a
 set inccommand=split
+set signcolumn=number
 
 " Splits
 setglobal splitbelow                                     " Split window opens below
