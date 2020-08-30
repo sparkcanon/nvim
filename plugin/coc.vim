@@ -31,28 +31,6 @@ endfunction
 nnoremap <silent> <space>cs :<C-u>CocSearch <C-R><C-W><CR>
 " Search workspace for word
 xnoremap <script> <space>cs <Esc>:CocSearch <C-R><C-R>=<SID>get_visual_selection()<CR>
-" Do default action for next item.
-nnoremap <silent> <space>c[  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>c]  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>cr  :<C-u>CocListResume<CR>
-
-" Remap for do codeAction of current line
-nmap <silent> <space>ca  <Plug>(coc-codeaction)
-
-vmap <silent> <space>ca  <Plug>(coc-codeaction-selected)
-nmap <silent> <space>cA  <Plug>(coc-codeaction-selected)
-
-" Fix autofix problem of current line
-nmap <silent> <space>cq  <Plug>(coc-fix-current)
-
-" Remap for format selected region
-vmap <silent> <space>cf  <Plug>(coc-format-selected)
-nmap <silent> <space>cf  <Plug>(coc-format-selected)
-
-nmap <silent> <space>cR <Plug>(coc-rename)
-nmap <space>ci <Plug>(coc-diagnostic-info)
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -85,6 +63,18 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" }}}
+
+" Commands: {{{
+command! -nargs=? Find execute 'CocList files'
+command! -nargs=? CList execute 'CocList'
+command! -nargs=? Rg execute 'CocList grep'
+command! -nargs=? SessLoad execute 'CocList sessions'
+command! -nargs=0 Cdiag execute 'CocDiagnostics'
+command! -nargs=0 CRename call CocActionAsync('rename')
+command! -nargs=0 CFix call CocActionAsync('doQuickfix')
+command! -nargs=0 CFormat call CocActionAsync('format')
+command! -nargs=0 CAction call CocActionAsync('codeAction', '')
 " }}}
 
 " Extensions {{{
