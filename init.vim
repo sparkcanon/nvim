@@ -13,9 +13,6 @@
 augroup GeneralAutocmds
 	autocmd!
 augroup END
-augroup FileTypeAutocmd
-	autocmd!
-augroup END
 augroup ColorsAutocmd
 	autocmd!
 augroup END
@@ -27,11 +24,6 @@ augroup END
 " Section: Syntax {{{
 filetype plugin indent on
 syntax on
-" }}}
-
-" Section: Completion {{{
-setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
-set omnifunc=v:lua.vim.lsp.omnifunc             " General purpose omnifunc
 " }}}
 
 " Section: Basic settings {{{
@@ -118,49 +110,8 @@ autocmd GeneralAutocmds CursorMoved * silent! pclose
 " Create a new dir if it doesnt exists
 autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 
-" Save session on exit
-autocmd GeneralAutocmds VimLeave * call sessions#sessionSave()
-
 " Auto-resize splits when Vim gets resized.
 autocmd GeneralAutocmds VimResized * wincmd =
-
-" Set up format prg
-let s:formatprg_for_filetype = {
-			\ "css"             : "prettier --stdin-filepath %",
-			\ "less"            : "prettier --stdin-filepath %",
-			\ "go"              : "gofmt",
-			\ "html"            : "prettier --stdin-filepath %",
-			\ "javascript"      : "prettier --stdin-filepath %",
-			\ "typescript"      : "prettier --stdin-filepath %",
-			\ "typescriptreact" : "prettier --stdin-filepath %",
-			\ "json"            : "prettier --stdin-filepath %",
-			\ }
-
-for [ft, fp] in items(s:formatprg_for_filetype)
-	execute "autocmd FileTypeAutocmd FileType " . ft . " let &l:formatprg=\"" . fp . "\" | setlocal formatexpr="
-endfor
-
-autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,less nnoremap gQ mlgggqG'l :delm l<CR>
-" }}}
-
-" Section: Custom commands {{{
-" Grep for quickfix list
-command! -nargs=+ -complete=file_in_path Grep cgetexpr utils#grep(<q-args>)
-" Grep word under the cursor
-command! -nargs=0 -bar GrepV execute 'Grep ' . expand('<cword>')
-" Grep word under the cursor excluding test files
-command! -nargs=0 -bar GrepVT execute "Grep '" . expand('<cword>') . "' -F -g !'{*spec.*,*test.*}'"
-" Manual grep for current buffer
-command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' ' . expand('%')
-" Last grep
-command! -nargs=0 GrLast execute 'Grep ' . @/ . ' ' . expand('%')
-
-" Save sessions (force)
-command! -nargs=0 SessionSave call sessions#sessionSave()
-" Load sessions
-command! -nargs=1 -complete=custom,sessions#sessionCompletePath
-			\ SessionLoad execute 'source $HOME/.config/nvim/tmp/dir_session/<args>'
-
 " }}}
 
 " Section: Abbr {{{
