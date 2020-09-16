@@ -38,10 +38,10 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
-  "diagnostic.locationlist": true,
+  "diagnostic.locationlistUpdate": true,
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualText": false, // virtual text conflicts with blame
-  "diagnostic.messageTarget": "float",
+  "diagnostic.virtualText": true,
+  "diagnostic.messageTarget": "echo",
   "vimlsp.diagnostic.enable": true,
 
   "snippets.ultisnips.directories": [
@@ -110,7 +110,6 @@
   "list.previewSplitRight": true,
   "list.source.grep.command": "rg",
   "lists.disabledLists": [ "tags" ],
-  "list.autoResize": true,
 
   "session.directory": "~/.config/nvim/tmp/dir_session",
   "languageserver": {

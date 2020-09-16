@@ -59,10 +59,10 @@ nmap gs <Plug>(coc-git-chunkinfo)
 " }}}
 
 " G: CODE RELATED {{{
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ,j <Plug>(coc-definition)
+nmap <silent> ,t <Plug>(coc-type-definition)
+nmap <silent> ,i <Plug>(coc-implementation)
+nmap <silent> ,r <Plug>(coc-references)
 " }}}
 
 " Commands: {{{
