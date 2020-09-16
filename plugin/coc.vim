@@ -74,7 +74,7 @@ command! -nargs=0 Cdiag execute 'CocDiagnostics'
 command! -nargs=0 CRename call CocActionAsync('rename')
 command! -nargs=0 CFix call CocActionAsync('doQuickfix')
 command! -nargs=0 CFormat call CocActionAsync('format')
-command! -nargs=0 CAction call CocActionAsync('codeAction', '')
+command! -nargs=0 CAction execute 'CocAction'
 " }}}
 
 " Extensions {{{

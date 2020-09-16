@@ -1,7 +1,7 @@
 " Desc: Personal Vim configuration
 " Author: Pratik Borde
 "  _______ 
-" < VIMRC >
+" < NVIMRC >
 "  ------- 
 "        \   ^__^
 "         \  (**)\_______
@@ -117,8 +117,7 @@ autocmd GeneralAutocmds VimResized * wincmd =
 " Section: Abbr {{{
 call utils#setupCommandAbbrs('w','update')
 call utils#setupCommandAbbrs('sov','source $MYVIMRC')
-call utils#setupCommandAbbrs('ssl','SessionLoad')
-call utils#setupCommandAbbrs('ssa','SessionSave')
+call utils#setupCommandAbbrs('ssl','CocList sessions')
 
 " Grep
 call utils#setupCommandAbbrs('fr','Grep')
