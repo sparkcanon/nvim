@@ -7,9 +7,6 @@
 [submodule "pack/main/start/vim-cool"]
 	path = pack/main/start/vim-cool
 	url = https://github.com/romainl/vim-cool
-[submodule "pack/main/start/vim-dirvish"]
-	path = pack/main/start/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish
 [submodule "pack/main/start/vim-eunuch"]
 	path = pack/main/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
@@ -28,6 +25,3 @@
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
-[submodule "pack/main/start/iceberg.vim"]
-	path = pack/main/start/iceberg.vim
-	url = https://github.com/cocopon/iceberg.vim

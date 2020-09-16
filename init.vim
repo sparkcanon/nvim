@@ -130,14 +130,6 @@ call utils#setupCommandAbbrs('gp','Git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 " }}}
 
-" Section: Plugins {{{
-packloadall " Load all plugins
-
-" Disvirsh
-let g:loaded_netrwPlugin = 1                     " disable netrw
-let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
-" }}}
-
 " Section: Mappings {{{
 " Enter Commands mode
 set iminsert=1
@@ -198,11 +190,6 @@ xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
 " Global
 nnoremap <Bslash>g :g//#<Left><Left>
-
-" CFDO
-nnoremap <Bslash>c :cfdo! %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
-" xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left> FIXME: This mapping is broken
-
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
 nnoremap <Bslash>F :global //#<left><left>
