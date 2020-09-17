@@ -20,13 +20,35 @@ endfunction
 
 " Desc: Create new dir if it doesnt exist {{{
 function! utils#mkdir(path) abort
-  if !isdirectory(a:path)
-    let b:path = a:path
-    autocmd MkdirAutocmd BufWritePre <buffer>
-      \ call mkdir(b:path, 'p')
-      \ | unlet b:path
-      \ | autocmd! MkdirAutocmd  * <buffer>
-  endif
+	if !isdirectory(a:path)
+		let b:path = a:path
+		autocmd MkdirAutocmd BufWritePre <buffer>
+					\ call mkdir(b:path, 'p')
+					\ | unlet b:path
+					\ | autocmd! MkdirAutocmd  * <buffer>
+	endif
+endfunction
+" }}}
+
+" Desc: Current project check {{{
+function! utils#isProject(match) abort
+	let l:cmd = [ 'git', 'rev-parse', '--show-toplevel' ]
+	let l:opt = { 'callback': 'GitHandler' }
+	let l:gitJob = jobstart(l:cmd, l:opt)
+	let l:git_match = ''
+
+	function! GitHandler(channel, msg) abort
+		if !empty(a:msg) && a:msg !~ 'fatal'
+			let l:git_match = a:msg
+		endif
+	endfunction
+
+	if fnamemodify(l:git_match, ':p:h:t') == a:match
+		return 1
+	else
+		return 0
+	endif
+
 endfunction
 " }}}
 

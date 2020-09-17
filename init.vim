@@ -19,8 +19,11 @@ augroup END
 augroup MkdirAutocmd
 	autocmd!
 augroup END
+augroup FileTypeAutocmd
+	autocmd!
+augroup END
 " }}}
-"
+
 " Section: Syntax {{{
 filetype plugin indent on
 syntax on
@@ -28,11 +31,7 @@ syntax on
 
 " Section: Basic settings {{{
 set number                                               " Display number line
-setglobal backspace=indent,eol,start                     " Normal backspace behaviour
 setglobal hidden                                         " Display hidden buffers in list
-setglobal autoread                                       " Update file if changed outside
-setglobal incsearch                                      " Turn on incremental search
-setglobal hlsearch                                       " Highlight search term
 setglobal showmatch                                      " Highlight matching paranthesis
 setglobal wrap                                           " Wrap long lines
 setglobal autoindent                                     " Minimal auto indenting for any filetype
@@ -50,7 +49,6 @@ setglobal smartcase                                      " To ignore case in cer
 setglobal ignorecase                                     " Ignore case all together
 
 " Wild menu options
-setglobal wildmenu                                       " Turn menu on for wild searches
 setglobal wildignorecase                                 " Ignore case for wildmenu
 setglobal wildignore=*.swp,*.bak                         " Ignore files
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
@@ -58,13 +56,12 @@ setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json
 
 " Set fd error format
-set errorformat+=%f
+set errorformat^=%f
 
 " Path options
 setglobal path=.,,**                                     " Standard path
 
 " Backup settings
-setglobal sessionoptions-=options
 setglobal viewoptions-=options
 set undofile                                             " Set this option to have full undo power
 setglobal backup                                         " Set this option to enable backup
@@ -89,23 +86,23 @@ endif
 " Modify buffer colors
 autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 
-" Coc colors
-autocmd GeneralAutocmds ColorScheme * call colors#modifyCocSignColors()
-autocmd GeneralAutocmds ColorScheme * call colors#modifyCocGitColors()
-
-if exists('+termguicolors')
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	set termguicolors
-endif
+set termguicolors
 colorscheme iceberg
-set background=dark
 " }}}
 
 " Section: Autocmd {{{
 " Preview window close
 autocmd GeneralAutocmds CompleteDone * silent! pclose
 autocmd GeneralAutocmds CursorMoved * silent! pclose
+
+" Save session on exit
+autocmd GeneralAutocmds VimLeavePre * call sessions#sessionSave()
+
+" Set path
+autocmd GeneralAutocmds VimEnter * call path_job#setProjectPath()
+
+" Set up format prg
+autocmd FileTypeAutocmd FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
 
 " Create a new dir if it doesnt exists
 autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
@@ -114,23 +111,55 @@ autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 autocmd GeneralAutocmds VimResized * wincmd =
 " }}}
 
+" Section: Custom commands {{{
+" Grep for quickfix list
+command! -nargs=+ -complete=file Grep call grep#any('any', <q-args>)
+" Grep word under the cursor
+command! -nargs=1 GrepExact call grep#any('exact', <q-args>)
+" Grep word under the cursor excluding test files
+command! -nargs=1 GrepExclude call grep#any('exclude', <q-args>)
+" Manual grep for current buffer
+command! -nargs=1 GrepBuffer call grep#any('buffer', <q-args>)
+
+" Save sessions (force)
+command! -nargs=0 SessionSave call sessions#sessionSave()
+" Load sessions
+command! -nargs=1 -complete=custom,sessions#sessionCompletePath
+			\ SessionLoad execute 'source $HOME/.vim/tmp/dir_session/<args>'
+
+" Find files and add to quickfix list
+command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
+" }}}
+
 " Section: Abbr {{{
 call utils#setupCommandAbbrs('w','update')
 call utils#setupCommandAbbrs('sov','source $MYVIMRC')
+call utils#setupCommandAbbrs('nw','noautocmd update')
+call utils#setupCommandAbbrs('ngw','noautocmd Gw')
 
-call utils#setupCommandAbbrs('cs','CocSearch')
-call utils#setupCommandAbbrs('cS','CocList sessions')
-call utils#setupCommandAbbrs('ll','CocList buffers')
-call utils#setupCommandAbbrs('cr','CocList grep')
-call utils#setupCommandAbbrs('cf','CocList files')
-call utils#setupCommandAbbrs('cl','CocList')
-call utils#setupCommandAbbrs('ca','CocAction')
-call utils#setupCommandAbbrs('cd','CocDiagnostics')
-call utils#setupCommandAbbrs('cc','CocCommand')
+" Buffer list
+call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
+call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab\<space>sb')
+call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
+call utils#setupCommandAbbrs('bD','bp\<bar>bd#')
+
+" Session
+call utils#setupCommandAbbrs('ssl','SessionLoad')
+call utils#setupCommandAbbrs('ssa','SessionSave')
+
+" Grep
+call utils#setupCommandAbbrs('sr','Grep')
+call utils#setupCommandAbbrs('sb','GrepBuffer' )
+call utils#setupCommandAbbrs('se','GrepExact')
+call utils#setupCommandAbbrs('st','GrepExclude')
+call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
+call utils#setupCommandAbbrs('gf','Git fetch --all')
 call utils#setupCommandAbbrs('gp','Git push')
 call utils#setupCommandAbbrs('gl','Git pull')
+call utils#setupCommandAbbrs('gd','Git difftool')
+call utils#setupCommandAbbrs('gm','Git mergetool')
 " }}}
 
 " Section: Mappings {{{
@@ -144,6 +173,23 @@ endfor
 " Using backtick for marks drops you on the exact column
 nnoremap ` '
 nnoremap ' `
+
+" Completion
+" Tag completion
+inoremap <C-]> <C-x><C-]>
+" Omni completion
+inoremap <C-k> <C-x><C-o>
+" Keyword completion
+inoremap <C-n> <C-x><C-n>
+" File name completion
+inoremap <C-f> <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+" Line completion
+inoremap <C-l> <C-x><C-l>
+" Spell completion
+inoremap <C-d> <C-x><C-s>
+" Tab movement in pum
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Tabs
 nnoremap <Tab> gt
@@ -202,10 +248,29 @@ nnoremap <Bslash>f :global /<C-R><C-W>/#
 nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
+" Find
+nnoremap <space>f :find<space>
+nnoremap <space>c :Cfind<space>
+nnoremap <space>s :sfind<space>
+nnoremap <space>v :vert sfind<space>
+nnoremap <space>t :tabfind<space>
+
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
+" }}}
+
+" Section: Plugin & lsp {{{
+lua require("core")
+
+" Enable virtual text
+let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_enable_underline = 0
+
+" Load built-in optional plugins
+packadd! cfilter  " Filter results from qf lists
+packadd! matchit  " Jump to brackets
 " }}}
 
 " vim:foldmethod=marker
