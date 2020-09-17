@@ -10,9 +10,6 @@
 [submodule "pack/main/start/vim-fugitive"]
 	path = pack/main/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "pack/main/start/vim-polyglot"]
-	path = pack/main/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
 [submodule "pack/main/start/vim-repeat"]
 	path = pack/main/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
@@ -31,3 +28,6 @@
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/rrethy/vim-hexokinase
+[submodule "pack/main/start/nvim-treesitter"]
+	path = pack/main/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
