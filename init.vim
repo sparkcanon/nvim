@@ -117,13 +117,16 @@ autocmd GeneralAutocmds VimResized * wincmd =
 " Section: Abbr {{{
 call utils#setupCommandAbbrs('w','update')
 call utils#setupCommandAbbrs('sov','source $MYVIMRC')
-call utils#setupCommandAbbrs('ssl','CocList sessions')
 
-" Grep
-call utils#setupCommandAbbrs('fr','Grep')
-call utils#setupCommandAbbrs('fb','GrepBuffer' )
-call utils#setupCommandAbbrs('fv','GrepV')
-call utils#setupCommandAbbrs('ft','GrepVT')
+call utils#setupCommandAbbrs('cs','CocSearch')
+call utils#setupCommandAbbrs('cS','CocList sessions')
+call utils#setupCommandAbbrs('ll','CocList buffers')
+call utils#setupCommandAbbrs('cr','CocList grep')
+call utils#setupCommandAbbrs('cf','CocList files')
+call utils#setupCommandAbbrs('cl','CocList')
+call utils#setupCommandAbbrs('ca','CocAction')
+call utils#setupCommandAbbrs('cd','CocDiagnostics')
+call utils#setupCommandAbbrs('cc','CocCommand')
 
 " Git
 call utils#setupCommandAbbrs('gp','Git push')

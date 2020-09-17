@@ -66,15 +66,8 @@ nmap <silent> ,r <Plug>(coc-references)
 " }}}
 
 " Commands: {{{
-command! -nargs=? Find execute 'CocList files'
-command! -nargs=? CList execute 'CocList'
-command! -nargs=? Rg execute 'CocList grep'
-command! -nargs=? SessLoad execute 'CocList sessions'
-command! -nargs=0 Cdiag execute 'CocDiagnostics'
 command! -nargs=0 CRename call CocActionAsync('rename')
-command! -nargs=0 CFix call CocActionAsync('doQuickfix')
 command! -nargs=0 CFormat call CocActionAsync('format')
-command! -nargs=0 CAction execute 'CocAction'
 " }}}
 
 " Extensions {{{

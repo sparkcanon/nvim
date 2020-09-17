@@ -2,9 +2,12 @@
 
 " Desc: Make buffer transparent {{{
 function! colors#modifyBufferColors() abort
-	highlight! Normal guibg=NONE
-	highlight! EndOfBuffer guibg=NONE
-	highlight! VertSplit guibg=NONE ctermbg=NONE
+	highlight! EndOfBuffer ctermbg=NONE ctermfg=241 guibg=NONE
+	highlight! VertSplit cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
+	highlight! link HighlightedyankRegion Visual
+	
+	" Hint: This below makes the background transparent
+	" highlight! Normal guibg=NONE
 endfunction
 " }}}
 
