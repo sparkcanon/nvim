@@ -264,6 +264,8 @@ lua require("init")
 " Enable virtual text
 let g:diagnostic_enable_virtual_text = 1
 let g:diagnostic_enable_underline = 0
+let g:diagnostic_insert_delay = 1
+let g:diagnostic_virtual_text_prefix = '▢'
 
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
