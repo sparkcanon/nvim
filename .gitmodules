@@ -37,3 +37,9 @@
 [submodule "pack/main/start/CommandlineComplete.vim"]
 	path = pack/main/start/CommandlineComplete.vim
 	url = https://github.com/j5shi/CommandlineComplete.vim
+[submodule "pack/main/start/lightline.vim"]
+	path = pack/main/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "pack/main/start/iceberg.vim"]
+	path = pack/main/start/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim

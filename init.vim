@@ -71,9 +71,8 @@ setglobal directory^=$HOME/.config/nvim/tmp/dir_swap//   " Swap file dir
 setglobal undodir=$HOME/.config/nvim/tmp/dir_undo        " Undo dir
 
 " Statusline
-set laststatus=0                                         " Dont display statusline
-set ruler                                                " Display ruler
-set rulerformat=%45(%t%m\ ❯\ %l,%c%V%=%P%)               " Display filename in ruler
+set laststatus=2                                         " Dont display statusline
+set noshowmode						 " Don't display mode in cmd
 
 " Grepprg & grepformat
 if executable('rg')
