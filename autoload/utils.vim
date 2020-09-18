@@ -33,17 +33,9 @@ endfunction
 " Desc: Current project check {{{
 function! utils#isProject(match) abort
 	let l:cmd = [ 'git', 'rev-parse', '--show-toplevel' ]
-	let l:opt = { 'callback': 'GitHandler' }
-	let l:gitJob = jobstart(l:cmd, l:opt)
-	let l:git_match = ''
+	let l:git_match = system(l:cmd)[:-2]
 
-	function! GitHandler(channel, msg) abort
-		if !empty(a:msg) && a:msg !~ 'fatal'
-			let l:git_match = a:msg
-		endif
-	endfunction
-
-	if fnamemodify(l:git_match, ':p:h:t') == a:match
+	if fnamemodify(l:git_match, ':p:h:t') =~ a:match
 		return 1
 	else
 		return 0
