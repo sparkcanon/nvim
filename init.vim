@@ -1,4 +1,4 @@
-" Desc: Personal Vim configuration
+" Desc: Personal Neovim configuration
 " Author: Pratik Borde
 "  _______ 
 " < NVIMRC >
@@ -264,6 +264,7 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " Section: Plugin & lsp {{{
 lua require("core")
 lua require("treesitter")
+lua require("formatter")
 
 " Enable virtual text
 let g:diagnostic_enable_virtual_text = 1

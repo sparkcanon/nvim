@@ -31,3 +31,6 @@
 [submodule "pack/main/start/nvim-treesitter"]
 	path = pack/main/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/main/start/formatter.nvim"]
+	path = pack/main/start/formatter.nvim
+	url = https://github.com/mhartington/formatter.nvim
