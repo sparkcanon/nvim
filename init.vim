@@ -156,7 +156,7 @@ call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
 call utils#setupCommandAbbrs('gf','Git fetch --all')
-call utils#setupCommandAbbrs('gp','Git push')
+call utils#setupCommandAbbrs('gp','split term://git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')

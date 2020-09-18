@@ -1,8 +1,6 @@
 vim.cmd("packadd nvim-lspconfig")
 vim.cmd("packadd diagnostic-nvim")
 
-local nvim_lsp = require "nvim_lsp"
-
 -- Desc: key mapping helper.
 local key_mapper = function(mode, key, result)
   vim.fn.nvim_buf_set_keymap(
@@ -41,6 +39,8 @@ local on_attach = function(_, bufnr)
   key_mapper("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>")
   key_mapper("n", ",e", "<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>")
 end
+
+local nvim_lsp = require "nvim_lsp"
 
 local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls", "sumneko_lua"}
 for _, lsp in ipairs(servers) do
