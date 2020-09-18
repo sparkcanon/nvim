@@ -29,6 +29,33 @@ require "format".setup(
         }
       end
     },
+    css = {
+      prettier = function()
+        return {
+          exe = "prettier",
+          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          stdin = true
+        }
+      end
+    },
+    less = {
+      prettier = function()
+        return {
+          exe = "prettier",
+          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          stdin = true
+        }
+      end
+    },
+    html = {
+      prettier = function()
+        return {
+          exe = "prettier",
+          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          stdin = true
+        }
+      end
+    },
     lua = {
       luafmt = function()
         return {

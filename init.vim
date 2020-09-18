@@ -101,9 +101,6 @@ autocmd GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 " Set path
 autocmd GeneralAutocmds VimEnter * call path_job#setProjectPath()
 
-" Set up format prg
-autocmd FileTypeAutocmd FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
-
 " Create a new dir if it doesnt exists
 autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 

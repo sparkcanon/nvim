@@ -34,3 +34,6 @@
 [submodule "pack/main/start/nvim-colorizer.lua"]
 	path = pack/main/start/nvim-colorizer.lua
 	url = https://github.com/norcalli/nvim-colorizer.lua
+[submodule "pack/main/start/CommandlineComplete.vim"]
+	path = pack/main/start/CommandlineComplete.vim
+	url = https://github.com/j5shi/CommandlineComplete.vim
