@@ -25,12 +25,12 @@
 [submodule "pack/main/start/diagnostic-nvim"]
 	path = pack/main/start/diagnostic-nvim
 	url = https://github.com/nvim-lua/diagnostic-nvim
-[submodule "pack/main/start/vim-hexokinase"]
-	path = pack/main/start/vim-hexokinase
-	url = https://github.com/rrethy/vim-hexokinase
 [submodule "pack/main/start/nvim-treesitter"]
 	path = pack/main/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
 [submodule "pack/main/start/formatter.nvim"]
 	path = pack/main/start/formatter.nvim
 	url = https://github.com/mhartington/formatter.nvim
+[submodule "pack/main/start/nvim-colorizer.lua"]
+	path = pack/main/start/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua
