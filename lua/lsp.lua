@@ -24,7 +24,8 @@ local on_attach = function(_, bufnr)
   require "diagnostic".on_attach()
 
   -- Mappings
-  key_mapper("n", ",d", "<cmd>lua vim.lsp.buf.definition()<CR>")
+  key_mapper("n", ",j", "<cmd>lua vim.lsp.buf.definition()<CR>")
+  key_mapper("n", ",vj", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
   key_mapper("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   key_mapper("n", ",i", "<cmd>lua vim.lsp.buf.implementation()<CR>")
   key_mapper("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
@@ -32,7 +33,7 @@ local on_attach = function(_, bufnr)
   key_mapper("n", ",r", "<cmd>lua vim.lsp.buf.references()<CR>")
   key_mapper("n", ",w", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
   key_mapper("n", ",W", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
-  key_mapper("n", ",D", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+  key_mapper("n", ",d", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 
   key_mapper("n", ",f", "<cmd>Format<CR>")
   key_mapper("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>")

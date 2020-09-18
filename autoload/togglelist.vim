@@ -37,7 +37,11 @@ function! togglelist#ToggleList(bufname, pfx) abort
 	endif
 
 	let l:winnr = winnr()
-	exec(a:pfx . 'window')
+	if a:pfx == 'c'
+		exec('botright ' . a:pfx . 'window')
+	else
+		exec('belowright ' . a:pfx . 'window')
+	endif
 
 	if winnr() != l:winnr
 		wincmd p
