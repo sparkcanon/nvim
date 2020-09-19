@@ -1,5 +1,6 @@
-vim.cmd("packadd nvim-lspconfig")
-vim.cmd("packadd diagnostic-nvim")
+vim.cmd("packadd! nvim-lspconfig")
+vim.cmd("packadd! diagnostic-nvim")
+local vim = vim
 
 -- Desc: key mapping helper.
 local key_mapper = function(mode, key, result)

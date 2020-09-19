@@ -1,5 +1,26 @@
 -- Purpose: Initialize lua code
 
+-- Settings
+require "settings"
+
+-- Autocmd
+require "autocmd"
+
+-- Colors
+require "color"
+
+-- Mapping
+require "mapping"
+
+-- Command
+require "command"
+
+-- Abbr
+require "abbr"
+
+-- Plugin
+require "plugin"
+
 -- LSP
 require "lsp"
 
@@ -8,7 +29,3 @@ require "treesitter"
 
 -- Formatter
 require "formatter"
-
--- Colorizer
-vim.cmd("packadd nvim-colorizer.lua")
-require "colorizer".setup()
