@@ -13,8 +13,8 @@ A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
 A.SetupCommandAbbr("bD", "bp<bar>bd#")
 
 -- Session
-A.SetupCommandAbbr("ssl", "so ~/.config/nvim/tmp/dir_session/")
-A.SetupCommandAbbr("ssa", "SessionSave")
+A.SetupCommandAbbr("so", "so ~/.config/nvim/tmp/dir_session/")
+A.SetupCommandAbbr("sa", "SessionSave")
 
 -- Grep
 A.SetupCommandAbbr("sr", "Grep")
