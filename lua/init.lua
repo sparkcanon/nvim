@@ -1,4 +1,5 @@
--- Purpose: Initialize lua code
+-- Desc: Personal Neovim configuration
+-- Author: Pratik Borde
 
 -- Settings
 require "settings"
