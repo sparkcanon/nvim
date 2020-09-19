@@ -25,6 +25,7 @@ o.wildignorecase = true -- Ignore case in wildignore
 o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]] -- Wildignore paths
 o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
+o.clipboard = 'unnamed' .. o.clipboard -- os clipboard
 
 -- Backup, undo, swap options
 o.undofile = true -- Set this option to have full undo power
