@@ -1,13 +1,16 @@
+local cmd = vim.cmd
+local g = vim.g
+
 -- Colorizer
-vim.cmd("packadd! nvim-colorizer.lua")
+cmd("packadd! nvim-colorizer.lua")
 require "colorizer".setup()
 
 -- Built in plugins
-vim.cmd("packadd! cfilter")
-vim.cmd("packadd! matchit")
+cmd("packadd! cfilter")
+cmd("packadd! matchit")
 
 -- Diagnostics
-vim.g.diagnostic_enable_virtual_text = 1
-vim.g.diagnostic_enable_underline = 0
-vim.g.diagnostic_insert_delay = 1
-vim.g.diagnostic_virtual_text_prefix = "▢"
+g.diagnostic_enable_virtual_text = 1
+g.diagnostic_enable_underline = 0
+g.diagnostic_insert_delay = 1
+g.diagnostic_virtual_text_prefix = "▢"
