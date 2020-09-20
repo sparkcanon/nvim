@@ -20,7 +20,7 @@ K.Key_mapper("i", "<C-f>", "<C-x><C-f>") -- File name
 K.Key_mapper("i", "<C-l>", "<C-x><C-l>") -- Line
 K.Key_mapper("i", "<C-f>", "<C-x><C-s>") -- Spell
 K.Key_mapper("i", "<Tab>", "pumvisible() ? '<C-n>' : '<Tab>'", true, true, false) -- Spell
-K.Key_mapper("i", "<S-Tab>", "pumvisible() ? '<C-n>' : '<S-Tab>'", true, true, false) -- Spell
+K.Key_mapper("i", "<S-Tab>", "pumvisible() ? '<C-p>' : '<S-Tab>'", true, true, false) -- Spell
 
 -- Tabs
 K.Key_mapper("n", "<Tab>", "gt")
