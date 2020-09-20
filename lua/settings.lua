@@ -2,7 +2,8 @@
 local o = vim.o
 local wo = vim.wo
 local cmd = vim.cmd
-local home = vim.fn.expand("$HOME")
+local fn = vim.fn
+local home = fn.expand("$HOME")
 
 cmd("filetype plugin indent on") -- enable filetype detection
 cmd("syntax on") -- enable syntax highlighting
@@ -43,7 +44,7 @@ o.showmode = false -- Don't display mode in cmd
 o.iminsert = 1
 
 -- Use rg for grep
-if vim.fn.executable("rg") then
+if fn.executable("rg") then
   o.grepprg = "rg --vimgrep"
   o.grepformat = "%f:%l:%c:%m"
 end
