@@ -1,6 +1,3 @@
--- Plugins
-local vim = vim
-
 -- Colorizer
 vim.cmd("packadd! nvim-colorizer.lua")
 require "colorizer".setup()

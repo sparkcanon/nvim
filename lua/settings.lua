@@ -1,16 +1,13 @@
 -- Purpose: Basic settings
 local o = vim.o
-local wo = vim.wo
-local cmd = vim.cmd
-local fn = vim.fn
-local home = fn.expand("$HOME")
+local home = vim.fn.expand("$HOME")
 
-cmd("filetype plugin indent on") -- enable filetype detection
-cmd("syntax on") -- enable syntax highlighting
+vim.cmd("filetype plugin indent on") -- enable filetype detection
+vim.cmd("syntax on") -- enable syntax highlighting
 
 -- Window options
-wo.nu = true -- Display numbers
-wo.signcolumn = "number" -- Merge signcolumn and numbers
+vim.wo.nu = true -- Display numbers
+vim.wo.signcolumn = "number" -- Merge signcolumn and numbers
 
 -- Editor options
 o.hidden = true -- hide some buffers
@@ -26,7 +23,7 @@ o.wildignorecase = true -- Ignore case in wildignore
 o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]] -- Wildignore paths
 o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
-o.clipboard = 'unnamed' .. o.clipboard -- os clipboard
+o.clipboard = "unnamed" .. o.clipboard -- os clipboard
 
 -- Backup, undo, swap options
 o.undofile = true -- Set this option to have full undo power
@@ -44,7 +41,7 @@ o.showmode = false -- Don't display mode in cmd
 o.iminsert = 1
 
 -- Use rg for grep
-if fn.executable("rg") then
+if vim.fn.executable("rg") then
   o.grepprg = "rg --vimgrep"
   o.grepformat = "%f:%l:%c:%m"
 end

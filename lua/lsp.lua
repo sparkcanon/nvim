@@ -7,7 +7,7 @@ vim.cmd("packadd! nvim-lspconfig")
 vim.cmd("packadd! diagnostic-nvim")
 
 -- Desc: only applies to buffers with lsp on.
-local on_attach = function(_, bufnr)
+local custom_attach = function(_, bufnr)
   -- Set omnifunc
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -34,9 +34,35 @@ end
 
 local nvim_lsp = require "nvim_lsp"
 
-local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls", "sumneko_lua"}
+nvim_lsp.sumneko_lua.setup {
+  on_attach = custom_attach,
+  settings = {
+    Lua = {
+      runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
+      completion = {keywordSnippet = "Disable"},
+      diagnostics = {
+        enable = true,
+        globals = {
+          "vim",
+          "describe",
+          "it",
+          "before_each",
+          "after_each"
+        }
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+        }
+      }
+    }
+  }
+}
+
+local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = on_attach
+    on_attach = custom_attach
   }
 end
