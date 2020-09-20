@@ -42,6 +42,7 @@ o.iminsert = 1
 
 -- Use rg for grep
 if vim.fn.executable("rg") then
-  o.grepprg = "rg --vimgrep"
+  vim.g.grepprg = "rg"
+  o.grepprg = vim.g.grepprg .. " --vimgrep"
   o.grepformat = "%f:%l:%c:%m"
 end
