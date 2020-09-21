@@ -1,6 +1,5 @@
 local G = {}
 local loop = vim.loop
-local api = vim.api
 local results = {}
 
 local function onread(err, data)
@@ -21,7 +20,7 @@ end
 
 local function setQF(searchTerm)
   vim.fn.setqflist({}, "r", {title = "Search Results for " .. searchTerm, lines = results})
-  api.nvim_command("cwindow")
+  vim.api.nvim_command("cwindow")
   local count = #results
   for i = 0, count do
     results[i] = nil
@@ -29,11 +28,11 @@ local function setQF(searchTerm)
 end
 
 -- TODO: Exclude logic
-function G.asyncGrep(searchTerm)
+function G.Grep(searchTerm)
   local stdout = loop.new_pipe(false)
   local stderr = loop.new_pipe(false)
   handle =
-    vim.loop.spawn(
+    loop.spawn(
     vim.g.grepprg,
     {
       args = {searchTerm, "--vimgrep", "--smart-case"},

@@ -25,7 +25,7 @@ local autocmd = {
     {
       "VimEnter",
       "*",
-      [[call path_job#setProjectPath()]]
+      [[lua require 'functions/path'.Path()]]
     },
     {
       "VimResized",

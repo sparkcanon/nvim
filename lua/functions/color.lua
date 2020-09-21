@@ -2,6 +2,7 @@
 local cmd = vim.cmd
 local C = {}
 
+-- Modify buffer colors
 function C.ModifyBufferColors()
   cmd([[highlight! EndOfBuffer ctermbg=NONE ctermfg=241 guibg=NONE]])
   cmd([[highlight! VertSplit cterm=NONE ctermbg=NONE gui=NONE guibg=NONE]])
@@ -14,6 +15,7 @@ function C.ModifyBufferColors()
   cmd([[highlight! LspDiagnosticsInformation guifg=#3f83a6]])
   cmd([[highlight! link LspDiagnosticsWarning ALEVirtualTextWarning]])
 
+  -- Hint: The below makes buffer transparent
   -- vim.cmd([[highlight! Normal guibg=NONE]])
 end
 
