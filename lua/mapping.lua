@@ -18,9 +18,9 @@ K.Key_mapper("i", "<C-k>", "<C-x><C-o>") -- Omni
 K.Key_mapper("i", "<C-n>", "<C-x><C-n>") -- Keyword
 K.Key_mapper("i", "<C-f>", "<C-x><C-f>") -- File name
 K.Key_mapper("i", "<C-l>", "<C-x><C-l>") -- Line
-K.Key_mapper("i", "<C-f>", "<C-x><C-s>") -- Spell
-K.Key_mapper("i", "<Tab>", "pumvisible() ? '<C-n>' : '<Tab>'", true, true, false) -- Spell
-K.Key_mapper("i", "<S-Tab>", "pumvisible() ? '<C-p>' : '<S-Tab>'", true, true, false) -- Spell
+K.Key_mapper("i", "<C-d>", "<C-x><C-s>") -- Spell
+K.Key_mapper("i", "<Tab>", [[pumvisible() ? '<C-n>' : '<Tab>']], true, true, false) -- Spell
+K.Key_mapper("i", "<S-Tab>", [[pumvisible() ? '<C-p>' : '<S-Tab>']], true, true, false) -- Spell
 
 -- Tabs
 K.Key_mapper("n", "<Tab>", "gt")
@@ -68,9 +68,6 @@ K.Key_mapper("n", "<Bslash>s", ":%s/\\v<<C-r><C-w>>/")
 
 -- Global
 K.Key_mapper("n", "<Bslash>g", ":g//#<Left><Left>")
--- Lists
-K.Key_mapper("n", "<Bslash>F", ":global //#<left><left>")
-K.Key_mapper("n", "<Bslash>f", ":global /<C-R><C-W>/#")
 
 -- New lines
 K.Key_mapper("n", "]<space>", "o<C-c>")
@@ -84,9 +81,9 @@ K.Key_mapper("n", "<space>v", ":vert sfind<space>")
 K.Key_mapper("n", "<space>t", ":tabfind<space>")
 
 -- Edit
-K.Key_mapper("n", "<space>ee", ":e <C-R>='%:h/'<CR>")
-K.Key_mapper("n", "<space>ev", ":vsp <C-R>='%:h/'<CR>")
-K.Key_mapper("n", "<space>es", ":sp <C-R>='%:h/'<CR>")
+K.Key_mapper("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
+K.Key_mapper("n", "<space>ev", [[:vsp <C-R>='%:h/'<CR>]])
+K.Key_mapper("n", "<space>es", [[:sp <C-R>='%:h/'<CR>]])
 
 -- Lists
 K.Key_mapper("c", "<CR>", "listcommands#CR()", false, true, false)
