@@ -1,6 +1,5 @@
 -- Color util
 local cmd = vim.cmd
-local term_colors = {}
 local C = {}
 
 function C.ModifyBufferColors()
@@ -18,26 +17,67 @@ function C.ModifyBufferColors()
   -- vim.cmd([[highlight! Normal guibg=NONE]])
 end
 
-local function getColorFromHighlights(string, bg)
+-- Extract color values from highlight strings
+-- TODO: check for nil values
+local function getColorFromHighlights(string, t)
   local hi = vim.api.nvim_exec("hi " .. string, true)
-  local colo = string.match(hi, "gui" .. bg .. "=(%#[%a|%d]+)")
+  local colo = string.match(hi, "gui" .. t .. "=(%#[%a|%d]+)")
   return colo
 end
 
+-- Write colors to kitty colorscheme file
+-- TODO: if statement looks horrible, find a better way
 function C.ModifyKittyColors()
-  table.insert(term_colors, "background " .. getColorFromHighlights("Normal", "bg"))
-  table.insert(term_colors, "foreground " .. getColorFromHighlights("Normal", "fg"))
-  table.insert(term_colors, "cursor " .. getColorFromHighlights("Cursor", "bg"))
-  table.insert(term_colors, "cursor_text_color " .. getColorFromHighlights("Cursor", "fg"))
-  table.insert(term_colors, "selection_background " .. getColorFromHighlights("Visual", "bg"))
-  table.insert(term_colors, "selection_foreground " .. getColorFromHighlights("Normal", "bg"))
+  local term_colors = {} -- Colors table
+
+  local normalfg = getColorFromHighlights("Normal", "fg")
+  local normalbg = getColorFromHighlights("Normal", "bg")
+  local visualbg = getColorFromHighlights("Visual", "bg")
+  local visualfg = getColorFromHighlights("Visual", "fg")
+  local cursorbg = getColorFromHighlights("Cursor", "bg")
+  local cursorfg = getColorFromHighlights("Cursor", "fg")
+
+  table.insert(term_colors, "background " .. normalbg)
+  table.insert(term_colors, "foreground " .. normalfg)
+
+  -- if cursorbg is nil/NONE, use normalfg
+  if (cursorbg == nil) then
+    table.insert(term_colors, "cursor " .. normalfg)
+  else
+    table.insert(term_colors, "cursor " .. cursorbg)
+  end
+
+  -- if cursorfg is nil/NONE, use normalbg
+  if (cursorfg == nil) then
+    table.insert(term_colors, "cursor_text_color " .. normalfg)
+  else
+    table.insert(term_colors, "cursor_text_color " .. cursorfg)
+  end
+
+  -- if visualfg is nil/NONE, use normalfg
+  if (visualbg == nil) then
+    table.insert(term_colors, "selection_background " .. normalfg)
+  else
+    table.insert(term_colors, "selection_background " .. visualbg)
+  end
+
+  -- if visualfg is nil/NONE, use normalbg
+  if (visualfg == nil) then
+    table.insert(term_colors, "selection_foreground " .. normalbg)
+  else
+    table.insert(term_colors, "selection_foreground " .. visualfg)
+  end
+
   for i = 0, 15 do
     table.insert(term_colors, "color" .. i .. " " .. vim.fn.eval("g:terminal_color_" .. i))
   end
-  local file = io.open("/Users/praborde/.config/kitty/colorscheme_nvim.conf", "w+")
+
+  -- Write to file
+  local home = vim.fn.expand("$HOME")
+  local file = io.open(home .. [[/.config/kitty/colorscheme_nvim.conf]], "w+")
   for _, v in pairs(term_colors) do
     file:write(v)
-    file:write('\n')
+    file:write("\n")
   end
   file:close()
 end
