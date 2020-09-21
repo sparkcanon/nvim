@@ -13,7 +13,7 @@ A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
 A.SetupCommandAbbr("bD", "bp<bar>bd#")
 
 -- Session
-A.SetupCommandAbbr("so", "so ~/.config/nvim/tmp/dir_session/")
+A.SetupCommandAbbr("so", "so " .. vim.fn.expand("$HOME") .. "/.config/nvim/tmp/dir_session/")
 A.SetupCommandAbbr("sa", "SessionSave")
 
 -- Grep
