@@ -40,3 +40,6 @@
 [submodule "pack/main/opt/iceberg.vim"]
 	path = pack/main/opt/iceberg.vim
 	url = https://github.com/cocopon/iceberg.vim
+[submodule "pack/main/start/vim-dirvish"]
+	path = pack/main/start/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish
