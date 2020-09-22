@@ -1,8 +1,12 @@
 local cmd = vim.cmd
 local g = vim.g
 
+-- Load plugins
+cmd("packadd! nvim-colorizer.lua") -- colorizer
+require "formatter" -- formatter
+require "treesitter" -- treesitter
+
 -- Colorizer
-cmd("packadd! nvim-colorizer.lua")
 require "colorizer".setup()
 
 -- Built in plugins

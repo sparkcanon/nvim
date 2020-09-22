@@ -1,12 +1,36 @@
-vim.cmd("packadd formatter.nvim")
+vim.cmd("packadd! formatter.nvim")
+local api = vim.api
 
+-- Find executable locally
+local function setPrettier(exe)
+  local node = io.popen([[fd -uu '^prettier$' node_modules/.bin]])
+  for fname in node:lines() do
+    if (string.match(fname, exe) == exe) then
+      return fname
+    else
+      return exe
+    end
+  end
+  node:close()
+end
+
+-- Formatter setup
 require "format".setup(
   {
     javascript = {
       prettier = function()
         return {
-          exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
+          stdin = true
+        }
+      end
+    },
+    javascriptreact = {
+      prettier = function()
+        return {
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
           stdin = true
         }
       end
@@ -14,8 +38,8 @@ require "format".setup(
     typescript = {
       prettier = function()
         return {
-          exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
           stdin = true
         }
       end
@@ -23,8 +47,8 @@ require "format".setup(
     typescriptreact = {
       prettier = function()
         return {
-          exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
           stdin = true
         }
       end
@@ -32,8 +56,8 @@ require "format".setup(
     css = {
       prettier = function()
         return {
-          exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
           stdin = true
         }
       end
@@ -41,8 +65,8 @@ require "format".setup(
     less = {
       prettier = function()
         return {
-          exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
           stdin = true
         }
       end
@@ -50,8 +74,8 @@ require "format".setup(
     html = {
       prettier = function()
         return {
-          exe = "prettier",
-          args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
           stdin = true
         }
       end

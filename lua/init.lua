@@ -24,9 +24,3 @@ require "plugin"
 
 -- LSP
 require "lsp"
-
--- Treesitter
-require "treesitter"
-
--- Formatter
-require "formatter"
