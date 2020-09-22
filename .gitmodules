@@ -40,6 +40,6 @@
 [submodule "pack/main/start/lightline.vim"]
 	path = pack/main/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
-[submodule "pack/main/start/iceberg.vim"]
-	path = pack/main/start/iceberg.vim
+[submodule "pack/main/opt/iceberg.vim"]
+	path = pack/main/opt/iceberg.vim
 	url = https://github.com/cocopon/iceberg.vim

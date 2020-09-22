@@ -1,6 +1,7 @@
 -- Color util
 local cmd = vim.cmd
 local C = {}
+local U = require "utils"
 
 -- Modify buffer colors
 function C.ModifyBufferColors()
@@ -19,25 +20,17 @@ function C.ModifyBufferColors()
   -- vim.cmd([[highlight! Normal guibg=NONE]])
 end
 
--- Extract color values from highlight strings
--- TODO: check for nil values
-local function getColorFromHighlights(string, t)
-  local hi = vim.api.nvim_exec("hi " .. string, true)
-  local colo = string.match(hi, "gui" .. t .. "=(%#[%a|%d]+)")
-  return colo
-end
-
 -- Write colors to kitty colorscheme file
 -- TODO: if statement looks horrible, find a better way
 function C.ModifyKittyColors()
   local term_colors = {} -- Colors table
 
-  local normalfg = getColorFromHighlights("Normal", "fg")
-  local normalbg = getColorFromHighlights("Normal", "bg")
-  local visualbg = getColorFromHighlights("Visual", "bg")
-  local visualfg = getColorFromHighlights("Visual", "fg")
-  local cursorbg = getColorFromHighlights("Cursor", "bg")
-  local cursorfg = getColorFromHighlights("Cursor", "fg")
+  local normalfg = U.GetColorFromHighlights("Normal", "fg")
+  local normalbg = U.GetColorFromHighlights("Normal", "bg")
+  local visualbg = U.GetColorFromHighlights("Visual", "bg")
+  local visualfg = U.GetColorFromHighlights("Visual", "fg")
+  local cursorbg = U.GetColorFromHighlights("Cursor", "bg")
+  local cursorfg = U.GetColorFromHighlights("Cursor", "fg")
 
   table.insert(term_colors, "background " .. normalbg)
   table.insert(term_colors, "foreground " .. normalfg)
