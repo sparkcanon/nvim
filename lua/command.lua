@@ -11,3 +11,8 @@ com([[command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.
 
 -- Nvim colors to kitty
 com([[command! -nargs=0 ColorKitty lua require 'functions/color'.ModifyKittyColors()]])
+
+-- Dirvish
+com([[command! -nargs=? -complete=dir Explore Dirvish <args>]])
+com([[command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>]])
+com([[command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>]])
