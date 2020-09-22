@@ -35,7 +35,8 @@ o.undodir = home .. "/.config/nvim/tmp/dir_undo/" -- Undo dir
 
 -- Statusline
 o.laststatus = 2 -- Dont display statusline
-o.showmode = false -- Don't display mode in cmd
+o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- custom statusline format
+o.showmode = true -- Don't display mode in cmd
 
 -- Insert mode
 o.iminsert = 1
