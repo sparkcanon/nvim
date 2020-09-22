@@ -33,6 +33,13 @@ local autocmd = {
       "wincmd ="
     }
   },
+  FileTypeAutocmd = {
+    {
+      "FileType",
+      "javascript,javascriptreact,typescript,typescriptreact",
+      [[lua require 'functions/javascript'.Javascript()]]
+    }
+  },
   MkdirAutocmd = {
     {
       "BufNewFile",
