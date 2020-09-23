@@ -24,14 +24,12 @@ function! togglelist#ToggleList(bufname, pfx) abort
 
 	" Check if qf list is empty
 	if a:pfx == 'c' && len(getqflist()) == 0
-		echohl ErrorMsg
 		echo "Quickfix List is Empty"
 		return
 	endif
 
 	" Check if location list is empty
 	if a:pfx == 'l' && len(getloclist(0)) == 0
-		echohl ErrorMsg
 		echo "Location List is Empty"
 		return
 	endif
