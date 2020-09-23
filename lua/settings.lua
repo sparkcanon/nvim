@@ -35,11 +35,10 @@ o.undodir = home .. "/.config/nvim/tmp/dir_undo/" -- Undo dir
 
 -- Statusline
 o.laststatus = 2 -- Dont display statusline
-o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- custom statusline format
+o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- Custom statusline format
 o.showmode = true -- Don't display mode in cmd
 
--- Insert mode
-o.iminsert = 1
+o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
 
 -- Use rg for grep
 if vim.fn.executable("rg") then

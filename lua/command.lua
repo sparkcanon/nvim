@@ -16,3 +16,7 @@ com([[command! -nargs=0 ColorKitty lua require 'functions/color'.ModifyKittyColo
 com([[command! -nargs=? -complete=dir Explore Dirvish <args>]])
 com([[command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>]])
 com([[command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>]])
+
+-- Yank
+com([[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]])
+com([[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]])
