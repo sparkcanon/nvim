@@ -11,6 +11,9 @@ function C.ModifyBufferColors()
   cmd([[highlight! EndOfBuffer ctermbg=NONE ctermfg=241 guibg=NONE]])
   cmd([[highlight! LineNr ctermbg=NONE guibg=NONE]])
 
+  cmd([[highlight! link LspDiagnosticsError ErrorMsg]])
+  cmd([[highlight! link LspDiagnosticsWarning WarningMsg]])
+
   -- Hint: The below makes buffer transparent
   -- vim.cmd([[highlight! Normal guibg=NONE]])
 end
