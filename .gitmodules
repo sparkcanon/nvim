@@ -37,9 +37,9 @@
 [submodule "pack/main/start/CommandlineComplete.vim"]
 	path = pack/main/start/CommandlineComplete.vim
 	url = https://github.com/j5shi/CommandlineComplete.vim
-[submodule "pack/main/opt/iceberg.vim"]
-	path = pack/main/opt/iceberg.vim
-	url = https://github.com/cocopon/iceberg.vim
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
+[submodule "pack/main/opt/vim-moonfly-colors"]
+	path = pack/main/opt/vim-moonfly-colors
+	url = https://github.com/bluz71/vim-moonfly-colors
