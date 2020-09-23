@@ -28,6 +28,7 @@ local function setQF(searchTerm)
 end
 
 -- TODO: Exclude logic
+-- TODO: Freezes somestimes
 function G.Grep(searchTerm)
   local stdout = loop.new_pipe(false)
   local stderr = loop.new_pipe(false)
@@ -35,7 +36,7 @@ function G.Grep(searchTerm)
     loop.spawn(
     vim.g.grepprg,
     {
-      args = {searchTerm, "--vimgrep", "--smart-case"},
+      args = {searchTerm, "--vimgrep"},
       stdio = {stdout, stderr}
     },
     vim.schedule_wrap(
