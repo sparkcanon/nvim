@@ -1,7 +1,7 @@
 -- Color util
 local cmd = vim.cmd
 local C = {}
-local U = require "utils"
+local U = require "utils/general"
 
 -- Modify buffer colors
 function C.ModifyBufferColors()

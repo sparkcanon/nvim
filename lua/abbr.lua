@@ -1,4 +1,4 @@
-local A = require "utils"
+local A = require "utils/general"
 
 -- General
 A.SetupCommandAbbr("w", "update")

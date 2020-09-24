@@ -1,6 +1,6 @@
 -- LSP
 
-local K = require "utils"
+local K = require "utils/general"
 
 -- Load plugins
 vim.cmd("packadd! nvim-lspconfig")

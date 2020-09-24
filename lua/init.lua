@@ -20,7 +20,7 @@ require "command"
 require "abbr"
 
 -- Plugin
-require "plugin"
+require "plugins/general"
 
 -- LSP
 require "lsp"

@@ -1,6 +1,6 @@
 -- Mappings
 
-local K = require "utils"
+local K = require "utils/general"
 
 -- Using backtick for marks drops you on the exact column
 K.Key_mapper("n", "`", "'")

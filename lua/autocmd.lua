@@ -3,7 +3,7 @@ local autocmd = {
     {
       "ColorScheme",
       "*",
-      [[lua require 'functions/color'.ModifyBufferColors()]]
+      [[lua require 'utils/color'.ModifyBufferColors()]]
     }
   },
   GeneralAutocmds = {
@@ -20,12 +20,12 @@ local autocmd = {
     {
       "VimLeavePre",
       "*",
-      [[lua require 'functions/session'.SessionSave()]]
+      [[lua require 'utils/session'.SessionSave()]]
     },
     {
       "VimEnter",
       "*",
-      [[lua require 'functions/path'.Path()]]
+      [[lua require 'utils/path'.Path()]]
     },
     {
       "VimResized",
@@ -37,7 +37,7 @@ local autocmd = {
     {
       "FileType",
       "javascript,javascriptreact,typescript,typescriptreact",
-      [[lua require 'functions/javascript'.Javascript()]]
+      [[lua require 'utils/javascript'.Javascript()]]
     }
   },
   MkdirAutocmd = {
@@ -49,4 +49,4 @@ local autocmd = {
   }
 }
 
-require "utils".Create_augroup(autocmd)
+require "utils/general".Create_augroup(autocmd)
