@@ -22,3 +22,6 @@ g.diagnostic_virtual_text_prefix = "▢"
 -- Dirvish
 g.loaded_netrwPlugin = 1
 g.dirvish_mode = [[:sort ,^.*[/],]]
+
+-- Fugitive
+g.fugitive_pty = 0
