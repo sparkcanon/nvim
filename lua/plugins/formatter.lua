@@ -3,15 +3,14 @@ local api = vim.api
 
 -- Find executable locally
 local function setPrettier(exe)
-  local node = io.popen([[fd -uu '^prettier$' node_modules/.bin]])
-  for fname in node:lines() do
-    if (string.match(fname, exe) == exe) then
-      return fname
-    else
-      return exe
-    end
+  local fmt_prettier
+  if vim.fn.findfile(exe, "node_modules/.bin/") == "node_modules/.bin/prettier" then
+    fmt_prettier = "node_modules/.bin/prettier"
+  else
+    vim.fn.executable(exe)
+    fmt_prettier = exe
   end
-  node:close()
+  return fmt_prettier
 end
 
 -- Formatter setup
@@ -72,6 +71,15 @@ require "format".setup(
       end
     },
     html = {
+      prettier = function()
+        return {
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
+          stdin = true
+        }
+      end
+    },
+    json = {
       prettier = function()
         return {
           exe = setPrettier("prettier"),
