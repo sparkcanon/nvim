@@ -19,7 +19,7 @@ require "nvim-treesitter.configs".setup {
       enable = true
     },
     highlight_current_scope = {
-      enable = true
+      enable = true -- Breaks virtual text
     },
     smart_rename = {
       enable = true,
