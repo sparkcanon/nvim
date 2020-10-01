@@ -1,7 +1,7 @@
 local com = vim.api.nvim_command
 
 -- Grep for quickfix list
-com([[command! -nargs=+ -complete=file Grep lua require 'utils/grep'.Grep(<q-args>)]])
+com([[command! -nargs=+ -complete=file Grep lua require 'utils/grep'.Grep(<f-args>)]])
 
 -- Save sessions (force)
 com([[command! -nargs=0 SessionSave lua require 'utils/session'.SessionSave()]])

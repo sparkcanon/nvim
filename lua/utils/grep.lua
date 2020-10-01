@@ -29,14 +29,14 @@ end
 
 -- TODO: Exclude logic
 -- TODO: Freezes somestimes
-function G.Grep(searchTerm)
+function G.Grep(searchTerm, ...)
   local stdout = loop.new_pipe(false)
   local stderr = loop.new_pipe(false)
   handle =
     loop.spawn(
     vim.g.grepprg,
     {
-      args = {searchTerm, "--vimgrep"},
+      args = {"--vimgrep", searchTerm, ...},
       stdio = {stdout, stderr}
     },
     vim.schedule_wrap(
