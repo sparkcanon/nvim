@@ -1,2 +1,3 @@
 vim.o.termguicolors = true -- True colors
-vim.cmd("colorscheme iceberg") -- Set colorscheme
+vim.cmd("packadd! vim-habanight")
+vim.cmd("colorscheme habanight") -- Set colorscheme
