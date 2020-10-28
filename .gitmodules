@@ -1,9 +1,6 @@
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "pack/main/start/vim-cool"]
-	path = pack/main/start/vim-cool
-	url = https://github.com/romainl/vim-cool
 [submodule "pack/main/start/vim-eunuch"]
 	path = pack/main/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch

@@ -112,7 +112,14 @@ K.Key_mapper("t", "˙", "<c-w>h")
 K.Key_mapper("t", "∆", "<c-w>j")
 K.Key_mapper("t", "˚", "<c-w>k")
 
+-- Enable use of alt/meta key
 vim.api.nvim_command([[nmap ¬ <a-l>]])
 vim.api.nvim_command([[nmap ˙ <a-h>]])
 vim.api.nvim_command([[nmap ∆ <a-j>]])
 vim.api.nvim_command([[nmap ˚ <a-k>]])
+
+-- Get more information from ctrl-g
+K.Key_mapper("n", "<c-g>", "2<c-g>")
+
+-- Clear highlighting
+K.Key_mapper("n", "<c-l>", [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]], true)
