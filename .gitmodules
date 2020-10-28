@@ -16,9 +16,6 @@
 [submodule "pack/main/start/vim-surround"]
 	path = pack/main/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "pack/main/start/vim-tmux-navigator"]
-	path = pack/main/start/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator
 [submodule "pack/main/start/nvim-lspconfig"]
 	path = pack/main/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig

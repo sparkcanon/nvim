@@ -92,3 +92,27 @@ K.Key_mapper("n", "<space>es", [[:sp <C-R>='%:h/'<CR>]])
 
 -- Lists
 K.Key_mapper("c", "<CR>", "listcommands#CR()", false, true, false)
+
+-- Tmux
+if vim.fn.exists("$TMUX_PANE") then
+  K.Key_mapper("n", "<a-h>", ":lua require 'utils/tmux'.TmuxNavigate('h')<CR>", true)
+  K.Key_mapper("n", "<a-j>", ":lua require 'utils/tmux'.TmuxNavigate('j')<CR>", true)
+  K.Key_mapper("n", "<a-k>", ":lua require 'utils/tmux'.TmuxNavigate('k')<CR>", true)
+  K.Key_mapper("n", "<a-l>", ":lua require 'utils/tmux'.TmuxNavigate('l')<CR>", true)
+else
+  K.Key_mapper("n", "<a-h>", "<c-w>h")
+  K.Key_mapper("n", "<a-j>", "<c-w>j")
+  K.Key_mapper("n", "<a-k>", "<c-w>k")
+  K.Key_mapper("n", "<a-l>", "<c-w>l")
+end
+
+-- Jump to another window directly from terminal mode
+K.Key_mapper("t", "¬", "<c-w>l")
+K.Key_mapper("t", "˙", "<c-w>h")
+K.Key_mapper("t", "∆", "<c-w>j")
+K.Key_mapper("t", "˚", "<c-w>k")
+
+vim.api.nvim_command([[nmap ¬ <a-l>]])
+vim.api.nvim_command([[nmap ˙ <a-h>]])
+vim.api.nvim_command([[nmap ∆ <a-j>]])
+vim.api.nvim_command([[nmap ˚ <a-k>]])
