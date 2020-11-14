@@ -16,9 +16,6 @@
 [submodule "pack/main/start/nvim-lspconfig"]
 	path = pack/main/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
-[submodule "pack/main/start/diagnostic-nvim"]
-	path = pack/main/start/diagnostic-nvim
-	url = https://github.com/nvim-lua/diagnostic-nvim
 [submodule "pack/main/start/nvim-treesitter"]
 	path = pack/main/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
