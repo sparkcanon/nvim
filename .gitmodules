@@ -31,6 +31,6 @@
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
-[submodule "pack/main/opt/vim-habanight"]
-	path = pack/main/opt/vim-habanight
-	url = https://github.com/habamax/vim-habanight
+[submodule "pack/main/opt/vim-moonfly-colors"]
+	path = pack/main/opt/vim-moonfly-colors
+	url = https://github.com/bluz71/vim-moonfly-colors

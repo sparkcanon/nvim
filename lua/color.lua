@@ -1,3 +1,3 @@
 vim.o.termguicolors = true -- True colors
-vim.cmd("packadd! vim-habanight")
-vim.cmd("colorscheme habanight") -- Set colorscheme
+vim.cmd("packadd! vim-moonfly-colors")
+vim.cmd("colorscheme moonfly") -- Set colorscheme
