@@ -25,12 +25,12 @@ local custom_attach = function(_, bufnr)
   K.Key_mapper("n", ",f", "<cmd>Format<CR>", true)
   K.Key_mapper("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
   K.Key_mapper("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>", true)
-  K.Key_mapper("n", ",e", "<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>", true)
 
+  K.Key_mapper("n", ",e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", true)
   K.Key_mapper("n", ",s", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", true)
 end
 
-local nvim_lsp = require "nvim_lsp"
+local nvim_lsp = require "lspconfig"
 
 nvim_lsp.sumneko_lua.setup {
   on_attach = custom_attach,
