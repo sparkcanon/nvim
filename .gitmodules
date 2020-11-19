@@ -34,3 +34,6 @@
 [submodule "pack/main/opt/vim-moonfly-colors"]
 	path = pack/main/opt/vim-moonfly-colors
 	url = https://github.com/bluz71/vim-moonfly-colors
+[submodule "pack/main/start/fzf.vim"]
+	path = pack/main/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim

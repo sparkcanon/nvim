@@ -13,7 +13,7 @@ A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
 A.SetupCommandAbbr("bD", "bp<bar>bd#")
 
 -- Session
-A.SetupCommandAbbr("so", "so " .. vim.fn.expand("$HOME") .. "/.config/nvim/tmp/dir_session/")
+A.SetupCommandAbbr("sl", "SessionLoad")
 A.SetupCommandAbbr("sa", "SessionSave")
 
 -- Grep
@@ -25,7 +25,7 @@ A.SetupCommandAbbr("fd", "FdFiles")
 
 -- Git
 A.SetupCommandAbbr("gf", "Git fetch --all")
-A.SetupCommandAbbr("gp", "split term://git push")
+A.SetupCommandAbbr("gp", [[split \| term git push]])
 A.SetupCommandAbbr("gl", "Git pull")
 A.SetupCommandAbbr("gd", "Git difftool")
 A.SetupCommandAbbr("gm", "Git mergetool")

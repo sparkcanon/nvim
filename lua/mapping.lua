@@ -60,6 +60,7 @@ K.Key_mapper("n", "]<C-F>", ":cnfile<CR>")
 K.Key_mapper("n", "[<C-F>", ":cpfile<CR>")
 
 -- Buffers
+K.Key_mapper("n", "<space>b", ":Buffers<CR>")
 K.Key_mapper("n", "<BS>", "<C-^>")
 K.Key_mapper("n", "]b", ":bnext<CR>")
 K.Key_mapper("n", "[b", ":bprevious<CR>")
@@ -79,7 +80,7 @@ K.Key_mapper("n", "]<space>", "o<C-c>")
 K.Key_mapper("n", "[<space>", "O<C-c>")
 
 -- Find
-K.Key_mapper("n", "<space>f", ":find<space>")
+K.Key_mapper("n", "<space>f", ":Files<CR>")
 K.Key_mapper("n", "<space>c", ":Cfind<space>")
 K.Key_mapper("n", "<space>s", ":sfind<space>")
 K.Key_mapper("n", "<space>v", ":vert sfind<space>")

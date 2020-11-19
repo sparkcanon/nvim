@@ -24,6 +24,7 @@ o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]
 o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
+vim.cmd([[set rtp+=/usr/local/opt/fzf]]) -- fzf
 
 -- Backup, undo, swap options
 o.undofile = true -- Set this option to have full undo power

@@ -5,9 +5,9 @@ com([[command! -nargs=+ -complete=file Grep lua require 'utils/grep'.Grep(<f-arg
 
 -- Save sessions (force)
 com([[command! -nargs=0 SessionSave lua require 'utils/session'.SessionSave()]])
-
--- Find files and add to quickfix list
-com([[command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')]])
+com(
+  [[command! -nargs=0 SessionLoad call fzf#run({ 'source': 'fd . ~/.config/nvim/tmp/dir_session/ -e vim', 'sink': 'so', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }) ]]
+)
 
 -- Nvim colors to kitty
 com([[command! -nargs=0 ColorKitty lua require 'utils/color'.ModifyKittyColors()]])
@@ -20,3 +20,11 @@ com([[command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish
 -- Yank
 com([[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]])
 com([[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]])
+
+-- Jest
+com(
+  [[command! -nargs=0 JestLego call fzf#run({ 'source': 'fd -g {"*.test.*,*-test.*"} -E "*.snap" --base-directory ~/Documents/work_projects/tesco/lego-web/web/', 'sink': 'vsplit | term cd web && npx jest --watch', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }) ]]
+)
+com(
+  [[command! -nargs=0 Jest call fzf#run({ 'source': 'fd -g {"*.test.*,*-test.*"} -E "*.snap"', 'sink': 'vsplit | term npx jest --watch', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }) ]]
+)
