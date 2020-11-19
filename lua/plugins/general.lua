@@ -19,3 +19,6 @@ g.dirvish_mode = [[:sort ,^.*[/],]]
 
 -- Fugitive
 g.fugitive_pty = 0
+
+-- fzf
+vim.cmd([[let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }]])
