@@ -18,10 +18,6 @@ A.SetupCommandAbbr("sa", "SessionSave")
 
 -- Grep
 A.SetupCommandAbbr("sr", "Grep")
-A.SetupCommandAbbr("sb", "GrepBuffer")
-A.SetupCommandAbbr("se", "GrepExact")
-A.SetupCommandAbbr("st", "GrepExclude")
-A.SetupCommandAbbr("fd", "FdFiles")
 
 -- Git
 A.SetupCommandAbbr("gf", "Git fetch --all")

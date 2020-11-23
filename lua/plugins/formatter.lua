@@ -79,6 +79,15 @@ require "format".setup(
         }
       end
     },
+    markdown = {
+      prettier = function()
+        return {
+          exe = setPrettier("prettier"),
+          args = {"--stdin-filepath", api.nvim_buf_get_name(0)},
+          stdin = true
+        }
+      end
+    },
     json = {
       prettier = function()
         return {

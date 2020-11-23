@@ -4,6 +4,9 @@ require "nvim-treesitter.configs".setup {
   highlight = {
     enable = true -- false will disable the whole extension
   },
+  indent = {
+    enable = true
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -45,7 +48,7 @@ require "nvim-treesitter.configs".setup {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["ic"] = "@class.inner"
       }
     },
     move = {
