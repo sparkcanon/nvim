@@ -7,7 +7,12 @@ require "plugins/formatter" -- formatter
 require "plugins/treesitter" -- treesitter
 
 -- Colorizer
-require "colorizer".setup()
+require "colorizer".setup {
+  "*", -- Highlight all files, but customize some others.
+  less = {rgb_fn = true}, -- Enable parsing rgb(...) functions in less.
+  sass = {rgb_fn = true}, -- Enable parsing rgb(...) functions in sass.
+  scss = {rgb_fn = true} -- Enable parsing rgb(...) functions in scss.
+}
 
 -- Built in plugins
 cmd("packadd! cfilter")

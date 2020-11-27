@@ -10,7 +10,7 @@ A.SetupCommandAbbr("ngw", "noautocmd Gw")
 A.SetupCommandAbbr("lv", "ls<space>t<CR>:vert<space>sb")
 A.SetupCommandAbbr("lt", "ls<space>t<CR>:tab<space>sb")
 A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
-A.SetupCommandAbbr("bD", "bp<bar>bd#")
+A.SetupCommandAbbr("br", "bp<bar>bd#")
 
 -- Session
 A.SetupCommandAbbr("sl", "SessionLoad")
