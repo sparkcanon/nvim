@@ -6,7 +6,7 @@ vim.cmd("filetype plugin indent on") -- enable filetype detection
 vim.cmd("syntax on") -- enable syntax highlighting
 
 -- Window options
-vim.wo.number = false -- Display numbers
+vim.wo.number = true -- Display numbers
 vim.wo.signcolumn = "no" -- Merge signcolumn and numbers
 
 -- Editor options
