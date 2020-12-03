@@ -10,6 +10,15 @@ function C.ModifyBufferColors()
   cmd([[highlight! link HighlightedyankRegion Visual]])
   cmd([[highlight! LineNr ctermbg=NONE guibg=NONE]])
 
+  cmd([[highlight! StatusLine ctermbg=NONE guibg=NONE]])
+  cmd([[highlight! StatusLineNC ctermbg=NONE guibg=NONE]])
+
+  cmd([[highlight! PrimarySym guibg=NONE guifg=#2F3337]])
+  cmd([[highlight! Primarybg guibg=#2F3337 guifg=#C6C6C6]])
+
+  cmd([[highlight! SecondarySym guibg=NONE guifg=#484E54]])
+  cmd([[highlight! Secondarybg guibg=#484E54 guifg=#C6C6C6]])
+
   -- Hint: The below makes buffer transparent
   vim.cmd([[highlight! Normal guibg=NONE]])
 end

@@ -34,16 +34,20 @@ o.backupdir = home .. "/.config/nvim/tmp/dir_backup/" -- Back up dir
 o.directory = home .. "/.config/nvim/tmp/dir_swap/," .. o.directory -- Swap file dir
 o.undodir = home .. "/.config/nvim/tmp/dir_undo/" -- Undo dir
 
--- Statusline
-o.laststatus = 2 -- Dont display statusline
-o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- Custom statusline format
-o.showmode = true -- Don't display mode in cmd
-
-o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
-
 -- Use rg for grep
 if vim.fn.executable("rg") then
   vim.g.grepprg = "rg"
   o.grepprg = vim.g.grepprg .. " --vimgrep"
   o.grepformat = "%f:%l:%c:%m"
 end
+
+-- Statusline
+o.laststatus = 2 -- Dont display statusline
+o.showmode = true -- Don't display mode in cmd
+o.ruler = false
+o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
+o.statusline =
+  [[%#PrimarySym#%#Primarybg#%f%#PrimarySym# ]] ..
+  [[%h %m %r %=]] ..
+    [[%#PrimarySym#%#Primarybg#%l ]] ..
+      [[%#SecondarySym#%#Secondarybg# %c%#SecondarySym# ]] .. [[%#PrimarySym#%#Primarybg#%P%#PrimarySym#]]
