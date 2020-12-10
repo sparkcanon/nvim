@@ -8,6 +8,7 @@ vim.cmd("syntax on") -- enable syntax highlighting
 -- Window options
 vim.wo.number = true -- Display numbers
 vim.wo.signcolumn = "no" -- Merge signcolumn and numbers
+vim.wo.cursorline = true -- Show cursorline
 
 -- Editor options
 o.hidden = true -- hide some buffers
@@ -43,7 +44,7 @@ end
 
 -- Statusline
 o.laststatus = 2 -- Dont display statusline
-o.showmode = true -- Don't display mode in cmd
+o.showmode = true -- Display mode in cmd
 o.ruler = false
 o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
 o.statusline =
