@@ -47,8 +47,4 @@ o.laststatus = 2 -- Dont display statusline
 o.showmode = true -- Display mode in cmd
 o.ruler = false
 o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
-o.statusline =
-  [[%#PrimarySym#%#Primarybg#%f%#PrimarySym# ]] ..
-  [[%h %m %r %=]] ..
-    [[%#PrimarySym#%#Primarybg#%l ]] ..
-      [[%#SecondarySym#%#Secondarybg# %c%#SecondarySym# ]] .. [[%#PrimarySym#%#Primarybg#%P%#PrimarySym#]]
+o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- Custom statusline format
