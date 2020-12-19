@@ -7,7 +7,7 @@ vim.cmd("syntax on") -- enable syntax highlighting
 
 -- Window options
 vim.wo.number = true -- Display numbers
-vim.wo.signcolumn = "no" -- Merge signcolumn and numbers
+vim.wo.signcolumn = "number" -- Merge signcolumn and numbers
 vim.wo.cursorline = true -- Show cursorline
 
 -- Editor options

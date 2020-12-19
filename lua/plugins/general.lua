@@ -3,7 +3,6 @@ local g = vim.g
 
 -- Load plugins
 cmd("packadd! nvim-colorizer.lua") -- colorizer
-require "plugins/formatter" -- formatter
 require "plugins/treesitter" -- treesitter
 
 -- Colorizer

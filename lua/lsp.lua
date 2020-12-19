@@ -11,8 +11,11 @@ local custom_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings
-  K.Key_mapper("n", ",j", "<cmd>lua vim.lsp.buf.definition()<CR>", true)
-  K.Key_mapper("n", ",vj", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", true)
+  K.Key_mapper("n", ",jj", "<cmd>lua vim.lsp.buf.definition()<CR>", true)
+  K.Key_mapper("n", ",jv", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", true)
+  K.Key_mapper("n", ",js", "<cmd>split | lua vim.lsp.buf.definition()<CR>", true)
+  K.Key_mapper("n", ",jt", "<cmd>tab lua vim.lsp.buf.definition()<CR>", true)
+
   K.Key_mapper("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", true)
   K.Key_mapper("n", ",i", "<cmd>lua vim.lsp.buf.implementation()<CR>", true)
   K.Key_mapper("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", true)
@@ -22,13 +25,41 @@ local custom_attach = function(_, bufnr)
   K.Key_mapper("n", ",W", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", true)
   K.Key_mapper("n", ",d", "<cmd>lua vim.lsp.buf.declaration()<CR>", true)
 
-  K.Key_mapper("n", ",f", "<cmd>Format<CR>", true)
+  K.Key_mapper("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", true)
   K.Key_mapper("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
   K.Key_mapper("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>", true)
 
   K.Key_mapper("n", ",e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", true)
   K.Key_mapper("n", ",s", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", true)
 end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    -- Enable underline, use default values
+    underline = true,
+    -- Enable virtual text, override spacing to 4
+    -- virtual_text = {
+    --   spacing = 4,
+    --   prefix = '~',
+    -- },
+
+    -- Use a function to dynamically turn signs off
+    -- and on, using buffer local variables
+    signs = function(bufnr, client_id)
+      local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr, "show_signs")
+      -- No buffer local variable set, so just enable by default
+      if not ok then
+        return true
+      end
+
+      return result
+    end,
+    -- Disable a feature
+    update_in_insert = false
+  }
+)
 
 local nvim_lsp = require "lspconfig"
 
@@ -58,33 +89,51 @@ nvim_lsp.sumneko_lua.setup {
   }
 }
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- Enable underline, use default values
-    underline = true,
-
-    -- Enable virtual text, override spacing to 4
-    -- virtual_text = {
-    --   spacing = 4,
-    --   prefix = '~',
-    -- },
-
-    -- Use a function to dynamically turn signs off
-    -- and on, using buffer local variables
-    signs = function(bufnr, client_id)
-      local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr, 'show_signs')
-      -- No buffer local variable set, so just enable by default
-      if not ok then
-        return true
-      end
-
-      return result
-    end,
-
-    -- Disable a feature
-    update_in_insert = false,
+local eslint = require "linters/eslint"
+local prettier = require "formatters/prettier"
+local prettier_standard = require "formatters/prettier-standard"
+nvim_lsp.diagnosticls.setup {
+  on_attach = custom_attach,
+  filetypes = {
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "html",
+    "css",
+    "less",
+    "lua"
+  },
+  init_options = {
+    filetypes = {
+      javascript = "eslint",
+      typescript = "eslint",
+      javascriptreact = "eslint",
+      typescriptreact = "eslint"
+    },
+    formatFiletypes = {
+      javascript = "prettier",
+      typescript = "prettier",
+      javascriptreact = "prettier",
+      typescriptreact = "prettier",
+      css = "prettier",
+      html = "prettier",
+      less = "prettier",
+      lua = "luafmt"
+    },
+    linters = {
+      eslint = eslint
+    },
+    formatters = {
+      prettier_standard = prettier_standard,
+      prettier = prettier,
+      luafmt = {
+        command = "luafmt",
+        args = {"--indent-count", 2, "--stdin"}
+      }
+    }
   }
-)
+}
 
 local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls"}
 for _, lsp in ipairs(servers) do
