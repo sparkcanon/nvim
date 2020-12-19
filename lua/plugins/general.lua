@@ -26,3 +26,6 @@ g.fugitive_pty = 0
 
 -- fzf
 vim.cmd([[let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }]])
+
+-- Autocomplete
+vim.cmd([[let g:mucomplete#enable_auto_at_startup = 1]])

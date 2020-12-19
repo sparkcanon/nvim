@@ -34,3 +34,6 @@
 [submodule "pack/main/start/fzf.vim"]
 	path = pack/main/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/main/start/vim-mucomplete"]
+	path = pack/main/start/vim-mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete

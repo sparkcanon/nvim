@@ -24,8 +24,8 @@ K.Key_mapper("i", "<C-n>", "<C-x><C-n>") -- Keyword
 K.Key_mapper("i", "<C-f>", "<C-x><C-f>") -- File name
 K.Key_mapper("i", "<C-l>", "<C-x><C-l>") -- Line
 K.Key_mapper("i", "<C-d>", "<C-x><C-s>") -- Spell
-K.Key_mapper("i", "<Tab>", [[pumvisible() ? '<C-n>' : '<Tab>']], true, true, false) -- Spell
-K.Key_mapper("i", "<S-Tab>", [[pumvisible() ? '<C-p>' : '<S-Tab>']], true, true, false) -- Spell
+-- K.Key_mapper("i", "<Tab>", [[pumvisible() ? '<C-n>' : '<Tab>']], true, true, false) -- next selection on autocomplete menu
+-- K.Key_mapper("i", "<S-Tab>", [[pumvisible() ? '<C-p>' : '<S-Tab>']], true, true, false) -- previous selection on autocomplete menu
 
 -- Tabs
 K.Key_mapper("n", "<Tab>", "gt")
