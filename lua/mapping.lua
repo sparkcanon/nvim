@@ -12,11 +12,6 @@ K.Key_mapper("n", ";", ":")
 K.Key_mapper("x", ":", ";")
 K.Key_mapper("x", ";", ":")
 
--- Brackets
-K.Key_mapper("i", "{", "{}<Left>")
-K.Key_mapper("i", "[", "[]<Left>")
-K.Key_mapper("i", "(", "()<Left>")
-
 -- Completion
 K.Key_mapper("i", "<C-]>", "<C-x><C-]>") -- Tag
 K.Key_mapper("i", "<C-k>", "<C-x><C-o>") -- Omni

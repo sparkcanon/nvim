@@ -36,6 +36,10 @@ function U.SetupCommandAbbr(from, to)
   )
 end
 
+function U.IAbbr(lhs, rhs)
+  vim.cmd([[iabbrev <buffer> ]] .. lhs .. " " .. rhs)
+end
+
 -- Extract color values from highlight strings
 -- TODO: check for nil values
 function U.GetColorFromHighlights(string, t)
