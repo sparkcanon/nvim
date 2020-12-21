@@ -1,6 +1,9 @@
 -- LSP
 
 local K = require "utils/general"
+local eslint = require "linters/eslint"
+local prettier = require "formatters/prettier"
+local nvim_lsp = require "lspconfig"
 
 -- Load plugins
 vim.cmd("packadd! nvim-lspconfig")
@@ -37,31 +40,17 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
-    -- Enable underline, use default values
+    -- Enable underline
     underline = true,
-    -- Enable virtual text, override spacing to 4
-    -- virtual_text = {
-    --   spacing = 4,
-    --   prefix = '~',
-    -- },
-
-    -- Use a function to dynamically turn signs off
-    -- and on, using buffer local variables
-    signs = function(bufnr, client_id)
-      local ok, result = pcall(vim.api.nvim_buf_get_var, bufnr, "show_signs")
-      -- No buffer local variable set, so just enable by default
-      if not ok then
-        return true
-      end
-
-      return result
-    end,
-    -- Disable a feature
-    update_in_insert = false
+    -- Enable virtual text
+    virtual_text = true,
+    -- Disable on insert
+    update_in_insert = false,
+    signs = {
+      priority = 20
+    }
   }
 )
-
-local nvim_lsp = require "lspconfig"
 
 nvim_lsp.sumneko_lua.setup {
   on_attach = custom_attach,
@@ -89,9 +78,6 @@ nvim_lsp.sumneko_lua.setup {
   }
 }
 
-local eslint = require "linters/eslint"
-local prettier = require "formatters/prettier"
-local prettier_standard = require "formatters/prettier-standard"
 nvim_lsp.diagnosticls.setup {
   on_attach = custom_attach,
   filetypes = {
@@ -125,7 +111,6 @@ nvim_lsp.diagnosticls.setup {
       eslint = eslint
     },
     formatters = {
-      prettier_standard = prettier_standard,
       prettier = prettier,
       luafmt = {
         command = "luafmt",
