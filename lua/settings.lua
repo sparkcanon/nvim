@@ -1,14 +1,17 @@
 -- Purpose: Basic settings
 local o = vim.o
+local cmd = vim.cmd
+local wo = vim.wo
+local g = vim.g
 local home = vim.fn.expand("$HOME")
 
-vim.cmd("filetype plugin indent on") -- enable filetype detection
-vim.cmd("syntax on") -- enable syntax highlighting
+cmd("filetype plugin indent on") -- enable filetype detection
+cmd("syntax on") -- enable syntax highlighting
 
 -- Window options
-vim.wo.number = true -- Display numbers
-vim.wo.signcolumn = "number" -- Merge signcolumn and numbers
-vim.wo.cursorline = true -- Show cursorline
+wo.number = true -- Display numbers
+wo.signcolumn = "number" -- Merge signcolumn and numbers
+wo.cursorline = true -- Show cursorline
 
 -- Editor options
 o.hidden = true -- hide some buffers
@@ -25,7 +28,7 @@ o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]
 o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
-vim.cmd([[set rtp+=/usr/local/opt/fzf]]) -- fzf
+cmd([[set rtp+=/usr/local/opt/fzf]]) -- fzf
 
 -- Backup, undo, swap options
 o.undofile = true -- Set this option to have full undo power
@@ -37,8 +40,8 @@ o.undodir = home .. "/.config/nvim/tmp/dir_undo/" -- Undo dir
 
 -- Use rg for grep
 if vim.fn.executable("rg") then
-  vim.g.grepprg = "rg"
-  o.grepprg = vim.g.grepprg .. " --vimgrep"
+  g.grepprg = "rg"
+  o.grepprg = g.grepprg .. " --vimgrep"
   o.grepformat = "%f:%l:%c:%m"
 end
 
