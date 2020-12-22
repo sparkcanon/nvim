@@ -3,7 +3,7 @@ local o = vim.o
 local cmd = vim.cmd
 local wo = vim.wo
 local g = vim.g
-local home = vim.fn.expand("$HOME")
+local home = vim.fn.stdpath("config")
 
 cmd("filetype plugin indent on") -- enable filetype detection
 cmd("syntax on") -- enable syntax highlighting
@@ -34,9 +34,9 @@ cmd([[set rtp+=/usr/local/opt/fzf]]) -- fzf
 o.undofile = true -- Set this option to have full undo power
 o.backup = true -- Set this option to enable backup
 o.writebackup = true -- Set this option to write back up
-o.backupdir = home .. "/.config/nvim/tmp/dir_backup/" -- Back up dir
-o.directory = home .. "/.config/nvim/tmp/dir_swap/," .. o.directory -- Swap file dir
-o.undodir = home .. "/.config/nvim/tmp/dir_undo/" -- Undo dir
+o.backupdir = home .. "/tmp/dir_backup/" -- Back up dir
+o.directory = home .. "/tmp/dir_swap/," .. o.directory -- Swap file dir
+o.undodir = home .. "/tmp/dir_undo/" -- Undo dir
 
 -- Use rg for grep
 if vim.fn.executable("rg") then
