@@ -14,18 +14,10 @@ function U.Create_augroup(definitions)
 end
 
 -- Key mapping
-function U.Key_mapper(mode, key, result, silent, expr, script)
-  vim.fn.nvim_set_keymap(
-    mode,
-    key,
-    result,
-    {
-      noremap = true,
-      silent = silent or false,
-      expr = expr or false,
-      script = script or false
-    }
-  )
+function U.map(mode, lhs, rhs, opts)
+  local options = {noremap = true}
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Abbr

@@ -1,6 +1,6 @@
 -- LSP
 
-local K = require "utils/general"
+local map = require "utils/general".map
 local eslint = require "linters/eslint"
 local prettier = require "formatters/prettier"
 local nvim_lsp = require "lspconfig"
@@ -14,26 +14,27 @@ local custom_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings
-  K.Key_mapper("n", ",j", "<cmd>lua vim.lsp.buf.definition()<CR>", true)
-  K.Key_mapper("n", ",vj", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", true)
-  K.Key_mapper("n", ",sj", "<cmd>split | lua vim.lsp.buf.definition()<CR>", true)
-  K.Key_mapper("n", ",tj", "<cmd>tab lua vim.lsp.buf.definition()<CR>", true)
+  map("n", ",j", "<cmd>lua vim.lsp.buf.definition()<CR>")
+  map("n", ",vj", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
+  map("n", ",sj", "<cmd>split | lua vim.lsp.buf.definition()<CR>")
+  map("n", ",tj", "<cmd>tab lua vim.lsp.buf.definition()<CR>")
+  map("n", ",p", "<cmd>lua Peek_definition()<CR>")
 
-  K.Key_mapper("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", true)
-  K.Key_mapper("n", ",i", "<cmd>lua vim.lsp.buf.implementation()<CR>", true)
-  K.Key_mapper("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", true)
-  K.Key_mapper("n", ",yt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", true)
-  K.Key_mapper("n", ",r", "<cmd>lua vim.lsp.buf.references()<CR>", true)
-  K.Key_mapper("n", ",w", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", true)
-  K.Key_mapper("n", ",W", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", true)
-  K.Key_mapper("n", ",d", "<cmd>lua vim.lsp.buf.declaration()<CR>", true)
+  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+  map("n", ",i", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+  map("i", "<c-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+  map("n", ",yt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+  map("n", ",r", "<cmd>lua vim.lsp.buf.references()<CR>")
+  map("n", ",w", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+  map("n", ",W", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
+  map("n", ",d", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 
-  K.Key_mapper("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", true)
-  K.Key_mapper("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>", true)
-  K.Key_mapper("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>", true)
+  map("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+  map("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+  map("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
-  K.Key_mapper("n", ",e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", true)
-  K.Key_mapper("n", ",s", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", true)
+  map("n", ",e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
+  map("n", ",s", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
@@ -125,4 +126,21 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = custom_attach
   }
+end
+
+local function preview_location_callback(_, method, result)
+  if result == nil or vim.tbl_isempty(result) then
+    vim.lsp.log.info(method, "No location found")
+    return nil
+  end
+  if vim.tbl_islist(result) then
+    vim.lsp.util.preview_location(result[1])
+  else
+    vim.lsp.util.preview_location(result)
+  end
+end
+
+function Peek_definition()
+  local params = vim.lsp.util.make_position_params()
+  return vim.lsp.buf_request(0, "textDocument/definition", params, preview_location_callback)
 end
