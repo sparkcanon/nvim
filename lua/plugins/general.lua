@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local g = vim.g
 
 -- Load plugins
-cmd("packadd! nvim-colorizer.lua") -- colorizer
+cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "plugins/treesitter" -- treesitter
 
 -- Colorizer
@@ -14,8 +14,8 @@ require "colorizer".setup {
 }
 
 -- Built in plugins
-cmd("packadd! cfilter")
-cmd("packadd! matchit")
+cmd "packadd! cfilter"
+cmd "packadd! matchit"
 
 -- Dirvish
 g.loaded_netrwPlugin = 1
@@ -25,7 +25,7 @@ g.dirvish_mode = [[:sort ,^.*[/],]]
 g.fugitive_pty = 0
 
 -- fzf
-vim.cmd([[let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }]])
+cmd [[let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }]]
 
 -- Autocomplete
-vim.cmd([[let g:mucomplete#enable_auto_at_startup = 1]])
+cmd [[let g:mucomplete#enable_auto_at_startup = 1]]

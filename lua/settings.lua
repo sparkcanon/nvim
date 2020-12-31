@@ -3,10 +3,10 @@ local o = vim.o
 local cmd = vim.cmd
 local wo = vim.wo
 local g = vim.g
-local home = vim.fn.stdpath("config")
+local home = vim.fn.stdpath "config"
 
-cmd("filetype plugin indent on") -- enable filetype detection
-cmd("syntax on") -- enable syntax highlighting
+cmd "filetype plugin indent on" -- enable filetype detection
+cmd "syntax on" -- enable syntax highlighting
 
 -- Window options
 wo.number = true -- Display numbers
@@ -28,7 +28,8 @@ o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]
 o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
-cmd([[set rtp+=/usr/local/opt/fzf]]) -- fzf
+o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
+cmd [[set rtp+=/usr/local/opt/fzf]] -- fzf
 
 -- Backup, undo, swap options
 o.undofile = true -- Set this option to have full undo power
@@ -49,5 +50,4 @@ end
 o.laststatus = 2 -- Dont display statusline
 o.showmode = true -- Display mode in cmd
 o.ruler = false
-o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
 o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- Custom statusline format

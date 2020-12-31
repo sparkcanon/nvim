@@ -1,4 +1,4 @@
--- LSP
+-- Language Server Configuration
 
 local map = require "utils/general".map
 local eslint = require "linters/eslint"
@@ -37,6 +37,7 @@ local custom_attach = function(_, bufnr)
   map("n", ",s", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 end
 
+-- Handle diagnostic configuration
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
   vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -53,6 +54,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   }
 )
 
+-- Lua server configuration
 nvim_lsp.sumneko_lua.setup {
   on_attach = custom_attach,
   settings = {
@@ -79,6 +81,7 @@ nvim_lsp.sumneko_lua.setup {
   }
 }
 
+-- Diagnostic server configuration
 nvim_lsp.diagnosticls.setup {
   on_attach = custom_attach,
   filetypes = {
@@ -121,6 +124,7 @@ nvim_lsp.diagnosticls.setup {
   }
 }
 
+-- Server Configuration
 local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -128,6 +132,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Peek definition
 local function preview_location_callback(_, method, result)
   if result == nil or vim.tbl_isempty(result) then
     vim.lsp.log.info(method, "No location found")
