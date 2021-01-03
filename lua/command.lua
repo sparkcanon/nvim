@@ -5,7 +5,7 @@ com [[command! -nargs=+ -complete=file Grep lua require 'utils/grep'.Grep(<f-arg
 
 -- Save sessions (force)
 com [[command! -nargs=0 SessionSave lua require 'utils/session'.SessionSave()]]
-com [[command! -nargs=0 SessionLoad call fzf#run({ 'source': 'fd . ~/.config/nvim/tmp/dir_session/ -e vim', 'sink': 'so', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }) ]]
+com [[command! -nargs=0 SessionLoad lua require 'utils/session'.SessionFzf()]]
 
 -- Nvim colors to kitty
 com [[command! -nargs=0 ColorKitty lua require 'utils/color'.ModifyKittyColors()]]

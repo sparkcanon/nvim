@@ -55,20 +55,18 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 )
 
 -- Lua server configuration
+local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/sumneko_lua/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 nvim_lsp.sumneko_lua.setup {
   on_attach = custom_attach,
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
     Lua = {
       runtime = {version = "LuaJIT", path = vim.split(package.path, ";")},
-      completion = {keywordSnippet = "Disable"},
       diagnostics = {
         enable = true,
         globals = {
-          "vim",
-          "describe",
-          "it",
-          "before_each",
-          "after_each"
+          "vim"
         }
       },
       workspace = {
