@@ -5,7 +5,6 @@ com [[command! -nargs=+ -complete=file Grep lua require 'utils/grep'.Grep(<f-arg
 
 -- Save sessions (force)
 com [[command! -nargs=0 SessionSave lua require 'utils/session'.SessionSave()]]
-com [[command! -nargs=0 SessionLoad lua require 'utils/telescope'.SessionPicker()]]
 
 -- Nvim colors to kitty
 com [[command! -nargs=0 ColorKitty lua require 'utils/color'.ModifyKittyColors()]]
@@ -33,4 +32,7 @@ com [[command! -nargs=? Treferences lua require 'telescope.builtin'.lsp_referenc
 com [[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]]
 com [[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]]
 
+-- Custom Pickers
 com [[command! -nargs=0 Jest lua require 'utils/telescope'.JestPicker()]]
+com [[command! -nargs=0 Npm lua require 'utils/telescope'.NpmPicker()]]
+com [[command! -nargs=0 SessionLoad lua require 'utils/telescope'.SessionPicker()]]

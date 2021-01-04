@@ -27,6 +27,35 @@ function X.SessionPicker(opts)
   ):find()
 end
 
+function X.NpmPicker(opts)
+  local results
+  if fn.filereadable("./package.json") then
+    local root_raw = fn.readfile("./package.json")
+    local root_decoded = fn.json_decode(fn.join(root_raw, " "))
+    if fn.has_key(root_decoded, "scripts") then
+      results = fn.keys(root_decoded.scripts)
+    end
+  end
+  pickers.new(
+    opts,
+    {
+      prompt_title = "NPM Script Picker",
+      finder = finders.new_table(results),
+      sorter = conf.file_sorter(opts),
+      attach_mappings = function(prompt_bufnr)
+        actions.goto_file_selection_edit:replace(
+          function()
+            local entry = actions.get_selected_entry()
+            actions.close(prompt_bufnr)
+            vim.cmd("vsplit | term npm run " .. entry.value)
+          end
+        )
+        return true
+      end
+    }
+  ):find()
+end
+
 function X.JestPicker(opts)
   local handle = io.popen("git rev-parse --show-toplevel")
   local topLevel = handle:read("*a")
