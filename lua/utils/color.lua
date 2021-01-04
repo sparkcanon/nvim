@@ -5,13 +5,13 @@ local U = require "utils/general"
 
 -- Modify buffer colors
 function C.ModifyBufferColors()
-  cmd([[highlight! EndOfBuffer ctermbg=NONE ctermfg=241 guibg=NONE]])
-  cmd([[highlight! VertSplit cterm=NONE ctermbg=NONE gui=NONE guibg=NONE]])
-  cmd([[highlight! link HighlightedyankRegion Visual]])
-  cmd([[highlight! LineNr ctermbg=NONE guibg=NONE]])
+  cmd [[highlight! EndOfBuffer ctermbg=NONE ctermfg=241 guibg=NONE]]
+  cmd [[highlight! VertSplit cterm=NONE ctermbg=NONE gui=NONE guibg=NONE]]
+  cmd [[highlight! link HighlightedyankRegion Visual]]
+  cmd [[highlight! LineNr ctermbg=NONE guibg=NONE]]
 
   -- Hint: The below makes buffer transparent
-  vim.cmd([[highlight! Normal guibg=NONE]])
+  cmd [[highlight! Normal guibg=NONE]]
 end
 
 -- Write colors to kitty colorscheme file

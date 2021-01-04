@@ -33,7 +33,4 @@ com [[command! -nargs=? Treferences lua require 'telescope.builtin'.lsp_referenc
 com [[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]]
 com [[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]]
 
--- Jest
--- com [[command! -nargs=0 JestLego call fzf#run({ 'source': 'fd -g {"*.test.*,*-test.*"} -E "*.snap" --base-directory ~/Documents/work_projects/tesco/lego-web/web/', 'sink': 'vsplit | term cd web && npx jest --watch', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }) ]]
-
--- com [[command! -nargs=0 Jest call fzf#run({ 'source': 'fd -g {"*.test.*,*-test.*"} -E "*.snap"', 'sink': 'vsplit | term npx jest --watch', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }) ]]
+com [[command! -nargs=0 Jest lua require 'utils/telescope'.JestPicker()]]
