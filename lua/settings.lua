@@ -29,7 +29,6 @@ o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
 o.completeopt = o.completeopt .. ",menuone,noinsert,longest" -- Autocomplete options
-cmd [[set rtp+=/usr/local/opt/fzf]] -- fzf
 
 -- Backup, undo, swap options
 o.undofile = true -- Set this option to have full undo power

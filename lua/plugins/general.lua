@@ -4,6 +4,12 @@ local g = vim.g
 -- Load plugins
 cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "plugins/treesitter" -- treesitter
+require "telescope".setup {
+  defaults = {
+    layout_strategy = "vertical",
+    results_height = 15
+  }
+}
 
 -- Colorizer
 require "colorizer".setup {
@@ -23,9 +29,3 @@ g.dirvish_mode = [[:sort ,^.*[/],]]
 
 -- Fugitive
 g.fugitive_pty = 0
-
--- fzf
-cmd [[let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }]]
-
--- Autocomplete
-cmd [[let g:mucomplete#enable_auto_at_startup = 1]]

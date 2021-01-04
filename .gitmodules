@@ -31,9 +31,15 @@
 [submodule "pack/main/opt/vim-moonfly-colors"]
 	path = pack/main/opt/vim-moonfly-colors
 	url = https://github.com/bluz71/vim-moonfly-colors
-[submodule "pack/main/start/fzf.vim"]
-	path = pack/main/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-[submodule "pack/main/start/vim-mucomplete"]
-	path = pack/main/start/vim-mucomplete
-	url = https://github.com/lifepillar/vim-mucomplete
+[submodule "pack/main/start/telescope.nvim"]
+	path = pack/main/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "pack/main/start/plenary.nvim"]
+	path = pack/main/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "pack/main/start/popup.nvim"]
+	path = pack/main/start/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim
+[submodule "pack/main/start/completion-nvim"]
+	path = pack/main/start/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim

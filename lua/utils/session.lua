@@ -8,12 +8,4 @@ function M.SessionSave()
   end
 end
 
-function M.SessionFzf()
-  vim.api.nvim_command(
-    [[
-call fzf#run({ 'source': 'fd . ~/.config/nvim/tmp/dir_session/ -e vim', 'sink': 'so', 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
-	]]
-  )
-end
-
 return M

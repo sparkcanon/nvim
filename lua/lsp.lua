@@ -12,7 +12,7 @@ vim.cmd("packadd! nvim-lspconfig")
 local custom_attach = function(_, bufnr)
   -- Set omnifunc
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
+  require "completion".on_attach()
   -- Mappings
   map("n", ",j", "<cmd>lua vim.lsp.buf.definition()<CR>")
   map("n", ",vj", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
