@@ -27,6 +27,7 @@ com [[command! -nargs=? Tbcommits lua require 'telescope.builtin'.git_bcommits(r
 com [[command! -nargs=? Tcommits lua require 'telescope.builtin'.git_commits(require('telescope.themes').get_dropdown({}))]]
 com [[command! -nargs=? Ttree lua require 'telescope.builtin'.treesitter(require('telescope.themes').get_dropdown({}))]]
 com [[command! -nargs=? Treferences lua require 'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({}))]]
+com [[command! -nargs=? Twsymbols lua require 'telescope.builtin'.lsp_workspace_symbols(require('telescope.themes').get_dropdown({}))]]
 
 -- Yank
 com [[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]]
