@@ -31,6 +31,16 @@ local autocmd = {
       "VimResized",
       "*",
       "wincmd ="
+    },
+    {
+      "QuickFixCmdPost",
+      "[^l]*",
+      "cwindow"
+    },
+    {
+      "QuickFixCmdPost",
+      "l*",
+      "lwindow"
     }
   },
   FileTypeAutocmd = {
