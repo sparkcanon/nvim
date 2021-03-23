@@ -15,8 +15,3 @@ This set up that works well for me. To install please view the below.
 3. [fd](https://github.com/sharkdp/fd)
 
     fd to search files and set path
-    
-
-## Install instructions
-
-`git clone https://github.com/pratikborde/nvim.git $HOME/.config/nvim`
