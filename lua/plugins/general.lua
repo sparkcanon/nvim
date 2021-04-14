@@ -6,8 +6,8 @@ cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "plugins/treesitter" -- treesitter
 require "telescope".setup {
   defaults = {
-    layout_strategy = "vertical",
-    results_height = 15
+    -- layout_strategy = "vertical",
+    -- results_height = 15
   }
 }
 
@@ -29,3 +29,6 @@ g.dirvish_mode = [[:sort ,^.*[/],]]
 
 -- Fugitive
 g.fugitive_pty = 0
+
+-- Completion
+cmd "let g:completion_matching_strategy_list = ['fuzzy', 'exact', 'substring', 'all']"

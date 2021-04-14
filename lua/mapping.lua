@@ -55,7 +55,7 @@ map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
 -- Buffers
-map("n", "<space>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({}))<CR>")
+map("n", "<space>b", "<cmd>lua require('telescope.builtin').buffers(require().get_dropdown({}))<CR>")
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
@@ -78,12 +78,12 @@ map("n", "[<space>", "O<C-c>")
 map(
   "n",
   "<space>f",
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<CR>"
+  "<cmd>lua require('telescope.builtin').find_files()<CR>"
 )
 map(
   "n",
   "<space>g",
-  "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown({}))<CR>"
+  "<cmd>lua require('telescope.builtin').live_grep()<CR>"
 )
 
 -- Edit
