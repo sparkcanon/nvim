@@ -43,3 +43,15 @@
 [submodule "pack/main/start/completion-nvim"]
 	path = pack/main/start/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim
+[submodule "pack/main/start/vim-floaterm"]
+	path = pack/main/start/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm
+[submodule "pack/main/start/telescope-fzy-native.nvim"]
+	path = pack/main/start/telescope-fzy-native.nvim
+	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim
+[submodule "pack/main/start/nvim-web-devicons"]
+	path = pack/main/start/nvim-web-devicons
+	url = https://github.com/kyazdani42/nvim-web-devicons
+[submodule "pack/main/start/lsp-trouble.nvim"]
+	path = pack/main/start/lsp-trouble.nvim
+	url = https://github.com/folke/lsp-trouble.nvim

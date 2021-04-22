@@ -34,7 +34,7 @@ local custom_attach = function(_, bufnr)
   map("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
   map("n", ",e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
-  map("n", ",s", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
+  map("n", ",S", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 end
 
 -- Handle diagnostic configuration

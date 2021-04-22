@@ -25,6 +25,7 @@ com [[command! -nargs=? Tcommits lua require 'telescope.builtin'.git_commits()]]
 com [[command! -nargs=? Ttree lua require 'telescope.builtin'.treesitter()]]
 com [[command! -nargs=? Treferences lua require 'telescope.builtin'.lsp_references()]]
 com [[command! -nargs=? Twsymbols lua require 'telescope.builtin'.lsp_workspace_symbols()]]
+com [[command! -nargs=? RcFiles lua require('plugins/telescope').search_dotfiles()]]
 
 -- Yank
 com [[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]]
@@ -32,3 +33,10 @@ com [[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]]
 
 -- Custom Pickers
 com [[command! -nargs=0 SessionLoad lua require 'utils/telescope'.SessionPicker()]]
+
+-- Floatterm
+com [[command! -nargs=0 FTN :FloatermNew]]
+com [[command! -nargs=0 FTT :FloatermToggle]]
+com [[command! -nargs=0 FTK :FloatermKill]]
+com [[command! -nargs=0 FTP :FloatermPrev]]
+com [[command! -nargs=0 FTn :FloatermNext]]

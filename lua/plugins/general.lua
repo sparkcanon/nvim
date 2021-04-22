@@ -4,12 +4,8 @@ local g = vim.g
 -- Load plugins
 cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "plugins/treesitter" -- treesitter
-require "telescope".setup {
-  defaults = {
-    -- layout_strategy = "vertical",
-    -- results_height = 15
-  }
-}
+require "plugins/telescope" -- telescope setup
+require("trouble").setup {}
 
 -- Colorizer
 require "colorizer".setup {
@@ -32,3 +28,8 @@ g.fugitive_pty = 0
 
 -- Completion
 cmd "let g:completion_matching_strategy_list = ['fuzzy', 'exact', 'substring', 'all']"
+
+-- Float term
+g.floaterm_position = 'bottom'
+g.floaterm_width = vim.fn.eval('&columns')
+g.floaterm_height = 0.3
