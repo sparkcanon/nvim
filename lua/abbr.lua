@@ -17,7 +17,7 @@ A.SetupCommandAbbr("sl", "SessionLoad")
 A.SetupCommandAbbr("sa", "SessionSave")
 
 -- Grep
-A.SetupCommandAbbr("sr", "Grep")
+A.SetupCommandAbbr("sr", "Tgrep")
 
 -- Git
 A.SetupCommandAbbr("gf", "Git fetch --all")

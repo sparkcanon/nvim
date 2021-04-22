@@ -58,7 +58,7 @@ map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
 -- Buffers
-map("n", "<space>b", "<cmd>lua require('telescope.builtin').buffers(require().get_dropdown({}))<CR>")
+map("n", "<space>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")

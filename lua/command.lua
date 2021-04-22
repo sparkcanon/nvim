@@ -26,6 +26,7 @@ com [[command! -nargs=? Ttree lua require 'telescope.builtin'.treesitter()]]
 com [[command! -nargs=? Treferences lua require 'telescope.builtin'.lsp_references()]]
 com [[command! -nargs=? Twsymbols lua require 'telescope.builtin'.lsp_workspace_symbols()]]
 com [[command! -nargs=? RcFiles lua require('plugins/telescope').search_dotfiles()]]
+com [[command! -nargs=? Tgrep lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})]]
 
 -- Yank
 com [[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]]
