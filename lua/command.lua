@@ -34,10 +34,3 @@ com [[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]]
 
 -- Custom Pickers
 com [[command! -nargs=0 SessionLoad lua require 'utils/telescope'.SessionPicker()]]
-
--- Floatterm
-com [[command! -nargs=0 FTN :FloatermNew]]
-com [[command! -nargs=0 FTT :FloatermToggle]]
-com [[command! -nargs=0 FTK :FloatermKill]]
-com [[command! -nargs=0 FTP :FloatermPrev]]
-com [[command! -nargs=0 FTn :FloatermNext]]

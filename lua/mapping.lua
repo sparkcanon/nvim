@@ -3,6 +3,9 @@
 local map = require "utils/general".map
 
 -- LSP trouble
+map("n", "<space>tt", "<cmd>FloatermToggle<cr>", {silent = true, noremap = true})
+map("n", "<space>tn", "<cmd>FloatermNew<cr>", {silent = true, noremap = true})
+map("n", "<space>tk", "<cmd>FloatermKill<cr>", {silent = true, noremap = true})
 map("n", ",s", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
 
 -- Using backtick for marks drops you on the exact column
@@ -79,7 +82,6 @@ map("n", "[<space>", "O<C-c>")
 
 -- Find
 map("n", "<space>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-map("n", "<space>g", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 
 -- Edit
 map("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
