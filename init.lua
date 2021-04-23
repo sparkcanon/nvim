@@ -8,7 +8,10 @@ require "settings"
 require "autocmd"
 
 -- Colors
-require "color"
+require "colorsettings"
+
+-- Plugin
+require "plugins/general"
 
 -- Mapping
 require "mapping"
@@ -18,9 +21,6 @@ require "command"
 
 -- Abbr
 require "abbr"
-
--- Plugin
-require "plugins/general"
 
 -- LSP
 require "lsp"

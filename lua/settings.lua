@@ -50,4 +50,3 @@ end
 o.laststatus = 2 -- Dont display statusline
 o.showmode = true -- Display mode in cmd
 o.ruler = false
-o.statusline = [[ ❮ %<%f %h%m%r%=%-14.(%l,%c%V%) %P ❯ ]] -- Custom statusline format
