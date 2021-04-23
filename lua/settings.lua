@@ -28,7 +28,7 @@ o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]
 o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
-o.completeopt = "menuone,noinsert,longest,noselect" -- Autocomplete options
+o.completeopt = "menuone,noselect" -- Autocomplete options
 o.shortmess = o.shortmess .. "c"
 
 -- Backup, undo, swap options

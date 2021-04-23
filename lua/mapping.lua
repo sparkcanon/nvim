@@ -2,6 +2,13 @@
 
 local map = require "utils/general".map
 
+-- Snippets
+map("i", "<C-Space>", "compe#complete()", {silent = true, expr = true, noremap = true})
+map("i", "<CR>", "compe#confirm('<CR>')", {silent = true, expr = true, noremap = true})
+map("i", "<C-e>", "compe#close('<C-e>')", {silent = true, expr = true, noremap = true})
+map("i", "<C-f>", "compe#scroll({ 'delta': +4 })", {silent = true, expr = true, noremap = true})
+map("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {silent = true, expr = true, noremap = true})
+
 -- LSP trouble
 map("n", "<space>tt", "<cmd>FloatermToggle<cr>", {silent = true, noremap = true})
 map("n", "<space>tn", "<cmd>FloatermNew<cr>", {silent = true, noremap = true})

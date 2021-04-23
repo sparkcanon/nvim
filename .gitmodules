@@ -37,9 +37,6 @@
 [submodule "pack/main/start/popup.nvim"]
 	path = pack/main/start/popup.nvim
 	url = https://github.com/nvim-lua/popup.nvim
-[submodule "pack/main/start/completion-nvim"]
-	path = pack/main/start/completion-nvim
-	url = https://github.com/nvim-lua/completion-nvim
 [submodule "pack/main/start/vim-floaterm"]
 	path = pack/main/start/vim-floaterm
 	url = https://github.com/voldikss/vim-floaterm
@@ -58,3 +55,6 @@
 [submodule "pack/main/start/lualine.nvim"]
 	path = pack/main/start/lualine.nvim
 	url = https://github.com/hoob3rt/lualine.nvim
+[submodule "pack/main/start/nvim-compe"]
+	path = pack/main/start/nvim-compe
+	url = https://github.com/hrsh7th/nvim-compe

@@ -5,8 +5,8 @@ local g = vim.g
 cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "plugins/treesitter" -- treesitter
 require "plugins/telescope" -- telescope setup
-require "trouble".setup {}
-require "lualine".setup {
+require "trouble".setup {} -- fancy lsp diagnostics
+require "lualine".setup { -- statusline
   options = {
     section_separators = "",
     component_separators = "",
@@ -22,6 +22,29 @@ require "lualine".setup {
     },
     lualine_y = {"progress"},
     lualine_z = {"location"}
+  }
+}
+
+require "compe".setup { -- auto complete
+  enabled = true,
+  autocomplete = true,
+  debug = false,
+  min_length = 1,
+  preselect = "enable",
+  throttle_time = 80,
+  source_timeout = 200,
+  incomplete_delay = 400,
+  max_abbr_width = 100,
+  max_kind_width = 100,
+  max_menu_width = 100,
+  documentation = true,
+  source = {
+    path = true,
+    buffer = true,
+    calc = true,
+    nvim_lsp = true,
+    nvim_lua = true,
+    vsnip = true,
   }
 }
 
@@ -43,9 +66,6 @@ g.dirvish_mode = [[:sort ,^.*[/],]]
 
 -- Fugitive
 g.fugitive_pty = 0
-
--- Completion
-cmd "let g:completion_matching_strategy_list = ['fuzzy', 'exact', 'substring', 'all']"
 
 -- Float term
 g.floaterm_position = "bottom"

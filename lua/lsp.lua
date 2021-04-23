@@ -12,7 +12,6 @@ vim.cmd("packadd! nvim-lspconfig")
 local custom_attach = function(_, bufnr)
   -- Set omnifunc
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
-  require "completion".on_attach()
   -- Mappings
   map("n", ",j", "<cmd>lua vim.lsp.buf.definition()<CR>")
   map("n", ",vj", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
@@ -122,11 +121,23 @@ nvim_lsp.diagnosticls.setup {
   }
 }
 
+-- Snippet Support
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits"
+  }
+}
+
 -- Server Configuration
 local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = custom_attach
+    on_attach = custom_attach,
+    capabilities = capabilities
   }
 end
 
