@@ -64,3 +64,9 @@
 [submodule "pack/main/start/friendly-snippets"]
 	path = pack/main/start/friendly-snippets
 	url = https://github.com/rafamadriz/friendly-snippets
+[submodule "pack/main/start/nvim-bqf"]
+	path = pack/main/start/nvim-bqf
+	url = https://github.com/kevinhwang91/nvim-bqf
+[submodule "pack/main/start/nvim-jqx"]
+	path = pack/main/start/nvim-jqx
+	url = https://github.com/gennaro-tedesco/nvim-jqx
