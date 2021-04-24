@@ -1,5 +1,5 @@
 local J = {}
-local IAbbr = require 'utils.general'.IAbbr
+local IAbbr = require "utils.general".IAbbr
 
 function J.Javascript()
   vim.bo.suffixesadd = vim.bo.suffixesadd .. ".js,.jsx,.ts,.tsx,.vue"

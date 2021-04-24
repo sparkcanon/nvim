@@ -2,11 +2,11 @@ local cmd = vim.cmd
 local g = vim.g
 
 -- Load plugins
-cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "plugins/treesitter" -- treesitter
 require "plugins/telescope" -- telescope setup
 require "trouble".setup {} -- fancy lsp diagnostics
-require "lualine".setup { -- statusline
+require "lualine".setup {
+  -- statusline
   options = {
     section_separators = "",
     component_separators = "",
@@ -25,7 +25,8 @@ require "lualine".setup { -- statusline
   }
 }
 
-require "compe".setup { -- auto complete
+require "compe".setup {
+  -- auto complete
   enabled = true,
   autocomplete = true,
   debug = false,
@@ -49,6 +50,7 @@ require "compe".setup { -- auto complete
 }
 
 -- Colorizer
+cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "colorizer".setup {
   "*", -- Highlight all files, but customize some others.
   less = {rgb_fn = true}, -- Enable parsing rgb(...) functions in less.

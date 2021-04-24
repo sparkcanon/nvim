@@ -32,13 +32,4 @@ function U.IAbbr(lhs, rhs)
   vim.cmd([[iabbrev <buffer> ]] .. lhs .. " " .. rhs)
 end
 
--- Extract color values from highlight strings
--- TODO: check for nil values
-function U.GetColorFromHighlights(string, t)
-  local hi = vim.api.nvim_exec("hi " .. string, true)
-  local colo = string.match(hi, "gui" .. t .. "=(%#[%a|%d]+)")
-  return colo
-end
-
-
 return U
