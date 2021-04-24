@@ -1,8 +1,8 @@
 -- Language Server Configuration
 
 local map = require "utils/general".map
-local eslint = require "linters/eslint"
-local prettier = require "formatters/prettier"
+local eslint = require "utils/linters/eslint"
+local prettier = require "utils/formatters/prettier"
 local nvim_lsp = require "lspconfig"
 
 -- Load plugins
