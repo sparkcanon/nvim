@@ -88,6 +88,7 @@ nvim_lsp.diagnosticls.setup {
     "typescriptreact",
     "html",
     "css",
+    "scss",
     "less",
     "lua"
   },
@@ -104,6 +105,7 @@ nvim_lsp.diagnosticls.setup {
       javascriptreact = "prettier",
       typescriptreact = "prettier",
       css = "prettier",
+      scss = "prettier",
       html = "prettier",
       less = "prettier",
       lua = "luafmt"
