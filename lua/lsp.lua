@@ -9,7 +9,7 @@ local nvim_lsp = require "lspconfig"
 vim.cmd("packadd! nvim-lspconfig")
 
 -- Desc: only applies to buffers with lsp on.
-local custom_attach = function(_, bufnr)
+local custom_attach = function(client, bufnr)
   -- Set omnifunc
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
   -- Mappings
@@ -28,7 +28,13 @@ local custom_attach = function(_, bufnr)
   map("n", ",W", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
   map("n", ",d", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 
-  map("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+  -- Set some keybinds conditional on server capabilities
+  if client.resolved_capabilities.document_formatting then
+    map("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
+  end
+  if client.resolved_capabilities.document_range_formatting then
+    map("v", ",f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", {noremap = true, silent = true})
+  end
   map("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
   map("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>")
 
@@ -138,7 +144,9 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 local servers = {"cssls", "bashls", "html", "tsserver", "jsonls", "vimls", "dartls"}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = custom_attach,
+    on_attach = function(client, bufnr)
+      custom_attach(client, bufnr)
+    end,
     capabilities = capabilities
   }
 end
