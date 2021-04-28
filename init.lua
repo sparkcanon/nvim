@@ -8,7 +8,7 @@ require "settings"
 require "autocmd"
 
 -- Colors
-require "colorsettings"
+require "colors"
 
 -- Plugin
 require "plugins/general"
@@ -23,4 +23,4 @@ require "command"
 require "abbr"
 
 -- LSP
-require "lsp"
+require "lsp/init"
