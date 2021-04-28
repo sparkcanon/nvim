@@ -13,6 +13,7 @@ map("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {silent = true, expr = true, 
 map("n", "<space>tt", "<cmd>FloatermToggle<cr>", {silent = true, noremap = true})
 map("n", "<space>tn", "<cmd>FloatermNew<cr>", {silent = true, noremap = true})
 map("n", "<space>tk", "<cmd>FloatermKill<cr>", {silent = true, noremap = true})
+map("n", "<space>tp", "<cmd>FloatermNext<cr>", {silent = true, noremap = true})
 map("n", ",s", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
 
 -- Using backtick for marks drops you on the exact column
