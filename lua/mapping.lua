@@ -10,11 +10,14 @@ map("i", "<C-f>", "compe#scroll({ 'delta': +4 })", {silent = true, expr = true, 
 map("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {silent = true, expr = true, noremap = true})
 
 -- LSP trouble
+map("n", ",s", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
+
+-- Float term
 map("n", "<space>tt", "<cmd>FloatermToggle<cr>", {silent = true, noremap = true})
 map("n", "<space>tn", "<cmd>FloatermNew<cr>", {silent = true, noremap = true})
 map("n", "<space>tk", "<cmd>FloatermKill<cr>", {silent = true, noremap = true})
 map("n", "<space>tp", "<cmd>FloatermNext<cr>", {silent = true, noremap = true})
-map("n", ",s", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
+map("t", "<space>tt", [[<C-\><C-n>:FloatermToggle<CR>]], {silent = true, noremap = true})
 
 -- Using backtick for marks drops you on the exact column
 map("n", "`", "'")
