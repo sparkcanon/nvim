@@ -70,3 +70,9 @@
 [submodule "pack/main/start/nvim-jqx"]
 	path = pack/main/start/nvim-jqx
 	url = https://github.com/gennaro-tedesco/nvim-jqx
+[submodule "pack/main/start/diffview.nvim"]
+	path = pack/main/start/diffview.nvim
+	url = https://github.com/sindrets/diffview.nvim
+[submodule "pack/main/start/lsp_signature.nvim"]
+	path = pack/main/start/lsp_signature.nvim
+	url = https://github.com/ray-x/lsp_signature.nvim

@@ -2,6 +2,14 @@ local map = require "utils/general".map
 local M = {}
 
 M.custom_attach = function(client, bufnr)
+  require "lsp_signature".on_attach(
+    {
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      handler_opts = {
+        border = "single"
+      }
+    }
+  )
   -- Set omnifunc
   vim.api.nvim_buf_set_option(bufnr or 0, "omnifunc", "v:lua.vim.lsp.omnifunc")
   -- Mappings
@@ -35,4 +43,4 @@ M.custom_attach = function(client, bufnr)
   map("n", ",S", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>")
 end
 
-return M;
+return M
