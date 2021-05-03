@@ -37,8 +37,7 @@ packer.startup(
       requires = {
         {"nvim-lua/popup.nvim"},
         {"nvim-lua/plenary.nvim"},
-        {"nvim-telescope/telescope-fzy-native.nvim"},
-        {"nvim-telescope/telescope-packer.nvim"}
+        {"nvim-telescope/telescope-fzy-native.nvim"}
       }
     }
     use "hoob3rt/lualine.nvim"
