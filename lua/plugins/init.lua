@@ -46,7 +46,13 @@ packer.startup(
     use "norcalli/nvim-colorizer.lua"
     use {"gennaro-tedesco/nvim-jqx", cmd = "JqxList"}
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-    use {"tpope/vim-commentary", "tpope/vim-repeat", "tpope/vim-eunuch", "tpope/vim-fugitive", "tpope/vim-surround"}
+    use {
+      "tpope/vim-commentary",
+      "tpope/vim-repeat",
+      {"tpope/vim-eunuch", cmd = {"Move", "Rename", "Delete", "Remove"}},
+      "tpope/vim-fugitive",
+      "tpope/vim-surround"
+    }
     use "justinmk/vim-dirvish"
     use "voldikss/vim-floaterm"
   end
