@@ -13,7 +13,8 @@ nvim_lsp.sumneko_lua.setup {
       diagnostics = {
         enable = true,
         globals = {
-          "vim"
+          "vim",
+          "use"
         }
       },
       workspace = {

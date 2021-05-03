@@ -11,7 +11,7 @@ require "autocmd"
 require "colors"
 
 -- Plugin
-require "plugins/general"
+require "plugins/init"
 
 -- Mapping
 require "mapping"

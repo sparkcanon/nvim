@@ -25,8 +25,6 @@ require "lualine".setup {
   }
 }
 
-require "diffview".setup {}
-
 require "compe".setup {
   -- auto complete
   enabled = true,
