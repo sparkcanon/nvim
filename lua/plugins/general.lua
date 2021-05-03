@@ -2,9 +2,6 @@ local cmd = vim.cmd
 local g = vim.g
 
 -- Load plugins
-require "plugins/treesitter" -- treesitter
-require "plugins/telescope" -- telescope setup
-require "trouble".setup {} -- fancy lsp diagnostics
 require "lualine".setup {
   -- statusline
   options = {
@@ -50,7 +47,6 @@ require "compe".setup {
 }
 
 -- Colorizer
-cmd "packadd! nvim-colorizer.lua" -- colorizer
 require "colorizer".setup {
   "*", -- Highlight all files, but customize some others.
   less = {rgb_fn = true}, -- Enable parsing rgb(...) functions in less.
