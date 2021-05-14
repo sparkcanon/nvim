@@ -2,8 +2,8 @@ local cmd = vim.cmd
 local g = vim.g
 
 -- Load plugins
+-- statusline
 require "lualine".setup {
-  -- statusline
   options = {
     section_separators = "",
     component_separators = "",
@@ -22,8 +22,8 @@ require "lualine".setup {
   }
 }
 
+-- Auto complete
 require "compe".setup {
-  -- auto complete
   enabled = true,
   autocomplete = true,
   debug = false,
@@ -45,6 +45,9 @@ require "compe".setup {
     vsnip = true
   }
 }
+
+-- Todo comments
+require "todo-comments".setup()
 
 -- Colorizer
 require "colorizer".setup {
