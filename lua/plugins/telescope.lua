@@ -1,5 +1,6 @@
 local actions = require "telescope.actions"
 local tele = require "telescope"
+-- TODO: How to apply themes globally
 tele.setup {
   defaults = {
     file_sorter = require("telescope.sorters").get_fzy_sorter,
