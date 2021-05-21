@@ -17,10 +17,12 @@ map("n", "<space>tt", "<cmd>FloatermToggle<cr>", {silent = true, noremap = true}
 map("n", "<space>tn", "<cmd>FloatermNew<cr>", {silent = true, noremap = true})
 map("n", "<space>tk", "<cmd>FloatermKill<cr>", {silent = true, noremap = true})
 map("n", "<space>tp", "<cmd>FloatermNext<cr>", {silent = true, noremap = true})
+map("n", "<space>th", "<cmd>FloatermHide<cr>", {silent = true, noremap = true})
 map("t", "<space>tt", [[<C-\><C-n>:FloatermToggle<CR>]], {silent = true, noremap = true})
 map("t", "<space>tk", [[<C-\><C-n>:FloatermKill<CR>]], {silent = true, noremap = true})
 map("t", "<space>tn", [[<C-\><C-n>:FloatermNew<CR>]], {silent = true, noremap = true})
 map("t", "<space>tp", [[<C-\><C-n>:FloatermNext<CR>]], {silent = true, noremap = true})
+map("t", "<space>th", [[<C-\><C-n>:FloatermHide<CR>]], {silent = true, noremap = true})
 
 -- Using backtick for marks drops you on the exact column
 map("n", "`", "'")

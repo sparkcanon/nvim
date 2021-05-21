@@ -46,7 +46,7 @@ packer.startup(
         }
       }
     }
-    use {"TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim", cmd = "Neogit"}
+    use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use "hoob3rt/lualine.nvim"
     use "kevinhwang91/nvim-bqf"
     use {"folke/tokyonight.nvim", opt = true}
