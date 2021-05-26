@@ -72,3 +72,5 @@ g.fugitive_pty = 0
 g.floaterm_position = "bottom"
 g.floaterm_width = vim.fn.eval("&columns")
 g.floaterm_height = 0.3
+
+g.indent_blankline_char = "│"

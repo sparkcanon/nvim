@@ -46,6 +46,8 @@ packer.startup(
         }
       }
     }
+    use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+    use "editorconfig/editorconfig-vim"
     use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use "hoob3rt/lualine.nvim"
     use "kevinhwang91/nvim-bqf"
