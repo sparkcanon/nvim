@@ -74,3 +74,4 @@ g.floaterm_width = vim.fn.eval("&columns")
 g.floaterm_height = 0.3
 
 g.indent_blankline_char = "│"
+cmd "let g:indent_blankline_filetype_exclude = ['TelescopePrompt', 'packer']" -- TODO: fix for telescope prompt
