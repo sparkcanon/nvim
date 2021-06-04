@@ -7,7 +7,7 @@ require "lualine".setup {
   options = {
     section_separators = "",
     component_separators = "",
-    theme = "tokyonight"
+    theme = "iceberg_dark"
   },
   sections = {
     lualine_a = {"mode"},
@@ -54,7 +54,12 @@ require "colorizer".setup {
   "*", -- Highlight all files, but customize some others.
   less = {rgb_fn = true}, -- Enable parsing rgb(...) functions in less.
   sass = {rgb_fn = true}, -- Enable parsing rgb(...) functions in sass.
-  scss = {rgb_fn = true} -- Enable parsing rgb(...) functions in scss.
+  scss = {rgb_fn = true}, -- Enable parsing rgb(...) functions in scss.
+  json = {rgb_fn = true}, -- Enable parsing rgb(...) functions in scss.
+  js = {rgb_fn = true}, -- Enable parsing rgb(...) functions in scss.
+  jsx = {rgb_fn = true}, -- Enable parsing rgb(...) functions in scss.
+  tsx = {rgb_fn = true}, -- Enable parsing rgb(...) functions in scss.
+  ts = {rgb_fn = true} -- Enable parsing rgb(...) functions in scss.
 }
 
 -- Built in plugins

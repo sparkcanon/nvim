@@ -51,9 +51,8 @@ packer.startup(
     use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use "hoob3rt/lualine.nvim"
     use "kevinhwang91/nvim-bqf"
-    use {"folke/tokyonight.nvim", opt = true}
+    use {"arzg/vim-substrata", opt = true}
     use "norcalli/nvim-colorizer.lua"
-    use {"gennaro-tedesco/nvim-jqx", cmd = "JqxList"}
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use {
       "tpope/vim-commentary",

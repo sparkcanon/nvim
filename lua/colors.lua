@@ -1,4 +1,3 @@
 vim.o.termguicolors = true -- True colors
-vim.cmd "packadd! tokyonight.nvim"
-vim.g.tokyonight_style = "night"
-vim.cmd "colorscheme tokyonight" -- Set colorscheme
+vim.cmd "packadd! vim-substrata"
+vim.cmd "colorscheme substrata" -- Set colorscheme
