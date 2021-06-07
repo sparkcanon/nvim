@@ -46,9 +46,6 @@ require "compe".setup {
   }
 }
 
--- Todo comments
-require "todo-comments".setup()
-
 -- Colorizer
 require "colorizer".setup {
   "*", -- Highlight all files, but customize some others.

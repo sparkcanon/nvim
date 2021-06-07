@@ -42,7 +42,11 @@ packer.startup(
           "nvim-telescope/telescope-fzy-native.nvim"
         },
         {
-          "folke/todo-comments.nvim"
+          "folke/todo-comments.nvim",
+          disable = true,
+          config = function()
+            require "todo-comments".setup()
+          end
         }
       }
     }
