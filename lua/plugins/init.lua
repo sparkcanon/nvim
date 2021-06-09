@@ -32,7 +32,6 @@ packer.startup(
       }
     }
     use "j5shi/CommandlineComplete.vim"
-    use {"sindrets/diffview.nvim", cmd = {"DiffviewOpen"}}
     use {
       "nvim-telescope/telescope.nvim",
       requires = {
@@ -51,6 +50,20 @@ packer.startup(
       }
     }
     use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+    use {
+      "TimUntersberger/neogit",
+      cmd = "Neogit",
+      requires = {"sindrets/diffview.nvim", cmd = "DiffviewOpen"},
+      config = function()
+        require("neogit").setup(
+          {
+            integrations = {
+              diffview = true
+            }
+          }
+        )
+      end
+    }
     use "editorconfig/editorconfig-vim"
     use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use "hoob3rt/lualine.nvim"
