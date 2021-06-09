@@ -9,9 +9,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
     virtual_text = true,
     -- Disable on insert
     update_in_insert = false,
-    signs = {
-      priority = 20
-    }
+    signs = true
   }
 )
 
