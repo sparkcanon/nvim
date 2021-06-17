@@ -56,29 +56,13 @@ packer.startup(
       }
     }
     use "j5shi/CommandlineComplete.vim"
-    use {
-      "nvim-telescope/telescope.nvim",
-      requires = {
-        {"nvim-lua/popup.nvim"},
-        {"nvim-lua/plenary.nvim"},
-        {
-          "nvim-telescope/telescope-fzy-native.nvim"
-        },
-        {
-          "folke/todo-comments.nvim",
-          disable = true,
-          config = function()
-            require "todo-comments".setup()
-          end
-        }
-      }
-    }
+    use {"vijaymarupudi/nvim-fzf-commands", requires = {"vijaymarupudi/nvim-fzf"}}
     use {
       "lukas-reineke/indent-blankline.nvim",
       branch = "lua",
       config = function()
         vim.g.indent_blankline_char = "│"
-        vim.cmd "let g:indent_blankline_filetype_exclude = ['TelescopePrompt', 'packer']" -- TODO: fix for telescope prompt
+        vim.cmd "let g:indent_blankline_filetype_exclude = ['fzf', 'packer']"
       end
     }
     use {

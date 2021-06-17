@@ -77,7 +77,6 @@ map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
 -- Buffers
-map("n", "<space>b", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy())<CR>")
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
@@ -95,9 +94,6 @@ map("n", "<Bslash>g", ":g//#<Left><Left>")
 -- New lines
 map("n", "]<space>", "o<C-c>")
 map("n", "[<space>", "O<C-c>")
-
--- Find
-map("n", "<space>f", "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<CR>")
 
 -- Edit
 map("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
