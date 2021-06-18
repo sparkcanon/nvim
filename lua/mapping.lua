@@ -81,19 +81,8 @@ map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
 
--- Args
-map("n", "]a", ":next<CR>")
-map("n", "[a", ":previous<CR>")
-
 -- Substitute
 map("n", "<Bslash>s", ":%s/\\v<<C-r><C-w>>/")
-
--- Global
-map("n", "<Bslash>g", ":g//#<Left><Left>")
-
--- New lines
-map("n", "]<space>", "o<C-c>")
-map("n", "[<space>", "O<C-c>")
 
 -- Edit
 map("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
