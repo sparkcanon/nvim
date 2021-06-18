@@ -17,6 +17,7 @@ com [[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]]
 
 -- Custom Pickers
 com [[command! -nargs=0 SessionLoad lua require 'plugins/fzf-session'.SessionPicker()]]
+com [[command! -nargs=0 Npm lua require 'plugins/fzf-session'.NpmScriptPicker()]]
 
 com [[command! -nargs=0 Files lua require("fzf-commands").files({ fzf = function(contents, options)
   return require("fzf").fzf(contents, options, { border = false, row = vim.fn.eval("&lines"), height = 25, width = vim.fn.eval("&columns") }) end })]]
