@@ -28,8 +28,4 @@ function U.SetupCommandAbbr(from, to)
   )
 end
 
-function U.IAbbr(lhs, rhs)
-  vim.cmd([[iabbrev <buffer> ]] .. lhs .. " " .. rhs)
-end
-
 return U

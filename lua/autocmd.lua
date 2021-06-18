@@ -23,11 +23,6 @@ local autocmd = {
       [[lua require 'utils/session'.SessionSave()]]
     },
     {
-      "VimEnter",
-      "*",
-      [[lua require 'utils/path'.Path()]]
-    },
-    {
       "VimResized",
       "*",
       "wincmd ="
