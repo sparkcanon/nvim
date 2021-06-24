@@ -68,7 +68,7 @@ packer.startup(
     use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
-      requires = {"sindrets/diffview.nvim", cmd = "DiffviewOpen"},
+      requires = {{"sindrets/diffview.nvim", cmd = "DiffviewOpen"}, {"nvim-lua/plenary.nvim"}},
       config = function()
         require("neogit").setup(
           {
