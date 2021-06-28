@@ -17,9 +17,10 @@ A.SetupCommandAbbr("sl", "SessionLoad")
 A.SetupCommandAbbr("sa", "SessionSave")
 
 -- Grep
-A.SetupCommandAbbr("sr", "Tgrep")
+A.SetupCommandAbbr("sr", "Find")
 
 -- Git
+A.SetupCommandAbbr("Neogit", "Neogit kind=vsplit")
 A.SetupCommandAbbr("gf", "Git fetch --all")
 A.SetupCommandAbbr("gp", [[split \| term git push]])
 A.SetupCommandAbbr("gl", "Git pull")

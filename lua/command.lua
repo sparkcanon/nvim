@@ -22,5 +22,7 @@ com [[command! -nargs=0 Npm lua require 'plugins/fzf-session'.NpmScriptPicker()]
 com [[command! -nargs=0 Files lua require("fzf-commands").files({ fzf = function(contents, options)
   return require("fzf").fzf(contents, options, { border = false, row = vim.fn.eval("&lines"), height = 25, width = vim.fn.eval("&columns") }) end })]]
 
+com [[command! -nargs=0 Buffers lua require("fzf-commands").bufferpicker2({height = 20})]]
+
 com [[command! -nargs=1 Find call luaeval('require("fzf-commands").rg(_A, { fzf = function(contents, options)
   return require("fzf").fzf(contents, options, { border = false, row = vim.fn.eval("&lines"), height = 25, width = vim.fn.eval("&columns") }) end })', <f-args>)]]

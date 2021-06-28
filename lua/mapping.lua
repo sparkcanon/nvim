@@ -76,10 +76,14 @@ map("n", "]Q", ":clast<CR>")
 map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
+-- Files
+map("n", "<space>f", ":Files<CR>")
+
 -- Buffers
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
+map("n", "<space>b", ":Buffers<CR>")
 
 -- Substitute
 map("n", "<Bslash>s", ":%s/\\v<<C-r><C-w>>/")
