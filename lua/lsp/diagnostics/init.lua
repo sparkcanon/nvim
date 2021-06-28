@@ -41,7 +41,8 @@ nvim_lsp.efm.setup(
       "lua",
       "html",
       "hbr",
-      "scss"
+      "scss",
+      "vue"
     },
     on_attach = custom_attach,
     root_dir = nvim_lsp.util.root_pattern(unpack(efm_root_markers)),

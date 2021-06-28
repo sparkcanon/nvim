@@ -79,6 +79,7 @@ packer.startup(
         )
       end
     }
+    use "rhysd/conflict-marker.vim"
     use "editorconfig/editorconfig-vim"
     use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use {
