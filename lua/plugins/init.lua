@@ -59,12 +59,12 @@ packer.startup(
     use {"vijaymarupudi/nvim-fzf-commands", requires = {"vijaymarupudi/nvim-fzf"}}
     use {
       "lukas-reineke/indent-blankline.nvim",
-      branch = "lua",
       config = function()
         vim.g.indent_blankline_char = "│"
         vim.cmd "let g:indent_blankline_filetype_exclude = ['fzf', 'packer']"
       end
     }
+    use {"mustache/vim-mustache-handlebars"}
     use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
