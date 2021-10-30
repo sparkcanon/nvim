@@ -2,13 +2,6 @@
 
 local map = require "utils/general".map
 
--- Snippets
-map("i", "<C-Space>", "compe#complete()", {silent = true, expr = true, noremap = true})
-map("i", "<CR>", "compe#confirm('<CR>')", {silent = true, expr = true, noremap = true})
-map("i", "<C-e>", "compe#close('<C-e>')", {silent = true, expr = true, noremap = true})
-map("i", "<C-f>", "compe#scroll({ 'delta': +4 })", {silent = true, expr = true, noremap = true})
-map("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {silent = true, expr = true, noremap = true})
-
 -- LSP trouble
 map("n", ",s", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
 
@@ -76,14 +69,16 @@ map("n", "]Q", ":clast<CR>")
 map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
--- Files
-map("n", "<space>f", ":Files<CR>")
+-- Find
+map("n", "<space>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>")
+map("n", "<space>fr", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<CR>")
+map("n", "<space>fb", ":lua require'telescope.builtin'.file_browser(require('telescope.themes').get_ivy({}))<CR>")
 
 -- Buffers
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
-map("n", "<space>b", ":Buffers<CR>")
+map("n", "<space>b", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>")
 
 -- Substitute
 map("n", "<Bslash>s", ":%s/\\v<<C-r><C-w>>/")
@@ -125,4 +120,4 @@ vim.api.nvim_set_keymap("n", "˚", "<a-k>", {noremap = false})
 map("n", "<c-g>", "2<c-g>")
 
 -- Clear highlighting
-map("n", "<c-l>", [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]])
+map("n", "///", [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]])

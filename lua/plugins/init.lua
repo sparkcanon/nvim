@@ -13,7 +13,7 @@ packer.init {
   package_root = vim.fn.stdpath("config") .. "/pack"
 }
 
-packer.startup(
+packer.startup {
   function()
     use {
       "neovim/nvim-lspconfig",
@@ -26,45 +26,66 @@ packer.startup(
           "ray-x/lsp_signature.nvim"
         },
         {
-          "hrsh7th/nvim-compe",
-          requires = {{"hrsh7th/vim-vsnip"}, {"rafamadriz/friendly-snippets"}},
+          "hrsh7th/nvim-cmp",
           config = function()
-            require "compe".setup {
-              enabled = true,
-              autocomplete = true,
-              debug = false,
-              min_length = 1,
-              preselect = "enable",
-              throttle_time = 80,
-              source_timeout = 200,
-              incomplete_delay = 400,
-              max_abbr_width = 100,
-              max_kind_width = 100,
-              max_menu_width = 100,
-              documentation = true,
-              source = {
-                path = true,
-                buffer = true,
-                calc = true,
-                nvim_lsp = true,
-                nvim_lua = true,
-                vsnip = true
-              }
+            require "lua/plugins/cmp"
+          end,
+          requires = {
+            {
+              "hrsh7th/cmp-nvim-lsp"
+            },
+            {
+              "hrsh7th/cmp-buffer"
+            },
+            {
+              "hrsh7th/cmp-path"
+            },
+            {
+              "hrsh7th/cmp-cmdline"
+            },
+            {
+              "hrsh7th/cmp-vsnip"
+            },
+            {
+              "hrsh7th/vim-vsnip"
             }
-          end
+          }
         }
       }
     }
-    use "j5shi/CommandlineComplete.vim"
-    use {"vijaymarupudi/nvim-fzf-commands", requires = {"vijaymarupudi/nvim-fzf"}}
+    use "christoomey/vim-tmux-navigator"
     use {
-      "lukas-reineke/indent-blankline.nvim",
+      "lewis6991/impatient.nvim",
       config = function()
-        vim.g.indent_blankline_char = "│"
-        vim.cmd "let g:indent_blankline_filetype_exclude = ['fzf', 'packer']"
+        require("impatient")
       end
     }
-    use {"mustache/vim-mustache-handlebars"}
+    use {"mustache/vim-mustache-handlebars", ft = {"hbs", "handlebars"}}
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-telescope/telescope-node-modules.nvim",
+        "nvim-lua/plenary.nvim",
+        {
+          "rmagatti/session-lens",
+          requires = {
+            "rmagatti/auto-session",
+            config = function()
+              require("auto-session").setup {
+                log_level = "info",
+                auto_session_suppress_dirs = {"~/", "~/.config/nvim/tmp/dir_session"}
+              }
+            end
+          },
+          config = function()
+            require("session-lens").setup({})
+          end
+        }
+      },
+      config = function()
+        require "telescope".load_extension "node_modules"
+      end
+    }
     use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
@@ -82,29 +103,6 @@ packer.startup(
     use "rhysd/conflict-marker.vim"
     use "editorconfig/editorconfig-vim"
     use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
-    use {
-      "hoob3rt/lualine.nvim",
-      config = function()
-        require "lualine".setup {
-          options = {
-            section_separators = "",
-            component_separators = "",
-            theme = "iceberg_dark"
-          },
-          sections = {
-            lualine_a = {"mode"},
-            lualine_b = {"branch", "diff"},
-            lualine_c = {"filename"},
-            lualine_x = {
-              {"diagnostics", sources = {"nvim_lsp"}},
-              "filetype"
-            },
-            lualine_y = {"progress"},
-            lualine_z = {"location"}
-          }
-        }
-      end
-    }
     use "kevinhwang91/nvim-bqf"
     use {"arzg/vim-substrata", opt = true}
     use {
@@ -151,8 +149,13 @@ packer.startup(
         vim.g.floaterm_height = 0.3
       end
     }
-  end
-)
+  end,
+  config = {
+    -- Move to lua dir so impatient.nvim can cache it
+    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
+  }
+}
 
+require("packer_compiled")
 vim.cmd "packadd! cfilter"
 vim.cmd "packadd! matchit"

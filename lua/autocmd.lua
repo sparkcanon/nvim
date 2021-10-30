@@ -18,11 +18,6 @@ local autocmd = {
       "silent! pclose"
     },
     {
-      "VimLeavePre",
-      "*",
-      [[lua require 'utils/session'.SessionSave()]]
-    },
-    {
       "VimResized",
       "*",
       "wincmd ="
