@@ -12,10 +12,6 @@ A.SetupCommandAbbr("lt", "ls<space>t<CR>:tab<space>sb")
 A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
 A.SetupCommandAbbr("br", "bp<bar>bd#")
 
--- Session
-A.SetupCommandAbbr("sl", "SessionLoad")
-A.SetupCommandAbbr("sa", "SessionSave")
-
 -- Git
 A.SetupCommandAbbr("Neogit", "Neogit kind=vsplit")
 A.SetupCommandAbbr("gf", "Git fetch --all")
