@@ -108,20 +108,6 @@ nvim_lsp.jsonls.setup {
   capabilities = capabilities
 }
 
--- Stylelint
-nvim_lsp.stylelint_lsp.setup {
-  settings = {
-    stylelintplus = {
-      autoFixOnSave = true,
-      autoFixOnFormat = true
-    }
-  },
-  on_attach = function(client)
-    custom_attach(client)
-  end,
-  capabilities = capabilities
-}
-
 -- Lua
 local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/sumneko_lua/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
