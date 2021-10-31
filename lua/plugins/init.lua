@@ -43,6 +43,15 @@ packer.startup {
     }
     use "christoomey/vim-tmux-navigator"
     use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function()
+        require("indent_blankline").setup {
+          char = "│",
+          buftype_exclude = {"terminal"}
+        }
+      end
+    }
+    use {
       "lewis6991/impatient.nvim",
       config = function()
         require("impatient")
@@ -169,14 +178,6 @@ packer.startup {
         end
       },
       "tpope/vim-surround"
-    }
-    use {
-      "justinmk/vim-dirvish",
-      cmd = {"-"},
-      config = function()
-        vim.g.loaded_netrwPlugin = 1
-        vim.g.dirvish_mode = [[:sort ,^.*[/],]]
-      end
     }
     use {
       "voldikss/vim-floaterm",
