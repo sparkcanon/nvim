@@ -28,7 +28,7 @@ packer.startup {
         {
           "hrsh7th/nvim-cmp",
           config = function()
-            require "lua/plugins/cmp"
+            require("plugins/cmp")
           end,
           requires = {
             {
@@ -131,7 +131,45 @@ packer.startup {
         }
       end
     }
-    use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      requires = {
+        {
+          "code-biscuits/nvim-biscuits",
+          config = function()
+            require("nvim-biscuits").setup {
+              default_config = {
+                max_length = 30,
+                min_distance = 5,
+                prefix_string = " 📎 "
+              },
+              language_config = {
+                html = {
+                  prefix_string = " 🌐 "
+                },
+                js = {
+                  prefix_string = " ✨ ",
+                  max_length = 80
+                },
+                jsx = {
+                  prefix_string = " ✨ ",
+                  max_length = 80
+                },
+                tsx = {
+                  prefix_string = " ✨ ",
+                  max_length = 80
+                },
+                ts = {
+                  prefix_string = " ✨ ",
+                  max_length = 80
+                }
+              }
+            }
+          end
+        }
+      }
+    }
     use {
       "tpope/vim-commentary",
       "tpope/vim-repeat",
