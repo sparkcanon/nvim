@@ -10,7 +10,7 @@ cmd "syntax on" -- enable syntax highlighting
 
 -- Window options
 wo.number = true -- Display numbers
-wo.signcolumn = "number" -- Merge signcolumn and numbers
+wo.signcolumn = "auto" -- Merge signcolumn and numbers
 wo.cursorline = true -- Show cursorline
 
 -- Editor options
@@ -20,7 +20,7 @@ o.wrap = true -- Wrap text
 o.mouse = "a" -- Allow mouse
 o.inccommand = "split" -- icremental search to open preview window
 o.splitbelow = true -- Split window to the bottom
--- o.splitright = true -- Split window to right
+o.splitright = true -- Split window to right
 o.smartcase = true -- Use smart case
 o.ignorecase = true -- Ignore case
 o.wildignorecase = true -- Ignore case in wildignore

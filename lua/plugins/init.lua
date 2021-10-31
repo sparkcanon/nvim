@@ -87,6 +87,16 @@ packer.startup {
       end
     }
     use {
+      "lewis6991/gitsigns.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim"
+      },
+      config = function()
+        require("gitsigns").setup()
+      end
+    }
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
       requires = {{"sindrets/diffview.nvim", cmd = "DiffviewOpen"}, {"nvim-lua/plenary.nvim"}},

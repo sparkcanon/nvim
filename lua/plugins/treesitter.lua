@@ -1,5 +1,8 @@
 require "nvim-treesitter.configs".setup {
   ensure_installed = "maintained",
+  context_commentstring = {
+    enable = true
+  },
   highlight = {
     enable = true -- false will disable the whole extension
   },

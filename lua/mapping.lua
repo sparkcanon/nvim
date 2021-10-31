@@ -88,9 +88,6 @@ map("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
 map("n", "<space>ev", [[:vsp <C-R>='%:h/'<CR>]])
 map("n", "<space>es", [[:sp <C-R>='%:h/'<CR>]])
 
--- Lists
-vim.api.nvim_set_keymap("c", "<CR>", "listcommands#CR()", {noremap = true, silent = false, expr = true, script = false})
-
 -- Tmux
 if vim.fn.exists("$TMUX_PANE") then
   map("n", "<a-h>", ":lua require 'utils/tmux'.TmuxNavigate('h')<CR>")
