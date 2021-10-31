@@ -31,24 +31,12 @@ packer.startup {
             require("plugins/cmp")
           end,
           requires = {
-            {
-              "hrsh7th/cmp-nvim-lsp"
-            },
-            {
-              "hrsh7th/cmp-buffer"
-            },
-            {
-              "hrsh7th/cmp-path"
-            },
-            {
-              "hrsh7th/cmp-cmdline"
-            },
-            {
-              "hrsh7th/cmp-vsnip"
-            },
-            {
-              "hrsh7th/vim-vsnip"
-            }
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"hrsh7th/cmp-buffer"},
+            {"hrsh7th/cmp-path"},
+            {"hrsh7th/cmp-cmdline"},
+            {"hrsh7th/cmp-vsnip"},
+            {"hrsh7th/vim-vsnip"}
           }
         }
       }
@@ -184,6 +172,7 @@ packer.startup {
     }
     use {
       "justinmk/vim-dirvish",
+      cmd = {"-"},
       config = function()
         vim.g.loaded_netrwPlugin = 1
         vim.g.dirvish_mode = [[:sort ,^.*[/],]]

@@ -49,4 +49,4 @@ end
 -- Statusline
 o.laststatus = 2 -- Dont display statusline
 o.showmode = true -- Display mode in cmd
-o.ruler = false
+o.ruler = true
