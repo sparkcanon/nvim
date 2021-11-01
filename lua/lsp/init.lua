@@ -155,7 +155,7 @@ nvim_lsp.jsonls.setup {
 }
 
 -- Lua
-local sumneko_root_path = vim.fn.stdpath("cache") .. "/lspconfig/sumneko_lua/lua-language-server"
+local sumneko_root_path = vim.fn.eval("$HOME") .. "/.config/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/macOS/lua-language-server"
 
 nvim_lsp.sumneko_lua.setup {
