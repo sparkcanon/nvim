@@ -50,3 +50,16 @@ end
 o.laststatus = 2 -- Dont display statusline
 o.showmode = true -- Display mode in cmd
 o.ruler = true
+
+local mod = " %m"
+local ro = "%{&readonly ? '[RO] ' : ''}"
+local ft = "%y "
+local sep = " %= "
+local pos = " %-12(%l/%c%) "
+local pct = " %P"
+local fn = ' %{pathshorten(expand("%"))}'
+
+-- Fugitive
+-- let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
+
+o.statusline = fn .. "%<" .. mod .. ro .. ft .. sep .. pos .. "%*" .. pct .. " "
