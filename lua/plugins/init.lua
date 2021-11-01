@@ -1,10 +1,11 @@
 local fn = vim.fn
 
 local install_path = fn.stdpath("config") .. "/pack/packer/opt/packer.nvim"
+local packer_bootstrap
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
-  vim.cmd "packadd packer.nvim"
+  packer_bootstrap =
+    fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
 end
 
 vim.cmd "packadd packer.nvim"
@@ -14,17 +15,12 @@ packer.init {
 }
 
 packer.startup {
-  function()
+  function(use)
     use {
       "neovim/nvim-lspconfig",
       requires = {
-        {
-          "folke/lsp-trouble.nvim",
-          requires = "kyazdani42/nvim-web-devicons"
-        },
-        {
-          "ray-x/lsp_signature.nvim"
-        },
+        {"folke/lsp-trouble.nvim", requires = "kyazdani42/nvim-web-devicons"},
+        {"ray-x/lsp_signature.nvim"},
         {
           "hrsh7th/nvim-cmp",
           config = function()
@@ -127,6 +123,7 @@ packer.startup {
       requires = {
         "nvim-telescope/telescope-node-modules.nvim",
         "elianiva/telescope-npm.nvim",
+        "nvim-telescope/telescope-fzy-native.nvim",
         "nvim-lua/plenary.nvim",
         {
           "rmagatti/session-lens",
@@ -147,6 +144,16 @@ packer.startup {
       config = function()
         require "telescope".load_extension "node_modules"
         require "telescope".load_extension "npm"
+        require "telescope".load_extension "fzy_native"
+
+        require "telescope".setup {
+          extensions = {
+            fzy_native = {
+              override_generic_sorter = false,
+              override_file_sorter = true
+            }
+          }
+        }
       end
     }
     use {
@@ -253,6 +260,9 @@ packer.startup {
         vim.g.floaterm_height = 0.3
       end
     }
+    if packer_bootstrap then
+      require "packer".sync()
+    end
   end,
   config = {
     -- Move to lua dir so impatient.nvim can cache it
