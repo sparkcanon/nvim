@@ -28,7 +28,7 @@ packer.startup {
         {
           "hrsh7th/nvim-cmp",
           config = function()
-            require("plugins/cmp")
+            require "plugins/cmp"
           end,
           requires = {
             {"hrsh7th/cmp-nvim-lsp"},
@@ -45,16 +45,17 @@ packer.startup {
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
-        require("indent_blankline").setup {
+        require "indent_blankline".setup {
           char = "│",
-          buftype_exclude = {"terminal"}
+          buftype_exclude = {"terminal"},
+          filetype_exclude = {"packer", "Trouble"}
         }
       end
     }
     use {
       "lewis6991/impatient.nvim",
       config = function()
-        require("impatient")
+        require "impatient"
       end
     }
     use {"mustache/vim-mustache-handlebars", ft = {"hbs", "handlebars"}}
@@ -68,14 +69,14 @@ packer.startup {
           requires = {
             "rmagatti/auto-session",
             config = function()
-              require("auto-session").setup {
+              require "auto-session".setup {
                 log_level = "info",
                 auto_session_suppress_dirs = {"~/", "~/.config/nvim/tmp/dir_session"}
               }
             end
           },
           config = function()
-            require("session-lens").setup({})
+            require "session-lens".setup({})
           end
         }
       },
@@ -85,20 +86,17 @@ packer.startup {
     }
     use {
       "lewis6991/gitsigns.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim"
-      },
+      requires = "nvim-lua/plenary.nvim",
       config = function()
-        require("gitsigns").setup()
+        require "gitsigns".setup()
       end
     }
-    use "JoosepAlviste/nvim-ts-context-commentstring"
     use {
       "TimUntersberger/neogit",
       cmd = "Neogit",
       requires = {{"sindrets/diffview.nvim", cmd = "DiffviewOpen"}, {"nvim-lua/plenary.nvim"}},
       config = function()
-        require("neogit").setup(
+        require "neogit".setup(
           {
             integrations = {
               diffview = true
@@ -131,11 +129,14 @@ packer.startup {
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
+      config = function()
+        require "plugins/treesitter"
+      end,
       requires = {
         {
           "code-biscuits/nvim-biscuits",
           config = function()
-            require("nvim-biscuits").setup {
+            require "nvim-biscuits".setup {
               default_config = {
                 max_length = 30,
                 min_distance = 5,
@@ -168,7 +169,7 @@ packer.startup {
       }
     }
     use {
-      "tpope/vim-commentary",
+      {"tpope/vim-commentary", requires = "JoosepAlviste/nvim-ts-context-commentstring"},
       "tpope/vim-repeat",
       {"tpope/vim-eunuch", cmd = {"Move", "Rename", "Delete", "Remove"}},
       {
