@@ -124,6 +124,7 @@ packer.startup {
         "nvim-telescope/telescope-node-modules.nvim",
         "elianiva/telescope-npm.nvim",
         "nvim-telescope/telescope-fzy-native.nvim",
+        "xiyaowong/telescope-emoji.nvim",
         "nvim-lua/plenary.nvim",
         {
           "rmagatti/session-lens",
@@ -145,7 +146,7 @@ packer.startup {
         require "telescope".load_extension "node_modules"
         require "telescope".load_extension "npm"
         require "telescope".load_extension "fzy_native"
-
+        require "telescope".load_extension "emoji"
         require "telescope".setup {
           extensions = {
             fzy_native = {
