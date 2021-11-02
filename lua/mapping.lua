@@ -88,31 +88,6 @@ map("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
 map("n", "<space>ev", [[:vsp <C-R>='%:h/'<CR>]])
 map("n", "<space>es", [[:sp <C-R>='%:h/'<CR>]])
 
--- Tmux
-if vim.fn.exists("$TMUX_PANE") then
-  map("n", "<a-h>", ":lua require 'utils/tmux'.TmuxNavigate('h')<CR>")
-  map("n", "<a-j>", ":lua require 'utils/tmux'.TmuxNavigate('j')<CR>")
-  map("n", "<a-k>", ":lua require 'utils/tmux'.TmuxNavigate('k')<CR>")
-  map("n", "<a-l>", ":lua require 'utils/tmux'.TmuxNavigate('l')<CR>")
-else
-  map("n", "<a-h>", "<c-w>h")
-  map("n", "<a-j>", "<c-w>j")
-  map("n", "<a-k>", "<c-w>k")
-  map("n", "<a-l>", "<c-w>l")
-end
-
--- Jump to another window directly from terminal mode
-map("t", "¬", "<c-w>l")
-map("t", "˙", "<c-w>h")
-map("t", "∆", "<c-w>j")
-map("t", "˚", "<c-w>k")
-
--- Enable use of alt/meta key
-vim.api.nvim_set_keymap("n", "¬", "<a-l>", {noremap = false})
-vim.api.nvim_set_keymap("n", "˙", "<a-h>", {noremap = false})
-vim.api.nvim_set_keymap("n", "∆", "<a-j>", {noremap = false})
-vim.api.nvim_set_keymap("n", "˚", "<a-k>", {noremap = false})
-
 -- Get more information from ctrl-g
 map("n", "<c-g>", "2<c-g>")
 
