@@ -108,25 +108,24 @@ packer.startup {
         require "gitsigns".setup()
       end
     }
-    use {
-      "TimUntersberger/neogit",
-      cmd = "Neogit",
-      requires = {{"sindrets/diffview.nvim", cmd = "DiffviewOpen"}, {"nvim-lua/plenary.nvim"}},
-      config = function()
-        require "neogit".setup(
-          {
-            integrations = {
-              diffview = true
-            }
-          }
-        )
-      end
-    }
+    use {"sindrets/diffview.nvim", cmd = "DiffviewOpen"}
     use "rhysd/conflict-marker.vim"
     use "editorconfig/editorconfig-vim"
     use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use "kevinhwang91/nvim-bqf"
-    use {"arzg/vim-substrata", opt = true}
+    use(
+      {
+        "rose-pine/neovim",
+        as = "rose-pine",
+        config = function()
+          -- Options (see available options below)
+          vim.g.rose_pine_variant = "base"
+
+          -- Load colorscheme after options
+          vim.cmd("colorscheme rose-pine")
+        end
+      }
+    )
     use {
       "norcalli/nvim-colorizer.lua",
       config = function()
@@ -215,6 +214,7 @@ packer.startup {
   }
 }
 
+vim.o.termguicolors = true -- True colors
 require("packer_compiled")
 vim.cmd "packadd! cfilter"
 vim.cmd "packadd! matchit"

@@ -58,8 +58,6 @@ local sep = " %= "
 local pos = " %-12(%l/%c%) "
 local pct = " %P"
 local fn = ' %{pathshorten(expand("%"))}'
+local fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
--- Fugitive
--- let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
-
-o.statusline = fn .. "%<" .. mod .. ro .. ft .. sep .. pos .. "%*" .. pct .. " "
+o.statusline = fn .. "%<" .. mod .. ro .. ft .. fug .. sep .. pos .. "%*" .. pct .. " "
