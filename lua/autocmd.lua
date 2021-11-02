@@ -31,6 +31,11 @@ local autocmd = {
       "QuickFixCmdPost",
       "l*",
       "lwindow"
+    },
+    {
+      "BufWritePost",
+      "init.lua",
+      "source <afile> | PackerCompile"
     }
   },
   FileTypeAutocmd = {
