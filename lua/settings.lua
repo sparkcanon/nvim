@@ -5,16 +5,12 @@ local wo = vim.wo
 local g = vim.g
 local home = vim.fn.stdpath "config"
 
-cmd "filetype plugin indent on" -- enable filetype detection
-cmd "syntax on" -- enable syntax highlighting
-
 -- Window options
 wo.number = true -- Display numbers
 wo.signcolumn = "auto" -- Merge signcolumn and numbers
 wo.cursorline = true -- Show cursorline
 
 -- Editor options
-o.hidden = true -- hide some buffers
 o.showmatch = true -- Visually show matching bracket
 o.wrap = true -- Wrap text
 o.mouse = "a" -- Allow mouse
@@ -47,9 +43,7 @@ if vim.fn.executable("rg") then
 end
 
 -- Statusline
-o.laststatus = 2 -- Dont display statusline
 o.showmode = true -- Display mode in cmd
-o.ruler = true
 
 local mod = " %m"
 local ro = "%{&readonly ? '[RO] ' : ''}"
@@ -61,3 +55,5 @@ local fn = ' %{pathshorten(expand("%"))}'
 local fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
 o.statusline = fn .. "%<" .. mod .. ro .. fug .. sep .. ft .. pos .. "%*" .. pct .. " "
+
+vim.o.termguicolors = true -- True colors
