@@ -111,7 +111,6 @@ packer.startup {
     use {"sindrets/diffview.nvim", cmd = "DiffviewOpen"}
     use "rhysd/conflict-marker.vim"
     use "editorconfig/editorconfig-vim"
-    use {"heavenshell/vim-jsdoc", cmd = "JsDoc", run = "make install"}
     use "kevinhwang91/nvim-bqf"
     use(
       {
@@ -147,42 +146,13 @@ packer.startup {
       run = ":TSUpdate",
       config = function()
         require "plugins/treesitter"
-      end,
-      requires = {
-        {
-          "code-biscuits/nvim-biscuits",
-          config = function()
-            require "nvim-biscuits".setup {
-              default_config = {
-                max_length = 30,
-                min_distance = 5,
-                prefix_string = " 📎 "
-              },
-              language_config = {
-                html = {
-                  prefix_string = " 🌐 "
-                },
-                js = {
-                  prefix_string = " ✨ ",
-                  max_length = 80
-                },
-                jsx = {
-                  prefix_string = " ✨ ",
-                  max_length = 80
-                },
-                tsx = {
-                  prefix_string = " ✨ ",
-                  max_length = 80
-                },
-                ts = {
-                  prefix_string = " ✨ ",
-                  max_length = 80
-                }
-              }
-            }
-          end
-        }
-      }
+      end
+    }
+    use {
+      "andymass/vim-matchup",
+      config = function()
+        vim.cmd [[let g:matchup_matchparen_offscreen = { 'method': 'popup' }]]
+      end
     }
     use {
       {"tpope/vim-commentary", requires = "JoosepAlviste/nvim-ts-context-commentstring"},

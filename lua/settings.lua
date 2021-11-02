@@ -60,4 +60,4 @@ local pct = " %P"
 local fn = ' %{pathshorten(expand("%"))}'
 local fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-o.statusline = fn .. "%<" .. mod .. ro .. ft .. fug .. sep .. pos .. "%*" .. pct .. " "
+o.statusline = fn .. "%<" .. mod .. ro .. fug .. sep .. ft .. pos .. "%*" .. pct .. " "
