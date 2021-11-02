@@ -1,7 +1,6 @@
 local fn = vim.fn
 
 local install_path = fn.stdpath("config") .. "/pack/packer/opt/packer.nvim"
-local packer_bootstrap
 
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap =
@@ -58,7 +57,7 @@ packer.startup {
     use {
       "lewis6991/impatient.nvim",
       config = function()
-        require "impatient"
+        require "impatient".enable_profile()
       end
     }
     use {"mustache/vim-mustache-handlebars", ft = {"hbs", "handlebars"}}
@@ -184,7 +183,6 @@ packer.startup {
   }
 }
 
-vim.o.termguicolors = true -- True colors
 require("packer_compiled")
 vim.cmd "packadd! cfilter"
 vim.cmd "packadd! matchit"
