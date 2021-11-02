@@ -7,9 +7,6 @@ require "settings"
 -- Autocmd
 require "autocmd"
 
--- Colors
-require "colors"
-
 -- Plugin
 require "plugins/init"
 
