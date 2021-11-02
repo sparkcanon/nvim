@@ -50,7 +50,7 @@ packer.startup {
         require "indent_blankline".setup {
           char = "│",
           buftype_exclude = {"terminal"},
-          filetype_exclude = {"packer", "Trouble"}
+          filetype_exclude = {"packer", "Trouble", "help"}
         }
       end
     }
