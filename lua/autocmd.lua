@@ -8,16 +8,6 @@ local autocmd = {
   },
   GeneralAutocmds = {
     {
-      "CompleteDone",
-      "*",
-      "silent! pclose"
-    },
-    {
-      "CursorMoved",
-      "*",
-      "silent! pclose"
-    },
-    {
       "VimResized",
       "*",
       "wincmd ="
