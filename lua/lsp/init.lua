@@ -16,17 +16,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
   }
 )
 
--- Snippet Support
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities.textDocument.completion.completionItem.resolveSupport = {
---   properties = {
---     "documentation",
---     "detail",
---     "additionalTextEdits"
---   }
--- }
-
 -- Peek definition
 local function preview_location_callback(_, method, result)
   if result == nil or vim.tbl_isempty(result) then
@@ -52,6 +41,16 @@ nvim_lsp.vuels.setup {
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
     custom_attach(client)
+  end,
+  capabilities = capabilities
+}
+
+-- eslint
+nvim_lsp.eslint.setup {
+  on_attach = function(client)
+    client.resolved_capabilities.document_formatting = true
+    custom_attach(client)
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
   end,
   capabilities = capabilities
 }

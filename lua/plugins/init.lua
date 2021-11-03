@@ -37,6 +37,7 @@ packer.startup {
       }
     }
     use "christoomey/vim-tmux-navigator"
+    use {"vim-test/vim-test"}
     use {
       "vuki656/package-info.nvim",
       requires = "MunifTanjim/nui.nvim",

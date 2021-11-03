@@ -11,10 +11,6 @@ local efm_root_markers = {"package.json", ".git/", ".zshrc"}
 local efm_languages = {
   yaml = {prettier},
   markdown = {prettier},
-  javascript = {eslint, prettier},
-  javascriptreact = {eslint, prettier},
-  typescript = {eslint, prettier},
-  typescriptreact = {eslint, prettier},
   css = {prettier},
   scss = {prettier},
   sass = {prettier},
@@ -35,10 +31,6 @@ nvim_lsp.efm.setup {
     efm_log_dir .. "efm.log"
   },
   filetypes = {
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
     "lua",
     "html",
     "hbr",
