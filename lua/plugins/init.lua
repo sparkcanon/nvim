@@ -141,6 +141,7 @@ packer.startup {
         }
       end
     }
+    use {"jose-elias-alvarez/nvim-lsp-ts-utils", requires = {"jose-elias-alvarez/null-ls.nvim"}}
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",

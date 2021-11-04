@@ -29,12 +29,8 @@ M.custom_attach = function(client, bufnr)
   map("n", ",d", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 
   -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    map("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
-  end
-  if client.resolved_capabilities.document_range_formatting then
-    map("v", ",f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", {noremap = true, silent = true})
-  end
+  map("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
+  map("v", ",f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", {noremap = true, silent = true})
 
   map("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
   map("n", ",R", "<cmd>lua vim.lsp.buf.rename()<CR>")
