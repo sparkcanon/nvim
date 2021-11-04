@@ -3,7 +3,7 @@ return function(client)
 
 	-- defaults
 	ts_utils.setup({
-		debug = true,
+		debug = false,
 		disable_commands = false,
 		enable_import_on_completion = false,
 
