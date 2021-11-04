@@ -104,11 +104,18 @@ nvim_lsp.cssls.setup({
 -- Typescript
 local ts_utils = require("lsp/ts-utils")
 nvim_lsp.tsserver.setup({
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 		ts_utils(client)
 		custom_attach(client)
+		-- format on save
+		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
+		-- no default maps, so you may want to define some here
+		local opts = { silent = true, noremap = true }
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>", opts)
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>", opts)
+		vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
 	end,
 	capabilities = capabilities,
 })
