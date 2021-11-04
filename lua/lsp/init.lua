@@ -4,7 +4,6 @@ local custom_attach = require("lsp/on_attach").custom_attach
 
 -- null_ls.builtins.formatting.stylelint
 -- null_ls.builtins.diagnostics.hadolint
--- null_ls.builtins.diagnostics.markdownlint
 -- null_ls.builtins.diagnostics.vint
 -- null_ls.builtins.diagnostics.yamllint
 null_ls.config({
@@ -171,9 +170,12 @@ nvim_lsp.jsonls.setup({
 
 -- Lua
 local sumneko_root_path = vim.fn.eval("$HOME") .. "/.config/lua-language-server"
-
 nvim_lsp.sumneko_lua.setup({
-	on_attach = custom_attach,
+	on_attach = function(client)
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+		custom_attach(client)
+	end,
 	capabilities = capabilities,
 	cmd = { sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua" },
 	settings = {

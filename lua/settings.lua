@@ -3,7 +3,7 @@ local o = vim.o
 local cmd = vim.cmd
 local wo = vim.wo
 local g = vim.g
-local home = vim.fn.stdpath "config"
+local home = vim.fn.stdpath("config")
 
 -- Window options
 wo.number = true -- Display numbers
@@ -37,9 +37,9 @@ o.undodir = home .. "/tmp/dir_undo/" -- Undo dir
 
 -- Use rg for grep
 if vim.fn.executable("rg") then
-  g.grepprg = "rg"
-  o.grepprg = g.grepprg .. " --vimgrep"
-  o.grepformat = "%f:%l:%c:%m"
+	g.grepprg = "rg"
+	o.grepprg = g.grepprg .. " --vimgrep"
+	o.grepformat = "%f:%l:%c:%m"
 end
 
 -- Statusline
