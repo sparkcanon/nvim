@@ -195,5 +195,3 @@ nvim_lsp.sumneko_lua.setup({
 		},
 	},
 })
-
-require("lsp/diagnostics/init")
