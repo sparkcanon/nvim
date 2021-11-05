@@ -13,11 +13,12 @@ A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
 A.SetupCommandAbbr("br", "bp<bar>bd#")
 
 -- Git
-A.SetupCommandAbbr("Neogit", "Neogit kind=vsplit")
 A.SetupCommandAbbr("gf", "Git fetch --all")
 A.SetupCommandAbbr("gp", [[split \| term git push]])
 A.SetupCommandAbbr("gl", "Git pull")
 A.SetupCommandAbbr("gm", "Git mergetool")
-A.SetupCommandAbbr("gdo", "DiffviewOpen")
-A.SetupCommandAbbr("gdf", "DiffviewFocusFiles")
-A.SetupCommandAbbr("gdc", "DiffviewClose")
+
+-- Diff
+A.SetupCommandAbbr("do", "DiffviewOpen")
+A.SetupCommandAbbr("df", "DiffviewFocusFiles")
+A.SetupCommandAbbr("dc", "DiffviewClose")
