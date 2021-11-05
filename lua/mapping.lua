@@ -1,21 +1,27 @@
 -- Mappings
-
-local map = require "utils/general".map
+local map = require("utils/general").map
+local optTrue = { silent = true, noremap = true }
 
 -- LSP trouble
-map("n", ",s", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
+if packer_plugins["lsp-trouble.nvim"] and packer_plugins["lsp-trouble.nvim"].loaded then
+	map("n", ",s", "<cmd>LspTroubleToggle<cr>", optTrue)
+end
 
--- Float term
-map("n", "<space>tt", "<cmd>FloatermToggle<cr>", {silent = true, noremap = true})
-map("n", "<space>tn", "<cmd>FloatermNew<cr>", {silent = true, noremap = true})
-map("n", "<space>tk", "<cmd>FloatermKill<cr>", {silent = true, noremap = true})
-map("n", "<space>tp", "<cmd>FloatermNext<cr>", {silent = true, noremap = true})
-map("n", "<space>th", "<cmd>FloatermHide<cr>", {silent = true, noremap = true})
-map("t", "<space>tt", [[<C-\><C-n>:FloatermToggle<CR>]], {silent = true, noremap = true})
-map("t", "<space>tk", [[<C-\><C-n>:FloatermKill<CR>]], {silent = true, noremap = true})
-map("t", "<space>tn", [[<C-\><C-n>:FloatermNew<CR>]], {silent = true, noremap = true})
-map("t", "<space>tp", [[<C-\><C-n>:FloatermNext<CR>]], {silent = true, noremap = true})
-map("t", "<space>th", [[<C-\><C-n>:FloatermHide<CR>]], {silent = true, noremap = true})
+if packer_plugins["harpoon"] and packer_plugins["harpoon"].loaded then
+	map("n", "ga", ":lua require('harpoon.mark').add_file()<CR>", optTrue)
+	map("n", "gt", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", optTrue)
+
+	map("n", "gq", ":lua require('harpoon.ui').nav_file(1)<CR>", optTrue)
+	map("n", "gw", ":lua require('harpoon.ui').nav_file(2)<CR>", optTrue)
+	map("n", "ge", ":lua require('harpoon.ui').nav_file(3)<CR>", optTrue)
+	map("n", "gr", ":lua require('harpoon.ui').nav_file(4)<CR>", optTrue)
+	map("n", "gs", ":lua require('harpoon.ui').nav_file(<c-r><c-w>)<CR>", optTrue)
+	map("n", "gx", ":lua require('harpoon.mark').clear_all()<CR>", optTrue)
+
+	map("n", "tg", ":lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>", optTrue)
+	map("n", "tq", ":lua require('harpoon.term').gotoTerminal(1)<CR>", optTrue)
+	map("n", "tw", ":lua require('harpoon.term').gotoTerminal(2)<CR>", optTrue)
+end
 
 -- Using backtick for marks drops you on the exact column
 map("n", "`", "'")
@@ -34,8 +40,8 @@ map("i", "<C-n>", "<C-x><C-n>") -- Keyword
 map("i", "<C-f>", "<C-x><C-f>") -- File name
 map("i", "<C-l>", "<C-x><C-l>") -- Line
 map("i", "<C-d>", "<C-x><C-s>") -- Spell
-map("i", "<Tab>", [[pumvisible() ? '<C-n>' : '<Tab>']], {silent = true, expr = true}) -- next selection on autocomplete menu
-map("i", "<S-Tab>", [[pumvisible() ? '<C-p>' : '<S-Tab>']], {silent = true, expr = true}) -- previous selection on autocomplete menu
+map("i", "<Tab>", [[pumvisible() ? '<C-n>' : '<Tab>']], { silent = true, expr = true }) -- next selection on autocomplete menu
+map("i", "<S-Tab>", [[pumvisible() ? '<C-p>' : '<S-Tab>']], { silent = true, expr = true }) -- previous selection on autocomplete menu
 
 -- Tabs
 map("n", "<Tab>", "gt")
@@ -52,7 +58,7 @@ map("n", "``", "``zz")
 map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Location list
-map("n", "<Up>", [[:call togglelist#ToggleList('Location List', 'l')<CR>]], {silent = true, script = true}) -- Toggle Location list
+map("n", "<Up>", [[:call togglelist#ToggleList('Location List', 'l')<CR>]], { silent = true, script = true }) -- Toggle Location list
 map("n", "]l", ":lnext<CR>")
 map("n", "[l", ":lprevious<CR>")
 map("n", "[L", ":lfirst<CR>")
@@ -61,7 +67,7 @@ map("n", "]<C-L>", ":lnfile<CR>")
 map("n", "[<C-L>", ":lpfile<CR>")
 
 -- Quickfix list
-map("n", "<Down>", [[:call togglelist#ToggleList('Quickfix List', 'c')<CR>]], {silent = true, script = true}) -- Toggle Quickfix list
+map("n", "<Down>", [[:call togglelist#ToggleList('Quickfix List', 'c')<CR>]], { silent = true, script = true }) -- Toggle Quickfix list
 map("n", "]q", ":cnext<CR>")
 map("n", "[q", ":cprevious<CR>")
 map("n", "[Q", ":cfirst<CR>")
@@ -70,15 +76,17 @@ map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
 -- Find
-map("n", "<space>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>")
-map("n", "<space>fr", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<CR>")
-map("n", "<space>fb", ":lua require'telescope.builtin'.file_browser(require('telescope.themes').get_ivy({}))<CR>")
+if packer_plugins["telescope.nvim"] and packer_plugins["telescope.nvim"].loaded then
+	map("n", "<space>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>")
+	map("n", "<space>fr", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<CR>")
+	map("n", "<space>fb", ":lua require'telescope.builtin'.file_browser(require('telescope.themes').get_ivy({}))<CR>")
+	map("n", "<space>b", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>")
+end
 
 -- Buffers
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
-map("n", "<space>b", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>")
 
 -- Substitute
 map("n", "<Bslash>s", ":%s/\\v<<C-r><C-w>>/")

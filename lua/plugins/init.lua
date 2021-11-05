@@ -43,6 +43,19 @@ packer.startup({
 			},
 		})
 		use("christoomey/vim-tmux-navigator")
+		use({
+			"ThePrimeagen/harpoon",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("harpoon").setup({
+					global_settings = {
+						save_on_toggle = true,
+						save_on_change = true,
+						enter_on_sendcmd = false,
+					},
+				})
+			end,
+		})
 		use({ "vim-test/vim-test" })
 		use({
 			"vuki656/package-info.nvim",
@@ -74,29 +87,12 @@ packer.startup({
 				"nvim-telescope/telescope-node-modules.nvim",
 				"elianiva/telescope-npm.nvim",
 				"nvim-telescope/telescope-fzy-native.nvim",
-				"xiyaowong/telescope-emoji.nvim",
 				"nvim-lua/plenary.nvim",
-				{
-					"rmagatti/session-lens",
-					requires = {
-						"rmagatti/auto-session",
-						config = function()
-							require("auto-session").setup({
-								log_level = "info",
-								auto_session_suppress_dirs = { "~/.config/nvim/tmp/dir_session" },
-							})
-						end,
-					},
-					config = function()
-						require("session-lens").setup({})
-					end,
-				},
 			},
 			config = function()
 				require("telescope").load_extension("node_modules")
 				require("telescope").load_extension("npm")
 				require("telescope").load_extension("fzy_native")
-				require("telescope").load_extension("emoji")
 				require("telescope").setup({
 					extensions = {
 						fzy_native = {
@@ -176,14 +172,6 @@ packer.startup({
 				end,
 			},
 			"tpope/vim-surround",
-		})
-		use({
-			"voldikss/vim-floaterm",
-			config = function()
-				vim.g.floaterm_position = "bottom"
-				vim.g.floaterm_width = vim.fn.eval("&columns")
-				vim.g.floaterm_height = 0.3
-			end,
 		})
 		if packer_bootstrap then
 			require("packer").sync()
