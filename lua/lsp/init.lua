@@ -55,6 +55,9 @@ nvim_lsp.vuels.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- eslint
@@ -65,6 +68,9 @@ nvim_lsp.eslint.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- Bash
@@ -73,6 +79,9 @@ nvim_lsp.bashls.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- HTML
@@ -82,6 +91,9 @@ nvim_lsp.html.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- Vim
@@ -90,6 +102,9 @@ nvim_lsp.vimls.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- CSS
@@ -99,6 +114,9 @@ nvim_lsp.cssls.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- Typescript
@@ -118,6 +136,9 @@ nvim_lsp.tsserver.setup({
 		vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 })
 
 -- Json
@@ -125,6 +146,9 @@ nvim_lsp.jsonls.setup({
 	cmd = { "vscode-json-language-server", "--stdio" },
 	on_attach = custom_attach,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 	filetypes = { "json", "jsonc" },
 	settings = {
 		json = {
@@ -184,6 +208,9 @@ nvim_lsp.sumneko_lua.setup({
 		custom_attach(client)
 	end,
 	capabilities = capabilities,
+	flags = {
+		debounce_text_changes = 150,
+	},
 	cmd = { sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua" },
 	settings = {
 		Lua = {
