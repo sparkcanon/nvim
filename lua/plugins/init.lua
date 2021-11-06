@@ -3,7 +3,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("config") .. "/pack/packer/opt/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
+	fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -24,8 +24,6 @@ packer.startup({
 		use({
 			"neovim/nvim-lspconfig",
 			requires = {
-				{ "folke/lsp-trouble.nvim", requires = "kyazdani42/nvim-web-devicons" },
-				{ "ray-x/lsp_signature.nvim" },
 				{
 					"hrsh7th/nvim-cmp",
 					config = function()
@@ -62,16 +60,6 @@ packer.startup({
 			requires = "MunifTanjim/nui.nvim",
 			config = function()
 				require("plugins/package-info")
-			end,
-		})
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("indent_blankline").setup({
-					char = "│",
-					buftype_exclude = { "terminal" },
-					filetype_exclude = { "packer", "Trouble", "help" },
-				})
 			end,
 		})
 		use({
@@ -173,9 +161,6 @@ packer.startup({
 			},
 			"tpope/vim-surround",
 		})
-		if packer_bootstrap then
-			require("packer").sync()
-		end
 	end,
 	config = {
 		-- Move to lua dir so impatient.nvim can cache it

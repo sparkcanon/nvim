@@ -2,11 +2,7 @@
 local map = require("utils/general").map
 local optTrue = { silent = true, noremap = true }
 
--- LSP trouble
-if packer_plugins["lsp-trouble.nvim"] and packer_plugins["lsp-trouble.nvim"].loaded then
-	map("n", ",s", "<cmd>LspTroubleToggle<cr>", optTrue)
-end
-
+-- harpoon
 if packer_plugins["harpoon"] and packer_plugins["harpoon"].loaded then
 	map("n", "ga", ":lua require('harpoon.mark').add_file()<CR>", optTrue)
 	map("n", "gt", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", optTrue)
@@ -87,9 +83,6 @@ end
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")
 map("n", "[b", ":bprevious<CR>")
-
--- Substitute
-map("n", "<Bslash>s", ":%s/\\v<<C-r><C-w>>/")
 
 -- Edit
 map("n", "<space>ee", [[:e <C-R>='%:h/'<CR>]])
