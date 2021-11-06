@@ -1,9 +1,7 @@
 -- Purpose: Basic settings
 local o = vim.o
-local cmd = vim.cmd
 local wo = vim.wo
 local g = vim.g
-local home = vim.fn.stdpath("config")
 
 -- Window options
 wo.number = true -- Display numbers
@@ -21,19 +19,11 @@ o.smartcase = true -- Use smart case
 o.ignorecase = true -- Ignore case
 o.wildignorecase = true -- Ignore case in wildignore
 o.wildignore = [[*.swp,*.bak,*.cache,*.min.*,**/dist/**,**/.git/**,*-lock.json,]] -- Wildignore paths
-o.errorformat = o.errorformat .. ",%f," -- Set fd errorformat
 o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
 o.completeopt = "menuone,noselect" -- Autocomplete options
-o.shortmess = o.shortmess .. "c"
-
--- Backup, undo, swap options
-o.undofile = true -- Set this option to have full undo power
-o.backup = true -- Set this option to enable backup
-o.writebackup = true -- Set this option to write back up
-o.backupdir = home .. "/tmp/dir_backup/" -- Back up dir
-o.directory = home .. "/tmp/dir_swap/," .. o.directory -- Swap file dir
-o.undodir = home .. "/tmp/dir_undo/" -- Undo dir
+o.updatetime = 100
+o.listchars="trail:·,eol:¬,tab:│ "
 
 -- Use rg for grep
 if vim.fn.executable("rg") then
@@ -41,9 +31,6 @@ if vim.fn.executable("rg") then
 	o.grepprg = g.grepprg .. " --vimgrep"
 	o.grepformat = "%f:%l:%c:%m"
 end
-
--- Statusline
-o.showmode = true -- Display mode in cmd
 
 local mod = " %m"
 local ro = "%{&readonly ? '[RO] ' : ''}"
