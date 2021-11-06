@@ -1,24 +1,34 @@
+local lsp = vim.lsp
 local nvim_lsp = require("lspconfig")
 local null_ls = require("null-ls")
 local custom_attach = require("lsp/on_attach").custom_attach
 
--- null_ls.builtins.formatting.stylelint
--- null_ls.builtins.diagnostics.hadolint
--- null_ls.builtins.diagnostics.vint
--- null_ls.builtins.diagnostics.yamllint
 null_ls.config({
 	sources = {
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.trim_whitespace,
 		null_ls.builtins.code_actions.gitsigns,
+		-- null_ls.builtins.formatting.stylelint
+		-- null_ls.builtins.diagnostics.hadolint
+		-- null_ls.builtins.diagnostics.vint
+		-- null_ls.builtins.diagnostics.yamllint
 	},
 })
 
 nvim_lsp["null-ls"].setup({})
 
+local capabilities = lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+lsp.handlers["textDocument/signatureHelp"] = lsp.with(
+	lsp.handlers.signature_help,
+	{ focusable = false, scope = "line" }
+)
+lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, { focusable = false, scope = "line" })
+
 -- Handle diagnostic configuration
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
 	-- Enable underline
 	underline = true,
 	-- Enable virtual text
@@ -27,8 +37,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	update_in_insert = false,
 	signs = true,
 })
-
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Vue
 nvim_lsp.vuels.setup({
@@ -116,7 +124,7 @@ nvim_lsp.tsserver.setup({
 
 		-- format on save
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
-		-- no default maps, so you may want to define some here
+
 		local opts = { silent = true, noremap = true }
 		vim.api.nvim_buf_set_keymap(bufnr, "n", ",ts", ":TSLspOrganize<CR>", opts)
 		vim.api.nvim_buf_set_keymap(bufnr, "n", ",tr", ":TSLspRenameFile<CR>", opts)
