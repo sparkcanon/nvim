@@ -23,6 +23,7 @@ o.path = ".,,**" -- Set standard path
 o.clipboard = "unnamed" .. o.clipboard -- os clipboard
 o.completeopt = "menuone,noselect" -- Autocomplete options
 o.updatetime = 100
+o.list = true
 o.listchars="trail:·,eol:¬,tab:│ "
 
 -- Use rg for grep

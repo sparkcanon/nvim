@@ -4,19 +4,21 @@ local optTrue = { silent = true, noremap = true }
 
 -- harpoon
 if packer_plugins["harpoon"] and packer_plugins["harpoon"].loaded then
-	map("n", "ga", ":lua require('harpoon.mark').add_file()<CR>", optTrue)
-	map("n", "gt", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", optTrue)
+	map("n", "<space>ha", ":lua require('harpoon.mark').add_file()<CR>", optTrue)
+	map("n", "<space>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", optTrue)
 
-	map("n", "gq", ":lua require('harpoon.ui').nav_file(1)<CR>", optTrue)
-	map("n", "gw", ":lua require('harpoon.ui').nav_file(2)<CR>", optTrue)
-	map("n", "ge", ":lua require('harpoon.ui').nav_file(3)<CR>", optTrue)
-	map("n", "gr", ":lua require('harpoon.ui').nav_file(4)<CR>", optTrue)
-	map("n", "gs", ":lua require('harpoon.ui').nav_file(<c-r><c-w>)<CR>", optTrue)
-	map("n", "gx", ":lua require('harpoon.mark').clear_all()<CR>", optTrue)
+	map("n", "<space>hq", ":lua require('harpoon.ui').nav_file(1)<CR>", optTrue)
+	map("n", "<space>hw", ":lua require('harpoon.ui').nav_file(2)<CR>", optTrue)
+	map("n", "<space>he", ":lua require('harpoon.ui').nav_file(3)<CR>", optTrue)
+	map("n", "<space>hr", ":lua require('harpoon.ui').nav_file(4)<CR>", optTrue)
+	map("n", "<space>hs", ":lua require('harpoon.ui').nav_file(<c-r><c-w>)<CR>", optTrue)
+	map("n", "<space>hx", ":lua require('harpoon.mark').clear_all()<CR>", optTrue)
 
-	map("n", "tg", ":lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>", optTrue)
-	map("n", "tq", ":lua require('harpoon.term').gotoTerminal(1)<CR>", optTrue)
-	map("n", "tw", ":lua require('harpoon.term').gotoTerminal(2)<CR>", optTrue)
+	map("n", "<space>tg", ":lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>", optTrue)
+	map("n", "<space>tq", ":lua require('harpoon.term').gotoTerminal(1)<CR>", optTrue)
+	map("n", "<space>tw", ":lua require('harpoon.term').gotoTerminal(2)<CR>", optTrue)
+	map("n", "<space>ta", ":lua require('harpoon.term').sendCommand(1, 1)<CR>", optTrue)
+	map("n", "<space>ts", ":lua require('harpoon.term').sendCommand(1, 2)<CR>", optTrue)
 end
 
 -- Using backtick for marks drops you on the exact column
