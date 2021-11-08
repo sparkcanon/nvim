@@ -20,3 +20,6 @@ A.SetupCommandAbbr("gm", "Git mergetool")
 A.SetupCommandAbbr("do", "DiffviewOpen")
 A.SetupCommandAbbr("df", "DiffviewFocusFiles")
 A.SetupCommandAbbr("dc", "DiffviewClose")
+
+-- Telescope
+A.SetupCommandAbbr("tl", "Telescope")

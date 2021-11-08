@@ -75,10 +75,10 @@ map("n", "[<C-F>", ":cpfile<CR>")
 
 -- Find
 if packer_plugins["telescope.nvim"] and packer_plugins["telescope.nvim"].loaded then
-	map("n", "<space>ff", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>")
-	map("n", "<space>fr", ":lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<CR>")
-	map("n", "<space>fb", ":lua require'telescope.builtin'.file_browser(require('telescope.themes').get_ivy({}))<CR>")
-	map("n", "<space>b", ":lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>")
+	map("n", "<space>ff", ":lua require'telescope.builtin'.find_files()<CR>")
+	map("n", "<space>fr", ":lua require'telescope.builtin'.live_grep()<CR>")
+	map("n", "<space>fb", ":lua require'telescope.builtin'.file_browser()<CR>")
+	map("n", "<space>b", ":lua require'telescope.builtin'.buffers()<CR>")
 end
 
 -- Buffers

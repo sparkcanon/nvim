@@ -78,17 +78,7 @@ packer.startup({
 				"nvim-lua/plenary.nvim",
 			},
 			config = function()
-				require("telescope").load_extension("node_modules")
-				require("telescope").load_extension("npm")
-				require("telescope").load_extension("fzy_native")
-				require("telescope").setup({
-					extensions = {
-						fzy_native = {
-							override_generic_sorter = false,
-							override_file_sorter = true,
-						},
-					},
-				})
+        require "plugins/telescope"
 			end,
 		})
 		use({
