@@ -22,6 +22,10 @@ cmp.setup({
 		}),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
+	experimental = {
+		native_menu = false,
+		ghost_text = true,
+	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "vsnip" }, -- For vsnip users.
