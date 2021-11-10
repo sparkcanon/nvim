@@ -71,14 +71,6 @@ map("n", "]Q", ":clast<CR>")
 map("n", "]<C-F>", ":cnfile<CR>")
 map("n", "[<C-F>", ":cpfile<CR>")
 
--- Find
-if packer_plugins["telescope.nvim"] and packer_plugins["telescope.nvim"].loaded then
-	map("n", "<space>ff", ":lua require'telescope.builtin'.find_files()<CR>")
-	map("n", "<space>fr", ":lua require'telescope.builtin'.live_grep()<CR>")
-	map("n", "<space>fb", ":lua require'telescope.builtin'.file_browser()<CR>")
-	map("n", "<space>b", ":lua require'telescope.builtin'.buffers()<CR>")
-end
-
 -- Buffers
 map("n", "<BS>", "<C-^>")
 map("n", "]b", ":bnext<CR>")

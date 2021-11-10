@@ -3,6 +3,7 @@ local A = require("utils/general")
 -- General
 A.SetupCommandAbbr("w", "update")
 A.SetupCommandAbbr("nw", "noautocmd update")
+A.SetupCommandAbbr("sr", "Grep")
 
 -- Buffer list
 A.SetupCommandAbbr("lv", "ls<space>t<CR>:vert<space>sb")
@@ -20,6 +21,3 @@ A.SetupCommandAbbr("gm", "Git mergetool")
 A.SetupCommandAbbr("do", "DiffviewOpen")
 A.SetupCommandAbbr("df", "DiffviewFocusFiles")
 A.SetupCommandAbbr("dc", "DiffviewClose")
-
--- Telescope
-A.SetupCommandAbbr("tl", "Telescope")

@@ -15,7 +15,7 @@ local autocmd = {
 		{
 			"QuickFixCmdPost",
 			"[^l]*",
-			"cwindow",
+			"botright cwindow",
 		},
 		{
 			"QuickFixCmdPost",

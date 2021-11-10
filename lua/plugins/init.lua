@@ -22,6 +22,14 @@ packer.init({
 packer.startup({
 	function(use)
 		use({
+			"gelguy/wilder.nvim",
+			run = ":UpdateRemotePlugins",
+			event = "CmdLineEnter",
+			config = function()
+				require("plugins/wilder")
+			end,
+		})
+		use({
 			"neovim/nvim-lspconfig",
 			requires = {
 				{
@@ -34,7 +42,6 @@ packer.startup({
 						{ "hrsh7th/cmp-nvim-lua", ft = { "lua" } },
 						{ "hrsh7th/cmp-buffer" },
 						{ "hrsh7th/cmp-path" },
-						{ "hrsh7th/cmp-cmdline" },
 						{
 							"L3MON4D3/LuaSnip",
 							requires = { "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
@@ -76,18 +83,6 @@ packer.startup({
 			end,
 		})
 		use({ "mustache/vim-mustache-handlebars", ft = { "hbs", "handlebars" } })
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = {
-				"nvim-telescope/telescope-node-modules.nvim",
-				"elianiva/telescope-npm.nvim",
-				"nvim-telescope/telescope-fzy-native.nvim",
-				"nvim-lua/plenary.nvim",
-			},
-			config = function()
-				require("plugins/telescope")
-			end,
-		})
 		use({
 			"lewis6991/gitsigns.nvim",
 			requires = "nvim-lua/plenary.nvim",
