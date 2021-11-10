@@ -38,8 +38,6 @@ map("i", "<C-n>", "<C-x><C-n>") -- Keyword
 map("i", "<C-f>", "<C-x><C-f>") -- File name
 map("i", "<C-l>", "<C-x><C-l>") -- Line
 map("i", "<C-d>", "<C-x><C-s>") -- Spell
-map("i", "<Tab>", [[pumvisible() ? '<C-n>' : '<Tab>']], { silent = true, expr = true }) -- next selection on autocomplete menu
-map("i", "<S-Tab>", [[pumvisible() ? '<C-p>' : '<S-Tab>']], { silent = true, expr = true }) -- previous selection on autocomplete menu
 
 -- Tabs
 map("n", "<Tab>", "gt")

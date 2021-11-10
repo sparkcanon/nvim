@@ -31,13 +31,20 @@ packer.startup({
 					end,
 					requires = {
 						{ "hrsh7th/cmp-nvim-lsp" },
+						{ "hrsh7th/cmp-nvim-lua", ft = { "lua" } },
 						{ "hrsh7th/cmp-buffer" },
 						{ "hrsh7th/cmp-path" },
 						{ "hrsh7th/cmp-cmdline" },
-						{ "hrsh7th/cmp-vsnip" },
-						{ "hrsh7th/vim-vsnip" },
+						{
+							"L3MON4D3/LuaSnip",
+							requires = { "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
+							config = function()
+								require("luasnip/loaders/from_vscode").lazy_load()
+							end,
+						},
 					},
 				},
+				{ "onsails/lspkind-nvim" },
 			},
 		})
 		use("christoomey/vim-tmux-navigator")
@@ -78,7 +85,7 @@ packer.startup({
 				"nvim-lua/plenary.nvim",
 			},
 			config = function()
-        require "plugins/telescope"
+				require("plugins/telescope")
 			end,
 		})
 		use({
