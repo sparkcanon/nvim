@@ -35,6 +35,12 @@ packer.startup({
 			end,
 		})
 		use({
+			"rockerBOO/boo-colorscheme-nvim",
+			config = function()
+				vim.cmd("colorscheme boo")
+			end,
+		})
+		use({
 			"gelguy/wilder.nvim",
 			run = ":UpdateRemotePlugins",
 			event = "CmdLineEnter",
@@ -101,23 +107,15 @@ packer.startup({
 			"lewis6991/gitsigns.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function()
-				require("gitsigns").setup()
+				require("gitsigns").setup({
+					signcolumn = false,
+					numhl = true,
+				})
 			end,
 		})
 		use("rhysd/conflict-marker.vim")
 		use("editorconfig/editorconfig-vim")
 		use("kevinhwang91/nvim-bqf")
-		use({
-			"rose-pine/neovim",
-			as = "rose-pine",
-			config = function()
-				-- Options (see available options below)
-				vim.g.rose_pine_variant = "base"
-
-				-- Load colorscheme after options
-				vim.cmd("colorscheme rose-pine")
-			end,
-		})
 		use({
 			"norcalli/nvim-colorizer.lua",
 			config = function()

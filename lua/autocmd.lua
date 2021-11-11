@@ -1,11 +1,4 @@
 local autocmd = {
-	ColorsCmd = {
-		{
-			"ColorScheme",
-			"*",
-			[[lua require 'utils/color'.ModifyBufferColors()]],
-		},
-	},
 	GeneralAutocmds = {
 		{
 			"VimResized",
