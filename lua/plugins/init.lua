@@ -90,19 +90,14 @@ packer.startup({
 				require("gitsigns").setup()
 			end,
 		})
-		use({ "sindrets/diffview.nvim", cmd = "DiffviewOpen" })
 		use("rhysd/conflict-marker.vim")
 		use("editorconfig/editorconfig-vim")
 		use("kevinhwang91/nvim-bqf")
 		use({
-			"rose-pine/neovim",
-			as = "rose-pine",
+			"wuelnerdotexe/vim-enfocado",
 			config = function()
-				-- Options (see available options below)
-				vim.g.rose_pine_variant = "base"
-
-				-- Load colorscheme after options
-				vim.cmd("colorscheme rose-pine")
+				vim.g.enfocado_style = "neon"
+				vim.cmd("colorscheme enfocado")
 			end,
 		})
 		use({
