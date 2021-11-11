@@ -26,6 +26,7 @@ vim.cmd([[
 
 call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
+      \ 'reverse': 1,
       \ 'highlights': {
       \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#EA6EB7'}]),
       \ },
