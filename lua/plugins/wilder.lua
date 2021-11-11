@@ -24,8 +24,16 @@ vim.cmd([[
        \   ),
        \ ])
 
- " 'highlighter' : applies highlighting to the candidates
- call wilder#set_option('renderer', wilder#popupmenu_renderer({
-       \ 'highlighter': wilder#basic_highlighter(),
-       \ }))
+call wilder#set_option('renderer', wilder#popupmenu_renderer({
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ 'highlights': {
+      \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#EA6EB7'}]),
+      \ },
+      \ 'left': [
+      \   ' ', wilder#popupmenu_devicons(),
+      \ ],
+      \ 'right': [
+      \   ' ', wilder#popupmenu_scrollbar(),
+      \ ],
+      \ }))
 ]])

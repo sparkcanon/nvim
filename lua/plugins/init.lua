@@ -25,6 +25,7 @@ packer.startup({
 			"gelguy/wilder.nvim",
 			run = ":UpdateRemotePlugins",
 			event = "CmdLineEnter",
+			requires = { "kyazdani42/nvim-web-devicons" },
 			config = function()
 				require("plugins/wilder")
 			end,
@@ -97,7 +98,7 @@ packer.startup({
 			"wuelnerdotexe/vim-enfocado",
 			config = function()
 				vim.g.enfocado_style = "neon"
-				vim.cmd("colorscheme enfocado")
+				vim.cmd("autocmd VimEnter * ++nested colorscheme enfocado")
 			end,
 		})
 		use({
