@@ -95,10 +95,14 @@ packer.startup({
 		use("editorconfig/editorconfig-vim")
 		use("kevinhwang91/nvim-bqf")
 		use({
-			"wuelnerdotexe/vim-enfocado",
+			"rose-pine/neovim",
+			as = "rose-pine",
 			config = function()
-				vim.g.enfocado_style = "neon"
-				vim.cmd("autocmd VimEnter * ++nested colorscheme enfocado")
+				-- Options (see available options below)
+				vim.g.rose_pine_variant = "base"
+
+				-- Load colorscheme after options
+				vim.cmd("colorscheme rose-pine")
 			end,
 		})
 		use({
