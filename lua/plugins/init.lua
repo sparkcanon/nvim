@@ -22,6 +22,19 @@ packer.init({
 packer.startup({
 	function(use)
 		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+			requires = {
+				"windwp/nvim-ts-autotag",
+				config = function()
+					require("nvim-ts-autotag").setup()
+				end,
+			},
+			config = function()
+				require("plugins/treesitter")
+			end,
+		})
+		use({
 			"gelguy/wilder.nvim",
 			run = ":UpdateRemotePlugins",
 			event = "CmdLineEnter",
@@ -122,19 +135,6 @@ packer.startup({
 			end,
 		})
 		use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = { "jose-elias-alvarez/null-ls.nvim" } })
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-			requires = {
-				"windwp/nvim-ts-autotag",
-				config = function()
-					require("nvim-ts-autotag").setup()
-				end,
-			},
-			config = function()
-				require("plugins/treesitter")
-			end,
-		})
 		use({
 			"andymass/vim-matchup",
 			config = function()
