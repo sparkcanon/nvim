@@ -35,9 +35,10 @@ packer.startup({
 			end,
 		})
 		use({
-			"kvrohit/substrata.nvim",
+			"folke/tokyonight.nvim",
 			config = function()
-				vim.cmd([[colorscheme substrata]])
+				vim.g.tokyonight_style = "night"
+				vim.cmd([[colorscheme tokyonight]])
 			end,
 		})
 		use({

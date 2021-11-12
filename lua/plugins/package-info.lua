@@ -5,7 +5,7 @@ local opt = { silent = true, noremap = true }
 map("n", "<space>ps", ":lua require('package-info').show()<CR>", opt)
 
 -- Hide package versions
-map("n", "<space>pc", ":lua require('package-info').hide()<CR>", opt)
+map("n", "<space>ph", ":lua require('package-info').hide()<CR>", opt)
 
 -- Update package on line
 map("n", "<space>pu", ":lua require('package-info').update()<CR>", opt)
