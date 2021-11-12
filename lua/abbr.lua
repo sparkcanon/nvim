@@ -16,8 +16,3 @@ A.SetupCommandAbbr("gf", "Git fetch --all")
 A.SetupCommandAbbr("gp", [[split \| term git push]])
 A.SetupCommandAbbr("gl", "Git pull")
 A.SetupCommandAbbr("gm", "Git mergetool")
-
--- Diff
-A.SetupCommandAbbr("do", "DiffviewOpen")
-A.SetupCommandAbbr("df", "DiffviewFocusFiles")
-A.SetupCommandAbbr("dc", "DiffviewClose")

@@ -28,7 +28,7 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer({
       \ 'highlighter': wilder#basic_highlighter(),
       \ 'reverse': 1,
       \ 'highlights': {
-      \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#EA6EB7'}]),
+      \   'accent': wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#659EA2'}]),
       \ },
       \ 'left': [
       \   ' ', wilder#popupmenu_devicons(),

@@ -35,9 +35,9 @@ packer.startup({
 			end,
 		})
 		use({
-			"rockerBOO/boo-colorscheme-nvim",
+			"kvrohit/substrata.nvim",
 			config = function()
-				vim.cmd("colorscheme boo")
+				vim.cmd([[colorscheme substrata]])
 			end,
 		})
 		use({

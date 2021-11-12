@@ -5,7 +5,7 @@ local g = vim.g
 
 -- Window options
 wo.number = true -- Display numbers
-wo.signcolumn = "auto" -- Merge signcolumn and numbers
+wo.signcolumn = "yes" -- Merge signcolumn and numbers
 wo.cursorline = true -- Show cursorline
 
 -- Editor options
@@ -27,7 +27,7 @@ o.updatetime = 100
 o.list = true
 o.listchars="trail:·,eol:¬,tab:│ "
 o.laststatus = 1
-vim.o.termguicolors = true -- True colors
+o.termguicolors = true -- True colors
 
 -- Use rg for grep
 if vim.fn.executable("rg") then

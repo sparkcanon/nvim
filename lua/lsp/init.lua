@@ -1,7 +1,7 @@
 local lsp = vim.lsp
 local nvim_lsp = require("lspconfig")
 local merge_table = require("utils/general").merge_table
-local baseConfig = require('lsp/base_config')
+local baseConfig = require("lsp/base_config")
 
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(
 	lsp.handlers.signature_help,
@@ -12,9 +12,9 @@ lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, { focusable = 
 -- Handle diagnostic configuration
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
 	-- Enable underline
-	underline = true,
+	underline = false,
 	-- Enable virtual text
-	virtual_text = true,
+	virtual_text = false,
 	-- Disable on insert
 	update_in_insert = false,
 	signs = true,
