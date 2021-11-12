@@ -16,7 +16,7 @@ return {
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
 
 		local opts = { silent = true, noremap = true }
-		vim.api.nvim_buf_set_keymap(bufnr, "n", ",ts", ":TSLspOrganize<CR>", opts)
+		vim.api.nvim_buf_set_keymap(bufnr, "n", ",to", ":TSLspOrganize<CR>", opts)
 		vim.api.nvim_buf_set_keymap(bufnr, "n", ",tr", ":TSLspRenameFile<CR>", opts)
 		vim.api.nvim_buf_set_keymap(bufnr, "n", ",ti", ":TSLspImportAll<CR>", opts)
 	end,

@@ -12,7 +12,7 @@ lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, { focusable = 
 -- Handle diagnostic configuration
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
 	-- Enable underline
-	underline = false,
+	underline = true,
 	-- Enable virtual text
 	virtual_text = false,
 	-- Disable on insert
