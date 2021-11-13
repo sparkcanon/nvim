@@ -12,7 +12,6 @@ A.SetupCommandAbbr("ld", "ls<space>t<CR>:bd")
 A.SetupCommandAbbr("br", "bp<bar>bd#")
 
 -- Git
-A.SetupCommandAbbr("gf", "Git fetch --all")
-A.SetupCommandAbbr("gp", [[split \| term git push]])
-A.SetupCommandAbbr("gl", "Git pull")
 A.SetupCommandAbbr("gm", "Git mergetool")
+A.SetupCommandAbbr("gd", "Git difftool")
+A.SetupCommandAbbr("gp", "Gitsigns preview_hunk")
