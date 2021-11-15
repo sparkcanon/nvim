@@ -14,10 +14,10 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_pub
 	-- Enable underline
 	underline = true,
 	-- Enable virtual text
-	virtual_text = false,
+	virtual_text = true,
 	-- Disable on insert
 	update_in_insert = false,
-	signs = true,
+	signs = false,
 })
 
 local s = {

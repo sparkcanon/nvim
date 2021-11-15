@@ -5,7 +5,7 @@ local g = vim.g
 
 -- Window options
 wo.number = true -- Display numbers
-wo.signcolumn = "yes" -- Merge signcolumn and numbers
+wo.signcolumn = "no" -- Merge signcolumn and numbers
 wo.cursorline = true -- Show cursorline
 
 -- Editor options
