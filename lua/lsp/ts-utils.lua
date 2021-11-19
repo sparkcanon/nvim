@@ -19,18 +19,6 @@ return function(client)
 		import_all_scan_buffers = 100,
 		import_all_select_source = false,
 
-		-- eslint
-		eslint_enable_code_actions = true,
-		eslint_enable_disable_comments = true,
-		eslint_bin = "eslint_d",
-		eslint_enable_diagnostics = true,
-		eslint_opts = {},
-
-		-- formatting
-		enable_formatting = true,
-		formatter = "prettier",
-		formatter_opts = {},
-
 		-- update imports on file move
 		update_imports_on_move = true,
 		require_confirmation_on_move = true,
@@ -41,7 +29,7 @@ return function(client)
 		filter_out_diagnostics_by_code = {},
 
 		-- inlay hints
-		auto_inlay_hints = true,
+		auto_inlay_hints = false, -- TODO: this often breaks when switching buffers
 		inlay_hints_highlight = "Comment",
 	})
 
