@@ -65,6 +65,12 @@ packer.startup({
 						{ "hrsh7th/cmp-path" },
 						{ "hrsh7th/cmp-cmdline", disable = true },
 						{
+							"windwp/nvim-autopairs",
+							config = function()
+								require("nvim-autopairs").setup({})
+							end,
+						},
+						{
 							"L3MON4D3/LuaSnip",
 							requires = { "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
 							config = function()
