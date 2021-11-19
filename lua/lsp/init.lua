@@ -9,13 +9,9 @@ lsp.handlers["textDocument/signatureHelp"] = lsp.with(
 )
 lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, { focusable = false, scope = "line" })
 
--- Handle diagnostic configuration
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
-	-- Enable underline
 	underline = true,
-	-- Enable virtual text
 	virtual_text = true,
-	-- Disable on insert
 	update_in_insert = false,
 	signs = false,
 })

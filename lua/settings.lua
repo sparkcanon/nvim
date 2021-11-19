@@ -28,6 +28,7 @@ o.list = true
 o.listchars="trail:·,eol:¬,tab:│ "
 o.laststatus = 1
 o.termguicolors = true -- True colors
+o.swapfile = false
 
 -- Use rg for grep
 if vim.fn.executable("rg") then
