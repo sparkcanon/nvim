@@ -2,22 +2,22 @@
 -- Author: Pratik Borde
 
 -- Settings
-require "settings"
+require("settings")
 
 -- Autocmd
-require "autocmd"
+require("autocmd")
 
 -- Plugin
-require "plugins/init"
+require("plugins/init")
 
 -- Mapping
-require "mapping"
+require("mapping")
 
 -- Command
-require "command"
+require("command")
 
 -- Abbr
-require "abbr"
+require("abbr")
 
 -- LSP
-require "lsp/init"
+require("lsp/init")

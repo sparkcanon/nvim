@@ -66,12 +66,7 @@ packer.startup({
 						{ "hrsh7th/cmp-buffer" },
 						{ "hrsh7th/cmp-path" },
 						{ "hrsh7th/cmp-cmdline", disable = true },
-						{
-							"windwp/nvim-autopairs",
-							config = function()
-								require("nvim-autopairs").setup({})
-							end,
-						},
+						{ "onsails/lspkind-nvim" },
 						{
 							"L3MON4D3/LuaSnip",
 							requires = { "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
@@ -81,8 +76,14 @@ packer.startup({
 						},
 					},
 				},
-				{ "onsails/lspkind-nvim" },
+				{ "ii14/lsp-command" },
 			},
+		})
+		use({
+			"windwp/nvim-autopairs",
+			config = function()
+				require("nvim-autopairs").setup({})
+			end,
 		})
 		use("christoomey/vim-tmux-navigator")
 		use({
