@@ -29,7 +29,7 @@ return function(client)
 		filter_out_diagnostics_by_code = {},
 
 		-- inlay hints
-		auto_inlay_hints = false, -- TODO: this often breaks when switching buffers
+		auto_inlay_hints = true,
 		inlay_hints_highlight = "Comment",
 	})
 
