@@ -28,7 +28,7 @@ return function(client)
 		filter_out_diagnostics_by_severity = {},
 		filter_out_diagnostics_by_code = {},
 
-		-- inlay hints
+		-- inlay hints (requires typescript nightly)
 		auto_inlay_hints = true,
 		inlay_hints_highlight = "Comment",
 	})
