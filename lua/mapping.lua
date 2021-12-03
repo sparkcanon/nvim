@@ -2,6 +2,10 @@
 local map = require("utils/general").map
 local optTrue = { silent = true, noremap = true }
 
+if packer_plugins["vim-ultest"] and packer_plugins["vim-ultest"].loaded then
+	vim.cmd([[nmap <space>ut <Plug>(ultest-output-jump)]])
+end
+
 -- harpoon
 if packer_plugins["harpoon"] and packer_plugins["harpoon"].loaded then
 	map("n", "<space>ha", ":lua require('harpoon.mark').add_file()<CR>", optTrue)
