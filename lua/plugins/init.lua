@@ -38,7 +38,23 @@ packer.startup({
 			"folke/tokyonight.nvim",
 			config = function()
 				vim.g.tokyonight_style = "night"
-				vim.cmd([[colorscheme tokyonight]])
+			end,
+			disable = true,
+		})
+		use({
+			"catppuccin/nvim",
+			as = "catppuccin",
+			config = function()
+				require("catppuccin").setup({
+					styles = {
+						comments = "italic",
+						functions = "NONE",
+						keywords = "NONE",
+						strings = "NONE",
+						variables = "NONE",
+					},
+				})
+				vim.cmd([[colorscheme catppuccin]])
 			end,
 		})
 		use({
