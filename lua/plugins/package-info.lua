@@ -1,7 +1,9 @@
 local map = require("utils/general").map
 local opt = { silent = true, noremap = true }
 
-require('package-info').setup()
+require("package-info").setup({
+	autostart = false,
+})
 
 -- Show package versions
 map("n", "<space>ps", ":lua require('package-info').show()<CR>", opt)
