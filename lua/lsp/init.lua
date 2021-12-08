@@ -1,7 +1,8 @@
 local lsp = vim.lsp
-local nvim_lsp = require("lspconfig")
 local merge_table = require("utils/general").merge_table
 local baseConfig = require("lsp/base_config")
+local server_configs = require("lsp/servers")
+local lsp_installer_servers = require("nvim-lsp-installer.servers")
 
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(
 	lsp.handlers.signature_help,
@@ -26,15 +27,24 @@ local s = {
 	"tsserver",
 	"jsonls",
 	"sumneko_lua",
-	"null-ls",
 }
 
-local server_configs = require("lsp/servers")
-
 for _, v in pairs(s) do
-	local config = baseConfig()
-	if server_configs[v] ~= nil then
-		config = merge_table(config, server_configs[v])
+	local server_available, requested_server = lsp_installer_servers.get_server(v)
+	if server_available then
+		requested_server:on_ready(function()
+			-- local opts = {}
+			local config = baseConfig()
+			if server_configs[v] ~= nil then
+				config = merge_table(config, server_configs[v])
+			end
+			requested_server:setup(config)
+		end)
+		if not requested_server:is_installed() then
+			-- Queue the server to be installed
+			requested_server:install()
+		end
 	end
-	nvim_lsp[v].setup(config)
 end
+
+require("lsp/servers/null_ls")

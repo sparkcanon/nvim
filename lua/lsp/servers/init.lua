@@ -10,6 +10,4 @@ M.vimls = require("lsp/servers/vim")
 M.cssls = require("lsp/servers/css")
 M.tsserver = require("lsp/servers/ts")
 
-require('lsp/servers/null_ls')
-
 return M

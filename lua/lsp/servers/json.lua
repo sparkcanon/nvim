@@ -1,7 +1,6 @@
 local custom_attach = require("lsp/on_attach").custom_attach
 
 return {
-	cmd = { "vscode-json-language-server", "--stdio" },
 	on_attach = custom_attach,
 	filetypes = { "json", "jsonc" },
 	settings = {

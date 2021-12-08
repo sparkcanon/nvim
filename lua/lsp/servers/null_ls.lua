@@ -1,4 +1,6 @@
 local null_ls = require("null-ls")
+local custom_attach = require("lsp/on_attach").custom_attach
+local nvim_lsp = require("lspconfig")
 
 null_ls.config({
 	sources = {
@@ -14,6 +16,9 @@ null_ls.config({
 		null_ls.builtins.code_actions.gitsigns,
 
 		null_ls.builtins.diagnostics.eslint_d.with({
+			condition = function(utils)
+				return utils.root_has_file(".eslintrc")
+			end,
 			prefer_local = true,
 		}),
 		null_ls.builtins.diagnostics.vint,
@@ -23,4 +28,8 @@ null_ls.config({
 		-- null_ls.builtins.diagnostics.vint
 		-- null_ls.builtins.diagnostics.yamllint
 	},
+})
+
+nvim_lsp["null-ls"].setup({
+	on_attach = custom_attach,
 })

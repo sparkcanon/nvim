@@ -1,9 +1,11 @@
 local custom_attach = require("lsp/on_attach").custom_attach
 local ts_utils = require("lsp/ts-utils")
+local lspconfig_util = require("lspconfig.util")
 
 return {
 	-- Only needed for inlayHints
 	init_options = require("nvim-lsp-ts-utils").init_options,
+	root_dir = lspconfig_util.find_git_ancestor,
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false

@@ -1,4 +1,3 @@
-local sumneko_root_path = vim.fn.eval("$HOME") .. "/.config/lua-language-server"
 local custom_attach = require("lsp/on_attach").custom_attach
 
 return {
@@ -11,7 +10,6 @@ return {
 		-- format on save
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()")
 	end,
-	cmd = { sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua" },
 	settings = {
 		Lua = {
 			runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },

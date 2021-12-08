@@ -90,6 +90,7 @@ packer.startup({
 						},
 					},
 				},
+				"williamboman/nvim-lsp-installer",
 			},
 		})
 		use({
