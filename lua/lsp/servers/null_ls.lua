@@ -10,19 +10,25 @@ null_ls.config({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.trim_whitespace,
 
-		null_ls.builtins.code_actions.eslint_d.with({
+		null_ls.builtins.code_actions.eslint.with({
 			prefer_local = true,
 		}),
 		null_ls.builtins.code_actions.gitsigns,
 
-		null_ls.builtins.diagnostics.eslint_d.with({
-			condition = function(utils)
-				return utils.root_has_file(".eslintrc")
-			end,
+		null_ls.builtins.diagnostics.eslint.with({
 			prefer_local = true,
 		}),
 		null_ls.builtins.diagnostics.vint,
 
+		-- null_ls.builtins.code_actions.eslint_d.with({
+		-- 	prefer_local = true,
+		-- }),
+		-- null_ls.builtins.diagnostics.eslint_d.with({
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file(".eslintrc")
+		-- 	end,
+		-- 	prefer_local = true,
+		-- }),
 		-- null_ls.builtins.formatting.stylelint
 		-- null_ls.builtins.diagnostics.hadolint
 		-- null_ls.builtins.diagnostics.vint

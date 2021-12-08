@@ -25,7 +25,7 @@ return function(client)
 		watch_dir = ".",
 
 		-- filter diagnostics
-		filter_out_diagnostics_by_severity = {},
+		filter_out_diagnostics_by_severity = { "hint" },
 		filter_out_diagnostics_by_code = {},
 
 		-- inlay hints (requires typescript nightly)
