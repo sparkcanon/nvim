@@ -86,6 +86,30 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
+local prompt = "#2A2A37"
+local results = "#1F1F28"
+local preview = "#16161D"
+require('kanagawa').setup({
+  dimInactive = true,
+  overrides = {
+    -- Telescope
+    TelescopeMatching = { fg = "#5e81ac" },
+    TelescopeNormal = { fg = "#d9dce3" },
+
+    TelescopePreviewBorder = { bg = preview, fg = preview },
+    TelescopePreviewNormal = { bg = preview },
+    TelescopePreviewTitle = { fg = preview },
+
+    TelescopePromptBorder = { bg = prompt, fg = prompt },
+    TelescopePromptNormal = { bg = prompt },
+    TelescopePromptPrefix = { bg = prompt },
+    TelescopePromptTitle = { fg = prompt },
+
+    TelescopeResultsBorder = { bg = results, fg = results },
+    TelescopeResultsNormal = { bg = results },
+    TelescopeResultsTitle = { fg = results },
+  }
+})
 vim.cmd [[colorscheme kanagawa]]
 
 -- Set completeopt to have a better completion experience
