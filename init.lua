@@ -24,9 +24,10 @@ require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
   use "rebelot/kanagawa.nvim"                                                     -- Colorscheme
+  use { 'mfussenegger/nvim-dap', requires = { 'David-Kunz/jester' } }             -- Debugging
 
   -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-dap.nvim' } }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -86,6 +87,8 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
+
+-- [[ Configure kanagawa ]]
 local prompt = "#2A2A37"
 local results = "#1F1F28"
 local preview = "#16161D"
@@ -184,6 +187,37 @@ require('gitsigns').setup {
   },
 }
 
+-- [[ Configure Dap ]]
+local dap = require('dap')
+-- Find and set node2 executable
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = {os.getenv('HOME') .. '/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js'},
+}
+-- read .vscode/launch.json
+require('dap.ext.vscode').load_launchjs(nil, { node = {'javascript', 'javascriptreact', 'typescriptreact', 'typescript' } })
+
+-- Dap mappings
+vim.keymap.set('n', '<F5>', function() require'dap'.continue() end, { silent = true, desc = "Dap continue" })
+vim.keymap.set('n', '<F10>', function () require'dap'.step_over() end, { silent = true, desc = "Dap step over" })
+vim.keymap.set('n', '<F11>', function () require'dap'.step_into() end, { silent = true, desc = "Dap step into" })
+vim.keymap.set('n', '<F12>', function () require'dap'.step_out() end, { silent = true, desc = "Dap step out" })
+vim.keymap.set('n', '<leader>b', function() require'dap'.toggle_breakpoint() end, { silent = true, desc = "Dap toggle breakpoint" })
+vim.keymap.set('n', '<leader>B', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { silent = true, desc = "Dap set conditional breakindent" })
+vim.keymap.set('n', '<leader>lp', function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { silent = true, desc = "Dap set log point" })
+vim.keymap.set('n', '<leader>dr', function() require'dap'.repl.open() end, { silent = true, desc = "Dap open repl" })
+vim.keymap.set('n', '<leader>dl', function() require'dap'.run_last() end, { silent = true, desc = "Dap run last" })
+
+-- [[ Jester ]]
+vim.keymap.set('n', '<leader>tt', function() require"jester".run() end, { desc = "Jester run" })
+vim.keymap.set('n', '<leader>t_', function() require"jester".run_last() end, { desc = "Jester run last" })
+vim.keymap.set('n', '<leader>tf', function() require"jester".run_file() end, { desc = "Jester run file" })
+vim.keymap.set('n', '<leader>d_', function() require"jester".debug_last() end, { desc = "Jester debug last" })
+vim.keymap.set('n', '<leader>df', function() require"jester".debug_file() end, { desc = "Jester debug file" })
+vim.keymap.set('n', '<leader>dq', function() require"jester".terminate() end, { desc = "Jester terminate" })
+vim.keymap.set('n', '<leader>dd', function() require"jester".debug() end, { desc = "Jester debug" })
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -199,6 +233,7 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'dap')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
