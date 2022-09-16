@@ -19,16 +19,19 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
   use 'williamboman/mason.nvim'                                                   -- Manage external editor tooling i.e LSP servers
   use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
-  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
+  use { 'hrsh7th/nvim-cmp', requires = {
+    'hrsh7th/cmp-nvim-lsp',
+    'rcarriga/cmp-dap'
+  } }                                                                             -- Autocompletion
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
   use "rebelot/kanagawa.nvim"                                                     -- Colorscheme
   use { 'mfussenegger/nvim-dap', requires = {
-    'David-Kunz/jester',
-    'theHamsta/nvim-dap-virtual-text'
+    'theHamsta/nvim-dap-virtual-text',
   } }                                                                             -- Debugging
+  use 'David-Kunz/jester'                                                         -- Jest (Needs Dap for debugging)
   use 'windwp/nvim-autopairs'                                                     -- Adds matching pair
   use 'windwp/nvim-ts-autotag'                                                    -- Adds closing tags
   use 'tpope/vim-surround'                                                        -- Manipulate surroundings
@@ -510,7 +513,17 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end
 }
+
+require("cmp").setup.filetype({ "dap-repl", "dapui_watches" }, {
+  sources = {
+    { name = "dap" },
+  },
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
