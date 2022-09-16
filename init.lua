@@ -106,8 +106,6 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
-vim.o.termguicolors = true
-
 -- [[ Configure kanagawa ]]
 local prompt = "#2A2A37"
 local results = "#1F1F28"
@@ -133,6 +131,7 @@ require('kanagawa').setup({
     TelescopeResultsTitle = { fg = results, bg = '#7AA89F' },
   }
 })
+vim.o.termguicolors = true
 vim.cmd [[colorscheme kanagawa]]
 
 -- Set completeopt to have a better completion experience
@@ -174,10 +173,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- colorizer
+-- [[ Colorizer ]]
 require('colorizer').setup()
 
--- Set lualine as statusline
+-- [[ Configure lualine as statusline ]]
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
@@ -188,7 +187,7 @@ require('lualine').setup {
   },
 }
 
--- Enable Comment.nvim
+-- [[ Comment.nvim ]]
 require('Comment').setup()
 
 -- [[ Configure autopairs ]]
@@ -197,14 +196,14 @@ require("nvim-autopairs").setup()
 -- [[ Configure autotag]]
 require('nvim-ts-autotag').setup()
 
--- Enable `lukas-reineke/indent-blankline.nvim`
+-- [[ Configure indent-blankline.nvim ]]
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
   char = '│',
   show_trailing_blankline_indent = false,
 }
 
--- Gitsigns
+-- [[ Configure Gitsigns ]]
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
   signs = {
@@ -377,7 +376,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- LSP settings.
+-- [[ LSP settings ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
@@ -429,9 +428,11 @@ end
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- [[ Configure mason ]]
 -- Setup mason so it can manage external tooling
 require('mason').setup()
 
+-- [[ Configure LSP servers ]]
 -- Enable the following language servers
 local servers = { 'tsserver', 'sumneko_lua', 'svelte', 'tailwindcss', 'html', 'cssls', 'cssmodules_ls', 'jsonls' }
 
@@ -454,6 +455,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
+-- [[ Configure sumneko_lua lsp]]
 require('lspconfig').sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -475,7 +477,7 @@ require('lspconfig').sumneko_lua.setup {
   },
 }
 
--- nvim-cmp setup
+-- [[ Configure nvim-cmp ]]
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
