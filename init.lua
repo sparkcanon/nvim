@@ -37,6 +37,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-repeat'                                                          -- Repeat things
   use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
   use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' }}           -- Quick file navigation with marks
+  use 'NvChad/nvim-colorizer.lua'                                                 -- Display colours
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -172,6 +173,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- colorizer
+require('colorizer').setup()
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
