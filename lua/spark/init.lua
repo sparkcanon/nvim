@@ -9,12 +9,8 @@ end
 
 -- stylua: ignore start
 require('packer').startup(function(use)
-  use { 'lewis6991/impatient.nvim',
-    config = function ()
-      require('impatient')
-    end
-  }
   use 'wbthomason/packer.nvim'                                                    -- Package manager
+  use 'lewis6991/impatient.nvim'                                                  -- Config caching
   use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }       -- Add git related info in the signs columns and popups
   use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
