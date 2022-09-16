@@ -33,6 +33,11 @@ require('packer').startup(function(use)
     'David-Kunz/jester',
     'theHamsta/nvim-dap-virtual-text'
   } }                                                                             -- Debugging
+  use 'windwp/nvim-autopairs'                                                     -- Adds matching pair
+  use 'windwp/nvim-ts-autotag'                                                    -- Adds closing tags
+  use 'tpope/vim-surround'                                                        -- Manipulate surroundings
+  use 'tpope/vim-repeat'                                                          -- Repeat things
+  use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -181,6 +186,12 @@ require('lualine').setup {
 
 -- Enable Comment.nvim
 require('Comment').setup()
+
+-- [[ Configure autopairs ]]
+require("nvim-autopairs").setup()
+
+-- [[ Configure autotag]]
+require('nvim-ts-autotag').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
