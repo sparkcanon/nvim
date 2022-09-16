@@ -42,7 +42,8 @@ require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-dap.nvim',
-      'nvim-telescope/telescope-file-browser.nvim'
+      'nvim-telescope/telescope-file-browser.nvim',
+      'elianiva/telescope-npm.nvim'
     } }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
@@ -280,6 +281,7 @@ pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'dap')
 pcall(require('telescope').load_extension, 'file_browser')
 pcall(require('telescope').load_extension, 'harpoon')
+pcall(require('telescope').load_extension, 'npm')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
