@@ -24,10 +24,19 @@ require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
   use "rebelot/kanagawa.nvim"                                                     -- Colorscheme
-  use { 'mfussenegger/nvim-dap', requires = { 'David-Kunz/jester' } }             -- Debugging
+  use { 'mfussenegger/nvim-dap', requires = {
+    'David-Kunz/jester',
+    'theHamsta/nvim-dap-virtual-text'
+  } }                                                                             -- Debugging
 
   -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-dap.nvim' } }
+  use { 'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-dap.nvim',
+      'nvim-telescope/telescope-file-browser.nvim'
+    } }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -101,16 +110,16 @@ require('kanagawa').setup({
 
     TelescopePreviewBorder = { bg = preview, fg = preview },
     TelescopePreviewNormal = { bg = preview },
-    TelescopePreviewTitle = { fg = preview },
+    TelescopePreviewTitle = { fg = preview, bg = '#98BB6C' },
 
     TelescopePromptBorder = { bg = prompt, fg = prompt },
     TelescopePromptNormal = { bg = prompt },
     TelescopePromptPrefix = { bg = prompt },
-    TelescopePromptTitle = { fg = prompt },
+    TelescopePromptTitle = { fg = prompt, bg = '#A3D4D5' },
 
     TelescopeResultsBorder = { bg = results, fg = results },
     TelescopeResultsNormal = { bg = results },
-    TelescopeResultsTitle = { fg = results },
+    TelescopeResultsTitle = { fg = results, bg = '#7AA89F' },
   }
 })
 vim.cmd [[colorscheme kanagawa]]
@@ -158,9 +167,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'kanagawa',
-    component_separators = '|',
+    component_separators = '│',
     section_separators = '',
   },
 }
@@ -171,7 +180,7 @@ require('Comment').setup()
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
-  char = '┊',
+  char = '│',
   show_trailing_blankline_indent = false,
 }
 
@@ -209,6 +218,9 @@ vim.keymap.set('n', '<leader>lp', function() require'dap'.set_breakpoint(nil, ni
 vim.keymap.set('n', '<leader>dr', function() require'dap'.repl.open() end, { silent = true, desc = "Dap open repl" })
 vim.keymap.set('n', '<leader>dl', function() require'dap'.run_last() end, { silent = true, desc = "Dap run last" })
 
+-- Dap load_extension
+require('nvim-dap-virtual-text').setup({})
+
 -- [[ Jester ]]
 vim.keymap.set('n', '<leader>tt', function() require"jester".run() end, { desc = "Jester run" })
 vim.keymap.set('n', '<leader>t_', function() require"jester".run_last() end, { desc = "Jester run last" })
@@ -229,11 +241,27 @@ require('telescope').setup {
       },
     },
   },
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
+  },
 }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'dap')
+pcall(require("telescope").load_extension, 'file_browser')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -251,6 +279,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sb', ':Telescope file_browser path=%:p:h<CR>', { desc = '[S]earch file [B]rowser' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
