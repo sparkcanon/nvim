@@ -125,7 +125,7 @@ require('kanagawa').setup({
     TelescopePromptBorder = { bg = prompt, fg = prompt },
     TelescopePromptNormal = { bg = prompt },
     TelescopePromptPrefix = { bg = prompt },
-    TelescopePromptTitle = { fg = prompt, bg = '#A3D4D5' },
+    TelescopePromptTitle = { fg = prompt },
 
     TelescopeResultsBorder = { bg = results, fg = results },
     TelescopeResultsNormal = { bg = results },
