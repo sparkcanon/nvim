@@ -127,6 +127,9 @@ vim.g.maplocalleader = ' '
 -- Command mode mapping
 vim.keymap.set({ 'n', 'x' }, ';', ':')
 
+-- Exit terminal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+
 -- Tabs
 vim.keymap.set('n', '<Tab>', 'gt')
 vim.keymap.set('n', '<S-Tab>', 'gT')
