@@ -34,6 +34,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'                                                        -- Manipulate surroundings
   use 'tpope/vim-repeat'                                                          -- Repeat things
   use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
+  use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' }}           -- Quick file navigation with marks
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -242,6 +243,11 @@ vim.keymap.set('n', '<leader>df', function() require"jester".debug_file() end, {
 vim.keymap.set('n', '<leader>dq', function() require"jester".terminate() end, { desc = "Jester terminate" })
 vim.keymap.set('n', '<leader>dd', function() require"jester".debug() end, { desc = "Jester debug" })
 
+-- [[ Configure harpoon ]]
+require("harpoon").setup()
+-- add marks
+vim.keymap.set('n', '<leader>am', function() require("harpoon.mark").add_file() end)
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -272,7 +278,8 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'dap')
-pcall(require("telescope").load_extension, 'file_browser')
+pcall(require('telescope').load_extension, 'file_browser')
+pcall(require('telescope').load_extension, 'harpoon')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -291,6 +298,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sb', ':Telescope file_browser path=%:p:h<CR>', { desc = '[S]earch file [B]rowser' })
+vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks theme=dropdown<CR>', { desc = '[S]earch [M]arks' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
