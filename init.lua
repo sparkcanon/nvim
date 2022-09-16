@@ -100,6 +100,13 @@ vim.g.maplocalleader = ' '
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
+-- Command mode mapping
+vim.keymap.set({ 'n', 'x' }, ';', ':')
+
+-- Tabs
+vim.keymap.set('n', '<Tab>', 'gt')
+vim.keymap.set('n', '<S-Tab>', 'gT')
+
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
