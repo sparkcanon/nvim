@@ -263,13 +263,18 @@ vim.keymap.set('n', '<leader>mf', function() require("harpoon.mark").add_file() 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
-  defaults = {
+  defaults = require('telescope.themes').get_ivy {
+    layout_config = {
+      height = 0.5
+    },
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
     },
+    prompt_prefix = '◍ ',
+    selection_caret = '▶▶',
   },
   extensions = {
     file_browser = {
