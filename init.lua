@@ -153,8 +153,8 @@ vim.keymap.set({ 'n', 'x' }, ';', ':')
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 -- Tabs
-vim.keymap.set('n', '<Tab>', 'gt')
-vim.keymap.set('n', '<S-Tab>', 'gT')
+vim.keymap.set('n', '<Tab>', 'gt', { desc = "Tab next" })
+vim.keymap.set('n', '<S-Tab>', 'gT', { desc = "Tab prev" })
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -227,32 +227,32 @@ dap.adapters.node2 = {
 require('dap.ext.vscode').load_launchjs(nil, { node = {'javascript', 'javascriptreact', 'typescriptreact', 'typescript' } })
 
 -- Dap mappings
-vim.keymap.set('n', '<F5>', function() require'dap'.continue() end, { silent = true, desc = "Dap continue" })
-vim.keymap.set('n', '<F10>', function () require'dap'.step_over() end, { silent = true, desc = "Dap step over" })
-vim.keymap.set('n', '<F11>', function () require'dap'.step_into() end, { silent = true, desc = "Dap step into" })
-vim.keymap.set('n', '<F12>', function () require'dap'.step_out() end, { silent = true, desc = "Dap step out" })
-vim.keymap.set('n', '<leader>b', function() require'dap'.toggle_breakpoint() end, { silent = true, desc = "Dap toggle breakpoint" })
-vim.keymap.set('n', '<leader>B', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { silent = true, desc = "Dap set conditional breakindent" })
-vim.keymap.set('n', '<leader>lp', function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { silent = true, desc = "Dap set log point" })
-vim.keymap.set('n', '<leader>dr', function() require'dap'.repl.open() end, { silent = true, desc = "Dap open repl" })
-vim.keymap.set('n', '<leader>dl', function() require'dap'.run_last() end, { silent = true, desc = "Dap run last" })
+vim.keymap.set('n', '<leader>C', function() require'dap'.continue() end, { silent = true, desc = "Dap [C]ontinue" })
+vim.keymap.set('n', '<leader>so', function () require'dap'.step_over() end, { silent = true, desc = "Dap [S]tep [O]ver" })
+vim.keymap.set('n', '<leader>si', function () require'dap'.step_into() end, { silent = true, desc = "Dap [S]tep [I]nto" })
+vim.keymap.set('n', '<leader>sO', function () require'dap'.step_out() end, { silent = true, desc = "Dap [S]tep [O]ut" })
+vim.keymap.set('n', '<leader>tb', function() require'dap'.toggle_breakpoint() end, { silent = true, desc = "Dap [T]oggle [B]reakpoint" })
+vim.keymap.set('n', '<leader>tsb', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { silent = true, desc = "Dap [S]et [C]onditional [B]reakindent" })
+vim.keymap.set('n', '<leader>lp', function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { silent = true, desc = "Dap set [L]og [P]oint" })
+vim.keymap.set('n', '<leader>or', function() require'dap'.repl.open() end, { silent = true, desc = "Dap [O]pen [R]epl" })
+vim.keymap.set('n', '<leader>rl', function() require'dap'.run_last() end, { silent = true, desc = "Dap [R]un [L]ast" })
 
 -- Dap load_extension
 require('nvim-dap-virtual-text').setup({})
 
 -- [[ Jester ]]
-vim.keymap.set('n', '<leader>tt', function() require"jester".run() end, { desc = "Jester run" })
-vim.keymap.set('n', '<leader>t_', function() require"jester".run_last() end, { desc = "Jester run last" })
-vim.keymap.set('n', '<leader>tf', function() require"jester".run_file() end, { desc = "Jester run file" })
-vim.keymap.set('n', '<leader>d_', function() require"jester".debug_last() end, { desc = "Jester debug last" })
-vim.keymap.set('n', '<leader>df', function() require"jester".debug_file() end, { desc = "Jester debug file" })
-vim.keymap.set('n', '<leader>dq', function() require"jester".terminate() end, { desc = "Jester terminate" })
-vim.keymap.set('n', '<leader>dd', function() require"jester".debug() end, { desc = "Jester debug" })
+vim.keymap.set('n', '<leader>jr', function() require"jester".run() end, { desc = "[J]ester [R]un" })
+vim.keymap.set('n', '<leader>jrl', function() require"jester".run_last() end, { desc = "[J]ester [R]un [L]ast" })
+vim.keymap.set('n', '<leader>jrf', function() require"jester".run_file() end, { desc = "[J]ester [R]un [F]ile" })
+vim.keymap.set('n', '<leader>jdl', function() require"jester".debug_last() end, { desc = "[J]ester [D]ebug [L]ast" })
+vim.keymap.set('n', '<leader>jdf', function() require"jester".debug_file() end, { desc = "[J]ester [D]ebug [F]ile" })
+vim.keymap.set('n', '<leader>jt', function() require"jester".terminate() end, { desc = "[J]ester [T]erminate" })
+vim.keymap.set('n', '<leader>jd', function() require"jester".debug() end, { desc = "[J]ester [D]ebug" })
 
 -- [[ Configure harpoon ]]
 require("harpoon").setup()
 -- add marks
-vim.keymap.set('n', '<leader>am', function() require("harpoon.mark").add_file() end)
+vim.keymap.set('n', '<leader>mf', function() require("harpoon.mark").add_file() end, { desc = "[M]ark [F]ile"})
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -371,10 +371,10 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to prev error"})
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next error" })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Quick show line error" })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open errors in list" })
 
 -- [[ LSP settings ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -398,7 +398,7 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('gr', require('telescope.builtin').lsp_references)
+  nmap('gr', require('telescope.builtin').lsp_references, "[G]oto [R]eferences")
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
