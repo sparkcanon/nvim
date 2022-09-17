@@ -26,7 +26,7 @@ require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
-  use "rebelot/kanagawa.nvim"                                                     -- Colorscheme
+  use 'bluz71/vim-moonfly-colors'
   use { 'mfussenegger/nvim-dap', requires = {
     'theHamsta/nvim-dap-virtual-text',
   } }                                                                             -- Debugging
@@ -111,34 +111,29 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
--- Set colorscheme
--- [[ Configure kanagawa ]]
-local prompt = "#2A2A37"
-local results = "#1F1F28"
-local preview = "#16161D"
-require('kanagawa').setup({
-  dimInactive = true,
-  overrides = {
-    -- Telescope
-    TelescopeMatching = { fg = "#5e81ac" },
-    TelescopeNormal = { fg = "#d9dce3" },
-
-    TelescopePreviewBorder = { bg = preview, fg = preview },
-    TelescopePreviewNormal = { bg = preview },
-    TelescopePreviewTitle = { fg = preview, bg = '#98BB6C' },
-
-    TelescopePromptBorder = { bg = prompt, fg = prompt },
-    TelescopePromptNormal = { bg = prompt },
-    TelescopePromptPrefix = { bg = prompt },
-    TelescopePromptTitle = { fg = prompt },
-
-    TelescopeResultsBorder = { bg = results, fg = results },
-    TelescopeResultsNormal = { bg = results },
-    TelescopeResultsTitle = { fg = results, bg = '#7AA89F' },
-  }
-})
+-- [[ Colorscheme ]]
 vim.o.termguicolors = true
-vim.cmd [[colorscheme kanagawa]]
+
+-- [[ Configure moonfly ]]
+vim.g.moonflyCursorColor = true
+-- configure moonfly floats for lsp
+vim.g.moonflyNormalFloat = true
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "single"
+  }
+)
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signatureHelp, {
+    border = "single"
+  }
+)
+vim.diagnostic.config({ float = { border = "single" } })
+
+-- window decorations
+vim.g.moonflyWinSeparator = 2
+vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
+vim.cmd [[colorscheme moonfly]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -192,7 +187,7 @@ require('bqf').setup {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'kanagawa',
+    theme = 'moonfly',
     component_separators = '│',
     section_separators = '',
   },
@@ -499,6 +494,11 @@ require('lspconfig').sumneko_lua.setup {
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
+-- Moonfly
+local winhighlight = {
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -539,7 +539,11 @@ cmp.setup {
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
         or require("cmp_dap").is_dap_buffer()
-  end
+  end,
+  window = { -- Moonfly
+    completion = cmp.config.window.bordered(winhighlight),
+    documentation = cmp.config.window.bordered(winhighlight),
+  }
 }
 
 require("cmp").setup.filetype({ "dap-repl", "dapui_watches" }, {
