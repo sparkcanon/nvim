@@ -38,6 +38,12 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
   use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' }}           -- Quick file navigation with marks
   use 'NvChad/nvim-colorizer.lua'                                                 -- Display colours
+  use {'kevinhwang91/nvim-bqf',
+    requires = {
+      { 'junegunn/fzf', run = function()
+        vim.fn['fzf#install']()
+      end }
+    }}                                                                            -- Enhanced quickfix window (Needs FZF for filtering)
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -176,6 +182,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- [[ Colorizer ]]
 require('colorizer').setup()
 
+-- [[ Configure bqf]]
+require('bqf').setup {
+  auto_resize_height = true,
+}
+
 -- [[ Configure lualine as statusline ]]
 -- See `:help lualine.txt`
 require('lualine').setup {
@@ -279,6 +290,13 @@ require('telescope').setup {
       },
     },
   },
+  pickers = {
+    buffers = {
+      initial_mode = "normal",
+      sort_mru = true,
+      sort_lastused = true,
+    }
+  }
 }
 
 -- Enable telescope fzf native, if installed
