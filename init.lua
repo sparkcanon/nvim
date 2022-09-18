@@ -23,7 +23,8 @@ require('packer').startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
   use { 'hrsh7th/nvim-cmp', requires = {
     'hrsh7th/cmp-nvim-lsp',
-    'rcarriga/cmp-dap'
+    'rcarriga/cmp-dap',
+    'hrsh7th/cmp-cmdline'
   } }                                                                             -- Autocompletion
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
@@ -47,6 +48,7 @@ require('packer').startup(function(use)
         vim.fn['fzf#install']()
       end }
     }}                                                                            -- Enhanced quickfix window (Needs FZF for filtering)
+  use 'voldikss/vim-floaterm'                                                     -- Create floating terminals
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -560,5 +562,14 @@ require("cmp").setup.filetype({ "dap-repl", "dapui_watches" }, {
   },
 })
 
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+      { name = 'cmdline' }
+    })
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
