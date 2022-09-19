@@ -49,6 +49,9 @@ require('packer').startup(function(use)
       end }
     }}                                                                            -- Enhanced quickfix window (Needs FZF for filtering)
   use 'voldikss/vim-floaterm'                                                     -- Create floating terminals
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = {                           -- Lsp addon
+    'nvim-lua/plenary.nvim'
+  }}
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -123,21 +126,17 @@ vim.o.termguicolors = true
 vim.g.moonflyCursorColor = true
 -- configure moonfly floats for lsp
 vim.g.moonflyNormalFloat = true
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "single"
-  }
-)
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  vim.lsp.handlers.signatureHelp, {
-    border = "single"
-  }
-)
-vim.diagnostic.config({ float = { border = "single" } })
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'single',
+})
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
+  border = 'single',
+})
+vim.diagnostic.config { float = { border = 'single' } }
 
 -- window decorations
 vim.g.moonflyWinSeparator = 2
-vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
+vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋' }
 vim.cmd [[colorscheme moonfly]]
 
 -- Set completeopt to have a better completion experience
@@ -159,8 +158,8 @@ vim.keymap.set({ 'n', 'x' }, ';', ':')
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 -- Tabs
-vim.keymap.set('n', '<Tab>', 'gt', { desc = "Tab next" })
-vim.keymap.set('n', '<S-Tab>', 'gT', { desc = "Tab prev" })
+vim.keymap.set('n', '<Tab>', 'gt', { desc = 'Tab next' })
+vim.keymap.set('n', '<S-Tab>', 'gT', { desc = 'Tab prev' })
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -202,7 +201,7 @@ require('lualine').setup {
 require('Comment').setup()
 
 -- [[ Configure autopairs ]]
-require("nvim-autopairs").setup()
+require('nvim-autopairs').setup()
 
 -- [[ Configure autotag]]
 require('nvim-ts-autotag').setup()
@@ -227,50 +226,84 @@ require('gitsigns').setup {
 }
 
 -- [[ Configure Dap ]]
-local dap = require('dap')
+local dap = require 'dap'
 -- Find and set node2 executable
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
-  args = {os.getenv('HOME') .. '/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js'},
+  args = { os.getenv 'HOME' .. '/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' },
 }
 -- read .vscode/launch.json
-require('dap.ext.vscode').load_launchjs(nil, { node = {'javascript', 'javascriptreact', 'typescriptreact', 'typescript' } })
+require('dap.ext.vscode').load_launchjs(nil, { node = { 'javascript', 'javascriptreact', 'typescriptreact', 'typescript' } })
 
 -- Dap mappings
-vim.keymap.set('n', '<leader>C', function() require'dap'.continue() end, { silent = true, desc = "Dap [C]ontinue" })
-vim.keymap.set('n', '<leader>so', function () require'dap'.step_over() end, { silent = true, desc = "Dap [S]tep [O]ver" })
-vim.keymap.set('n', '<leader>si', function () require'dap'.step_into() end, { silent = true, desc = "Dap [S]tep [I]nto" })
-vim.keymap.set('n', '<leader>sO', function () require'dap'.step_out() end, { silent = true, desc = "Dap [S]tep [O]ut" })
-vim.keymap.set('n', '<leader>tb', function() require'dap'.toggle_breakpoint() end, { silent = true, desc = "Dap [T]oggle [B]reakpoint" })
-vim.keymap.set('n', '<leader>tsb', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { silent = true, desc = "Dap [S]et [C]onditional [B]reakindent" })
-vim.keymap.set('n', '<leader>lp', function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { silent = true, desc = "Dap set [L]og [P]oint" })
-vim.keymap.set('n', '<leader>or', function() require'dap'.repl.open() end, { silent = true, desc = "Dap [O]pen [R]epl" })
-vim.keymap.set('n', '<leader>rl', function() require'dap'.run_last() end, { silent = true, desc = "Dap [R]un [L]ast" })
+vim.keymap.set('n', '<leader>C', function()
+  require('dap').continue()
+end, { silent = true, desc = 'Dap [C]ontinue' })
+vim.keymap.set('n', '<leader>so', function()
+  require('dap').step_over()
+end, { silent = true, desc = 'Dap [S]tep [O]ver' })
+vim.keymap.set('n', '<leader>si', function()
+  require('dap').step_into()
+end, { silent = true, desc = 'Dap [S]tep [I]nto' })
+vim.keymap.set('n', '<leader>sO', function()
+  require('dap').step_out()
+end, { silent = true, desc = 'Dap [S]tep [O]ut' })
+vim.keymap.set('n', '<leader>tb', function()
+  require('dap').toggle_breakpoint()
+end, { silent = true, desc = 'Dap [T]oggle [B]reakpoint' })
+vim.keymap.set('n', '<leader>tsb', function()
+  require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+end, { silent = true, desc = 'Dap [S]et [C]onditional [B]reakindent' })
+vim.keymap.set('n', '<leader>lp', function()
+  require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
+end, { silent = true, desc = 'Dap set [L]og [P]oint' })
+vim.keymap.set('n', '<leader>or', function()
+  require('dap').repl.open()
+end, { silent = true, desc = 'Dap [O]pen [R]epl' })
+vim.keymap.set('n', '<leader>rl', function()
+  require('dap').run_last()
+end, { silent = true, desc = 'Dap [R]un [L]ast' })
 
 -- Dap load_extension
-require('nvim-dap-virtual-text').setup({})
+require('nvim-dap-virtual-text').setup {}
 
 -- [[ Jester ]]
-vim.keymap.set('n', '<leader>jr', function() require"jester".run() end, { desc = "[J]ester [R]un" })
-vim.keymap.set('n', '<leader>jrl', function() require"jester".run_last() end, { desc = "[J]ester [R]un [L]ast" })
-vim.keymap.set('n', '<leader>jrf', function() require"jester".run_file() end, { desc = "[J]ester [R]un [F]ile" })
-vim.keymap.set('n', '<leader>jdl', function() require"jester".debug_last() end, { desc = "[J]ester [D]ebug [L]ast" })
-vim.keymap.set('n', '<leader>jdf', function() require"jester".debug_file() end, { desc = "[J]ester [D]ebug [F]ile" })
-vim.keymap.set('n', '<leader>jt', function() require"jester".terminate() end, { desc = "[J]ester [T]erminate" })
-vim.keymap.set('n', '<leader>jd', function() require"jester".debug() end, { desc = "[J]ester [D]ebug" })
+vim.keymap.set('n', '<leader>jr', function()
+  require('jester').run()
+end, { desc = '[J]ester [R]un' })
+vim.keymap.set('n', '<leader>jrl', function()
+  require('jester').run_last()
+end, { desc = '[J]ester [R]un [L]ast' })
+vim.keymap.set('n', '<leader>jrf', function()
+  require('jester').run_file()
+end, { desc = '[J]ester [R]un [F]ile' })
+vim.keymap.set('n', '<leader>jdl', function()
+  require('jester').debug_last()
+end, { desc = '[J]ester [D]ebug [L]ast' })
+vim.keymap.set('n', '<leader>jdf', function()
+  require('jester').debug_file()
+end, { desc = '[J]ester [D]ebug [F]ile' })
+vim.keymap.set('n', '<leader>jt', function()
+  require('jester').terminate()
+end, { desc = '[J]ester [T]erminate' })
+vim.keymap.set('n', '<leader>jd', function()
+  require('jester').debug()
+end, { desc = '[J]ester [D]ebug' })
 
 -- [[ Configure harpoon ]]
-require("harpoon").setup()
+require('harpoon').setup()
 -- add marks
-vim.keymap.set('n', '<leader>mf', function() require("harpoon.mark").add_file() end, { desc = "[M]ark [F]ile"})
+vim.keymap.set('n', '<leader>mf', function()
+  require('harpoon.mark').add_file()
+end, { desc = '[M]ark [F]ile' })
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = require('telescope.themes').get_ivy {
     layout_config = {
-      height = 0.5
+      height = 0.5,
     },
     mappings = {
       i = {
@@ -286,10 +319,10 @@ require('telescope').setup {
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
-        ["i"] = {
+        ['i'] = {
           -- your custom insert mode mappings
         },
-        ["n"] = {
+        ['n'] = {
           -- your custom normal mode mappings
         },
       },
@@ -297,11 +330,11 @@ require('telescope').setup {
   },
   pickers = {
     buffers = {
-      initial_mode = "normal",
+      initial_mode = 'normal',
       sort_mru = true,
       sort_lastused = true,
-    }
-  }
+    },
+  },
 }
 
 -- Enable telescope fzf native, if installed
@@ -334,7 +367,7 @@ vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<CR>', { desc = '[S]e
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = {'lua', 'typescript', 'css', 'scss', 'javascript', 'tsx', 'json', 'svelte'},
+  ensure_installed = { 'lua', 'typescript', 'css', 'scss', 'javascript', 'tsx', 'json', 'svelte' },
 
   highlight = { enable = true },
   indent = { enable = true },
@@ -394,10 +427,10 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to prev error"})
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next error" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Quick show line error" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open errors in list" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next error' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Quick show line error' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open errors in list' })
 
 -- [[ LSP settings ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -421,7 +454,7 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('gr', require('telescope.builtin').lsp_references, "[G]oto [R]eferences")
+  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
@@ -495,8 +528,18 @@ require('lspconfig').sumneko_lua.setup {
       },
       workspace = { library = vim.api.nvim_get_runtime_file('', true) },
       -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = { enable = false, },
+      telemetry = { enable = false },
     },
+  },
+}
+
+local null_ls = require 'null-ls'
+null_ls.setup {
+  sources = {
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.code_actions.gitsigns,
   },
 }
 
@@ -506,7 +549,7 @@ local luasnip = require 'luasnip'
 
 -- Moonfly
 local winhighlight = {
-  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+  winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel',
 }
 
 cmp.setup {
@@ -547,18 +590,17 @@ cmp.setup {
     { name = 'luasnip' },
   },
   enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-        or require("cmp_dap").is_dap_buffer()
+    return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()
   end,
   window = { -- Moonfly
     completion = cmp.config.window.bordered(winhighlight),
     documentation = cmp.config.window.bordered(winhighlight),
-  }
+  },
 }
 
-cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
+cmp.setup.filetype({ 'dap-repl', 'dapui_watches' }, {
   sources = {
-    { name = "dap" },
+    { name = 'dap' },
   },
 })
 
@@ -566,10 +608,10 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = 'path' }
+    { name = 'path' },
   }, {
-      { name = 'cmdline' }
-    })
+    { name = 'cmdline' },
+  }),
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
