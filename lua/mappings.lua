@@ -103,3 +103,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' 
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next error' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Quick show line error' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open errors in list' })
+
+-- Commands
+vim.api.nvim_create_user_command('Lg', ':FloatermNew --width=0.89 --height=0.89 lazygit', { nargs = 0 })
