@@ -87,7 +87,14 @@ require('packer').startup(function(use)
     end
   }
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
-  use 'bluz71/vim-moonfly-colors'
+  use {
+    'bluz71/vim-moonfly-colors',
+    config = function ()
+      require 'plugins/moonfly'
+      vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋' }
+      vim.cmd [[colorscheme moonfly]]
+    end
+  }
   use {                                                                           -- Debugging
     'mfussenegger/nvim-dap', requires = {
       'theHamsta/nvim-dap-virtual-text',
@@ -189,21 +196,6 @@ require 'autocmd'
 require 'settings'
 require 'mappings'
 require 'lsp'
-
--- [[ Configure moonfly ]]
-vim.g.moonflyCursorColor = true
--- configure moonfly floats for lsp
-vim.g.moonflyNormalFloat = true
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'single',
-})
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {
-  border = 'single',
-})
-vim.diagnostic.config { float = { border = 'single' } }
-
--- window decorations
-vim.g.moonflyWinSeparator = 2
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
