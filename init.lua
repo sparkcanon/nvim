@@ -40,18 +40,18 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'                                                        -- Manipulate surroundings
   use 'tpope/vim-repeat'                                                          -- Repeat things
   use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
-  use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' }}           -- Quick file navigation with marks
+  use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }          -- Quick file navigation with marks
   use 'NvChad/nvim-colorizer.lua'                                                 -- Display colours
   use {'kevinhwang91/nvim-bqf',
     requires = {
       { 'junegunn/fzf', run = function()
         vim.fn['fzf#install']()
       end }
-    }}                                                                            -- Enhanced quickfix window (Needs FZF for filtering)
+    } }                                                                            -- Enhanced quickfix window (Needs FZF for filtering)
   use 'voldikss/vim-floaterm'                                                     -- Create floating terminals
   use { 'jose-elias-alvarez/null-ls.nvim', requires = {                           -- Lsp addon
     'nvim-lua/plenary.nvim'
-  }}
+  } }
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
@@ -359,7 +359,7 @@ vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { des
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics, { desc = '[S]earch all [E]errors' })
 vim.keymap.set('n', '<leader>sF', ':Telescope file_browser grouped=true path=%:p:h<CR>', { desc = '[S]earch for [F]iles' })
 vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<CR>', { desc = '[S]earch [M]arks' })
 
