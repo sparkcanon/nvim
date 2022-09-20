@@ -6,4 +6,4 @@ else
 end
 
 -- Do all init in init.lua so impatient can cache it
-require 'lua/init'
+require 'init'
