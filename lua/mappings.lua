@@ -8,6 +8,7 @@ vim.g.maplocalleader = ' '
 -- See `:help vim.keymap.set()`
 -- Command mode mapping
 vim.keymap.set({ 'n', 'x' }, ';', ':')
+vim.keymap.set({ 'n', 'x' }, ':', ';')
 
 -- Exit terminal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
@@ -29,7 +30,7 @@ vim.keymap.set('n', '<C-x>', [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''
 vim.keymap.set('n', '[b', ':bprevious<cr>', { silent = true })
 vim.keymap.set('n', ']b', ':bnext<cr>', { silent = true })
 
--- Dap mappings
+-- [[ Dap ]]
 vim.keymap.set('n', '<leader>C', function()
   require('dap').continue()
 end, { silent = true, desc = 'Dap [C]ontinue' })
@@ -51,9 +52,7 @@ end, { silent = true, desc = 'Dap [S]et [C]onditional [B]reakindent' })
 vim.keymap.set('n', '<leader>lp', function()
   require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
 end, { silent = true, desc = 'Dap set [L]og [P]oint' })
-vim.keymap.set('n', '<leader>or', function()
-  require('dap').repl.open()
-end, { silent = true, desc = 'Dap [O]pen [R]epl' })
+vim.keymap.set('n', '<leader>or', ':DapToggleRepl<CR>', { silent = true, desc = 'Dap [O]pen [R]epl' })
 vim.keymap.set('n', '<leader>rl', function()
   require('dap').run_last()
 end, { silent = true, desc = 'Dap [R]un [L]ast' })
@@ -99,6 +98,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics, { desc = '[S]earch all [E]errors' })
 vim.keymap.set('n', '<leader>sF', ':Telescope file_browser grouped=true path=%:p:h<CR>', { desc = '[S]earch for [F]iles' })
 vim.keymap.set('n', '<leader>sm', ':Telescope marks<CR>', { desc = '[S]earch [M]arks' })
+vim.keymap.set('n', '<leader>sk', ':Telescope keymaps<CR>', { desc = '[S]earch [K]eymaps' })
+vim.keymap.set('n', '<leader>sd', ':Telescope dap<CR>', { desc = '[S]earch [D]ap' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' })
