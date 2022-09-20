@@ -126,13 +126,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'                                                        -- Manipulate surroundings
   use 'tpope/vim-repeat'                                                          -- Repeat things
   use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
-  use {                                                                           -- Quick file navigation with marks
-    'ThePrimeagen/harpoon',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function ()
-      require('harpoon').setup()
-    end
-  }
   use {                                                                           -- Display colours
     'NvChad/nvim-colorizer.lua',
     config = function ()
