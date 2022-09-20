@@ -103,7 +103,14 @@ require('packer').startup(function(use)
       require 'plugins/dap'
     end
   }
-  use 'David-Kunz/jester'                                                         -- Jest (Needs Dap for debugging)
+  use {
+    'David-Kunz/jester',
+    config = function ()
+      require("jester").setup({
+        path_to_jest_run = './node_modules/.bin/jest'
+      })
+    end
+  }                                                         -- Jest (Needs Dap for debugging)
   use {                                                                           -- Adds matching pair
     'windwp/nvim-autopairs',
     config = function ()
