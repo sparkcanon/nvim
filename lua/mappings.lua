@@ -25,6 +25,10 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Clear highlighting
 vim.keymap.set('n', '<C-x>', [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]], { silent = true })
 
+-- buffers
+vim.keymap.set('n', '[b', ':bprevious<cr>', { silent = true })
+vim.keymap.set('n', ']b', ':bnext<cr>', { silent = true })
+
 -- Dap mappings
 vim.keymap.set('n', '<leader>C', function()
   require('dap').continue()
@@ -53,6 +57,9 @@ end, { silent = true, desc = 'Dap [O]pen [R]epl' })
 vim.keymap.set('n', '<leader>rl', function()
   require('dap').run_last()
 end, { silent = true, desc = 'Dap [R]un [L]ast' })
+vim.keymap.set('n', '<leader>dt', function()
+  require('dap').terminate()
+end, { desc = '[D]ap [T]erminate' })
 
 -- [[ Jester ]]
 vim.keymap.set('n', '<leader>jr', function()
@@ -70,17 +77,9 @@ end, { desc = '[J]ester [D]ebug [L]ast' })
 vim.keymap.set('n', '<leader>jdf', function()
   require('jester').debug_file()
 end, { desc = '[J]ester [D]ebug [F]ile' })
-vim.keymap.set('n', '<leader>jt', function()
-  require('jester').terminate()
-end, { desc = '[J]ester [T]erminate' })
 vim.keymap.set('n', '<leader>jd', function()
   require('jester').debug()
 end, { desc = '[J]ester [D]ebug' })
-
--- add marks
-vim.keymap.set('n', '<leader>mf', function()
-  require('harpoon.mark').add_file()
-end, { desc = '[M]ark [F]ile' })
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -99,7 +98,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics, { desc = '[S]earch all [E]errors' })
 vim.keymap.set('n', '<leader>sF', ':Telescope file_browser grouped=true path=%:p:h<CR>', { desc = '[S]earch for [F]iles' })
-vim.keymap.set('n', '<leader>sm', ':Telescope harpoon marks<CR>', { desc = '[S]earch [M]arks' })
+vim.keymap.set('n', '<leader>sm', ':Telescope marks<CR>', { desc = '[S]earch [M]arks' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' })

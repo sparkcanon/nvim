@@ -41,5 +41,4 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'dap')
 pcall(require('telescope').load_extension, 'file_browser')
-pcall(require('telescope').load_extension, 'harpoon')
 pcall(require('telescope').load_extension, 'npm')

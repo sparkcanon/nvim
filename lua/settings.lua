@@ -32,4 +32,4 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.cursorline = true
 
 -- Clipboard
-vim.opt.clipboard:prepend { "unnamed" }
+vim.opt.clipboard:prepend { 'unnamed' }
