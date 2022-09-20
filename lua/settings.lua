@@ -1,6 +1,6 @@
 -- See `:help vim.o`
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -22,9 +22,14 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
--- [[ Colorscheme ]]
+-- True colours
 vim.o.termguicolors = true
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- Cursor line
+vim.o.cursorline = true
+
+-- Clipboard
+vim.opt.clipboard:prepend { "unnamed" }
