@@ -145,7 +145,27 @@ require('packer').startup(function(use)
       }
     end
   }                                                                               -- Enhanced quickfix window (Needs FZF for filtering)
-  use 'voldikss/vim-floaterm'                                                     -- Create floating terminals
+  use {                                                                           -- Create floating terminals
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
+      require("toggleterm").setup({
+        open_mapping = [[<c-/>]],
+        shade_filetypes = { 'none' },
+        direction = 'horizontal',
+        insert_mappings = false,
+        start_in_insert = true,
+        float_opts = { border = 'rounded', winblend = 3 },
+        size = function(term)
+          if term.direction == 'horizontal' then
+            return 15
+          elseif term.direction == 'vertical' then
+            return math.floor(vim.o.columns * 0.4)
+          end
+        end,
+      })
+    end
+  }
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = {

@@ -10,9 +10,6 @@ vim.g.maplocalleader = ' '
 vim.keymap.set({ 'n', 'x' }, ';', ':')
 vim.keymap.set({ 'n', 'x' }, ':', ';')
 
--- Exit terminal mode
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
-
 -- Tabs
 vim.keymap.set('n', '<Tab>', 'gt', { desc = 'Tab next' })
 vim.keymap.set('n', '<S-Tab>', 'gT', { desc = 'Tab prev' })
@@ -108,4 +105,10 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Quick show
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open errors in list' })
 
 -- Commands
-vim.api.nvim_create_user_command('Lg', ':FloatermNew --width=0.89 --height=0.89 lazygit', { nargs = 0 })
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float' }
+
+-- Lazygit
+vim.api.nvim_create_user_command('Lg', function()
+  lazygit:toggle()
+end, { nargs = 0 })
