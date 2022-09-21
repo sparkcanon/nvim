@@ -188,7 +188,8 @@ require('packer').startup(function(use)
       'nvim-telescope/telescope-dap.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
       'elianiva/telescope-npm.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 },
+      "nvim-telescope/telescope-live-grep-args.nvim"
     },
     config = function ()
       require 'plugins/telescope'
