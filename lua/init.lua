@@ -103,14 +103,14 @@ require('packer').startup(function(use)
       require 'plugins/dap'
     end
   }
-  use {
+  use {                                                                           -- Jest (Needs Dap for debugging)
     'David-Kunz/jester',
     config = function ()
       require("jester").setup({
         path_to_jest_run = './node_modules/.bin/jest'
       })
     end
-  }                                                         -- Jest (Needs Dap for debugging)
+  }
   use {                                                                           -- Adds matching pair
     'windwp/nvim-autopairs',
     config = function ()
@@ -150,11 +150,11 @@ require('packer').startup(function(use)
     tag = '*',
     config = function()
       require("toggleterm").setup({
-        open_mapping = [[<c-/>]],
+        open_mapping = [[<c-t>]],
         shade_filetypes = { 'none' },
         direction = 'horizontal',
         insert_mappings = false,
-        start_in_insert = true,
+        start_in_insert = false,
         float_opts = { border = 'rounded', winblend = 3 },
         size = function(term)
           if term.direction == 'horizontal' then
