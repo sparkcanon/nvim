@@ -13,15 +13,11 @@ require('packer').startup(function(use)
   use 'lewis6991/impatient.nvim'
   use {                                                                           -- Tpope
     'tpope/vim-fugitive',                                                         -- Git stuff
-    {'tpope/vim-dispatch',                                                        -- Run in terminals
-      opt = true,
-      cmd = {'Dispatch', 'Make', 'Focus', 'Start', 'Spawn' }
-    },
+    'tpope/vim-dispatch',                                                         -- Run in terminals
     'tpope/vim-sleuth',
     'tpope/vim-surround',                                                         -- Manipulate surroundings
     'tpope/vim-repeat'                                                            -- Repeat things
   }
-
   use {
     'lewis6991/gitsigns.nvim',                                                    -- Add git related info in the signs columns and popups
     requires = { 'nvim-lua/plenary.nvim' },
