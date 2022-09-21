@@ -11,7 +11,17 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'                                                    -- Package manager
   use 'lewis6991/impatient.nvim'
-  use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
+  use {                                                                           -- Tpope
+    'tpope/vim-fugitive',                                                         -- Git stuff
+    {'tpope/vim-dispatch',                                                        -- Run in terminals
+      opt = true,
+      cmd = {'Dispatch', 'Make', 'Focus', 'Start', 'Spawn' }
+    },
+    'tpope/vim-sleuth',
+    'tpope/vim-surround',                                                         -- Manipulate surroundings
+    'tpope/vim-repeat'                                                            -- Repeat things
+  }
+
   use {
     'lewis6991/gitsigns.nvim',                                                    -- Add git related info in the signs columns and popups
     requires = { 'nvim-lua/plenary.nvim' },
@@ -86,7 +96,6 @@ require('packer').startup(function(use)
 
     end
   }
-  use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
   use {
     'bluz71/vim-moonfly-colors',
     config = function ()
@@ -121,10 +130,9 @@ require('packer').startup(function(use)
     'windwp/nvim-ts-autotag',
     config = function ()
       require('nvim-ts-autotag').setup()
-    end
+    end,
+    ft = {'html', 'jsx', 'tsx', 'svelte'}
   }
-  use 'tpope/vim-surround'                                                        -- Manipulate surroundings
-  use 'tpope/vim-repeat'                                                          -- Repeat things
   use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
   use {                                                                           -- Display colours
     'NvChad/nvim-colorizer.lua',
