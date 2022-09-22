@@ -72,14 +72,7 @@ require('packer').startup(function(use)
   use {                                                                           -- Fancier statusline
     'nvim-lualine/lualine.nvim',
     config = function ()
-      require('lualine').setup {
-        options = {
-          icons_enabled = true,
-          theme = 'moonfly',
-          component_separators = '│',
-          section_separators = '',
-        },
-      }
+      require 'plugins/lualine'
     end
   }
   use {                                                                           -- Add indentation guides even on blank lines
