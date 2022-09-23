@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
   callback = function()
     if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
       local opts = { silent = false, buffer = 0 }
-      vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+      vim.keymap.set('t', '<C-space>', [[<C-\><C-n>]], opts)
       vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
       vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
       vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)

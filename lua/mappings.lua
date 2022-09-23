@@ -28,9 +28,9 @@ vim.keymap.set('n', '[b', ':bprevious<cr>', { silent = true })
 vim.keymap.set('n', ']b', ':bnext<cr>', { silent = true })
 
 -- [[ Dap ]]
-vim.keymap.set('n', '<leader>C', function()
+vim.keymap.set('n', '<leader>dc', function()
   require('dap').continue()
-end, { silent = true, desc = 'Dap [C]ontinue' })
+end, { silent = true, desc = '[D]ap [c]ontinue' })
 vim.keymap.set('n', '<leader>so', function()
   require('dap').step_over()
 end, { silent = true, desc = 'Dap [S]tep [O]ver' })
@@ -96,8 +96,14 @@ vim.keymap.set('n', '<leader>se', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sF', ':Telescope file_browser grouped=true path=%:p:h<CR>', { desc = '[S]earch for [F]iles' })
 vim.keymap.set('n', '<leader>sm', require('telescope.builtin').marks, { desc = '[S]earch [m]arks' })
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [k]eymaps' })
-vim.keymap.set('n', '<leader>sd', ':Telescope dap<CR>', { desc = '[S]earch [d]ap' })
 vim.keymap.set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = '[S]earch [j]umplist' })
+
+vim.keymap.set('n', '<leader>df', ':Telescope dap frames<CR>', { desc = '[d]ap [f]rames' })
+vim.keymap.set('n', '<leader>C', ':Telescope dap commands<CR>', { desc = 'Dap [C]ommands' })
+vim.keymap.set('n', '<leader>lb', ':Telescope dap list_breakpoints<CR>', { desc = 'Dap [l]ist [b]reakpoints' })
+vim.keymap.set('n', '<leader>lb', ':Telescope dap variables<CR>', { desc = 'Dap [l]ist [v]ariables' })
+
+vim.keymap.set('n', '<leader>ns', ':Telescope npm scripts<CR>', { desc = 'Search [n]pm [s]cripts' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' })
