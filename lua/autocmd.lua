@@ -27,10 +27,10 @@ vim.api.nvim_create_autocmd('TermOpen', {
       vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
       vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
       vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-      vim.keymap.set('t', ']t', [[<C-\><C-n>:tablast<CR>]])
-      vim.keymap.set('t', '[t', [[<C-\><C-n>:tabnext<CR>]])
-      vim.keymap.set('t', '<S-Tab>', [[<C-\><C-n>:bprev<CR>]])
-      vim.keymap.set('t', '<leader><Tab>', [[<C-\><C-n>:close \| :bnext<cr>]])
+      -- vim.keymap.set('t', ']t', [[<C-\><C-n>:tablast<CR>]])
+      -- vim.keymap.set('t', '[t', [[<C-\><C-n>:tabnext<CR>]])
+      -- vim.keymap.set('t', '<S-Tab>', [[<C-\><C-n>:bprev<CR>]])
+      -- vim.keymap.set('t', '<leader><Tab>', [[<C-\><C-n>:close \| :bnext<cr>]])
     end
   end,
   group = term_group,
