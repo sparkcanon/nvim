@@ -80,19 +80,22 @@ require('packer').startup(function(use)
     config = function ()
       require('indent_blankline').setup {
         char = '▏',
-        space_char_blankline = " ",
-        show_trailing_blankline_indent = false,
-        show_current_context = true,
-        show_current_context_start = true,
       }
-
     end
   }
   use {
     'bluz71/vim-moonfly-colors',
     config = function ()
       require 'plugins/moonfly'
-      vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋' }
+      vim.opt.fillchars = {
+        horiz = '━',
+        horizup = '┻',
+        horizdown = '┳',
+        vert = '┃',
+        vertleft = '┫',
+        vertright = '┣',
+        verthoriz = '╋'
+      }
       vim.cmd [[colorscheme moonfly]]
     end
   }

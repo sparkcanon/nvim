@@ -10,10 +10,8 @@ require('lualine').setup {
       {
         'mode',
         fmt = function(str)
-          return '⚫ ' .. str:sub(1, 1)
+          return str:sub(1, 1)
         end,
-        separator = { left = '', right = '' },
-        padding = 0,
       },
     },
     lualine_b = { 'branch', 'diff' },
@@ -22,5 +20,4 @@ require('lualine').setup {
     lualine_y = { 'progress' },
     lualine_z = { 'location' },
   },
-  extensions = { 'toggleterm', 'fugitive' },
 }
