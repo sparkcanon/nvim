@@ -10,10 +10,10 @@ end
 -- stylua: ignore start
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'                                                    -- Package manager
-  use 'lewis6991/impatient.nvim'
+  use 'lewis6991/impatient.nvim'                                                  -- Cache config for faster startup
   use {                                                                           -- Tpope
     'tpope/vim-fugitive',                                                         -- Git stuff
-    'tpope/vim-dispatch',                                                         -- Run in terminals
+    'tpope/vim-dispatch',                                                         -- Run stuff in terminals
     'tpope/vim-sleuth',
     'tpope/vim-surround',                                                         -- Manipulate surroundings
     'tpope/vim-repeat'                                                            -- Repeat things
@@ -83,7 +83,7 @@ require('packer').startup(function(use)
       }
     end
   }
-  use {
+  use {                                                                           -- Colorscheme
     'bluz71/vim-moonfly-colors',
     config = function ()
       require 'plugins/moonfly'
@@ -99,7 +99,7 @@ require('packer').startup(function(use)
       vim.cmd [[colorscheme moonfly]]
     end
   }
-  use {                                                                           -- Debugging
+  use {                                                                           -- Debug adapter
     'mfussenegger/nvim-dap', requires = {
       'theHamsta/nvim-dap-virtual-text',
     },
@@ -121,7 +121,7 @@ require('packer').startup(function(use)
       require('nvim-autopairs').setup()
     end
   }
-  use {                                                                           -- Adds closing tags
+  use {                                                                           -- Auto closing tags
     'windwp/nvim-ts-autotag',
     config = function ()
       require('nvim-ts-autotag').setup()
@@ -135,12 +135,15 @@ require('packer').startup(function(use)
       require('colorizer').setup()
     end
   }
-  use {
+  use {                                                                           -- Quickfix utility
     'kevinhwang91/nvim-bqf',
     requires = {
-      { 'junegunn/fzf', run = function()
-        vim.fn['fzf#install']()
-      end }
+      {
+        'junegunn/fzf',
+        run = function()
+          vim.fn['fzf#install']()
+        end
+      }
     },
     config = function ()
       require('bqf').setup {
@@ -170,7 +173,7 @@ require('packer').startup(function(use)
     end
   }
   use {
-    'jose-elias-alvarez/null-ls.nvim',
+    'jose-elias-alvarez/null-ls.nvim',                                            -- General purpose lsp
     requires = {
       'nvim-lua/plenary.nvim'
     },
@@ -187,7 +190,12 @@ require('packer').startup(function(use)
       'nvim-telescope/telescope-dap.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
       'elianiva/telescope-npm.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 },
+      -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+        cond = vim.fn.executable "make" == 1
+      },
       "nvim-telescope/telescope-live-grep-args.nvim"
     },
     config = function ()
@@ -195,7 +203,6 @@ require('packer').startup(function(use)
     end
   }
 
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
 
   if is_bootstrap then
     require('packer').sync()
