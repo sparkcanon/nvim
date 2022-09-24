@@ -99,9 +99,9 @@ vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc =
 vim.keymap.set('n', '<leader>sj', require('telescope.builtin').jumplist, { desc = '[S]earch [j]umplist' })
 
 vim.keymap.set('n', '<leader>df', ':Telescope dap frames<CR>', { desc = '[d]ap [f]rames' })
-vim.keymap.set('n', '<leader>C', ':Telescope dap commands<CR>', { desc = 'Dap [C]ommands' })
-vim.keymap.set('n', '<leader>lb', ':Telescope dap list_breakpoints<CR>', { desc = 'Dap [l]ist [b]reakpoints' })
-vim.keymap.set('n', '<leader>lb', ':Telescope dap variables<CR>', { desc = 'Dap [l]ist [v]ariables' })
+vim.keymap.set('n', '<leader>dC', ':Telescope dap commands<CR>', { desc = '[d]ap [C]ommands' })
+vim.keymap.set('n', '<leader>db', ':Telescope dap list_breakpoints<CR>', { desc = '[d]ap [b]reakpoints' })
+vim.keymap.set('n', '<leader>dv', ':Telescope dap variables<CR>', { desc = '[d]ap [v]ariables' })
 
 vim.keymap.set('n', '<leader>ns', ':Telescope npm scripts<CR>', { desc = 'Search [n]pm [s]cripts' })
 
@@ -116,6 +116,6 @@ local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float', display_name = 'lazygit' }
 
 -- Lazygit
-vim.api.nvim_create_user_command('Lg', function()
+vim.keymap.set('n', '<leader>gg', function()
   lazygit:toggle()
-end, { nargs = 0 })
+end, { desc = '[G]it lazy' })
