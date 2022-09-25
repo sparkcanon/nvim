@@ -4,6 +4,7 @@ local jester = require 'jester'
 local dap = require 'dap'
 
 local telescope_hint = [[
+
   Telescope
 
   _f_: files            _m_: marks               ^
@@ -17,6 +18,7 @@ local telescope_hint = [[
   _O_: options          _?_: search history
 
   _<Enter>_: Telescope           _<Esc>_
+
 ]]
 
 local hint_config = {
@@ -72,6 +74,7 @@ Hydra {
 }
 
 local jester_hint = [[
+
   Jester
 
   _r_: Run file          _L_: Run last      ^
@@ -79,6 +82,7 @@ local jester_hint = [[
   _f_: Debug file        _d_: Debug
 
   _<Esc>_
+
 ]]
 
 Hydra {
@@ -139,6 +143,7 @@ Hydra {
 }
 
 local dap_hint = [[
+
   Dap
 
   _c_: Continue             _q_: Terminate      ^
@@ -149,6 +154,7 @@ local dap_hint = [[
   _i_: step into            _r_: repl
 
   _<Esc>_
+
 ]]
 
 Hydra {
