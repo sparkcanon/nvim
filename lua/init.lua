@@ -173,6 +173,12 @@ require('packer').startup(function(use)
     end
   }
   use {
+    'anuvyklack/hydra.nvim',
+    config = function ()
+      require 'plugins/hydra'
+    end
+  }
+  use {
     'jose-elias-alvarez/null-ls.nvim',                                            -- General purpose lsp
     requires = {
       'nvim-lua/plenary.nvim'
