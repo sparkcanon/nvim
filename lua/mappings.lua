@@ -33,11 +33,5 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next error' 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Quick show line error' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open errors in list' })
 
--- Commands
-local Terminal = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float', display_name = 'lazygit' }
-
 -- Lazygit
-vim.keymap.set('n', '<leader>gg', function()
-  lazygit:toggle()
-end, { desc = '[G]it lazy' })
+vim.keymap.set('n', '<leader>gg', '<cmd>Start lazygit<cr>', { desc = '[G]it lazy' })

@@ -3,6 +3,7 @@ local cmd = require('hydra.keymap-util').cmd
 local jester = require 'jester'
 local dap = require 'dap'
 
+-- [[ Telescope hydra ]]
 local telescope_hint = [[
 
   Telescope
@@ -35,7 +36,7 @@ Hydra {
     hint = hint_config,
   },
   mode = 'n',
-  body = '<Leader>f',
+  body = '<Leader>s',
   heads = {
     { 'f', cmd 'Telescope find_files', { desc = 'find files' } },
     {
@@ -73,6 +74,7 @@ Hydra {
   },
 }
 
+-- [[ Jester hydra ]]
 local jester_hint = [[
 
   Jester
@@ -142,6 +144,7 @@ Hydra {
   },
 }
 
+-- [[ Dap hydra ]]
 local dap_hint = [[
 
   Dap
