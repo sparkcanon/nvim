@@ -19,16 +19,18 @@ local telescope_hint = [[
   _<Enter>_: Telescope           _<Esc>_
 ]]
 
+local hint_config = {
+  position = 'middle',
+  border = 'rounded',
+}
+
 Hydra {
   name = 'Telescope',
   hint = telescope_hint,
   config = {
     color = 'teal',
     invoke_on_body = true,
-    hint = {
-      position = 'middle',
-      border = 'rounded',
-    },
+    hint = hint_config,
   },
   mode = 'n',
   body = '<Leader>f',
@@ -85,10 +87,7 @@ Hydra {
   config = {
     color = 'teal',
     invoke_on_body = true,
-    hint = {
-      position = 'middle',
-      border = 'rounded',
-    },
+    hint = hint_config,
   },
   mode = 'n',
   body = '<Leader>t',
@@ -158,10 +157,7 @@ Hydra {
   config = {
     color = 'teal',
     invoke_on_body = true,
-    hint = {
-      position = 'middle',
-      border = 'rounded',
-    },
+    hint = hint_config,
   },
   mode = 'n',
   body = '<Leader>d',
