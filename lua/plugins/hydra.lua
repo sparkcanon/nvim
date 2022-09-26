@@ -12,6 +12,7 @@ local telescope_hint = [[
   _o_: old files        _g_: live grep
   _/_: search in file   _n_: npm scripts
   _j_: jump list        _b_: buffers
+  _F_: file browser
 
   _r_: resume
   _h_: vim help         _c_: execute command
@@ -54,6 +55,13 @@ Hydra {
     { 'r', cmd 'Telescope resume', { desc = 'Resume telescope' } },
     { 'b', cmd 'Telescope buffers', { desc = 'buffers' } },
     { 'j', cmd 'Telescope jumplist', { desc = 'jump list' } },
+    {
+      'F',
+      function()
+        require('telescope').extensions.file_browser.file_browser { grouped = true }
+      end,
+      { desc = 'file browser' },
+    },
     {
       '/',
       function()

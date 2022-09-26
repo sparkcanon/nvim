@@ -16,7 +16,8 @@ require('packer').startup(function(use)
     'tpope/vim-dispatch',                                                         -- Run stuff in terminals
     'tpope/vim-sleuth',
     'tpope/vim-surround',                                                         -- Manipulate surroundings
-    'tpope/vim-repeat'                                                            -- Repeat things
+    'tpope/vim-repeat',                                                           -- Repeat things
+    'tpope/vim-vinegar'
   }
   use {
     'lewis6991/gitsigns.nvim',                                                    -- Add git related info in the signs columns and popups
