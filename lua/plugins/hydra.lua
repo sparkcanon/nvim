@@ -87,7 +87,7 @@ local jester_hint = [[
 
   Jester
 
-  _r_: Run file          _L_: Run last      ^
+  _r_: Run nearest       _L_: Run last      ^
   _F_: Run file          _l_: Debug last
   _f_: Debug file        _d_: Debug
 
@@ -111,7 +111,7 @@ Hydra {
       function()
         jester.run()
       end,
-      { desc = 'Run file' },
+      { desc = 'Run nearest' },
     },
     {
       'L',
