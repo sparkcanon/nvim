@@ -32,6 +32,3 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' 
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next error' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Quick show line error' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open errors in list' })
-
--- Lazygit
-vim.keymap.set('n', '<leader>gg', '<cmd>Start lazygit<cr>', { desc = '[G]it lazy' })

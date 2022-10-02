@@ -231,3 +231,51 @@ Hydra {
     { '<Esc>', nil, { exit = true, nowait = true } },
   },
 }
+
+-- gitsigns
+local git_hint = [[
+
+  Git
+
+  _g_: lazygit
+  _s_: stage hunk        _S_: stage buffer      ^
+  _r_: reset hunk        _R_: reset buffer
+  _u_: Undo stage hunk   _p_: preview hunk
+
+  _b_: blame full        _B_: toggle line blame
+  _d_: toggle deleted
+
+  _<Esc>_
+
+]]
+
+Hydra {
+  name = 'GitSigns',
+  hint = git_hint,
+  config = {
+    color = 'teal',
+    invoke_on_body = true,
+    hint = hint_config,
+  },
+  mode = { 'n', 'v' },
+  body = '<Leader>g',
+  heads = {
+    { 'g', cmd 'Spawn lazygit', { desc = 'lazygit' } },
+    { 's', cmd 'Gitsigns stage_hunk', { desc = 'Stage hunk' } },
+    { 'S', cmd 'Gitsigns stage_buffer', { desc = 'Stage buffer' } },
+    { 'r', cmd 'Gitsigns reset_hunk', { desc = 'Reset hunk' } },
+    { 'R', cmd 'Gitsigns reset_buffer', { desc = 'Reset buffer' } },
+    { 'u', cmd 'Gitsigns under_stage_hunk', { desc = 'Undo stage hunk' } },
+    { 'p', cmd 'Gitsigns preview_hunk', { desc = 'Preview hunk' } },
+    {
+      'B',
+      function()
+        require('gitsigns').blame_line { full = true }
+      end,
+      { desc = 'Blame full' },
+    },
+    { 'b', cmd 'Gitsigns toggle_current_line_blame', { desc = 'Toggle line blame' } },
+    { 'd', cmd 'Gitsigns toggle_deleted', { desc = 'Toggle deleted' } },
+    { '<Esc>', nil, { exit = true, nowait = true } },
+  },
+}
