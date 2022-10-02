@@ -40,7 +40,13 @@ local on_attach = function(_, bufnr)
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     if vim.lsp.buf.format then
-      vim.lsp.buf.format()
+      vim.lsp.buf.format {
+        filter = function(client)
+          -- apply whatever logic you want (in this example, we'll only use null-ls)
+          return client.name == 'null-ls'
+        end,
+        bufnr = bufnr,
+      }
     elseif vim.lsp.buf.formatting then
       vim.lsp.buf.formatting()
     end

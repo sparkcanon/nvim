@@ -39,6 +39,4 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'dap')
-pcall(require('telescope').load_extension, 'file_browser')
 pcall(require('telescope').load_extension, 'npm')
-pcall(require('telescope').load_extension, 'live_grep_args')

@@ -33,3 +33,5 @@ vim.o.cursorline = true
 
 -- Clipboard
 vim.opt.clipboard:prepend { 'unnamed' }
+
+vim.opt.laststatus = 3

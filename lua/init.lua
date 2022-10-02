@@ -70,20 +70,6 @@ require('packer').startup(function(use)
       require 'plugins/cmp'
     end
   }
-  use {                                                                           -- Fancier statusline
-    'nvim-lualine/lualine.nvim',
-    config = function ()
-      require 'plugins/lualine'
-    end
-  }
-  use {                                                                           -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    config = function ()
-      require('indent_blankline').setup {
-        char = '▏',
-      }
-    end
-  }
   use {                                                                           -- Colorscheme
     'bluz71/vim-moonfly-colors',
     config = function ()
@@ -101,7 +87,8 @@ require('packer').startup(function(use)
     end
   }
   use {                                                                           -- Debug adapter
-    'mfussenegger/nvim-dap', requires = {
+    'mfussenegger/nvim-dap',
+    requires = {
       'theHamsta/nvim-dap-virtual-text',
     },
     config = function ()
@@ -174,7 +161,6 @@ require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-dap.nvim',
-      'nvim-telescope/telescope-file-browser.nvim',
       'elianiva/telescope-npm.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
       {
@@ -182,7 +168,6 @@ require('packer').startup(function(use)
         run = 'make',
         cond = vim.fn.executable "make" == 1
       },
-      "nvim-telescope/telescope-live-grep-args.nvim"
     },
     config = function ()
       require 'plugins/telescope'

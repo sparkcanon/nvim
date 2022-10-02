@@ -12,7 +12,6 @@ local telescope_hint = [[
   _o_: old files        _g_: live grep
   _/_: search in file   _n_: npm scripts
   _j_: jump list        _b_: buffers
-  _F_: file browser
 
   _r_: resume
   _h_: vim help         _c_: execute command
@@ -40,13 +39,7 @@ Hydra {
   body = '<Leader>s',
   heads = {
     { 'f', cmd 'Telescope find_files', { desc = 'find files' } },
-    {
-      'g',
-      function()
-        require('telescope').extensions.live_grep_args.live_grep_args()
-      end,
-      { desc = 'Live grep with args' },
-    },
+    { 'g', cmd 'Telescope live_grep', { desc = 'Live grep' } },
     { 'o', cmd 'Telescope oldfiles', { desc = 'recently opened files' } },
     { 'h', cmd 'Telescope help_tags', { desc = 'vim help' } },
     { 'm', cmd 'Telescope marks', { desc = 'marks' } },
@@ -55,13 +48,6 @@ Hydra {
     { 'r', cmd 'Telescope resume', { desc = 'Resume telescope' } },
     { 'b', cmd 'Telescope buffers', { desc = 'buffers' } },
     { 'j', cmd 'Telescope jumplist', { desc = 'jump list' } },
-    {
-      'F',
-      function()
-        require('telescope').extensions.file_browser.file_browser { grouped = true }
-      end,
-      { desc = 'file browser' },
-    },
     {
       '/',
       function()
