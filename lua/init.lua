@@ -55,7 +55,6 @@ require('packer').startup(function(use)
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'rcarriga/cmp-dap',
-      'hrsh7th/cmp-cmdline',
       { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
     },
     config = function ()

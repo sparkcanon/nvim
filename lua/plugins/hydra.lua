@@ -4,16 +4,16 @@ local jester = require 'jester'
 local dap = require 'dap'
 
 -- [[ Telescope hydra ]]
-local telescope_hint = [[
+local search_hint = [[
 
-  Telescope
+  Search
 
   _f_: files            _m_: marks               ^
   _o_: old files        _g_: live grep
-  _/_: search in file   _n_: npm scripts
-  _j_: jump list        _b_: buffers
+  _/_: in file          _n_: npm scripts
+  _d_: grep in dir      _b_: buffers
 
-  _r_: resume
+  _r_: resume           _j_: jump list
   _h_: vim help         _c_: execute command
   _k_: keymaps          _;_: commands history 
   _O_: options          _?_: search history
@@ -27,9 +27,14 @@ local hint_config = {
   border = 'rounded',
 }
 
+local telescope_live_grep_in_path = function(path)
+  local _path = path or vim.fn.input('Dir: ', '', 'dir')
+  require('telescope.builtin').live_grep { search_dirs = { _path } }
+end
+
 Hydra {
-  name = 'Telescope',
-  hint = telescope_hint,
+  name = 'Search',
+  hint = search_hint,
   config = {
     color = 'teal',
     invoke_on_body = true,
@@ -40,6 +45,13 @@ Hydra {
   heads = {
     { 'f', cmd 'Telescope find_files', { desc = 'find files' } },
     { 'g', cmd 'Telescope live_grep', { desc = 'Live grep' } },
+    {
+      'd',
+      function()
+        telescope_live_grep_in_path()
+      end,
+      { desc = 'Live grep in directory' },
+    },
     { 'o', cmd 'Telescope oldfiles', { desc = 'recently opened files' } },
     { 'h', cmd 'Telescope help_tags', { desc = 'vim help' } },
     { 'm', cmd 'Telescope marks', { desc = 'marks' } },
@@ -69,9 +81,9 @@ Hydra {
 }
 
 -- [[ Jester hydra ]]
-local jester_hint = [[
+local test_hint = [[
 
-  Jester
+  Test
 
   _r_: Run nearest       _L_: Run last      ^
   _F_: Run file          _l_: Debug last
@@ -83,7 +95,7 @@ local jester_hint = [[
 
 Hydra {
   name = 'Jester',
-  hint = jester_hint,
+  hint = test_hint,
   config = {
     color = 'teal',
     invoke_on_body = true,
