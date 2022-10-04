@@ -2,6 +2,7 @@ local Hydra = require 'hydra'
 local cmd = require('hydra.keymap-util').cmd
 local neotest = require 'neotest'
 local dap = require 'dap'
+local gitsigns = require 'gitsigns'
 
 -- [[ Telescope hydra ]]
 local search_hint = [[
@@ -279,50 +280,89 @@ Hydra {
   },
 }
 
--- gitsigns
+-- [[ gitsigns ]]
 local git_hint = [[
-
-  Git
-
-  _g_: lazygit
-  _s_: stage hunk        _S_: stage buffer      ^
-  _r_: reset hunk        _R_: reset buffer
-  _u_: Undo stage hunk   _p_: preview hunk
-
-  _b_: blame full        _B_: toggle line blame
-  _d_: toggle deleted
-
-  _<Esc>_
-
+ _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
+ _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
+ ^ ^              _S_: stage buffer      _r_: reset hunk     _/_: show base file
+ ^
+ ^ ^              _<Enter>_: Lazygit              _q_: exit
 ]]
 
 Hydra {
-  name = 'GitSigns',
+  name = 'Git',
   hint = git_hint,
   config = {
-    color = 'teal',
+    buffer = bufnr,
+    color = 'pink',
     invoke_on_body = true,
-    hint = hint_config,
+    hint = {
+      border = 'rounded',
+    },
+    on_enter = function()
+      vim.cmd 'mkview'
+      vim.cmd 'silent! %foldopen!'
+      vim.bo.modifiable = false
+      gitsigns.toggle_signs(true)
+      -- gitsigns.toggle_linehl(true)
+      gitsigns.toggle_numhl(true)
+    end,
+    on_exit = function()
+      local cursor_pos = vim.api.nvim_win_get_cursor(0)
+      vim.cmd 'loadview'
+      vim.api.nvim_win_set_cursor(0, cursor_pos)
+      vim.cmd 'normal zv'
+      gitsigns.toggle_signs(false)
+      -- gitsigns.toggle_linehl(false)
+      gitsigns.toggle_deleted(false)
+      gitsigns.toggle_numhl(false)
+    end,
   },
-  mode = { 'n', 'v' },
-  body = '<Leader>g',
+  mode = { 'n', 'x' },
+  body = '<leader>g',
   heads = {
-    { 'g', cmd 'Spawn lazygit', { desc = 'lazygit' } },
-    { 's', cmd 'Gitsigns stage_hunk', { desc = 'Stage hunk' } },
-    { 'S', cmd 'Gitsigns stage_buffer', { desc = 'Stage buffer' } },
-    { 'r', cmd 'Gitsigns reset_hunk', { desc = 'Reset hunk' } },
-    { 'R', cmd 'Gitsigns reset_buffer', { desc = 'Reset buffer' } },
-    { 'u', cmd 'Gitsigns under_stage_hunk', { desc = 'Undo stage hunk' } },
-    { 'p', cmd 'Gitsigns preview_hunk', { desc = 'Preview hunk' } },
+    {
+      'J',
+      function()
+        if vim.wo.diff then
+          return ']c'
+        end
+        vim.schedule(function()
+          gitsigns.next_hunk()
+        end)
+        return '<Ignore>'
+      end,
+      { expr = true, desc = 'next hunk' },
+    },
+    {
+      'K',
+      function()
+        if vim.wo.diff then
+          return '[c'
+        end
+        vim.schedule(function()
+          gitsigns.prev_hunk()
+        end)
+        return '<Ignore>'
+      end,
+      { expr = true, desc = 'prev hunk' },
+    },
+    { 's', ':Gitsigns stage_hunk<CR>', { silent = true, desc = 'stage hunk' } },
+    { 'u', gitsigns.undo_stage_hunk, { desc = 'undo last stage' } },
+    { 'S', gitsigns.stage_buffer, { desc = 'stage buffer' } },
+    { 'p', gitsigns.preview_hunk, { desc = 'preview hunk' } },
+    { 'd', gitsigns.toggle_deleted, { nowait = true, desc = 'toggle deleted' } },
+    { 'b', gitsigns.blame_line, { desc = 'blame' } },
+    { 'r', gitsigns.reset_hunk, { desc = 'reset' } },
     {
       'B',
       function()
-        require('gitsigns').blame_line { full = true }
+        gitsigns.blame_line { full = true }
       end,
-      { desc = 'Blame full' },
+      { desc = 'blame show full' },
     },
-    { 'b', cmd 'Gitsigns toggle_current_line_blame', { desc = 'Toggle line blame' } },
-    { 'd', cmd 'Gitsigns toggle_deleted', { desc = 'Toggle deleted' } },
-    { '<Esc>', nil, { exit = true, nowait = true } },
+    { '/', gitsigns.show, { exit = true, desc = 'show base file' } }, -- show the base of the file
+    { '<Enter>', '<Cmd>Spawn lazygit<CR>', { exit = true, desc = 'lazygit' } },
+    { 'q', nil, { exit = true, nowait = true, desc = 'exit' } },
   },
 }
