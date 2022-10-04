@@ -176,6 +176,10 @@ local dap_hint = [[
   _b_: Toggle breakpoint    _B_: Log point
   _l_: Debug last
 
+  _f_: Frames               _v_: variables
+  _h_: Commands             _s_: list breakpoints
+  _C_: Configuration
+
   _o_: Step over            _O_: Step out
   _i_: step into            _r_: repl
 
@@ -257,6 +261,11 @@ Hydra {
       end,
       { desc = 'Step over' },
     },
+    { 'f', cmd 'Telescope dap frames', { desc = 'list frames' } },
+    { 'v', cmd 'Telescope dap variables', { desc = 'list variables' } },
+    { 'h', cmd 'Telescope dap commands', { desc = 'list commands' } },
+    { 's', cmd 'Telescope dap list_breakpoints', { desc = 'list breakpoints' } },
+    { 'C', cmd 'Telescope dap configurations', { desc = 'list configurations' } },
     { '<Esc>', nil, { exit = true, nowait = true } },
   },
 }
