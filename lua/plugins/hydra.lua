@@ -6,7 +6,6 @@ local gitsigns = require 'gitsigns'
 
 -- [[ Telescope hydra ]]
 local search_hint = [[
-
   Search
 
   _f_: files            _m_: marks               ^
@@ -21,7 +20,6 @@ local search_hint = [[
   _q_: quickfix
 
   _<Enter>_: Telescope           _<Esc>_
-
 ]]
 
 local hint_config = {
@@ -85,7 +83,6 @@ Hydra {
 
 -- [[ Test hydra ]]
 local test_hint = [[
-
   Test
 
   _r_: Run nearest       _f_: Current file          ^
@@ -96,7 +93,6 @@ local test_hint = [[
   _q_: Quit test         _o_: Output
 
   _<Esc>_
-
 ]]
 
 Hydra {
