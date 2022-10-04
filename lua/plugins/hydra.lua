@@ -174,7 +174,7 @@ local dap_hint = [[
 
   _c_: Continue             _q_: Terminate      ^
   _b_: Toggle breakpoint    _B_: Log point
-  _l_: Debug last
+  _l_: Debug last           _D_: Delete all breakpoints
 
   _f_: Frames               _v_: variables
   _h_: Commands             _s_: list breakpoints
@@ -260,6 +260,13 @@ Hydra {
         dap.repl.open()
       end,
       { desc = 'Step over' },
+    },
+    {
+      'D',
+      function()
+        dap.clear_breakpoints()
+      end,
+      { desc = 'Delete all breakpoints' },
     },
     { 'f', cmd 'Telescope dap frames', { desc = 'list frames' } },
     { 'v', cmd 'Telescope dap variables', { desc = 'list variables' } },
