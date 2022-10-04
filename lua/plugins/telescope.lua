@@ -1,4 +1,6 @@
 -- [[ Configure Telescope ]]
+local actions = require "telescope.actions"
+
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = require('telescope.themes').get_ivy {
@@ -9,6 +11,7 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ['<C-o>'] = actions.select_all,
       },
     },
     prompt_prefix = '◍ ',

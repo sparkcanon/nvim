@@ -130,22 +130,6 @@ require('packer').startup(function(use)
       require('colorizer').setup()
     end
   }
-  use {                                                                           -- Quickfix utility
-    'kevinhwang91/nvim-bqf',
-    requires = {
-      {
-        'junegunn/fzf',
-        run = function()
-          vim.fn['fzf#install']()
-        end
-      }
-    },
-    config = function ()
-      require('bqf').setup {
-        auto_resize_height = true,
-      }
-    end
-  }                                                                               -- Enhanced quickfix window (Needs FZF for filtering)
   use {
     'anuvyklack/hydra.nvim',
     config = function ()
