@@ -81,19 +81,35 @@ require('packer').startup(function(use)
     'mfussenegger/nvim-dap',
     requires = {
       'theHamsta/nvim-dap-virtual-text',
+      'mxsdev/nvim-dap-vscode-js',
     },
     config = function ()
       require 'plugins/dap'
     end
   }
-  use {                                                                           -- Jest (Needs Dap for debugging)
-    'David-Kunz/jester',
-    config = function ()
-      require("jester").setup({
-        path_to_jest_run = './node_modules/.bin/jest'
+  use({
+    'nvim-neotest/neotest',
+    requires = {
+      'haydenmeade/neotest-jest',
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim"
+    },
+    config = function()
+      require('neotest').setup({
+        adapters = {
+          require('neotest-jest')({
+            jestCommand = "npm test --",
+            jestConfigFile = "custom.jest.config.ts",
+            env = { CI = true },
+            cwd = function(path)
+              return vim.fn.getcwd()
+            end,
+          }),
+        }
       })
     end
-  }
+  })
   use {                                                                           -- Adds matching pair
     'windwp/nvim-autopairs',
     config = function ()

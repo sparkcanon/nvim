@@ -1,6 +1,6 @@
 local Hydra = require 'hydra'
 local cmd = require('hydra.keymap-util').cmd
-local jester = require 'jester'
+local neotest = require 'neotest'
 local dap = require 'dap'
 
 -- [[ Telescope hydra ]]
@@ -80,21 +80,24 @@ Hydra {
   },
 }
 
--- [[ Jester hydra ]]
+-- [[ Test hydra ]]
 local test_hint = [[
 
   Test
 
-  _r_: Run nearest       _L_: Run last      ^
-  _F_: Run file          _l_: Debug last
-  _f_: Debug file        _d_: Debug
+  _r_: Run nearest       _f_: Current file          ^
+  _d_: Debug nearest     _D_: Debug current file
+  _l_: Debug last        _L_: Run last
+
+
+  _q_: Quit test         _o_: Output
 
   _<Esc>_
 
 ]]
 
 Hydra {
-  name = 'Jester',
+  name = 'Test',
   hint = test_hint,
   config = {
     color = 'teal',
@@ -107,44 +110,58 @@ Hydra {
     {
       'r',
       function()
-        jester.run()
+        neotest.run.run()
       end,
       { desc = 'Run nearest' },
     },
     {
-      'L',
-      function()
-        jester.run_last()
-      end,
-      { desc = 'Run last' },
-    },
-    {
-      'F',
-      function()
-        jester.run_file()
-      end,
-      { desc = 'Run file' },
-    },
-    {
-      'l',
-      function()
-        jester.debug_last()
-      end,
-      { desc = 'Debug last' },
-    },
-    {
       'f',
       function()
-        jester.debug_file()
+        neotest.run.run(vim.fn.expand '%')
       end,
-      { desc = 'Debug file' },
+      { desc = 'Current file' },
     },
     {
       'd',
       function()
-        jester.debug()
+        neotest.run.run { strategy = 'dap' }
       end,
-      { desc = 'Debug' },
+      { desc = 'Debug nearest' },
+    },
+    {
+      'D',
+      function()
+        neotest.run.run { vim.fn.expand '%', strategy = 'dap' }
+      end,
+      { desc = 'Debug current file' },
+    },
+    {
+      'o',
+      function()
+        neotest.output.open { enter = true }
+      end,
+      { desc = 'Show output' },
+    },
+    {
+      'L',
+      function()
+        neotest.run.run_last()
+      end,
+      { desc = 'Run last' },
+    },
+    {
+      'l',
+      function()
+        neotest.run.run_last { strategy = 'dap' }
+      end,
+      { desc = 'Debug last' },
+    },
+    {
+      'q',
+      function()
+        neotest.run.stop()
+      end,
+      { desc = 'Quit test' },
     },
     { '<Esc>', nil, { exit = true, nowait = true } },
   },
