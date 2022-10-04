@@ -1,22 +1,17 @@
 -- [[ Configure Telescope ]]
-local actions = require "telescope.actions"
+local actions = require 'telescope.actions'
 
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
-  defaults = require('telescope.themes').get_ivy {
-    layout_config = {
-      height = 0.5,
+  mappings = {
+    i = {
+      ['<C-u>'] = false,
+      ['<C-d>'] = false,
+      ['<C-o>'] = actions.select_all,
     },
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-        ['<C-o>'] = actions.select_all,
-      },
-    },
-    prompt_prefix = '◍ ',
-    selection_caret = '▶▶',
   },
+  prompt_prefix = '◍ ',
+  selection_caret = '▶▶',
   extensions = {
     file_browser = {
       mappings = {
@@ -27,7 +22,7 @@ require('telescope').setup {
           -- your custom normal mode mappings
         },
       },
-      path = "%:p:h",
+      path = '%:p:h',
     },
   },
   pickers = {
@@ -35,6 +30,10 @@ require('telescope').setup {
       initial_mode = 'normal',
       sort_mru = true,
       sort_lastused = true,
+    },
+    quickfix = {
+      theme = 'dropdown',
+      previewer = false,
     },
   },
 }

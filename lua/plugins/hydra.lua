@@ -17,6 +17,7 @@ local search_hint = [[
   _h_: vim help         _c_: execute command
   _k_: keymaps          _;_: commands history 
   _O_: options          _?_: search history
+  _q_: quickfix
 
   _<Enter>_: Telescope           _<Esc>_
 
@@ -75,6 +76,7 @@ Hydra {
     { ';', cmd 'Telescope command_history', { desc = 'command-line history' } },
     { 'c', cmd 'Telescope commands', { desc = 'execute command' } },
     { 'n', cmd 'Telescope npm scripts', { desc = 'npm scripts' } },
+    { 'q', cmd 'Telescope quickfix', { desc = 'search quickfix list' } },
     { '<Enter>', cmd 'Telescope', { exit = true, desc = 'list all pickers' } },
     { '<Esc>', nil, { exit = true, nowait = true } },
   },
