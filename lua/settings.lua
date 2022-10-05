@@ -35,7 +35,7 @@ vim.o.cursorline = true
 vim.opt.clipboard:prepend { 'unnamed' }
 
 -- Statusline
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 
 -- Path
 vim.cmd([[set path=$PWD/**]])

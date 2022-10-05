@@ -61,22 +61,12 @@ require('packer').startup(function(use)
       require 'plugins/cmp'
     end
   }
-  use {                                                                           -- Colorscheme
-    'bluz71/vim-moonfly-colors',
-    config = function ()
+  use({
+    'rebelot/kanagawa.nvim',
+    config = function()
       require 'plugins/moonfly'
-      vim.opt.fillchars = {
-        horiz = '━',
-        horizup = '┻',
-        horizdown = '┳',
-        vert = '┃',
-        vertleft = '┫',
-        vertright = '┣',
-        verthoriz = '╋'
-      }
-      vim.cmd [[colorscheme moonfly]]
     end
-  }
+  })
   use {                                                                           -- Debug adapter
     'mfussenegger/nvim-dap',
     requires = {
