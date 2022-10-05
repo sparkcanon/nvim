@@ -6,18 +6,14 @@ local gitsigns = require 'gitsigns'
 
 -- [[ Telescope hydra ]]
 local search_hint = [[
-  Search
-
-  _f_: files            _m_: marks               ^
-  _o_: old files        _g_: live grep
-  _/_: in file          _n_: npm scripts
-  _d_: grep in dir      _b_: buffers
-
-  _r_: resume           _j_: jump list
-  _h_: vim help         _c_: execute command
-  _k_: keymaps          _;_: commands history 
-  _O_: options          _?_: search history
-  _q_: quickfix
+  _f_: files            _m_: marks              _d_: grep in dir          _n_: npm scripts ^
+  _o_: old files        _b_: buffers            _g_: live grep            _e_: diagnostics
+  _/_: in file          _q_: quickfix
+  ^ ^                   _j_: jump list
+  ^ ^                   
+  _r_: resume           _k_: keymaps            _;_: commands history 
+  _h_: vim help         _c_: execute command    _?_: search history
+  _O_: options          
 
   _<Enter>_: Telescope           _<Esc>_
 ]]
@@ -60,6 +56,7 @@ Hydra {
     { 'r', cmd 'Telescope resume', { desc = 'Resume telescope' } },
     { 'b', cmd 'Telescope buffers', { desc = 'buffers' } },
     { 'j', cmd 'Telescope jumplist', { desc = 'jump list' } },
+    { 'e', cmd 'Telescope diagnostics', { desc = 'diagnostics' } },
     {
       '/',
       function()
@@ -300,8 +297,7 @@ Hydra {
       vim.cmd 'silent! %foldopen!'
       -- vim.bo.modifiable = false
       gitsigns.toggle_signs(true)
-      -- gitsigns.toggle_linehl(true)
-      gitsigns.toggle_numhl(true)
+      gitsigns.toggle_linehl(true)
     end,
     on_exit = function()
       local cursor_pos = vim.api.nvim_win_get_cursor(0)
@@ -309,9 +305,8 @@ Hydra {
       vim.api.nvim_win_set_cursor(0, cursor_pos)
       vim.cmd 'normal zv'
       gitsigns.toggle_signs(false)
-      -- gitsigns.toggle_linehl(false)
+      gitsigns.toggle_linehl(false)
       gitsigns.toggle_deleted(false)
-      gitsigns.toggle_numhl(false)
     end,
   },
   mode = { 'n', 'x' },
