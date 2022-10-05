@@ -32,7 +32,6 @@ require('telescope').setup {
       sort_lastused = true,
     },
     quickfix = {
-      theme = 'dropdown',
       previewer = false,
     },
   },

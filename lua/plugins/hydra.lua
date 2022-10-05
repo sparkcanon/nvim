@@ -80,14 +80,11 @@ Hydra {
 
 -- [[ Test hydra ]]
 local test_hint = [[
-  Test
+  _r_: Run nearest       _f_: Current file          _s_: summary toggle     _]_: next failed test   ^
+  _d_: Debug nearest     _D_: Debug current file    _o_: Output long        _[_: prev failed test
+  _l_: Debug last        _L_: Run last              _O_: Output short
 
-  _r_: Run nearest       _f_: Current file          ^
-  _d_: Debug nearest     _D_: Debug current file
-  _l_: Debug last        _L_: Run last
-
-
-  _q_: Quit test         _o_: Output
+  _q_: Quit test
 
   _<Esc>_
 ]]
@@ -136,7 +133,35 @@ Hydra {
       function()
         neotest.output.open { enter = true }
       end,
-      { desc = 'Show output' },
+      { desc = 'Show long output' },
+    },
+    {
+      'O',
+      function()
+        neotest.output.open { enter = true, short = true }
+      end,
+      { desc = 'Show short output' },
+    },
+    {
+      's',
+      function()
+        neotest.summary.toggle()
+      end,
+      { desc = 'Summary toggle' },
+    },
+    {
+      ']',
+      function()
+        neotest.jump.next { status = 'failed' }
+      end,
+      { desc = 'Next failed test' },
+    },
+    {
+      '[',
+      function()
+        neotest.jump.prev { status = 'failed' }
+      end,
+      { desc = 'Prev failed test' },
     },
     {
       'L',
