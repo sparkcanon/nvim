@@ -17,22 +17,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-local term_group = vim.api.nvim_create_augroup('TermNav', { clear = true })
-vim.api.nvim_create_autocmd('TermOpen', {
+-- [[ Packadd cfilter on qf ]]
+local qf_group = vim.api.nvim_create_augroup('quickfixlist', { clear = true })
+vim.api.nvim_create_autocmd('filetype', {
   callback = function()
-    if vim.bo.filetype == '' or vim.bo.filetype == 'toggleterm' then
-      local opts = { silent = false, buffer = 0 }
-      vim.keymap.set('t', '<C-space>', [[<C-\><C-n>]], opts)
-      vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-      vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-      vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-      vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-      -- vim.keymap.set('t', ']t', [[<C-\><C-n>:tablast<CR>]])
-      -- vim.keymap.set('t', '[t', [[<C-\><C-n>:tabnext<CR>]])
-      -- vim.keymap.set('t', '<S-Tab>', [[<C-\><C-n>:bprev<CR>]])
-      -- vim.keymap.set('t', '<leader><Tab>', [[<C-\><C-n>:close \| :bnext<cr>]])
-    end
+    vim.cmd [[packadd cfilter]]
   end,
-  group = term_group,
-  pattern = { 'term://*' },
+  group = qf_group,
+  pattern = 'qf',
 })

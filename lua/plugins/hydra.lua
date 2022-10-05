@@ -323,6 +323,7 @@ Hydra {
       -- vim.bo.modifiable = false
       gitsigns.toggle_signs(true)
       gitsigns.toggle_linehl(true)
+      gitsigns.toggle_numhl(false)
     end,
     on_exit = function()
       local cursor_pos = vim.api.nvim_win_get_cursor(0)
@@ -331,6 +332,7 @@ Hydra {
       vim.cmd 'normal zv'
       gitsigns.toggle_signs(false)
       gitsigns.toggle_linehl(false)
+      gitsigns.toggle_numhl(true)
       gitsigns.toggle_deleted(false)
     end,
   },
