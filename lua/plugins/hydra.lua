@@ -6,14 +6,14 @@ local gitsigns = require 'gitsigns'
 
 -- [[ Telescope hydra ]]
 local search_hint = [[
-  _f_: files            _m_: marks              _d_: grep in dir          _n_: npm scripts ^
-  _o_: old files        _b_: buffers            _g_: live grep            _e_: diagnostics
-  _/_: in file          _q_: quickfix
-  ^ ^                   _j_: jump list
-  ^ ^                   
-  _r_: resume           _k_: keymaps            _;_: commands history 
-  _h_: vim help         _c_: execute command    _?_: search history
-  _O_: options          
+  _f_: files        _m_: marks              _d_: grep in dir          _n_: npm scripts ^
+  _o_: old files    _b_: buffers            _g_: live grep            _e_: diagnostics
+  _/_: in file      _q_: quickfix
+  ^ ^               _j_: jump list
+  ^ ^               
+  _r_: resume       _k_: keymaps            _;_: commands history 
+  _h_: vim help     _c_: execute command    _?_: search history
+  _O_: options      
 
   _<Enter>_: Telescope           _<Esc>_
 ]]
@@ -320,7 +320,7 @@ Hydra {
     on_enter = function()
       vim.cmd 'mkview'
       vim.cmd 'silent! %foldopen!'
-      -- vim.bo.modifiable = false
+      vim.bo.modifiable = false
       gitsigns.toggle_signs(true)
       gitsigns.toggle_linehl(true)
       gitsigns.toggle_numhl(false)
@@ -365,13 +365,21 @@ Hydra {
       end,
       { expr = true, desc = 'prev hunk' },
     },
-    { 's', ':Gitsigns stage_hunk<CR>', { silent = true, desc = 'stage hunk' } },
+    { 's', gitsigns.stage_hunk, { silent = true, desc = 'stage hunk' } },
     { 'u', gitsigns.undo_stage_hunk, { desc = 'undo last stage' } },
     { 'S', gitsigns.stage_buffer, { desc = 'stage buffer' } },
     { 'p', gitsigns.preview_hunk, { desc = 'preview hunk' } },
     { 'd', gitsigns.toggle_deleted, { nowait = true, desc = 'toggle deleted' } },
     { 'b', gitsigns.blame_line, { desc = 'blame' } },
-    { 'r', gitsigns.reset_hunk, { desc = 'reset' } },
+    {
+      'r',
+      function()
+        vim.bo.modifiable = true
+        gitsigns.reset_hunk()
+        vim.bo.modifiable = false
+      end,
+      { desc = 'reset hunk' },
+    },
     {
       'B',
       function()
