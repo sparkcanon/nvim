@@ -17,7 +17,15 @@ require('packer').startup(function(use)
     'tpope/vim-sleuth',
     'tpope/vim-surround',                                                         -- Manipulate surroundings
     'tpope/vim-repeat',                                                           -- Repeat things
-    'tpope/vim-vinegar'
+  }
+  use {
+    "elihunter173/dirbuf.nvim",
+    config = function ()
+      require("dirbuf").setup {
+        show_hidden = true,
+        sort_order = "directories_first",
+      }
+    end
   }
   use {
     'lewis6991/gitsigns.nvim',                                                    -- Add git related info in the signs columns and popups
