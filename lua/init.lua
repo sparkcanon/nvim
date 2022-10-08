@@ -72,7 +72,7 @@ require('packer').startup(function(use)
   use({
     'rebelot/kanagawa.nvim',
     config = function()
-      require 'plugins/moonfly'
+      require 'plugins/colorscheme'
     end
   })
   use {                                                                           -- Debug adapter
