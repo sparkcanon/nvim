@@ -7,11 +7,10 @@ vim.opt.fillchars = {
   vertright = '┣',
   verthoriz = '╋',
 }
-require('kanagawa').setup {
-  dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-}
 
-vim.cmd 'colorscheme kanagawa'
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+require("catppuccin").setup()
+vim.cmd "colorscheme catppuccin"
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'single',

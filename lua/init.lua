@@ -69,12 +69,13 @@ require('packer').startup(function(use)
       require 'plugins/cmp'
     end
   }
-  use({
-    'rebelot/kanagawa.nvim',
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
     config = function()
       require 'plugins/colorscheme'
     end
-  })
+  }
   use {                                                                           -- Debug adapter
     'mfussenegger/nvim-dap',
     requires = {
