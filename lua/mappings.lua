@@ -1,4 +1,4 @@
-local opts = { silent = false }
+local opts = { silent = true }
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -24,6 +24,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- buffers
 vim.keymap.set('n', '[b', ':bprevious<cr>', opts)
 vim.keymap.set('n', ']b', ':bnext<cr>', opts)
+vim.keymap.set('n', '<BS>', '<C-^>', opts)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' })

@@ -30,6 +30,11 @@ require('telescope').setup {
       initial_mode = 'normal',
       sort_mru = true,
       sort_lastused = true,
+      mappings = {
+        n = {
+          ['<C-d>'] = actions.delete_buffer,
+        },
+      },
     },
     quickfix = {
       previewer = false,
