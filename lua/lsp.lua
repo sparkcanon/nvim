@@ -60,7 +60,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 -- [[ Configure LSP servers ]]
 -- Enable the following language servers
-local servers = { 'tsserver', 'sumneko_lua', 'svelte', 'tailwindcss', 'html', 'cssls', 'cssmodules_ls', 'jsonls' }
+local servers = { 'tsserver', 'sumneko_lua', 'svelte', 'tailwindcss', 'html', 'cssls', 'cssmodules_ls', 'jsonls', 'eslint', 'prismals' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {

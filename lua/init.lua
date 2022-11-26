@@ -143,6 +143,12 @@ require('packer').startup(function(use)
       require 'plugins/null'
     end
   }
+  use {
+    'j-hui/fidget.nvim',
+    config = function ()
+      require('fidget').setup()
+    end
+  }
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim',
