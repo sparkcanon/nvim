@@ -45,30 +45,13 @@ require('packer').startup(function(use)
     requires = {
       'David-Kunz/markid',
       'nvim-treesitter/nvim-treesitter-context',
-      'nvim-treesitter/nvim-treesitter-textobjects'                               -- Additional textobjects for treesitter
+      'nvim-treesitter/nvim-treesitter-textobjects',                               -- Additional textobjects for treesitter
+      'nvim-treesitter/nvim-treesitter-refactor'
     },
     config = function ()
       require 'plugins/treesitter'
     end
   }                                                                               -- Highlight, edit, and navigate code
-  use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
-  use {                                                                           -- Manage external editor tooling i.e LSP servers
-    'williamboman/mason.nvim',
-    config = function ()
-      require('mason').setup()
-    end
-  }
-  use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
-  use { 'hrsh7th/nvim-cmp',                                                       -- Autocompletion
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'rcarriga/cmp-dap',
-      { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
-    },
-    config = function ()
-      require 'plugins/cmp'
-    end
-  }
   use {
     "catppuccin/nvim",
     as = "catppuccin",
@@ -135,6 +118,14 @@ require('packer').startup(function(use)
     end
   }
   use {
+    'j-hui/fidget.nvim',
+    config = function ()
+      require('fidget').setup()
+    end
+  }
+
+  -- lsp
+  use {
     'jose-elias-alvarez/null-ls.nvim',                                            -- General purpose lsp
     requires = {
       'nvim-lua/plenary.nvim'
@@ -143,10 +134,33 @@ require('packer').startup(function(use)
       require 'plugins/null'
     end
   }
-  use {
-    'j-hui/fidget.nvim',
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'neovim/nvim-lspconfig' },
+    },
     config = function ()
-      require('fidget').setup()
+      require'navigator'.setup({
+        mason = true
+      })
+    end
+  })
+  use {                                                                           -- Manage external editor tooling i.e LSP servers
+    'williamboman/mason.nvim',
+    config = function ()
+      require('mason').setup()
+    end
+  }
+  use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
+  use { 'hrsh7th/nvim-cmp',                                                       -- Autocompletion
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'rcarriga/cmp-dap',
+      { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
+    },
+    config = function ()
+      require 'plugins/cmp'
     end
   }
 
@@ -192,7 +206,6 @@ end
 require 'autocmd'
 require 'settings'
 require 'mappings'
-require 'lsp'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
