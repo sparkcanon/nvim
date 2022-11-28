@@ -9,18 +9,18 @@ end
 
 -- stylua: ignore start
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'                                                    -- Package manager
-  use 'lewis6991/impatient.nvim'                                                  -- Cache config for faster startup
-  use {                                                                           -- Tpope
-    'tpope/vim-fugitive',                                                         -- Git stuff
-    'tpope/vim-dispatch',                                                         -- Run stuff in terminals
+  use 'wbthomason/packer.nvim' -- Package manager
+  use 'lewis6991/impatient.nvim' -- Cache config for faster startup
+  use { -- Tpope
+    'tpope/vim-fugitive', -- Git stuff
+    'tpope/vim-dispatch', -- Run stuff in terminals
     'tpope/vim-sleuth',
-    'tpope/vim-surround',                                                         -- Manipulate surroundings
-    'tpope/vim-repeat',                                                           -- Repeat things
+    'tpope/vim-surround', -- Manipulate surroundings
+    'tpope/vim-repeat', -- Repeat things
   }
   use {
     "elihunter173/dirbuf.nvim",
-    config = function ()
+    config = function()
       require("dirbuf").setup {
         show_hidden = true,
         sort_order = "directories_first",
@@ -28,30 +28,30 @@ require('packer').startup(function(use)
     end
   }
   use {
-    'lewis6991/gitsigns.nvim',                                                    -- Add git related info in the signs columns and popups
+    'lewis6991/gitsigns.nvim', -- Add git related info in the signs columns and popups
     requires = { 'nvim-lua/plenary.nvim' },
-    config = function ()
+    config = function()
       require 'plugins/gitsigns'
     end
   }
-  use {                                                                           -- "gc" to comment visual regions/lines
+  use { -- "gc" to comment visual regions/lines
     'numToStr/Comment.nvim',
-    config = function ()
+    config = function()
       require('Comment').setup()
     end
   }
   use {
-    'nvim-treesitter/nvim-treesitter',                                            -- Syntax Highlighting
+    'nvim-treesitter/nvim-treesitter', -- Syntax Highlighting
     requires = {
       'David-Kunz/markid',
       'nvim-treesitter/nvim-treesitter-context',
-      'nvim-treesitter/nvim-treesitter-textobjects',                               -- Additional textobjects for treesitter
+      'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
       'nvim-treesitter/nvim-treesitter-refactor'
     },
-    config = function ()
+    config = function()
       require 'plugins/treesitter'
     end
-  }                                                                               -- Highlight, edit, and navigate code
+  } -- Highlight, edit, and navigate code
   use {
     "catppuccin/nvim",
     as = "catppuccin",
@@ -59,13 +59,13 @@ require('packer').startup(function(use)
       require 'plugins/colorscheme'
     end
   }
-  use {                                                                           -- Debug adapter
+  use { -- Debug adapter
     'mfussenegger/nvim-dap',
     requires = {
       'theHamsta/nvim-dap-virtual-text',
       'mxsdev/nvim-dap-vscode-js',
     },
-    config = function ()
+    config = function()
       require 'plugins/dap'
     end
   }
@@ -91,46 +91,50 @@ require('packer').startup(function(use)
       })
     end
   })
-  use {                                                                           -- Adds matching pair
+  use { -- Adds matching pair
     'windwp/nvim-autopairs',
-    config = function ()
+    config = function()
       require('nvim-autopairs').setup()
     end
   }
-  use {                                                                           -- Auto closing tags
+  use { -- Auto closing tags
     'windwp/nvim-ts-autotag',
-    config = function ()
+    config = function()
       require('nvim-ts-autotag').setup()
     end,
-    ft = {'html', 'jsx', 'tsx', 'svelte'}
+    ft = { 'html', 'jsx', 'tsx', 'svelte' }
   }
-  use 'christoomey/vim-tmux-navigator'                                            -- Ability to navigate tmux panes
-  use {                                                                           -- Display colours
+  use 'christoomey/vim-tmux-navigator' -- Ability to navigate tmux panes
+  use { -- Display colours
     'NvChad/nvim-colorizer.lua',
-    config = function ()
+    config = function()
       require('colorizer').setup()
     end
   }
   use {
     'anuvyklack/hydra.nvim',
-    config = function ()
+    config = function()
       require 'plugins/hydra'
     end
   }
   use {
     'j-hui/fidget.nvim',
-    config = function ()
-      require('fidget').setup()
+    config = function()
+      require('fidget').setup({
+        window = {
+          blend = 0,
+        },
+      })
     end
   }
 
   -- lsp
   use {
-    'jose-elias-alvarez/null-ls.nvim',                                            -- General purpose lsp
+    'jose-elias-alvarez/null-ls.nvim', -- General purpose lsp
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function ()
+    config = function()
       require 'plugins/null'
     end
   }
@@ -140,26 +144,26 @@ require('packer').startup(function(use)
       { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
       { 'neovim/nvim-lspconfig' },
     },
-    config = function ()
-      require'navigator'.setup({
+    config = function()
+      require 'navigator'.setup({
         mason = true
       })
     end
   })
-  use {                                                                           -- Manage external editor tooling i.e LSP servers
+  use { -- Manage external editor tooling i.e LSP servers
     'williamboman/mason.nvim',
-    config = function ()
+    config = function()
       require('mason').setup()
     end
   }
-  use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
-  use { 'hrsh7th/nvim-cmp',                                                       -- Autocompletion
+  use 'williamboman/mason-lspconfig.nvim' -- Automatically install language servers to stdpath
+  use { 'hrsh7th/nvim-cmp', -- Autocompletion
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'rcarriga/cmp-dap',
-      { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
+      { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } } -- Snippet Engine and Snippet Expansion
     },
-    config = function ()
+    config = function()
       require 'plugins/cmp'
     end
   }
@@ -178,7 +182,7 @@ require('packer').startup(function(use)
         cond = vim.fn.executable "make" == 1
       },
     },
-    config = function ()
+    config = function()
       require 'plugins/telescope'
     end
   }
