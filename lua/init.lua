@@ -146,7 +146,10 @@ require('packer').startup(function(use)
     },
     config = function()
       require 'navigator'.setup({
-        mason = true
+        mason = true,
+        lsp = {
+          servers = { "tailwindcss" }
+        }
       })
     end
   })
