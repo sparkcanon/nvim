@@ -337,7 +337,7 @@ Hydra {
     end,
   },
   mode = { 'n', 'x' },
-  body = '<leader>g',
+  body = '<leader>G',
   heads = {
     {
       'J',

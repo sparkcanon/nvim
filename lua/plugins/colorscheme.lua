@@ -8,12 +8,7 @@ vim.opt.fillchars = {
   verthoriz = '╋',
 }
 
-vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha
-require('catppuccin').setup {
-  transparent_background = true,
-  fidget = true,
-}
-vim.cmd 'colorscheme catppuccin'
+vim.cmd 'colorscheme kanagawa'
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'single',

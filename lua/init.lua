@@ -53,8 +53,7 @@ require('packer').startup(function(use)
     end
   } -- Highlight, edit, and navigate code
   use {
-    "catppuccin/nvim",
-    as = "catppuccin",
+    "rebelot/kanagawa.nvim",
     config = function()
       require 'plugins/colorscheme'
     end
@@ -148,7 +147,8 @@ require('packer').startup(function(use)
       require 'navigator'.setup({
         mason = true,
         lsp = {
-          servers = { "tailwindcss" }
+          servers = { "tailwindcss" },
+          disable_lsp = { 'denols' }
         }
       })
     end
@@ -159,7 +159,28 @@ require('packer').startup(function(use)
       require('mason').setup()
     end
   }
-  use 'williamboman/mason-lspconfig.nvim' -- Automatically install language servers to stdpath
+  use {
+    'williamboman/mason-lspconfig.nvim',
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "sumneko_lua",
+          "cssls",
+          "cssmodules_ls",
+          "eslint",
+          "html",
+          "jsonls",
+          "prismals",
+          "svelte",
+          "tailwindcss",
+          "tsserver",
+          "vimls",
+          "denols"
+        }
+      })
+    end
+  } -- Automatically install language servers to stdpath
+
   use { 'hrsh7th/nvim-cmp', -- Autocompletion
     requires = {
       'hrsh7th/cmp-nvim-lsp',
