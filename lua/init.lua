@@ -11,29 +11,12 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'lewis6991/impatient.nvim' -- Cache config for faster startup
-  use { -- Tpope
-    'tpope/vim-fugitive', -- Git stuff
-    'tpope/vim-dispatch', -- Run stuff in terminals
-    'tpope/vim-sleuth',
-    'tpope/vim-surround', -- Manipulate surroundings
-    'tpope/vim-repeat', -- Repeat things
-  }
   use {
     "elihunter173/dirbuf.nvim",
     config = function()
       require("dirbuf").setup {
         show_hidden = true,
         sort_order = "directories_first",
-      }
-    end
-  }
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("indent_blankline").setup {
-        -- for example, context is off by default, use this to turn it on
-        show_current_context = true,
-        show_current_context_start = true,
       }
     end
   }
@@ -62,13 +45,9 @@ require('packer').startup(function(use)
       require 'plugins/treesitter'
     end
   } -- Highlight, edit, and navigate code
+
+  -- Debug
   use {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require 'plugins/colorscheme'
-    end
-  }
-  use { -- Debug adapter
     'mfussenegger/nvim-dap',
     requires = {
       'theHamsta/nvim-dap-virtual-text',
@@ -78,6 +57,8 @@ require('packer').startup(function(use)
       require 'plugins/dap'
     end
   }
+
+  -- Testind
   use({
     'nvim-neotest/neotest',
     requires = {
@@ -100,13 +81,25 @@ require('packer').startup(function(use)
       })
     end
   })
-  use { -- Adds matching pair
+
+  -- Utils
+  -- Tpope
+  use {
+    'tpope/vim-fugitive', -- Git stuff
+    'tpope/vim-dispatch', -- Run stuff in terminals
+    'tpope/vim-sleuth',
+    'tpope/vim-surround', -- Manipulate surroundings
+    'tpope/vim-repeat', -- Repeat things
+  }
+  -- Adds matching pair
+  use {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup()
     end
   }
-  use { -- Auto closing tags
+  -- Auto closing tags
+  use {
     'windwp/nvim-ts-autotag',
     config = function()
       require('nvim-ts-autotag').setup()
@@ -114,7 +107,9 @@ require('packer').startup(function(use)
     ft = { 'html', 'jsx', 'tsx', 'svelte' }
   }
   use 'christoomey/vim-tmux-navigator' -- Ability to navigate tmux panes
-  use { -- Display colours
+
+  -- Display colours
+  use {
     'NvChad/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup()
@@ -126,6 +121,39 @@ require('packer').startup(function(use)
       require 'plugins/hydra'
     end
   }
+
+  -- UI
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("indent_blankline").setup {
+        -- for example, context is off by default, use this to turn it on
+        -- show_current_context = true,
+        -- show_current_context_start = true,
+      }
+    end
+  }
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      require 'plugins/colorscheme'
+    end
+  }
+  -- use {
+  --   'feline-nvim/feline.nvim',
+  --   requires = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     local ctp_feline = require('catppuccin.groups.integrations.feline')
+  --
+  --     ctp_feline.setup()
+  --
+  --     require("feline").setup({
+  --       components = ctp_feline.get(),
+  --     })
+  --     -- require('feline').winbar.setup()
+  --   end
+  -- }
   use {
     'j-hui/fidget.nvim',
     config = function()
@@ -147,15 +175,32 @@ require('packer').startup(function(use)
       require 'plugins/null'
     end
   }
+  -- Complete lsp setup
   use({
     'ray-x/navigator.lua',
     requires = {
       { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
       { 'neovim/nvim-lspconfig' },
+      {
+        'SmiteshP/nvim-navic',
+        config = function()
+          vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+          local navic = require("nvim-navic")
+          navic.setup {
+            highlight = true
+          }
+        end
+      }
     },
     config = function()
+      local navic = require("nvim-navic")
       require 'navigator'.setup({
         mason = true,
+        on_attach = function(client, bufnr)
+          if client.server_capabilities.documentSymbolProvider then
+            navic.attach(client, bufnr)
+          end
+        end,
         lsp = {
           servers = { "tailwindcss" },
           disable_lsp = { 'denols' }
@@ -163,12 +208,14 @@ require('packer').startup(function(use)
       })
     end
   })
-  use { -- Manage external editor tooling i.e LSP servers
+  -- Manage external editor tooling i.e LSP servers
+  use {
     'williamboman/mason.nvim',
     config = function()
       require('mason').setup()
     end
   }
+  -- Automatically install language servers to stdpath
   use {
     'williamboman/mason-lspconfig.nvim',
     config = function()
@@ -189,9 +236,9 @@ require('packer').startup(function(use)
         }
       })
     end
-  } -- Automatically install language servers to stdpath
-
-  use { 'hrsh7th/nvim-cmp', -- Autocompletion
+  }
+  -- Autocompletion
+  use { 'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'rcarriga/cmp-dap',

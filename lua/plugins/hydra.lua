@@ -8,7 +8,7 @@ local gitsigns = require 'gitsigns'
 local search_hint = [[
   _f_: files        _m_: marks              _d_: grep in dir          _n_: npm scripts ^
   _o_: old files    _b_: buffers            _g_: live grep            _e_: diagnostics
-  _/_: in file      _q_: quickfix
+  _/_: in file      _q_: quickfix           ^ ^                       _s_: document symbol
   ^ ^               _j_: jump list
   ^ ^               
   _r_: resume       _k_: keymaps            _;_: commands history 
@@ -57,6 +57,7 @@ Hydra {
     { 'b', cmd 'Telescope buffers', { desc = 'buffers' } },
     { 'j', cmd 'Telescope jumplist', { desc = 'jump list' } },
     { 'e', cmd 'Telescope diagnostics', { desc = 'diagnostics' } },
+    { 's', cmd 'Telescope lsp_document_symbols', { desc = 'document symbol' } },
     {
       '/',
       function()
