@@ -268,7 +268,8 @@ require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'rcarriga/cmp-dap',
       { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }, -- Snippet Engine and Snippet Expansion
-      'onsails/lspkind.nvim'
+      'onsails/lspkind.nvim',
+      'hrsh7th/cmp-path'
     },
     config = function()
       require 'plugins/cmp'
