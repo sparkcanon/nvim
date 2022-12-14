@@ -21,6 +21,31 @@ require('packer').startup(function(use)
     end
   }
   use {
+    "zbirenbaum/copilot.lua",
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup(
+          {
+            suggestion = {
+              enabled = true,
+              auto_trigger = true,
+              debounce = 75,
+              keymap = {
+                accept = "<M-l>",
+                accept_word = false,
+                accept_line = false,
+                next = "<M-]>",
+                prev = "<M-[>",
+                dismiss = "<C-]>",
+              },
+            },
+          }
+        )
+      end, 100)
+    end,
+  }
+  use {
     'lewis6991/gitsigns.nvim', -- Add git related info in the signs columns and popups
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
@@ -58,7 +83,7 @@ require('packer').startup(function(use)
     end
   }
 
-  -- Testind
+  -- Testing
   use({
     'nvim-neotest/neotest',
     requires = {
