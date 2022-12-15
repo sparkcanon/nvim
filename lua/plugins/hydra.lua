@@ -82,13 +82,16 @@ Hydra {
 
 -- [[ Test hydra ]]
 local test_hint = [[
-  _r_: Run nearest       _f_: Current file          _s_: summary toggle     _]_: next failed test   ^
-  _d_: Debug nearest     _D_: Debug current file    _o_: Output long        _[_: prev failed test
-  _l_: Debug last        _L_: Run last              _O_: Output short
-
-  _q_: Quit test
-
-  _<Esc>_
+  _r_: Run nearest       _d_: Debug nearest      _]_: next failed test   ^
+  _R_: Run file          _D_: Debug file         _[_: prev failed test
+  ^ ^
+  ^
+  _l_: Debug last        _s_: summary toggle
+  _L_: Run last          _o_: Output long   
+  ^ ^                    _O_: Output short
+  ^
+  ^
+  _q_: Terminate test    _<Esc>_: Cancel
 ]]
 
 Hydra {
@@ -110,11 +113,11 @@ Hydra {
       { desc = 'Run nearest' },
     },
     {
-      'f',
+      'R',
       function()
         neotest.run.run(vim.fn.expand '%')
       end,
-      { desc = 'Current file' },
+      { desc = 'Run file' },
     },
     {
       'd',
@@ -128,7 +131,7 @@ Hydra {
       function()
         neotest.run.run { vim.fn.expand '%', strategy = 'dap' }
       end,
-      { desc = 'Debug current file' },
+      { desc = 'Debug file' },
     },
     {
       'o',
@@ -192,31 +195,25 @@ Hydra {
 
 -- [[ Dap hydra ]]
 local dap_hint = [[
-
-  Dap
-
-  _c_: Continue             _q_: Terminate      ^
-  _b_: Toggle breakpoint    _B_: Log point
-  _l_: Debug last           _D_: Delete all breakpoints
-
-  _f_: Frames               _v_: variables
-  _h_: Commands             _s_: list breakpoints
-  _C_: Configuration
-
-  _o_: Step over            _O_: Step out
-  _i_: step into            _r_: repl
+  _c_: Continue          _b_: Toggle breakpoint         _f_: Frames              _C_: Configuration  ^
+  _o_: Step over         _B_: Log point                 _v_: variables           _h_: Commands     
+  _i_: step into         _D_: Delete all breakpoints    _s_: list breakpoints
+  _O_: Step out          ^ ^                            
+  ^ ^                    ^ ^                            
+  _l_: Debug last        _q_: Terminate                 _r_: repl
 
   _<Esc>_
-
 ]]
 
 Hydra {
   name = 'Dap',
   hint = dap_hint,
   config = {
-    color = 'teal',
+    color = 'pink',
     invoke_on_body = true,
-    hint = hint_config,
+    hint = {
+      border = 'rounded',
+    },
   },
   mode = 'n',
   body = ',d',
