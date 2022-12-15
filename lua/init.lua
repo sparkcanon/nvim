@@ -228,7 +228,7 @@ require('packer').startup(function(use)
         end,
         lsp = {
           servers = { "tailwindcss" },
-          disable_lsp = { 'denols' }
+          disable_lsp = { 'denols', 'flow', 'eslint' }
         }
       })
     end
