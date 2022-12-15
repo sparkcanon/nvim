@@ -207,6 +207,14 @@ require('packer').startup(function(use)
       { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
       { 'neovim/nvim-lspconfig' },
       {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+          require('lsp_signature').setup({
+            floating_window = false,
+          })
+        end
+      },
+      {
         'SmiteshP/nvim-navic',
         config = function()
           vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"

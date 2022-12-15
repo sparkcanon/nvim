@@ -9,13 +9,13 @@ local search_hint = [[
   _f_: files        _m_: marks              _d_: grep in dir          _n_: npm scripts ^
   _o_: old files    _b_: buffers            _g_: live grep            _e_: diagnostics
   _/_: in file      _q_: quickfix           ^ ^                       _s_: document symbol
-  ^ ^               _j_: jump list
+  ^ ^               _j_: jump list          ^ ^                       _G_: git branches
   ^ ^               
   _r_: resume       _k_: keymaps            _;_: commands history 
   _h_: vim help     _c_: execute command    _?_: search history
   _O_: options      
 
-  _<Enter>_: Telescope           _<Esc>_
+  _<Enter>_: Telescope           _<Esc>_: Cancel
 ]]
 
 local hint_config = {
@@ -58,6 +58,7 @@ Hydra {
     { 'j', cmd 'Telescope jumplist', { desc = 'jump list' } },
     { 'e', cmd 'Telescope diagnostics', { desc = 'diagnostics' } },
     { 's', cmd 'Telescope lsp_document_symbols', { desc = 'document symbol' } },
+    { 'G', cmd 'Telescope git_branches', { desc = 'git branches' } },
     {
       '/',
       function()
@@ -99,7 +100,7 @@ Hydra {
     hint = hint_config,
   },
   mode = 'n',
-  body = '<Leader>t',
+  body = ',t',
   heads = {
     {
       'r',
@@ -218,7 +219,7 @@ Hydra {
     hint = hint_config,
   },
   mode = 'n',
-  body = '<Leader>d',
+  body = ',d',
   heads = {
     {
       'c',
@@ -338,7 +339,7 @@ Hydra {
     end,
   },
   mode = { 'n', 'x' },
-  body = '<leader>G',
+  body = ',g',
   heads = {
     {
       'J',
