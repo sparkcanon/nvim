@@ -85,11 +85,9 @@ local test_hint = [[
   _r_: Run nearest       _d_: Debug nearest      _]_: next failed test   ^
   _R_: Run file          _D_: Debug file         _[_: prev failed test
   ^ ^
-  ^
   _l_: Debug last        _s_: summary toggle
   _L_: Run last          _o_: Output long   
   ^ ^                    _O_: Output short
-  ^
   ^
   _q_: Terminate test    _<Esc>_: Cancel
 ]]
@@ -100,7 +98,9 @@ Hydra {
   config = {
     color = 'teal',
     invoke_on_body = true,
-    hint = hint_config,
+    hint = {
+      border = 'rounded',
+    },
   },
   mode = 'n',
   body = ',t',
