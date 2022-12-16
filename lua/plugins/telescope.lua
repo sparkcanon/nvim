@@ -39,6 +39,25 @@ require('telescope').setup {
     quickfix = {
       previewer = false,
     },
+    find_files = {
+      find_command = {
+        'fd',
+        '--type',
+        'f',
+        '--hidden',
+        '--no-ignore',
+        '--exclude',
+        'node_modules',
+        '--exclude',
+        '.git',
+        '--exclude',
+        'coverage',
+        '--exclude',
+        '.log',
+        '--glob',
+        '',
+      },
+    },
   },
 }
 

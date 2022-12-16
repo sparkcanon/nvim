@@ -165,20 +165,6 @@ require('packer').startup(function(use)
       require 'plugins/colorscheme'
     end
   }
-  -- use {
-  --   'feline-nvim/feline.nvim',
-  --   requires = { "nvim-tree/nvim-web-devicons" },
-  --   config = function()
-  --     local ctp_feline = require('catppuccin.groups.integrations.feline')
-  --
-  --     ctp_feline.setup()
-  --
-  --     require("feline").setup({
-  --       components = ctp_feline.get(),
-  --     })
-  --     -- require('feline').winbar.setup()
-  --   end
-  -- }
   use {
     'j-hui/fidget.nvim',
     config = function()
@@ -191,8 +177,9 @@ require('packer').startup(function(use)
   }
 
   -- lsp
+  -- General purpose lsp
   use {
-    'jose-elias-alvarez/null-ls.nvim', -- General purpose lsp
+    'jose-elias-alvarez/null-ls.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
     },
@@ -201,86 +188,78 @@ require('packer').startup(function(use)
     end
   }
   -- Complete lsp setup
-  use({
-    'ray-x/navigator.lua',
+  use {
+    'VonHeikemen/lsp-zero.nvim',
     requires = {
-      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      -- LSP Support
       { 'neovim/nvim-lspconfig' },
-      {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-          require('lsp_signature').setup({
-            floating_window = false,
-          })
-        end
-      },
-      {
-        'SmiteshP/nvim-navic',
-        config = function()
-          vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-          local navic = require("nvim-navic")
-          navic.setup {
-            highlight = true
-          }
-        end
-      }
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
+
+      -- winbar
+      { 'SmiteshP/nvim-navic' },
+
+      -- signature
+      { 'ray-x/lsp_signature.nvim' },
     },
     config = function()
+
+      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
       local navic = require("nvim-navic")
-      require 'navigator'.setup({
-        mason = true,
-        on_attach = function(client, bufnr)
-          if client.server_capabilities.documentSymbolProvider then
-            navic.attach(client, bufnr)
-          end
-        end,
-        lsp = {
-          servers = { "tailwindcss" },
-          disable_lsp = { 'denols', 'flow', 'eslint' }
+      navic.setup {
+        highlight = true
+      }
+
+      require('mason.settings').set({
+        ui = {
+          border = 'rounded'
         }
       })
-    end
-  })
-  -- Manage external editor tooling i.e LSP servers
-  use {
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup()
-    end
-  }
-  -- Automatically install language servers to stdpath
-  use {
-    'williamboman/mason-lspconfig.nvim',
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "sumneko_lua",
-          "cssls",
-          "cssmodules_ls",
-          "eslint",
-          "html",
-          "jsonls",
-          "prismals",
-          "svelte",
-          "tailwindcss",
-          "tsserver",
-          "vimls",
-          "denols"
-        }
+
+      require "lsp_signature".setup({
+        bind = true,
+        handler_opts = {
+          border = "rounded"
+        },
+        floating_window = false,
       })
-    end
-  }
-  -- Autocompletion
-  use { 'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'rcarriga/cmp-dap',
-      { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }, -- Snippet Engine and Snippet Expansion
-      'onsails/lspkind.nvim',
-      'hrsh7th/cmp-path'
-    },
-    config = function()
-      require 'plugins/cmp'
+
+      local lsp = require('lsp-zero')
+
+      lsp.preset('recommended')
+      lsp.ensure_installed({
+        "sumneko_lua",
+        "cssls",
+        "cssmodules_ls",
+        "eslint",
+        "html",
+        "jsonls",
+        "prismals",
+        "svelte",
+        "tailwindcss",
+        "tsserver",
+        "vimls",
+      })
+
+      lsp.nvim_workspace()
+      lsp.on_attach(function(client, bufnr)
+        if client.server_capabilities.documentSymbolProvider then
+          navic.attach(client, bufnr)
+        end
+      end)
+      lsp.setup()
     end
   }
 
