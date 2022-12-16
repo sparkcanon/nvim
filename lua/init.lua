@@ -23,34 +23,10 @@ require('packer').startup(function(use)
   use {
     "zbirenbaum/copilot.lua",
     event = "VimEnter",
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup(
-          {
-            suggestion = {
-              enabled = true,
-              auto_trigger = true,
-              debounce = 75,
-              keymap = {
-                accept = "<M-l>",
-                accept_word = false,
-                accept_line = false,
-                next = "<M-]>",
-                prev = "<M-[>",
-                dismiss = "<C-]>",
-              },
-            },
-          }
-        )
-      end, 100)
-    end,
   }
   use {
     'lewis6991/gitsigns.nvim', -- Add git related info in the signs columns and popups
     requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require 'plugins/gitsigns'
-    end
   }
   use { -- "gc" to comment visual regions/lines
     'numToStr/Comment.nvim',
@@ -66,9 +42,6 @@ require('packer').startup(function(use)
       'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
       'nvim-treesitter/nvim-treesitter-refactor'
     },
-    config = function()
-      require 'plugins/treesitter'
-    end
   } -- Highlight, edit, and navigate code
 
   -- Debug
@@ -78,9 +51,6 @@ require('packer').startup(function(use)
       'theHamsta/nvim-dap-virtual-text',
       'mxsdev/nvim-dap-vscode-js',
     },
-    config = function()
-      require 'plugins/dap'
-    end
   }
 
   -- Testing
@@ -91,20 +61,6 @@ require('packer').startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require('neotest').setup({
-        adapters = {
-          require('neotest-jest')({
-            jestCommand = "npm test --",
-            jestConfigFile = "custom.jest.config.ts",
-            env = { CI = true },
-            cwd = function(path)
-              return vim.fn.getcwd()
-            end,
-          }),
-        }
-      })
-    end
   })
 
   -- Utils
@@ -142,9 +98,6 @@ require('packer').startup(function(use)
   }
   use {
     'anuvyklack/hydra.nvim',
-    config = function()
-      require 'plugins/hydra'
-    end
   }
 
   -- UI
@@ -161,9 +114,6 @@ require('packer').startup(function(use)
   use {
     "catppuccin/nvim",
     as = "catppuccin",
-    config = function()
-      require 'plugins/colorscheme'
-    end
   }
   use {
     'j-hui/fidget.nvim',
@@ -183,9 +133,6 @@ require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require 'plugins/null'
-    end
   }
   -- Complete lsp setup
   use {
@@ -222,93 +169,6 @@ require('packer').startup(function(use)
         end
       }
     },
-    config = function()
-
-      vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-      local navic = require("nvim-navic")
-      navic.setup {
-        highlight = true
-      }
-
-      require('mason.settings').set({
-        ui = {
-          border = 'rounded'
-        }
-      })
-
-      require "lsp_signature".setup({
-        bind = true,
-        handler_opts = {
-          border = "rounded"
-        },
-        floating_window = false,
-      })
-
-      local lsp = require('lsp-zero')
-
-      lsp.preset('recommended')
-      lsp.ensure_installed({
-        "sumneko_lua",
-        "cssls",
-        "cssmodules_ls",
-        "eslint",
-        "html",
-        "jsonls",
-        "prismals",
-        "svelte",
-        "tailwindcss",
-        "tsserver",
-        "vimls",
-      })
-
-      lsp.nvim_workspace()
-
-      lsp.on_attach(function(client, bufnr)
-        -- lsp mappings
-        local opts = { buffer = bufnr, remap = false }
-        local bind = vim.keymap.set
-
-        bind('n', '<space>ff', '<cmd>LspZeroFormat<cr>', opts)
-        bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-        bind('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-
-        vim.keymap.set("n", "<space>xx", "<cmd>TroubleToggle<cr>",
-          { silent = true, noremap = true }
-        )
-        vim.keymap.set("n", "<space>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-          { silent = true, noremap = true }
-        )
-        vim.keymap.set("n", "<space>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-          { silent = true, noremap = true }
-        )
-        vim.keymap.set("n", "<space>xl", "<cmd>TroubleToggle loclist<cr>",
-          { silent = true, noremap = true }
-        )
-        vim.keymap.set("n", "<space>xq", "<cmd>TroubleToggle quickfix<cr>",
-          { silent = true, noremap = true }
-        )
-        vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-          { silent = true, noremap = true }
-        )
-
-        -- navic capabilities
-        if client.server_capabilities.documentSymbolProvider then
-          navic.attach(client, bufnr)
-        end
-      end)
-
-      lsp.setup()
-
-      -- diagnostics
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        update_in_insert = false,
-        underline = true,
-        severity_sort = false,
-        float = true,
-      })
-    end
   }
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -325,9 +185,6 @@ require('packer').startup(function(use)
         cond = vim.fn.executable "make" == 1
       },
     },
-    config = function()
-      require 'plugins/telescope'
-    end
   }
 
 

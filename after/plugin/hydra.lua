@@ -7,9 +7,9 @@ local gitsigns = require 'gitsigns'
 -- [[ Telescope hydra ]]
 local search_hint = [[
   _f_: files        _m_: marks              _d_: grep in dir          _n_: npm scripts ^
-  _o_: old files    _b_: buffers            _g_: live grep            _e_: diagnostics
-  _/_: in file      _q_: quickfix           ^ ^                       _s_: document symbol
-  ^ ^               _j_: jump list          ^ ^                       _G_: git branches
+  _o_: old files    _q_: quickfix           _g_: live grep            _e_: diagnostics
+  _/_: in file      _j_: jump list          ^ ^                       _s_: document symbol
+  _b_: buffers      ^ ^                     ^ ^                       _G_: git branches
   ^ ^               
   _r_: resume       _k_: keymaps            _;_: commands history 
   _h_: vim help     _c_: execute command    _?_: search history
