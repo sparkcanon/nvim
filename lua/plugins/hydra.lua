@@ -306,6 +306,7 @@ local git_hint = [[
  ^ ^              _<Enter>_: Lazygit              _q_: exit
 ]]
 
+-- TODO: Breaks hydra on scratch buffer
 Hydra {
   name = 'Git',
   hint = git_hint,
