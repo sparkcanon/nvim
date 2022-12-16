@@ -22,6 +22,9 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- undotree
+vim.keymap.set('n', '<space>u', ':UndotreeToggle<CR>', { desc = 'Undotree' })
+
 -- disables Q
 vim.keymap.set('n', 'Q', '<nop>')
 
