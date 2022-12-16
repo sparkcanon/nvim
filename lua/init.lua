@@ -254,12 +254,33 @@ require('packer').startup(function(use)
       })
 
       lsp.nvim_workspace()
+
       lsp.on_attach(function(client, bufnr)
+        -- lsp mappings
+        local opts = { buffer = bufnr, remap = false }
+        local bind = vim.keymap.set
+
+        bind('n', '<space>ff', '<cmd>LspZeroFormat<cr>', opts)
+        bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+        bind('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+
+        -- navic capabilities
         if client.server_capabilities.documentSymbolProvider then
           navic.attach(client, bufnr)
         end
       end)
+
       lsp.setup()
+
+      -- diagnostics
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        update_in_insert = false,
+        underline = true,
+        severity_sort = false,
+        float = true,
+      })
     end
   }
 
