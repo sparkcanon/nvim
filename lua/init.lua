@@ -213,6 +213,14 @@ require('packer').startup(function(use)
 
       -- signature
       { 'ray-x/lsp_signature.nvim' },
+
+      {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+          require("trouble").setup {}
+        end
+      }
     },
     config = function()
 
@@ -263,6 +271,25 @@ require('packer').startup(function(use)
         bind('n', '<space>ff', '<cmd>LspZeroFormat<cr>', opts)
         bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         bind('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+
+        vim.keymap.set("n", "<space>xx", "<cmd>TroubleToggle<cr>",
+          { silent = true, noremap = true }
+        )
+        vim.keymap.set("n", "<space>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+          { silent = true, noremap = true }
+        )
+        vim.keymap.set("n", "<space>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+          { silent = true, noremap = true }
+        )
+        vim.keymap.set("n", "<space>xl", "<cmd>TroubleToggle loclist<cr>",
+          { silent = true, noremap = true }
+        )
+        vim.keymap.set("n", "<space>xq", "<cmd>TroubleToggle quickfix<cr>",
+          { silent = true, noremap = true }
+        )
+        vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+          { silent = true, noremap = true }
+        )
 
         -- navic capabilities
         if client.server_capabilities.documentSymbolProvider then

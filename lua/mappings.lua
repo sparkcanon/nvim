@@ -40,3 +40,7 @@ vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 
 -- Clear highlighting
 vim.keymap.set('n', '<C-x>', [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]], opts)
+
+-- copy file path
+vim.cmd [[command! -nargs=? -complete=dir YRelative :let @+ = expand("%")]]
+vim.cmd [[command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")]]
