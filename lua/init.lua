@@ -20,31 +20,22 @@ require('packer').startup(function(use)
       }
     end
   }
+  use('mbbill/undotree')
+  use { "zbirenbaum/copilot.lua", event = "VimEnter" }
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+  -- Syntax Highlighting
   use {
-    "zbirenbaum/copilot.lua",
-    event = "VimEnter",
-  }
-  use {
-    'lewis6991/gitsigns.nvim', -- Add git related info in the signs columns and popups
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
-  use { -- "gc" to comment visual regions/lines
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter', -- Syntax Highlighting
+    'nvim-treesitter/nvim-treesitter',
     requires = {
       'David-Kunz/markid',
       'nvim-treesitter/nvim-treesitter-context',
-      'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
+      'nvim-treesitter/nvim-treesitter-textobjects',
       'nvim-treesitter/nvim-treesitter-refactor'
     },
-  } -- Highlight, edit, and navigate code
+  }
 
-  -- Debug
+  -- DEBUG & TEST
   use {
     'mfussenegger/nvim-dap',
     requires = {
@@ -52,8 +43,6 @@ require('packer').startup(function(use)
       'mxsdev/nvim-dap-vscode-js',
     },
   }
-
-  -- Testing
   use({
     'nvim-neotest/neotest',
     requires = {
@@ -63,7 +52,7 @@ require('packer').startup(function(use)
     },
   })
 
-  -- Utils
+  -- UTILS
   -- Tpope
   use {
     'tpope/vim-fugitive', -- Git stuff
@@ -72,14 +61,18 @@ require('packer').startup(function(use)
     'tpope/vim-surround', -- Manipulate surroundings
     'tpope/vim-repeat', -- Repeat things
   }
-  -- Adds matching pair
+  use {
+    'numToStr/Comment.nvim', -- Comments
+    config = function()
+      require('Comment').setup()
+    end
+  }
   use {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup()
     end
   }
-  -- Auto closing tags
   use {
     'windwp/nvim-ts-autotag',
     config = function()
@@ -87,7 +80,7 @@ require('packer').startup(function(use)
     end,
     ft = { 'html', 'jsx', 'tsx', 'svelte' }
   }
-  use 'christoomey/vim-tmux-navigator' -- Ability to navigate tmux panes
+  use 'christoomey/vim-tmux-navigator' -- Navigate tmux panes
 
   -- Display colours
   use {

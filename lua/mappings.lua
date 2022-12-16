@@ -19,8 +19,11 @@ vim.keymap.set('n', '<S-Tab>', 'gT', { desc = 'Tab prev' })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', opts)
 
 -- Move selected line / block of text in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- disables Q
+vim.keymap.set('n', 'Q', '<nop>')
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -37,6 +40,9 @@ vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
 vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
 vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+
+-- quick substitute
+vim.keymap.set('n', '<c-s>', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- Clear highlighting
 vim.keymap.set('n', '<C-x>', [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]], opts)
