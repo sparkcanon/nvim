@@ -21,8 +21,8 @@ vim.opt.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Decrease update time
-vim.o.updatetime = 250
+-- Decrease update time from 250
+vim.o.updatetime = 50
 vim.wo.signcolumn = 'yes'
 
 -- True colours

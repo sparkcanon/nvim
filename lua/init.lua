@@ -89,9 +89,7 @@ require('packer').startup(function(use)
       require('colorizer').setup()
     end
   }
-  use {
-    'anuvyklack/hydra.nvim',
-  }
+  use { 'anuvyklack/hydra.nvim', }
 
   -- UI
   use {
@@ -104,10 +102,7 @@ require('packer').startup(function(use)
       }
     end
   }
-  use {
-    "catppuccin/nvim",
-    as = "catppuccin",
-  }
+  use { "catppuccin/nvim", as = "catppuccin", }
   use {
     'j-hui/fidget.nvim',
     config = function()
@@ -121,12 +116,8 @@ require('packer').startup(function(use)
 
   -- lsp
   -- General purpose lsp
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
-  }
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
   -- Complete lsp setup
   use {
     'VonHeikemen/lsp-zero.nvim',
