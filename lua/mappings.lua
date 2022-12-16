@@ -15,7 +15,12 @@ vim.keymap.set({ 'n', 'x' }, ':', ';')
 vim.keymap.set('n', '<Tab>', 'gt', { desc = 'Tab next' })
 vim.keymap.set('n', '<S-Tab>', 'gT', { desc = 'Tab prev' })
 
+-- Cant remember why I added this
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', opts)
+
+-- Move selected line / block of text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -26,12 +31,7 @@ vim.keymap.set('n', '[b', ':bprevious<cr>', opts)
 vim.keymap.set('n', ']b', ':bnext<cr>', opts)
 vim.keymap.set('n', '<BS>', '<C-^>', opts)
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to prev error' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next error' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Quick show line error' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open errors in list' })
-
+-- term mode mappings
 vim.keymap.set('t', '<C-space>', [[<C-\><C-n>]], opts)
 vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
 vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)

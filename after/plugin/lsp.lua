@@ -10,14 +10,6 @@ require('mason.settings').set {
   },
 }
 
-require('lsp_signature').setup {
-  bind = true,
-  handler_opts = {
-    border = 'rounded',
-  },
-  floating_window = false,
-}
-
 local lsp = require 'lsp-zero'
 
 lsp.preset 'recommended'
@@ -45,6 +37,7 @@ lsp.on_attach(function(client, bufnr)
   bind('n', '<space>ff', '<cmd>LspZeroFormat<cr>', opts)
   bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   bind('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+  bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
 
   vim.keymap.set('n', '<space>xx', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
   vim.keymap.set('n', '<space>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { silent = true, noremap = true })

@@ -158,9 +158,7 @@ require('packer').startup(function(use)
       -- winbar
       { 'SmiteshP/nvim-navic' },
 
-      -- signature
-      { 'ray-x/lsp_signature.nvim' },
-
+      -- Diagnostic window
       {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
