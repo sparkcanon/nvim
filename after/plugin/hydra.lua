@@ -320,7 +320,10 @@ Hydra {
     on_enter = function()
       vim.cmd 'mkview'
       vim.cmd 'silent! %foldopen!'
-      vim.bo.modifiable = false
+
+      -- NOTE: Make the buffer modifiable so we can reset hunks
+      -- vim.bo.modifiable = false
+
       gitsigns.toggle_signs(true)
       gitsigns.toggle_linehl(true)
       gitsigns.toggle_numhl(false)
@@ -371,15 +374,7 @@ Hydra {
     { 'p', gitsigns.preview_hunk, { desc = 'preview hunk' } },
     { 'd', gitsigns.toggle_deleted, { nowait = true, desc = 'toggle deleted' } },
     { 'b', gitsigns.blame_line, { desc = 'blame' } },
-    {
-      'r',
-      function()
-        vim.bo.modifiable = true
-        gitsigns.reset_hunk()
-        vim.bo.modifiable = false
-      end,
-      { desc = 'reset hunk' },
-    },
+    { 'r', gitsigns.reset_hunk, { desc = 'reset hunk' } },
     {
       'B',
       function()
