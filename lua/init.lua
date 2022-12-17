@@ -12,7 +12,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'lewis6991/impatient.nvim' -- Cache config for faster startup
   use { 'mbbill/undotree' }
-  use { "zbirenbaum/copilot.lua", event = "VimEnter" }
+  use { 'zbirenbaum/copilot.lua', event = 'VimEnter' }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Syntax Highlighting
@@ -22,7 +22,7 @@ require('packer').startup(function(use)
       'David-Kunz/markid',
       'nvim-treesitter/nvim-treesitter-context',
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-refactor'
+      'nvim-treesitter/nvim-treesitter-refactor',
     },
   }
 
@@ -34,14 +34,14 @@ require('packer').startup(function(use)
       'mxsdev/nvim-dap-vscode-js',
     },
   }
-  use({
+  use {
     'nvim-neotest/neotest',
     requires = {
       'haydenmeade/neotest-jest',
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
     },
-  })
+  }
 
   -- UTILS
   -- Tpope
@@ -51,26 +51,26 @@ require('packer').startup(function(use)
     'tpope/vim-sleuth',
     'tpope/vim-surround', -- Manipulate surroundings
     'tpope/vim-repeat', -- Repeat things
-    'tpope/vim-vinegar'
+    'tpope/vim-vinegar',
   }
   use {
     'numToStr/Comment.nvim', -- Comments
     config = function()
       require('Comment').setup()
-    end
+    end,
   }
   use {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup()
-    end
+    end,
   }
   use {
     'windwp/nvim-ts-autotag',
     config = function()
       require('nvim-ts-autotag').setup()
     end,
-    ft = { 'html', 'jsx', 'tsx', 'svelte' }
+    ft = { 'html', 'jsx', 'tsx', 'svelte' },
   }
   use 'christoomey/vim-tmux-navigator' -- Navigate tmux panes
 
@@ -79,31 +79,31 @@ require('packer').startup(function(use)
     'NvChad/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup()
-    end
+    end,
   }
-  use { 'anuvyklack/hydra.nvim', }
+  use { 'anuvyklack/hydra.nvim' }
 
   -- UI
   use {
-    "lukas-reineke/indent-blankline.nvim",
+    'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require("indent_blankline").setup {
+      require('indent_blankline').setup {
         -- for example, context is off by default, use this to turn it on
         -- show_current_context = true,
         -- show_current_context_start = true,
       }
-    end
+    end,
   }
-  use { "catppuccin/nvim", as = "catppuccin", }
+  use { 'catppuccin/nvim', as = 'catppuccin' }
   use {
     'j-hui/fidget.nvim',
     config = function()
-      require('fidget').setup({
+      require('fidget').setup {
         window = {
           blend = 0,
         },
-      })
-    end
+      }
+    end,
   }
 
   -- lsp
@@ -136,17 +136,18 @@ require('packer').startup(function(use)
 
       -- Diagnostic window
       {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
+        'folke/trouble.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-          require("trouble").setup {}
-        end
-      }
+          require('trouble').setup {}
+        end,
+      },
     },
   }
 
   -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim',
+  use {
+    'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     requires = {
       'nvim-lua/plenary.nvim',
@@ -156,11 +157,10 @@ require('packer').startup(function(use)
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make',
-        cond = vim.fn.executable "make" == 1
+        cond = vim.fn.executable 'make' == 1,
       },
     },
   }
-
 
   if is_bootstrap then
     require('packer').sync()
