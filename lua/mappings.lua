@@ -16,14 +16,14 @@ vim.keymap.set('n', '<Tab>', 'gt', { desc = 'Tab next' })
 vim.keymap.set('n', '<S-Tab>', 'gT', { desc = 'Tab prev' })
 
 -- Cant remember why I added this
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', opts)
+vim.keymap.set({ 'n', 'v' }, '<leader>', '<Nop>', opts)
 
 -- Move selected line / block of text in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- undotree
-vim.keymap.set('n', '<space>u', ':UndotreeToggle<CR>', { desc = 'Undotree' })
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = 'Undotree' })
 
 -- disables Q
 vim.keymap.set('n', 'Q', '<nop>')

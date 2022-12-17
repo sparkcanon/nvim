@@ -34,17 +34,17 @@ lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   local bind = vim.keymap.set
 
-  bind('n', '<space>f', '<cmd>LspZeroFormat<cr>', opts)
-  bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  bind('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+  bind('n', '<leader>f', '<cmd>LspZeroFormat<cr>', opts)
+  bind('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+  bind('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
   bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
 
-  vim.keymap.set('n', '<space>xx', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
-  vim.keymap.set('n', '<space>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { silent = true, noremap = true })
-  vim.keymap.set('n', '<space>xd', '<cmd>TroubleToggle document_diagnostics<cr>', { silent = true, noremap = true })
-  vim.keymap.set('n', '<space>xl', '<cmd>TroubleToggle loclist<cr>', { silent = true, noremap = true })
-  vim.keymap.set('n', '<space>xq', '<cmd>TroubleToggle quickfix<cr>', { silent = true, noremap = true })
-  vim.keymap.set('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', { silent = true, noremap = true })
+  bind('n', '<leader>xx', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
+  bind('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { silent = true, noremap = true })
+  bind('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', { silent = true, noremap = true })
+  bind('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>', { silent = true, noremap = true })
+  bind('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', { silent = true, noremap = true })
+  bind('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', { silent = true, noremap = true })
 
   -- navic capabilities
   if client.server_capabilities.documentSymbolProvider then
