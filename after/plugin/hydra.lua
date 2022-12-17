@@ -12,7 +12,7 @@ local search_hint = [[
   _b_: buffers       ^ ^                     _t_: treesitter symbols
   _d_: grep in dir   ^ ^                     _w_: lsp workspace symbols
   _g_: live grep     ^ ^                     _s_: document symbol
-  ^ ^                ^ ^                     _l_: lsp references
+  ^ ^                ^ ^
   ^
   _r_: resume       _k_: keymaps            _;_: commands history 
   _h_: vim help     _c_: execute command    _?_: search history
@@ -64,7 +64,6 @@ Hydra {
     { 'G', cmd 'Telescope git_branches', { desc = 'git branches' } },
     { 't', cmd 'Telescope treesitter', { desc = 'treesitter symbols' } },
     { 'w', cmd 'Telescope lsp_dynamic_workspace_symbols', { desc = 'lsp workspace symbols' } },
-    { 'l', cmd 'Telescope lsp_references', { desc = 'lsp references' } },
     {
       '/',
       function()

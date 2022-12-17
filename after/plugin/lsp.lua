@@ -38,13 +38,7 @@ lsp.on_attach(function(client, bufnr)
   bind('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   bind('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
   bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-
-  bind('n', '<leader>xx', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
-  bind('n', '<leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', { silent = true, noremap = true })
-  bind('n', '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', { silent = true, noremap = true })
-  bind('n', '<leader>xl', '<cmd>TroubleToggle loclist<cr>', { silent = true, noremap = true })
-  bind('n', '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', { silent = true, noremap = true })
-  bind('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', { silent = true, noremap = true })
+  bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
 
   -- navic capabilities
   if client.server_capabilities.documentSymbolProvider then

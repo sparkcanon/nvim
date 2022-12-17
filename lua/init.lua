@@ -11,6 +11,7 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'lewis6991/impatient.nvim' -- Cache config for faster startup
+  use 'kyazdani42/nvim-web-devicons'
   use { 'mbbill/undotree' }
   use { 'zbirenbaum/copilot.lua', event = 'VimEnter' }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -133,15 +134,6 @@ require('packer').startup(function(use)
 
       -- winbar
       { 'SmiteshP/nvim-navic' },
-
-      -- Diagnostic window
-      {
-        'folke/trouble.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function()
-          require('trouble').setup {}
-        end,
-      },
     },
   }
 

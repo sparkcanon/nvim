@@ -54,6 +54,8 @@ require('telescope').setup {
         'coverage',
         '--exclude',
         '.log',
+        '--exclude',
+        '.next',
         '--glob',
         '',
       },
