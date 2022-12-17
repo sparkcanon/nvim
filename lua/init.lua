@@ -11,15 +11,6 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'lewis6991/impatient.nvim' -- Cache config for faster startup
-  use {
-    "elihunter173/dirbuf.nvim",
-    config = function()
-      require("dirbuf").setup {
-        show_hidden = true,
-        sort_order = "directories_first",
-      }
-    end
-  }
   use { 'mbbill/undotree' }
   use { "zbirenbaum/copilot.lua", event = "VimEnter" }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -60,6 +51,7 @@ require('packer').startup(function(use)
     'tpope/vim-sleuth',
     'tpope/vim-surround', -- Manipulate surroundings
     'tpope/vim-repeat', -- Repeat things
+    'tpope/vim-vinegar'
   }
   use {
     'numToStr/Comment.nvim', -- Comments

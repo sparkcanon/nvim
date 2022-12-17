@@ -14,7 +14,7 @@ vim.o.breakindent = true
 -- Save undo history
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
+vim.opt.undodir = os.getenv 'HOME' .. '/.local/share/nvim/undodir'
 vim.opt.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
@@ -41,4 +41,4 @@ vim.opt.clipboard:prepend { 'unnamed' }
 vim.opt.laststatus = 2
 
 -- Path
-vim.cmd([[set path=$PWD/**]])
+vim.cmd [[set path=$PWD/**]]
