@@ -19,12 +19,16 @@ require('packer').startup(function(use)
   -- Syntax Highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
-      'David-Kunz/markid',
-      'nvim-treesitter/nvim-treesitter-context',
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/nvim-treesitter-refactor',
-    },
+    run = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  }
+  use {
+    'David-Kunz/markid',
+    'nvim-treesitter/nvim-treesitter-context',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/nvim-treesitter-refactor',
+    after = 'nvim-treesitter',
   }
 
   -- DEBUG & TEST
@@ -153,6 +157,12 @@ require('packer').startup(function(use)
       },
     },
   }
+
+  -- Add custom plugins to packer from /nvim/lua/custom/plugins.lua
+  local has_plugins, plugins = pcall(require, 'custom.plugins')
+  if has_plugins then
+    plugins(use)
+  end
 
   if is_bootstrap then
     require('packer').sync()
