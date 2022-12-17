@@ -20,7 +20,7 @@ require('packer').startup(function(use)
       }
     end
   }
-  use('mbbill/undotree')
+  use { 'mbbill/undotree' }
   use { "zbirenbaum/copilot.lua", event = "VimEnter" }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 

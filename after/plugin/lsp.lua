@@ -34,7 +34,7 @@ lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
   local bind = vim.keymap.set
 
-  bind('n', '<space>ff', '<cmd>LspZeroFormat<cr>', opts)
+  bind('n', '<space>f', '<cmd>LspZeroFormat<cr>', opts)
   bind('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   bind('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
   bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
