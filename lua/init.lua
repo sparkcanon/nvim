@@ -9,14 +9,12 @@ end
 
 -- stylua: ignore start
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim' -- Package manager
-  use 'lewis6991/impatient.nvim' -- Cache config for faster startup
+  use 'wbthomason/packer.nvim'
+  use 'lewis6991/impatient.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use { 'mbbill/undotree' }
   use { 'zbirenbaum/copilot.lua', event = 'VimEnter' }
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-
-  -- Syntax Highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -51,15 +49,15 @@ require('packer').startup(function(use)
   -- UTILS
   -- Tpope
   use {
-    'tpope/vim-fugitive', -- Git stuff
-    'tpope/vim-dispatch', -- Run stuff in terminals
+    'tpope/vim-fugitive',
+    'tpope/vim-dispatch',
     'tpope/vim-sleuth',
-    'tpope/vim-surround', -- Manipulate surroundings
-    'tpope/vim-repeat', -- Repeat things
+    'tpope/vim-surround',
+    'tpope/vim-repeat',
     'tpope/vim-vinegar',
   }
   use {
-    'numToStr/Comment.nvim', -- Comments
+    'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
     end,
@@ -77,9 +75,9 @@ require('packer').startup(function(use)
     end,
     ft = { 'html', 'jsx', 'tsx', 'svelte' },
   }
-  use 'christoomey/vim-tmux-navigator' -- Navigate tmux panes
+  use 'christoomey/vim-tmux-navigator'
 
-  -- Display colours
+  -- UI
   use {
     'NvChad/nvim-colorizer.lua',
     config = function()
@@ -88,7 +86,6 @@ require('packer').startup(function(use)
   }
   use { 'anuvyklack/hydra.nvim' }
 
-  -- UI
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -112,7 +109,6 @@ require('packer').startup(function(use)
   }
 
   -- lsp
-  -- General purpose lsp
   use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Complete lsp setup
