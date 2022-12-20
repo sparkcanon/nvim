@@ -30,6 +30,12 @@ require('packer').startup(function(use)
   }
 
   -- DEBUG & TEST
+  use({
+    "andrewferrier/debugprint.nvim",
+    config = function()
+      require("debugprint").setup()
+    end,
+  })
   use {
     'mfussenegger/nvim-dap',
     requires = {
