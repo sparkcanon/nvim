@@ -31,14 +31,13 @@ lsp.nvim_workspace()
 
 lsp.on_attach(function(client, bufnr)
   -- lsp mappings
-  local opts = { buffer = bufnr, remap = false }
   local bind = vim.keymap.set
 
-  bind('n', '<leader>f', '<cmd>LspZeroFormat<cr>', opts)
-  bind('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  bind('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-  bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-  bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+  bind('n', '<leader>f', '<cmd>LspZeroFormat<cr>', { buffer = bufnr, remap = false, desc = 'Format' })
+  bind('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { buffer = bufnr, remap = false, desc = 'Code action' })
+  bind('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { buffer = bufnr, remap = false, desc = 'Rename' })
+  bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { buffer = bufnr, remap = false, desc = 'Signature help' })
+  bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr, remap = false, desc = 'References' })
 
   -- navic capabilities
   if client.server_capabilities.documentSymbolProvider then
