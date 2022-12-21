@@ -15,7 +15,7 @@ vim.opt.runtimepath:prepend(lazypath)
 -- Vim options
 require 'settings'
 
-require('lazy').setup {
+require('lazy').setup({
   'kyazdani42/nvim-web-devicons',
   'mbbill/undotree',
   { 'zbirenbaum/copilot.lua', event = 'VimEnter' },
@@ -147,7 +147,11 @@ require('lazy').setup {
       },
     },
   },
-}
+}, {
+  ui = {
+    border = 'rounded',
+  },
+})
 
 require 'mappings'
 require 'autocmd'
