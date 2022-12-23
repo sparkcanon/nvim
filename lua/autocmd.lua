@@ -8,13 +8,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- [[ Packadd cfilter on qf ]]
-local qf_group = vim.api.nvim_create_augroup('quickfixlist', { clear = true })
-vim.api.nvim_create_autocmd('filetype', {
-  callback = function()
-    vim.cmd [[packadd cfilter]]
-  end,
-  group = qf_group,
-  pattern = 'qf',
-})

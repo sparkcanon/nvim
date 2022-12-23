@@ -306,7 +306,7 @@ Hydra {
 local git_hint = [[
  _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
  _K_: prev hunk   _u_: undo last stage   _p_: preview hunk   _B_: blame show full 
- ^ ^              _S_: stage buffer      _r_: reset hunk     _/_: show base file
+ ^ ^              _S_: stage buffer      _r_: reset hunk
  ^
  ^ ^              _<Enter>_: Lazygit              _q_: exit
 ]]
@@ -387,7 +387,6 @@ Hydra {
       end,
       { desc = 'blame show full' },
     },
-    { '/', gitsigns.show, { exit = true, desc = 'show base file' } }, -- show the base of the file
     { '<Enter>', '<Cmd>Spawn lazygit<CR>', { exit = true, desc = 'lazygit' } },
     { 'q', nil, { exit = true, nowait = true, desc = 'exit' } },
   },

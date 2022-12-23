@@ -14,6 +14,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 -- Vim options
 require 'settings'
+vim.cmd [[packadd Cfilter]]
 
 require('lazy').setup({
   'kyazdani42/nvim-web-devicons',
