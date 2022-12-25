@@ -41,7 +41,7 @@ vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 
 -- quick substitute
 vim.keymap.set('n', '<c-s>', ':%s;\\<<C-r><C-w>\\>;<C-r><C-w>;gI<Left><Left><Left>', { desc = 'Quick substitute' })
-vim.keymap.set('n', '<c-g>', [[*Ncgn]], { desc = 'Change word with dot repeat' })
+vim.keymap.set('n', 'g*n', [[*Ncgn]], { desc = 'Change word with dot repeat' })
 
 -- Clear highlighting
 vim.keymap.set('n', '<C-x>', [[:nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>]], { desc = 'Clear search highlight' })

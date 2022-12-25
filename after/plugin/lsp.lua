@@ -33,12 +33,21 @@ lsp.on_attach(function(client, bufnr)
   -- lsp mappings
   local bind = vim.keymap.set
 
-  bind('n', '<leader>f', '<cmd>LspZeroFormat<cr>', { buffer = bufnr, remap = false, desc = 'Format' })
+  bind('n', '<leader>gq', '<cmd>LspZeroFormat<cr>', { buffer = bufnr, remap = false, desc = 'Format' })
   bind('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', { buffer = bufnr, remap = false, desc = 'Code action' })
   bind('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { buffer = bufnr, remap = false, desc = 'Rename' })
   bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { buffer = bufnr, remap = false, desc = 'Signature help' })
   bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr, remap = false, desc = 'References' })
 
+  if client.server_capabilities.goto_definition == true then
+    vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+  end
+
+  if client.server_capabilities.document_formatting == true then
+    vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+    -- Add this <leader> bound mapping so formatting the entire document is easier.
+    -- bind('n', '<leader>gq', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+  end
   -- navic capabilities
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
