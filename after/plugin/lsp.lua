@@ -38,6 +38,8 @@ lsp.on_attach(function(client, bufnr)
   bind('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { buffer = bufnr, remap = false, desc = 'Rename' })
   bind('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { buffer = bufnr, remap = false, desc = 'Signature help' })
   bind('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr, remap = false, desc = 'References' })
+  bind('n', '<leader>gv', '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>', { noremap = true, silent = true })
+  bind('n', '<leader>gs', '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>', { noremap = true, silent = true })
 
   if client.server_capabilities.goto_definition == true then
     vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
